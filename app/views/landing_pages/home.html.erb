@@ -1,3 +1,45 @@
-<h1>LandingPages#home</h1>
-<p>Find me in app/views/landing_pages/home.html.erb</p>
-<%= link_to "Start Questions", question_start_path %>
+<section class="hero-banner">
+  <h1 class="headline">
+    <span class="red-headline">
+      Simulador de
+    </span>
+    <span class="black-headline">
+      Movilidad Social
+    </span>
+  </h1>
+</section>
+
+<section>
+  <%= image_tag "https://via.placeholder.com/300?text=folder+adn" %>
+  <h2>Movilidad en la salud</h2>
+  <p>la esperanza de vida ha mejorado de una generación a otra, pero aún está lejos del estándar internacional</p>
+  <%= image_tag "https://via.placeholder.com/200?text=gráficas" %>
+</section>
+
+<section>
+  <h2>Movilidad educativa</h2>
+  <span class="big-number orange">5%<span>
+  <p>de los hijos de padres sin escolaridad logran estudiar una licenciatura,</p>
+  <p>en comparación con el</p>
+  <span class="big-number teal">64%<span>
+  <p>de los hijos de padres con estudios universitarios.</p>
+  <%= image_tag "https://via.placeholder.com/300?text=libros" %>
+</section>
+
+<section>
+  <%= image_tag "https://via.placeholder.com/300?text=pila+dinero" %>
+  <h2>Movilidad laboral</h2>
+  <p>El ingreso laboral promedio, según el nivel educativo alcanzado es:</p>
+</section>
+
+<section>
+  <h3>En este video puedes conocer más sobre la movilidad social</h3>
+  <p>[[ youtube embed ]]</p>
+</section>
+
+<section>
+  <h3>¿Cuáles son tus perspectivas?</h3>
+  <%= link_to "Start Questions", question_start_path, class: "btn" %>
+</section>
+
+<%= render "shared/footer" %>
