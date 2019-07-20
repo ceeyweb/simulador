@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get "simulator/start", as: :simulator
   get "simulator/part_2", as: :simulator_part_2
   get "simulator/part_3", as: :simulator_part_3
+
+  resources :users, only: [:create]
 end

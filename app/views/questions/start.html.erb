@@ -9,9 +9,13 @@
     <div class="question-header"></div>
     <div class="question-section">
       <h4 class="uppercase">Escolares</h4>
-      <%= simple_form_for(@user, html: { class: 'form-inline' }) do |form| %>
-        <div class="question">
-        </div>
+      <%= simple_form_for(@user, html: { class: "form-inline" }) do |f| %>
+        <%= f.input :edad, label: label_for(:edad) %>
+        <%= f.input :estado_residencia, label: label_for(:estado_residencia) %>
+        <%= f.input :ultimo_grado_cursado, label: label_for(:ultimo_grado_cursado) %>
+        <%= f.input :sexo, label: label_for(:sexo) %>
+        <%= f.input :asistes_escuela, label: label_for(:asistes_escuela) %>
+        <%= f.submit "Guardar" %>
       <% end %>
     </div>
   </div>
