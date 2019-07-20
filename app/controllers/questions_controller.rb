@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   def start
+    @user = User.new
   end
 
   def part_2

@@ -15,6 +15,7 @@ gem "simple_form"
 group :development, :test do
   gem "pry-rails"
   gem "pry-byebug"
+  gem "rspec-rails"
 end
 
 group :development do
@@ -29,7 +30,7 @@ group :test do
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
   gem "chromedriver-helper"
-  gem "rspec-rails"
   gem "rspec_junit_formatter"
   gem "simplecov", require: false
+  gem "rails-controller-testing"
 end

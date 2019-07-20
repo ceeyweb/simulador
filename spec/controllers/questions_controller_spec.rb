@@ -5,6 +5,12 @@ RSpec.describe QuestionsController do
       get :start
       expect(response.status).to eq(200)
     end
+
+    it "assigns @user" do
+      get :start
+      expect(assigns(:user)).to(be_a User)
+    end
+
   end
 
   describe "GET part_2" do

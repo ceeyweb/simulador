@@ -1,3 +1,21 @@
-<h1>Questions#start</h1>
+<h1 class="uppercase">Necesitamos algunos datos sobre tí</h1>
+
+<div class="card">
+  <div class="card-header">
+    <p class="uppercase">Progreso</p>
+    <div class="progress-bar"></div>
+  </div>
+  <div class="card-body">
+    <div class="question-header"></div>
+    <div class="question-section">
+      <h4 class="uppercase">Escolares</h4>
+      <%= simple_form_for(@user, html: { class: 'form-inline' }) do |form| %>
+        <div class="question">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <p>Find me in app/views/questions/start.html.erb</p>
 <%= link_to "Questions Part 2", question_part_2_path %>
