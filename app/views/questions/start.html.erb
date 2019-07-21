@@ -2,7 +2,7 @@
 
 <div class="card">
   <div class="card-header">
-    <p class="uppercase">Progreso</p>
+    <p class="uppercase center">Progreso</p>
     <div class="progress-bar"></div>
   </div>
   <div class="card-body">
@@ -11,15 +11,14 @@
       <h4 class="uppercase">Escolares</h4>
       <%= simple_form_for(@user, html: { class: "form-inline" }) do |f| %>
         <%= f.input :edad, label: label_for(:edad) %>
-        <%= f.input :estado_residencia, label: label_for(:estado_residencia) %>
-        <%= f.input :ultimo_grado_cursado, label: label_for(:ultimo_grado_cursado) %>
-        <%= f.input :sexo, label: label_for(:sexo) %>
-        <%= f.input :asistes_escuela, label: label_for(:asistes_escuela) %>
+        <%= f.input :estado_residencia, collection: Mexico::ESTADOS, label: label_for(:estado_residencia) %>
+        <%= f.input :ultimo_grado_cursado, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:ultimo_grado_cursado) %>
+        <%= f.input :sexo, collection: { "Mujer": 1, "Hombre": 2 }, label: label_for(:sexo) %>
+        <%= f.input :asistes_escuela, as: :radio_buttons, collection: { "Sí": 1, "No": 0 }, label: label_for(:asistes_escuela) %>
         <%= f.submit "Guardar" %>
       <% end %>
     </div>
   </div>
 </div>
 
-<p>Find me in app/views/questions/start.html.erb</p>
 <%= link_to "Questions Part 2", question_part_2_path %>

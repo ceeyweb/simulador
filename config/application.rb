@@ -18,6 +18,7 @@ module Pms
     # the framework and any gems in your application.
 
     config.autoload_paths << Rails.root.join("app", "adapters")
+    config.autoload_paths << Rails.root.join("app", "data")
 
   end
 end
