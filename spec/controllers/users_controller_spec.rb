@@ -30,4 +30,40 @@ RSpec.describe UsersController do
       end
     end
   end
+
+  describe "PUT user" do
+    before do
+      @user = create(:user)
+    end
+
+    describe "with valid params" do
+      it "updates the permitted params of user" do
+        put :update, params: {
+          id: @user.id,
+          next_step: question_part_3_path,
+          user: {
+            actualmente_trabajas: 1,
+            ip_address: "9.9.9.9", # unpermitted param
+          },
+        }
+
+        expect(@user.reload.actualmente_trabajas).to eq(1)
+        expect(@user.ip_address).not_to eq("9.9.9.9")
+      end
+
+      it "redirects to the next_step param" do
+        put :update, params: { id: @user.id, next_step: question_part_3_path }
+        expect(response).to redirect_to question_part_3_path
+      end
+    end
+
+    describe "with invalid params" do
+      it "ignores next_step param if malicious" do
+        malicious_url = "https://www.malicious.com/phishing"
+        put :update, params: { id: @user.id, next_step: malicious_url }
+        expect(response).not_to redirect_to malicious_url
+        expect(response).to redirect_to "/phishing"
+      end
+    end
+  end
 end

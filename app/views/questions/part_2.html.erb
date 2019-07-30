@@ -21,6 +21,7 @@
         <%= f.input :tiempo_trabajo_padre, collection: [], label: label_for(:tiempo_trabajo_padre), wrapper_html: { class: "col-6" } %>
         <%= f.input :cuantos_empleados_padre, collection: [], label: label_for(:cuantos_empleados_padre), wrapper_html: { class: "col-6" } %>
         <%= f.input :sector_empleo_padre, collection: [], label: label_for(:sector_empleo_padre), wrapper_html: { class: "col-6" } %>
+        <%= hidden_field_tag :next_step, "/questions/part_3" %>
         <%= f.submit "Guardar" %>
       <% end %>
     </div>

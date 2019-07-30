@@ -6,16 +6,19 @@ class UsersController < ApplicationController
     redirect_to question_part_2_path
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update!(user_params)
+    redirect_to URI.parse(params[:next_step]).path
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(
-      :edad,
-      :estado_residencia,
-      :ultimo_grado_cursado,
-      :sexo,
-      :asistes_escuela,
-    )
+    params.
+      require(:user).
+      reject! { |key| ["id", "ip_address"].include? key }.
+      permit!
   end
 
   def ip_address
