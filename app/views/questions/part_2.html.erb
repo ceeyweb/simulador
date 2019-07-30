@@ -1,3 +1,30 @@
-<h1>Questions#part_2</h1>
-<p>Find me in app/views/questions/part_2.html.erb</p>
+<h1 class="uppercase">Necesitamos algunos datos sobre ti</h1>
+
+<div class="card">
+  <div class="card-header">
+    <p class="uppercase center">Progreso</p>
+    <div class="progress-bar"></div>
+  </div>
+  <div class="card-body">
+    <div class="question-header"></div>
+    <div class="question-section">
+      <h4 class="uppercase">Laborales</h4>
+      <%= simple_form_for(@user, method: :put, html: { class: "form-inline" }) do |f| %>
+        <%= f.input :actualmente_trabajas, label: label_for(:actualmente_trabajas), wrapper_html: { class: "col-6" } %>
+        <div class="col-6">
+          <strong>En ese empleo o actividad...</strong>
+          <%= f.input_field :cuenta_con_servicios_medicos, collection: [], label: label_for(:cuenta_con_servicios_medicos) %>
+        </div>
+        <%= f.input :tipo_de_trabajo, collection: [], label: label_for(:tipo_de_trabajo), wrapper_html: { class: "col-6" } %>
+        <%= f.input :tienes_empleados, collection: [], label: label_for(:tienes_empleados), wrapper_html: { class: "col-6" } %>
+        <%= f.input :cuantos_empleados, collection: [], label: label_for(:tiempo_trabajo_padre), wrapper_html: { class: "col-6" } %>
+        <%= f.input :tiempo_trabajo_padre, collection: [], label: label_for(:tiempo_trabajo_padre), wrapper_html: { class: "col-6" } %>
+        <%= f.input :cuantos_empleados_padre, collection: [], label: label_for(:cuantos_empleados_padre), wrapper_html: { class: "col-6" } %>
+        <%= f.input :sector_empleo_padre, collection: [], label: label_for(:sector_empleo_padre), wrapper_html: { class: "col-6" } %>
+        <%= f.submit "Guardar" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <%= link_to "Questions Part 3", question_part_3_path %>

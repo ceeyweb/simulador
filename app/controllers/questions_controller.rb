@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
   end
 
   def part_2
+    @user = User.find(cookies["user_id"])
   end
 
   def part_3
