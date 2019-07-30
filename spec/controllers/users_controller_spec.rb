@@ -20,9 +20,8 @@ RSpec.describe UsersController do
         expect { do_request }.to change { User.count }.from(0).to(1)
       end
 
-      it "returns a 204 response" do
-        do_request
-        expect(response.status).to eq(204)
+      it "redirects to questions 2" do
+        expect(do_request).to redirect_to(question_part_2_path)
       end
 
       it "sets the user_id cookie" do
