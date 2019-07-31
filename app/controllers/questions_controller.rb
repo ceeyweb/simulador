@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def part_3
+    @user = User.find(cookies["user_id"])
   end
 
 end

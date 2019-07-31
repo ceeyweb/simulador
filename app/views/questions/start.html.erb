@@ -10,15 +10,13 @@
     <div class="question-section">
       <h4 class="uppercase">Escolares</h4>
       <%= simple_form_for(@user, html: { class: "form-inline" }) do |f| %>
-        <%= f.input :edad, label: label_for(:edad) %>
-        <%= f.input :estado_residencia, collection: Mexico::ESTADOS, label: label_for(:estado_residencia) %>
-        <%= f.input :ultimo_grado_cursado, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:ultimo_grado_cursado) %>
-        <%= f.input :sexo, collection: { "Mujer": 1, "Hombre": 2 }, label: label_for(:sexo) %>
-        <%= f.input :asistes_escuela, as: :radio_buttons, collection: { "Sí": 1, "No": 0 }, label: label_for(:asistes_escuela) %>
+        <%= f.input :edad, label: label_for(:edad), wrapper_html: { class: "col-4" } %>
+        <%= f.input :estado_residencia, collection: Mexico::ESTADOS, label: label_for(:estado_residencia), wrapper_html: { class: "col-4" } %>
+        <%= f.input :ultimo_grado_cursado, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:ultimo_grado_cursado), wrapper_html: { class: "col-4" } %>
+        <%= f.input :sexo, collection: { "Mujer": 1, "Hombre": 2 }, label: label_for(:sexo), wrapper_html: { class: "col-4" } %>
+        <%= f.input :asistes_escuela, as: :radio_buttons, collection: { "Sí": 1, "No": 0 }, label: label_for(:asistes_escuela), wrapper_html: { class: "col-4" } %>
         <%= f.submit "Guardar" %>
       <% end %>
     </div>
   </div>
 </div>
-
-<%= link_to "Questions Part 2", question_part_2_path %>

@@ -32,9 +32,19 @@ RSpec.describe QuestionsController do
   end
 
   describe "GET part_3" do
+    before do
+      user = create(:user)
+      cookies["user_id"] = user.id
+    end
+
     it "returns a 200 response" do
       get :part_3
       expect(response.status).to eq(200)
+    end
+
+    it "assigns @user" do
+      get :part_3
+      expect(assigns(:user)).to(be_a User)
     end
   end
 end
