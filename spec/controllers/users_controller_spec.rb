@@ -52,7 +52,13 @@ RSpec.describe UsersController do
       end
 
       it "redirects to the next_step param" do
-        put :update, params: { id: @user.id, next_step: question_part_3_path }
+        put :update, params: {
+          id: @user.id,
+          next_step: question_part_3_path,
+          user: {
+            actualmente_trabajas: 1,
+          },
+        }
         expect(response).to redirect_to question_part_3_path
       end
     end
@@ -60,7 +66,13 @@ RSpec.describe UsersController do
     describe "with invalid params" do
       it "ignores next_step param if malicious" do
         malicious_url = "https://www.malicious.com/phishing"
-        put :update, params: { id: @user.id, next_step: malicious_url }
+        put :update, params: {
+          id: @user.id,
+          next_step: malicious_url,
+          user: {
+            actualmente_trabajas: 1,
+          },
+        }
         expect(response).not_to redirect_to malicious_url
         expect(response).to redirect_to "/phishing"
       end
