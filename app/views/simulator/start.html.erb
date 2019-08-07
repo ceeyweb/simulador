@@ -1,3 +1,109 @@
-<h1>Simulator#start</h1>
-<p>Find me in app/views/simulator/start.html.erb</p>
+<h2 class="center">Simulador de</h2>
+<h1 class="center">Movilidad Social</h1>
+<h4 class="center">Conoce los beneficios de la movilidad social para tu:</h4>
+
+<section>
+<h1 class="center">Salud</h1>
+</section>
+
+<section>
+  <h3>¿Cuál es tu esperanza de vida y la de tus padres?</h3>
+  <p><strong>Esperanza de vida:</strong> número de años que en promedio se espera que viva una persona después de nacer</p>
+
+  <div class="col-4">
+    <div style="border: solid 1px black">
+      <p><strong>Tu</strong> esperanza de vida:</p>
+      <div style="border: solid 1px black">
+        <p><%= "85 años" %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div style="border: solid 1px black">
+      <p>La esperanza de vida de tu <strong>madre</strong>:</p>
+      <div style="border: solid 1px black">
+        <p><%= "85 años" %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div style="border: solid 1px black">
+      <p>La esperanza de vida de tu <strong>padre</strong>:</p>
+      <div style="border: solid 1px black">
+        <p><%= "85 años" %></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3 class="center">¿Cómo estás con respecto a...?</h3>
+</section>
+
+<section>
+<%= image_tag "https://via.placeholder.com/300?text=mundo" %>
+<p>En el mundo, <%= "las mujeres" %> de tu generación tienen una esperanza de vida máxima de <%= "89 años" %></p>
+
+<%= image_tag "https://via.placeholder.com/300?text=mexico" %>
+<p>En México, <%= "las mujeres" %> de tu generación tienen una esperanza de vida máxima de <%= "89 años" %></p>
+
+<%= image_tag "https://via.placeholder.com/300?text=region" %>
+<p>En la región <%= "Norte" %>, <%= "las mujeres" %> de tu generación tienen una esperanza de vida entre <%= "76" %> y <%= "89 años" %> (Desviaciones estándar)</p>
+</section>
+
+<section>
+  <h3 class="center">¿Y qué pasa si continúas estudiando?</h3>
+</section>
+
+<section>
+  <p>Usa la barra para avanzar en el logro escolar y revisa los resultados</p>
+
+  <hr>
+
+  <input type="range">
+
+  <div class="col-6">
+    <p class="uppercase">Esperanza de vida</p>
+  </div>
+
+  <div class="col-6">
+    <p class="uppercase">Bienestar</p>
+  </div>
+</section>
+
+<section>
+  <button>Imprimir</button>
+</section>
+
+<section>
+  <h3 class="center">Conoce los beneficios de la movilidad social para tu:</h3>
+
+  <div class="benefit-sections">
+
+    <div class="benefit-section">
+      <span class="benefit-section-circle">1</span>
+      <span class="benefit-section-name">Salud</span>
+    </div>
+
+    <span class="benefit-section-divider">–––––––</span>
+
+    <div class="benefit-section">
+      <span class="benefit-section-circle">2</span>
+      <span class="benefit-section-name">Educación</span>
+    </div>
+
+    <span class="benefit-section-divider">–––––––</span>
+
+    <div class="benefit-section">
+      <span class="benefit-section-circle">3</span>
+      <span class="benefit-section-name">Trabajo</span>
+    </div>
+
+  </div>
+</section>
+
 <%= link_to "Simulator Part 2", question_part_2_path %>
+
+<%= render "shared/footer" %>
