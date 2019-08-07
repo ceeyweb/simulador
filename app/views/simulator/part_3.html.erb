@@ -1,3 +1,89 @@
-<h1>Simulator#part_3</h1>
-<p>Find me in app/views/simulator/part_3.html.erb</p>
-<%= link_to "Root", root_path %>
+<h2 class="center">Simulador de</h2>
+<h1 class="center">Movilidad Social</h1>
+<%= render "shared/benefit_sections" %>
+
+<section class="heading-2-orange">
+<h1 class="center uppercase">Trabajo</h1>
+</section>
+
+<section class="white-section">
+  <h3 class="center">Comparación entre tus padres y tu generación</h3>
+  <p class="center">Características de tu primer empleo</p>
+</section>
+
+<section class="heading-2">
+  <h3 class="center">Participación laboral</h3>
+</section>
+
+<section class="white-section market-probabilities">
+
+  <div class="market-probability-self">
+    <p>Tu probabilidad de entrar al mercado laboral es:</p>
+    <%= image_tag "https://via.placeholder.com/300?text=grafica" %>
+  </div>
+
+  <div class="market-probability-parents">
+    <p>La tasa de participación laboral de la generación de tus padres es:</p>
+    <%= image_tag "https://via.placeholder.com/600x300?text=grafica" %>
+  </div>
+
+</section>
+
+<section class="heading-2">
+  <h3 class="center">Formalidad</h3>
+</section>
+
+<section class="white-section formalities">
+
+  <div class="formality-self">
+    <p>Probabilidad de tener seguridad social (IMSS, ISSSTE u otros) en tu empleo es:</p>
+    <%= image_tag "https://via.placeholder.com/300?text=grafica" %>
+  </div>
+
+  <div class="formality-parents">
+    <p>La tasa de trabajos con seguridad social de la generación de tus padres es</p>
+    <%= image_tag "https://via.placeholder.com/600x300?text=grafica" %>
+  </div>
+
+</section>
+
+<section class="heading-2-orange">
+  <h3 class="center">Estatus Laboral</h3>
+</section>
+
+<section class="white-section labor-status center">
+  <%= image_tag "https://via.placeholder.com/800?text=grafica+aguja" %>
+  <br>
+
+  <span>0 - Bajo estatus laboral</span>
+  <input type="dropdown" placeholder="3.5">
+  <span>5 - Alto estatus laboral</span>
+</section>
+
+<section class="heading-2-orange">
+  <h3 class="center">¿Y qué pasa si continúas estudiando?</h3>
+</section>
+
+<section>
+  <p class="center">Usa la barra para avanzar en el logro escolar y revisa los resultados</p>
+
+  <hr>
+
+  <input type="range">
+
+  <div class="col-6">
+    <p class="uppercase">Estatus laboral</p>
+  </div>
+
+  <div class="col-6">
+    <p class="uppercase">Probabilidad de tener seguridad social</p>
+  </div>
+</section>
+
+<section class="white-section center">
+  <button>Imprimir</button>
+</section>
+
+<%= render "shared/benefit_sections" %>
+
+<%= render "shared/footer" %>

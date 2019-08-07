@@ -1,0 +1,156 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* Utility */
+.uppercase {
+  text-transform: uppercase;
+}
+
+.center {
+  text-align: center;
+}
+
+.inline {
+  display: inline-block;
+}
+
+/* General styles */
+.heading-2 {
+  background-color: #888;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 1em;
+}
+
+.heading-2-orange {
+  background-color: orange;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 1.5em;
+}
+
+.white-section {
+  padding: 1em;
+  background-color: #fff;
+}
+
+/* Benefit sections */
+.benefit-sections {
+  height: 14em;
+  text-align: center;
+  background-color: #ddd;
+}
+
+.benefit-section {
+  display: inline-block;
+  width: 6em;
+}
+
+.benefit-section-circle {
+  background: #cccccc;
+  border-radius: 1.8em;
+  -moz-border-radius: 1.8em;
+  -webkit-border-radius: 1.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  line-height: 2.6em;
+  width: 2.6em;
+}
+
+.benefit-sections-header {
+  margin-bottom: 2em;
+}
+
+.benefit-section-name {
+  display: block;
+  text-align: center;
+}
+
+/* Footer */
+.footer {
+  background-color: #888;
+  height: 18em;
+  line-height: 0.9em;
+}
+
+/* Section specific */
+.educational-achievements {
+  text-align: justify;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.educational-achievement {
+  display: inline-block;
+  width: 30%;
+  &:nth-child(1) {
+    margin-left: 15%;
+  }
+  &:nth-child(2) {
+    margin-right: 15%;
+  }
+}
+
+.market-probability-self {
+  display: inline-block;
+  width: 25%;
+  margin-left: 5%;
+}
+
+.market-probability-parents {
+  display: inline-block;
+  width: 55%;
+  margin-right: 5%;
+}
+
+.market-probabilities {
+  text-align: justify;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.formality-self {
+  display: inline-block;
+  width: 25%;
+  margin-left: 5%;
+}
+
+.formality-parents {
+  display: inline-block;
+  width: 55%;
+  margin-right: 5%;
+}
+
+.market-probabilities {
+  text-align: justify;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+

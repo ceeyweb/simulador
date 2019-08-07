@@ -1,3 +1,66 @@
-<h1>Simulator#part_2</h1>
-<p>Find me in app/views/simulator/part_2.html.erb</p>
-<%= link_to "Simulator Part 3", simulator_part_3_path %>
+<h2 class="center">Simulador de</h2>
+<h1 class="center">Movilidad Social</h1>
+<%= render "shared/benefit_sections" %>
+
+<section>
+<h1 class="center uppercase">Educación</h1>
+</section>
+
+<section>
+  <h3 class="center">¿Cuáles son tus logros educativos y los de tus padres?</h3>
+  <p class="center"><strong>Logro educativo:</strong> años de escolaridad cursados con relación a los años que pudiste haber cursado, tomando en cuenta edad, y los logros educativos que ha logrado tu generación.</p>
+
+  <div class="educational-achievements">
+    <div class="educational-achievement">
+      <p>Tienes el <%= "89" %>% de los logros educativos que podrías haber obtenido</p>
+      <%= image_tag "https://via.placeholder.com/300?text=aguja" %>
+      <p class="uppercase"><span class="orange">Tu</span> logro educativo</p>
+    </div>
+
+    <div class="educational-achievement">
+      <p>Tus padres tienen el <%= "89" %>% de los logros educativos que se esperaba que tuvieran</p>
+      <%= image_tag "https://via.placeholder.com/300?text=aguja" %>
+      <p class="uppercase">Logro educativo <span class="orange">tus padres</span></p>
+    </div>
+  </div>
+
+</section>
+
+<section class="heading-2">
+  <h3 class="center">¿Cómo estás con respecto a <input type="dropdown" placeholder="Mujeres">?</h3>
+</section>
+
+<section>
+<p class="center">De acuerdo con los logros esperados de tu generación, tu desempeño es...</p>
+<p class="uppercase">Logro escolar</p>
+<%= image_tag "https://via.placeholder.com/300?text=libros" %>
+
+</section>
+
+<section class="heading-2">
+  <h3 class="center">¿Y qué pasa si continúas estudiando?</h3>
+</section>
+
+<section>
+  <p class="center">Usa la barra para avanzar en el logro escolar y revisa los resultados</p>
+
+  <hr>
+
+  <input type="range">
+
+  <div class="col-6">
+    <p class="uppercase">Logro Escolar</p>
+  </div>
+
+  <div class="col-6">
+    <p class="uppercase">Ingreso Mensual</p>
+  </div>
+</section>
+
+<section>
+  <button>Imprimir</button>
+</section>
+
+<%= render "shared/benefit_sections" %>
+
+<%= render "shared/footer" %>

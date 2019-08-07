@@ -1,9 +1,9 @@
 <h2 class="center">Simulador de</h2>
 <h1 class="center">Movilidad Social</h1>
-<h4 class="center">Conoce los beneficios de la movilidad social para tu:</h4>
+<%= render "shared/benefit_sections" %>
 
 <section>
-<h1 class="center">Salud</h1>
+<h1 class="center uppercase">Salud</h1>
 </section>
 
 <section>
@@ -77,33 +77,6 @@
   <button>Imprimir</button>
 </section>
 
-<section>
-  <h3 class="center">Conoce los beneficios de la movilidad social para tu:</h3>
-
-  <div class="benefit-sections">
-
-    <div class="benefit-section">
-      <span class="benefit-section-circle">1</span>
-      <span class="benefit-section-name">Salud</span>
-    </div>
-
-    <span class="benefit-section-divider">–––––––</span>
-
-    <div class="benefit-section">
-      <span class="benefit-section-circle">2</span>
-      <span class="benefit-section-name">Educación</span>
-    </div>
-
-    <span class="benefit-section-divider">–––––––</span>
-
-    <div class="benefit-section">
-      <span class="benefit-section-circle">3</span>
-      <span class="benefit-section-name">Trabajo</span>
-    </div>
-
-  </div>
-</section>
-
-<%= link_to "Simulator Part 2", question_part_2_path %>
+<%= render "shared/benefit_sections" %>
 
 <%= render "shared/footer" %>
