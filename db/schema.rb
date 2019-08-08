@@ -14,11 +14,17 @@ ActiveRecord::Schema.define(version: 2019_07_20_192337) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip_address", null: false
-    t.integer "edad", null: false
-    t.string "estado_residencia", null: false
-    t.string "ultimo_grado_cursado", null: false
-    t.integer "sexo", null: false
-    t.boolean "asistes_escuela", null: false
+    t.integer "father_age_id", null: false
+    t.integer "father_residency_id", null: false
+    t.integer "father_grade_id", null: false
+    t.integer "mother_age_id", null: false
+    t.integer "mother_residency_id", null: false
+    t.integer "mother_grade_id", null: false
+    t.integer "age_id", null: false
+    t.integer "residency_id", null: false
+    t.integer "grade_id", null: false
+    t.integer "sex", null: false
+    t.integer "do_you_go_to_school", null: false
     t.integer "actualmente_trabajas"
     t.integer "padre_trabajaba"
     t.integer "cuenta_con_servicios_medicos"
@@ -43,12 +49,6 @@ ActiveRecord::Schema.define(version: 2019_07_20_192337) do
     t.integer "en_hogar_habia_agua"
     t.integer "en_hogar_habia_bano"
     t.integer "en_hogar_habia_electricidad"
-    t.integer "edad_padre"
-    t.string "estado_residencia_padre"
-    t.string "ultimo_grado_cursado_padre"
-    t.integer "edad_madre"
-    t.string "estado_residencia_madre"
-    t.string "ultimo_grado_cursado_madre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
