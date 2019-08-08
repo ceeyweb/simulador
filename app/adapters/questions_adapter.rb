@@ -28,13 +28,14 @@ class QuestionsAdapter
     mother_age_id: "¿Cuál es la edad de tu madre?",
     mother_residency_id: "¿En qué Estado de la República Mexicana vive tu madre?",
     mother_grade_id: "¿Cuál fue el último grado escolar que terminó tu madre?",
-    padre_trabajaba: "Cuando tenías 14 años... ¿Tu padre trabajaba?",
-    cuenta_con_servicios_medicos_padre: "¿Tu padre contaba con acceso a servicios médicos del IMSS o del ISSSTE?",
-    tipo_de_trabajo_padre: "¿Tu padre era...?",
-    tenia_empleados_padre: "¿Tu padre tenía empleados a su cargo?",
-    cuantos_empleados_padre: "¿Cuántos empleados tenía a su cargo?",
-    tiempo_trabajo_padre: "¿Tu padre trabajaba de tiempo completo o medio tiempo?",
-    sector_empleo_padre: "¿En qué sector trabajaba tu padre?",
+    father_is_employed: "Cuando tenías 14 años ¿tu padre trabajaba?",
+    father_has_healthcare: "¿Tu padre contaba con acceso a servicios médicos del IMSS o del ISSSTE?",
+    father_job_type: "¿Tu padre era jornalero, empleado, patrón o trabajador por cuenta propia?",
+    father_has_employees: "¿Tu padre tenía empleados a su cargo?",
+    mother_is_employed: "Cuando tenías 14 años ¿tu madre trabajaba?",
+    mother_has_healthcare: "¿Tu madre contaba con acceso a servicios médicos del IMSS o del ISSSTE?",
+    mother_job_type: "¿Tu madre era jornalera, empleada, patrona o trabajadora por cuenta propia?",
+    mother_has_employees: "¿Tu madre tenía empleados a su cargo?",
   }.freeze
 
   def self.label_for(column)

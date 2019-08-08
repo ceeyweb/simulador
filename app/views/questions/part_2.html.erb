@@ -11,19 +11,24 @@
     <div class="question-section">
       <h4 class="uppercase">Laborales</h4>
       <%= simple_form_for(@user, method: :put, html: { class: "form-inline" }) do |f| %>
-        <%= f.input :actualmente_trabajas, collection: [], label: label_for(:actualmente_trabajas), wrapper_html: { class: "col-6" } %>
+        <%= f.input :father_is_employed, collection: yes_no, label: label_for(:father_is_employed), wrapper_html: { class: "col-6" } %>
         <div class="col-6">
           <strong>En ese empleo o actividad...</strong>
-          <%= f.input :cuenta_con_servicios_medicos, collection: [], label: label_for(:cuenta_con_servicios_medicos) %>
+          <%= f.input :father_has_healthcare, collection: yes_no, label: label_for(:father_has_healthcare) %>
         </div>
-        <%= f.input :tipo_de_trabajo, collection: [], label: label_for(:tipo_de_trabajo), wrapper_html: { class: "col-6" } %>
-        <%= f.input :tiene_empleados, collection: [], label: label_for(:tienes_empleados), wrapper_html: { class: "col-6" } %>
-        <%= f.input :cuantos_empleados, collection: [], label: label_for(:tiempo_trabajo_padre), wrapper_html: { class: "col-6" } %>
-        <%= f.input :tiempo_trabajo, collection: [], label: label_for(:tiempo_trabajo_padre), wrapper_html: { class: "col-6" } %>
-        <%= f.input :cuantos_empleados, collection: [], label: label_for(:cuantos_empleados_padre), wrapper_html: { class: "col-6" } %>
-        <%= f.input :sector_empleo, collection: [], label: label_for(:sector_empleo_padre), wrapper_html: { class: "col-6" } %>
+        <%= f.input :father_job_type, collection: [], label: label_for(:father_job_type), wrapper_html: { class: "col-6" } %>
+        <%= f.input :father_has_employees, collection: [], label: label_for(:father_has_employees), wrapper_html: { class: "col-6" } %>
+
+        <%= f.input :mother_is_employed, collection: yes_no, label: label_for(:mother_is_employed), wrapper_html: { class: "col-6" } %>
+        <div class="col-6">
+          <strong>En ese empleo o actividad...</strong>
+          <%= f.input :mother_has_healthcare, collection: yes_no, label: label_for(:mother_has_healthcare) %>
+        </div>
+        <%= f.input :mother_job_type, collection: yes_no, label: label_for(:mother_job_type), wrapper_html: { class: "col-6" } %>
+        <%= f.input :mother_has_employees, collection: yes_no, label: label_for(:mother_has_employees), wrapper_html: { class: "col-6" } %>
     </div>
   </div>
+<!-- 
   <div class="card-body">
     <div class="question-header"></div>
     <div class="question-section">
@@ -44,4 +49,5 @@
       <% end %>
     </div>
   </div>
+ -->
 </div>
