@@ -5,18 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-User.create!(
-  ip_address: 1,
-  father_age_id: 1,
-  father_residency_id: 1,
-  father_grade_id: 1,
-  mother_age_id: 1,
-  mother_residency_id: 1,
-  mother_grade_id: 1,
-  age_id: 1,
-  residency_id: 1,
-  grade_id: 1,
-  sex: 1,
-  do_you_go_to_school: 1,
-)
+2.times do
+  User.create!(
+    ip_address: 1,
+    father_age_id: 1,
+    father_residency_id: 1,
+    father_grade_id: 1,
+    mother_age_id: 1,
+    mother_residency_id: 1,
+    mother_grade_id: 1,
+    age_id: 1,
+    residency_id: 1,
+    grade_id: 1,
+    sex: 1,
+    do_you_go_to_school: 1,
+  )
+end

@@ -4,35 +4,40 @@
 </div>
 <div class="card">
   <div class="card-header">
-    <h1 class="uppercase">Necesitamos algunos datos sobre tus padres</h1>
+    <h1 class="uppercase">Necesitamos algunos datos sobre ti</h1>
   </div>
   <div class="card-body">
     <div class="question-header"></div>
     <div class="question-section">
       <h4 class="uppercase">Escolares</h4>
       <%= simple_form_for(@user, method: :put, html: { class: "form-inline" }) do |f| %>
-        <%= f.input :edad_padre, label: label_for(:edad_padre), wrapper_html: { class: "col-4" } %>
-        <%= f.input :estado_residencia_padre, collection: Mexico::ESTADOS, label: label_for(:estado_residencia_padre), wrapper_html: { class: "col-4" } %>
-        <%= f.input :ultimo_grado_cursado_padre, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:ultimo_grado_cursado_padre), wrapper_html: { class: "col-4" } %>
-        <%= f.input :edad_madre, label: label_for(:edad_madre), wrapper_html: { class: "col-4" } %>
-        <%= f.input :estado_residencia_madre, collection: Mexico::ESTADOS, label: label_for(:estado_residencia_madre), wrapper_html: { class: "col-4" } %>
-        <%= f.input :ultimo_grado_cursado_madre, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:ultimo_grado_cursado_madre), wrapper_html: { class: "col-4" } %>
+        <%= f.input :is_employed, collection: yes_no, label: label_for(:is_employed), wrapper_html: { class: "col-4" } %>
+        <%= f.input :is_first_job, collection: yes_no, label: label_for(:is_first_job), wrapper_html: { class: "col-4" } %>
+        <%= f.input :has_healthcare, collection: yes_no, label: label_for(:has_healthcare), wrapper_html: { class: "col-4" } %>
+        <%= f.input :job_type_id, collection: yes_no, label: label_for(:job_type_id), wrapper_html: { class: "col-4" } %>
+        <%= f.input :has_employees, collection: yes_no, label: label_for(:has_employees), wrapper_html: { class: "col-4" } %>
+        <%= f.input :how_many_employees_id, collection: yes_no, label: label_for(:how_many_employees_id), wrapper_html: { class: "col-4" } %>
+        <%= f.input :job_time_id, collection: yes_no, label: label_for(:job_time_id), wrapper_html: { class: "col-4" } %>
+        <%= f.input :job_sector_id, collection: yes_no, label: label_for(:job_sector_id), wrapper_html: { class: "col-4" } %>
     </div>
   </div>
   <div class="card-body">
     <div class="question-header"></div>
     <div class="question-section">
-      <h4 class="uppercase">Laborales</h4>
-        <%= f.input :padre_trabajaba, collection: [], label: label_for(:padre_trabajaba), wrapper_html: { class: "col-6" } %>
+      <h4 class="uppercase">Hogar</h4>
         <div class="col-6">
-          <strong>En ese empleo o actividad...</strong>
-          <%= f.input :cuenta_con_servicios_medicos_padre, collection: [], label: label_for(:cuenta_con_servicios_medicos_padre) %>
+          <strong>Cuando tenías 14 años, en tu casa había...</strong>
+          <%= f.input :en_hogar_habia_celular, collection: yes_no, label: label_for(:en_hogar_habia_celular), wrapper_html: { class: "col-4" } %>
+          <%= f.input :en_hogar_habia_telefono_fijo, collection: yes_no, label: label_for(:en_hogar_habia_telefono_fijo), wrapper_html: { class: "col-4" } %>
+          <%= f.input :en_hogar_habia_internet, collection: yes_no, label: label_for(:en_hogar_habia_internet), wrapper_html: { class: "col-4" } %>
+          <%= f.input :en_hogar_habia_estufa, collection: yes_no, label: label_for(:en_hogar_habia_estufa), wrapper_html: { class: "col-4" } %>
+          <%= f.input :en_hogar_habia_refri, collection: yes_no, label: label_for(:en_hogar_habia_refri), wrapper_html: { class: "col-4" } %>
+          <%= f.input :en_hogar_habia_calentador, collection: yes_no, label: label_for(:en_hogar_habia_calentador), wrapper_html: { class: "col-4" } %>
+          <%= f.input :en_hogar_habia_tostador, collection: yes_no, label: label_for(:en_hogar_habia_tostador), wrapper_html: { class: "col-4" } %>
+          <%= f.input :en_hogar_habia_agua, collection: yes_no, label: label_for(:en_hogar_habia_agua), wrapper_html: { class: "col-4" } %>
+          <%= f.input :en_hogar_habia_bano, collection: yes_no, label: label_for(:en_hogar_habia_bano), wrapper_html: { class: "col-4" } %>
+          <%= f.input :en_hogar_habia_electricidad, collection: yes_no, label: label_for(:en_hogar_habia_electricidad), wrapper_html: { class: "col-4" } %>
         </div>
-        <%= f.input :tipo_de_trabajo_padre, collection: [], label: label_for(:tipo_de_trabajo_padre), wrapper_html: { class: "col-6" } %>
-        <%= f.input :tiene_empleados_padre, collection: [], label: label_for(:tenia_empleados_padre), wrapper_html: { class: "col-6" } %>
-        <%= f.input :cuantos_empleados_padre, collection: [], label: label_for(:cuantos_empleados_padre), wrapper_html: { class: "col-6" } %>
-        <%= f.input :tiempo_trabajo_padre, collection: [], label: label_for(:tiempo_trabajo_padre), wrapper_html: { class: "col-6" } %>
-        <%= f.input :sector_empleo_padre, collection: [], label: label_for(:sector_empleo_padre), wrapper_html: { class: "col-6" } %>
         <%= hidden_field_tag :next_step, simulator_start_path %>
         <%= f.submit "Simulador" %>
       <% end %>

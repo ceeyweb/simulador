@@ -22,11 +22,13 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :mother_job_type
       t.integer :mother_has_employees
       t.integer :is_employed
+      t.integer :is_first_job
       t.integer :has_healthcare
-      t.integer :job_type
+      t.integer :job_type_id
       t.integer :has_employees
-      t.integer :tiempo_trabajo
-      t.integer :sector_empleo
+      t.integer :job_time_id
+      t.integer :job_sector_id
+      t.integer :how_many_employees_id
       t.integer :en_hogar_habia_celular
       t.integer :en_hogar_habia_telefono_fijo
       t.integer :en_hogar_habia_internet

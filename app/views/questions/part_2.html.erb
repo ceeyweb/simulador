@@ -4,7 +4,7 @@
 </div>
 <div class="card">
   <div class="card-header">
-    <h1 class="uppercase">Necesitamos algunos datos sobre ti</h1>
+    <h1 class="uppercase">Necesitamos algunos datos sobre tus padres</h1>
   </div>
   <div class="card-body">
     <div class="question-header"></div>
@@ -26,28 +26,9 @@
         </div>
         <%= f.input :mother_job_type, collection: yes_no, label: label_for(:mother_job_type), wrapper_html: { class: "col-6" } %>
         <%= f.input :mother_has_employees, collection: yes_no, label: label_for(:mother_has_employees), wrapper_html: { class: "col-6" } %>
-    </div>
-  </div>
-<!-- 
-  <div class="card-body">
-    <div class="question-header"></div>
-    <div class="question-section">
-      <h4 class="uppercase">Hogar</h4>
-      <strong>Cuando tenías 14 años, en tu casa ¿había...?</strong>
-      <%= f.input :en_hogar_habia_celular, label: label_for(:en_hogar_habia_celular), wrapper_html: { class: "col-4" } %>
-      <%= f.input :en_hogar_habia_telefono_fijo, label: label_for(:en_hogar_habia_telefono_fijo), wrapper_html: { class: "col-4" } %>
-      <%= f.input :en_hogar_habia_internet, label: label_for(:en_hogar_habia_internet), wrapper_html: { class: "col-4" } %>
-      <%= f.input :en_hogar_habia_estufa, label: label_for(:en_hogar_habia_estufa), wrapper_html: { class: "col-4" } %>
-      <%= f.input :en_hogar_habia_refri, label: label_for(:en_hogar_habia_refri), wrapper_html: { class: "col-4" } %>
-      <%= f.input :en_hogar_habia_calentador, label: label_for(:en_hogar_habia_calentador), wrapper_html: { class: "col-4" } %>
-      <%= f.input :en_hogar_habia_tostador, label: label_for(:en_hogar_habia_tostador), wrapper_html: { class: "col-4" } %>
-      <%= f.input :en_hogar_habia_agua, label: label_for(:en_hogar_habia_agua), wrapper_html: { class: "col-4" } %>
-      <%= f.input :en_hogar_habia_bano, label: label_for(:en_hogar_habia_bano), wrapper_html: { class: "col-4" } %>
-      <%= f.input :en_hogar_habia_electricidad, label: label_for(:en_hogar_habia_electricidad), wrapper_html: { class: "col-4" } %>
-      <%= hidden_field_tag :next_step, question_part_3_path %>
-      <%= f.submit "Siguiente" %>
+        <%= hidden_field_tag :next_step, question_part_3_path %>
+        <%= f.submit "Siguiente" %>
       <% end %>
     </div>
   </div>
- -->
 </div>
