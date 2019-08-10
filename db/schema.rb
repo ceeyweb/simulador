@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_155600) do
+ActiveRecord::Schema.define(version: 2019_08_10_204600) do
 
   create_table "education_grades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 2019_08_10_155600) do
   end
 
   create_table "education_levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "description", null: false
+  end
+
+  create_table "job_sectors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
   end
 

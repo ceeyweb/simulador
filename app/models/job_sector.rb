@@ -1,0 +1,2 @@
+class JobSector < ApplicationRecord
+end
