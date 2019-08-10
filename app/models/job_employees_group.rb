@@ -1,0 +1,2 @@
+class JobEmployeesGroup < ApplicationRecord
+end
