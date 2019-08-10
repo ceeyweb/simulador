@@ -41,7 +41,7 @@ class User < ApplicationRecord
   private
 
   def set_age_group
-    self["age_group_id"] = AgeGroup.for(age).try(:id)
+    self["age_group_id"] = AgeGroup.for(age)&.id
   end
 
   def disallow_changing_values_after_create
