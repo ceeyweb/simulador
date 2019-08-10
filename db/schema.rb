@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_143740) do
+ActiveRecord::Schema.define(version: 2019_08_10_144556) do
+
+  create_table "education_grades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "description", null: false
+    t.integer "school_year", null: false
+    t.bigint "education_level_id", null: false
+    t.index ["education_level_id"], name: "index_education_grades_on_education_level_id"
+  end
 
   create_table "education_levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -67,5 +74,6 @@ ActiveRecord::Schema.define(version: 2019_08_10_143740) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "education_grades", "education_levels"
   add_foreign_key "states", "regions"
 end
