@@ -1,32 +1,59 @@
 class User < ApplicationRecord
 
+  before_validation :set_age_group
+
   validates :ip_address,
-            :age_id,
-            :residency_id,
-            :grade_id,
-            :sex,
+            :father_age,
+            :mother_age,
+            :age,
+            :is_student,
             presence: true
 
-  validates :age_id,
-            :father_age_id,
-            :mother_age_id,
-            numericality: { greater_than_or_equal_to: 0, less_than: 100 }
-  validates :do_you_go_to_school, inclusion: [0, 1, 2]
+  validates :age, numericality: { greater_than_or_equal_to: 0, less_than: 100 }
+
+  validates :father_age,
+            :mother_age,
+            numericality: { greater_than_or_equal_to: 15, less_than: 100 }
 
   validate :disallow_changing_values_after_create
 
+  belongs_to :father_residency, class_name: "State"
+  belongs_to :father_education_grade, class_name: "EducationGrade"
+  belongs_to :mother_residency, class_name: "State"
+  belongs_to :mother_education_grade, class_name: "EducationGrade"
+  belongs_to :age_group
+  belongs_to :residency, class_name: "State"
+  belongs_to :sex
+  belongs_to :education_grade
+  belongs_to :father_job_type, class_name: "JobType", optional: true
+  belongs_to :father_job_employees_group, class_name: "JobEmployeesGroup",
+             optional: true
+  belongs_to :mother_job_type, class_name: "JobType", optional: true
+  belongs_to :mother_job_employees_group, class_name: "JobEmployeesGroup",
+             optional: true
+  belongs_to :job_type, optional: true
+  belongs_to :job_employees_group, optional: true
+  belongs_to :job_schedule, optional: true
+  belongs_to :job_sector, optional: true
+
+  delegate :education_level, to: :education_grade
+
   private
 
+  def set_age_group
+    self["age_group_id"] = AgeGroup.for(age).try(:id)
+  end
+
   def disallow_changing_values_after_create
-    if persisted? && (father_age_id_changed? ||
+    if persisted? && (father_age_changed? ||
       father_residency_id_changed? ||
-      father_grade_id_changed? ||
-      mother_age_id_changed? ||
+      father_education_grade_id_changed? ||
+      mother_age_changed? ||
       mother_residency_id_changed? ||
-      mother_grade_id_changed? ||
-      age_id_changed? ||
+      mother_education_grade_id_changed? ||
+      age_changed? ||
       residency_id_changed? ||
-      grade_id_changed?)
+      education_grade_id_changed?)
       errors.add(:base, "Can't change attribute")
     end
   end

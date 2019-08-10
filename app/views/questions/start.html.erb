@@ -10,17 +10,17 @@
     <div class="question-section">
       <h4 class="uppercase">Escolares</h4>
       <%= simple_form_for(@user, html: { class: "form-inline" }) do |f| %>
-        <%= f.input :father_age_id, label: label_for(:father_age_id), wrapper_html: { class: "col-4" } %>
+        <%= f.input :father_age, label: label_for(:father_age), wrapper_html: { class: "col-4" } %>
         <%= f.input :father_residency_id, collection: Mexico::ESTADOS, label: label_for(:father_residency_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :father_grade_id, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:father_grade_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :mother_age_id, label: label_for(:mother_age_id), wrapper_html: { class: "col-4" } %>
+        <%= f.input :father_education_grade_id, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:father_grade_id), wrapper_html: { class: "col-4" } %>
+        <%= f.input :mother_age, label: label_for(:mother_age), wrapper_html: { class: "col-4" } %>
         <%= f.input :mother_residency_id, collection: Mexico::ESTADOS, label: label_for(:mother_residency_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :mother_grade_id, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:mother_grade_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :age_id, label: label_for(:age_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :residency_id, collection: Mexico::ESTADOS, label: label_for(:age_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :grade_id, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:grade_id), wrapper_html: { class: "col-4" } %>
+        <%= f.input :mother_education_grade_id, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:mother_grade_id), wrapper_html: { class: "col-4" } %>
+        <%= f.input :age, label: label_for(:age), wrapper_html: { class: "col-4" } %>
+        <%= f.input :residency_id, collection: Mexico::ESTADOS, label: label_for(:age), wrapper_html: { class: "col-4" } %>
+        <%= f.input :education_grade_id, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:grade_id), wrapper_html: { class: "col-4" } %>
         <%= f.input :sex, collection: { "Mujer": 1, "Hombre": 2 }, label: label_for(:sex), wrapper_html: { class: "col-4" } %>
-        <%= f.input :do_you_go_to_school, as: :radio_buttons, collection: yes_no, label: label_for(:do_you_go_to_school), wrapper_html: { class: "col-4" } %>
+        <%= f.input :is_student, as: :radio_buttons, collection: yes_no, label: label_for(:do_you_go_to_school), wrapper_html: { class: "col-4" } %>
         <%= f.submit "Guardar" %>
       <% end %>
     </div>

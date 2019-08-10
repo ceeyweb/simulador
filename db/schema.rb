@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_205821) do
+ActiveRecord::Schema.define(version: 2019_08_10_214748) do
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -61,45 +61,74 @@ ActiveRecord::Schema.define(version: 2019_08_10_205821) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip_address", null: false
-    t.integer "edad", null: false
-    t.string "estado_residencia", null: false
-    t.string "ultimo_grado_cursado", null: false
-    t.integer "sexo", null: false
-    t.boolean "asistes_escuela", null: false
-    t.integer "actualmente_trabajas"
-    t.integer "padre_trabajaba"
-    t.integer "cuenta_con_servicios_medicos"
-    t.integer "cuenta_con_servicios_medicos_padre"
-    t.integer "tipo_de_trabajo"
-    t.integer "tipo_de_trabajo_padre"
-    t.integer "tiene_empleados"
-    t.integer "tiene_empleados_padre"
-    t.integer "cuantos_empleados"
-    t.integer "cuantos_empleados_padre"
-    t.integer "tiempo_trabajo"
-    t.integer "tiempo_trabajo_padre"
-    t.integer "sector_empleo"
-    t.integer "sector_empleo_padre"
-    t.integer "en_hogar_habia_celular"
-    t.integer "en_hogar_habia_telefono_fijo"
-    t.integer "en_hogar_habia_internet"
-    t.integer "en_hogar_habia_estufa"
-    t.integer "en_hogar_habia_refri"
-    t.integer "en_hogar_habia_calentador"
-    t.integer "en_hogar_habia_tostador"
-    t.integer "en_hogar_habia_agua"
-    t.integer "en_hogar_habia_bano"
-    t.integer "en_hogar_habia_electricidad"
-    t.integer "edad_padre"
-    t.string "estado_residencia_padre"
-    t.string "ultimo_grado_cursado_padre"
-    t.integer "edad_madre"
-    t.string "estado_residencia_madre"
-    t.string "ultimo_grado_cursado_madre"
+    t.integer "father_age", null: false
+    t.bigint "father_residency_id", null: false
+    t.bigint "father_education_grade_id", null: false
+    t.integer "mother_age", null: false
+    t.bigint "mother_residency_id", null: false
+    t.bigint "mother_education_grade_id", null: false
+    t.integer "age", null: false
+    t.bigint "age_group_id", null: false
+    t.bigint "residency_id", null: false
+    t.bigint "sex_id", null: false
+    t.bigint "education_grade_id", null: false
+    t.boolean "is_student", null: false
+    t.integer "father_is_employed"
+    t.integer "father_has_healthcare"
+    t.bigint "father_job_type_id"
+    t.bigint "father_job_employees_group_id"
+    t.integer "mother_is_employed"
+    t.integer "mother_has_healthcare"
+    t.bigint "mother_job_type_id"
+    t.bigint "mother_job_employees_group_id"
+    t.boolean "is_employed"
+    t.boolean "is_first_job"
+    t.boolean "has_healthcare"
+    t.bigint "job_type_id"
+    t.boolean "has_employees"
+    t.bigint "job_employees_group_id"
+    t.bigint "job_schedule_id"
+    t.bigint "job_sector_id"
+    t.integer "home_had_mobile_phone"
+    t.integer "home_had_fixed_phone"
+    t.integer "home_had_internet"
+    t.integer "home_had_stove"
+    t.integer "home_had_fridge"
+    t.integer "home_had_heater"
+    t.integer "home_had_toaster"
+    t.integer "home_had_water"
+    t.integer "home_had_bathroom"
+    t.integer "home_had_electricity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["age_group_id"], name: "index_users_on_age_group_id"
+    t.index ["education_grade_id"], name: "index_users_on_education_grade_id"
+    t.index ["father_education_grade_id"], name: "index_users_on_father_education_grade_id"
+    t.index ["father_job_employees_group_id"], name: "index_users_on_father_job_employees_group_id"
+    t.index ["father_job_type_id"], name: "index_users_on_father_job_type_id"
+    t.index ["father_residency_id"], name: "index_users_on_father_residency_id"
+    t.index ["job_employees_group_id"], name: "index_users_on_job_employees_group_id"
+    t.index ["job_schedule_id"], name: "index_users_on_job_schedule_id"
+    t.index ["job_sector_id"], name: "index_users_on_job_sector_id"
+    t.index ["job_type_id"], name: "index_users_on_job_type_id"
+    t.index ["mother_education_grade_id"], name: "index_users_on_mother_education_grade_id"
+    t.index ["mother_job_employees_group_id"], name: "index_users_on_mother_job_employees_group_id"
+    t.index ["mother_job_type_id"], name: "index_users_on_mother_job_type_id"
+    t.index ["mother_residency_id"], name: "index_users_on_mother_residency_id"
+    t.index ["residency_id"], name: "index_users_on_residency_id"
+    t.index ["sex_id"], name: "index_users_on_sex_id"
   end
 
   add_foreign_key "education_grades", "education_levels"
   add_foreign_key "states", "regions"
+  add_foreign_key "users", "age_groups"
+  add_foreign_key "users", "education_grades", column: "father_education_grade_id"
+  add_foreign_key "users", "education_grades", column: "mother_education_grade_id"
+  add_foreign_key "users", "job_employees_groups", column: "father_job_employees_group_id"
+  add_foreign_key "users", "job_employees_groups", column: "mother_job_employees_group_id"
+  add_foreign_key "users", "job_types", column: "father_job_type_id"
+  add_foreign_key "users", "job_types", column: "mother_job_type_id"
+  add_foreign_key "users", "states", column: "father_residency_id"
+  add_foreign_key "users", "states", column: "mother_residency_id"
+  add_foreign_key "users", "states", column: "residency_id"
 end
