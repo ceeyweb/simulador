@@ -6,12 +6,18 @@ RSpec.describe UsersController do
       def do_request
         post :create, params: {
           user: {
-            edad: 5,
             ip_address: "0.0.0.0",
-            estado_residencia: "Chiapas",
-            ultimo_grado_cursado: "1° Primaria",
-            sexo: "2",
-            asistes_escuela: true,
+            father_age: 51,
+            father_residency_id: 8,
+            father_education_grade_id: 7,
+            mother_age: 47,
+            mother_residency_id: 8,
+            mother_education_grade_id: 8,
+            age: 22,
+            residency_id: 8,
+            sex_id: 1,
+            education_grade_id: 7,
+            is_student: true,
           },
         }
       end
@@ -42,12 +48,12 @@ RSpec.describe UsersController do
           id: @user.id,
           next_step: question_part_3_path,
           user: {
-            actualmente_trabajas: 1,
+            is_employed: 1,
             ip_address: "9.9.9.9", # unpermitted param
           },
         }
 
-        expect(@user.reload.actualmente_trabajas).to eq(1)
+        expect(@user.reload.is_employed).to be(true)
         expect(@user.ip_address).not_to eq("9.9.9.9")
       end
 
@@ -56,7 +62,7 @@ RSpec.describe UsersController do
           id: @user.id,
           next_step: question_part_3_path,
           user: {
-            actualmente_trabajas: 1,
+            is_employed: 1,
           },
         }
         expect(response).to redirect_to question_part_3_path
@@ -70,7 +76,7 @@ RSpec.describe UsersController do
           id: @user.id,
           next_step: malicious_url,
           user: {
-            actualmente_trabajas: 1,
+            is_employed: 1,
           },
         }
         expect(response).not_to redirect_to malicious_url
