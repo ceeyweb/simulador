@@ -3,20 +3,24 @@ RSpec.describe UsersController do
   describe "POST users" do
 
     describe "with valid params" do
+      before do
+        create(:age_group)
+      end
+
       def do_request
         post :create, params: {
           user: {
             ip_address: "0.0.0.0",
             father_age: 51,
-            father_residency_id: 8,
-            father_education_grade_id: 7,
+            father_residency_id: create(:state).id,
+            father_education_grade_id: create(:education_grade).id,
             mother_age: 47,
-            mother_residency_id: 8,
-            mother_education_grade_id: 8,
+            mother_residency_id: create(:state).id,
+            mother_education_grade_id: create(:education_grade).id,
             age: 22,
-            residency_id: 8,
-            sex_id: 1,
-            education_grade_id: 7,
+            residency_id: create(:state).id,
+            sex_id: create(:sex).id,
+            education_grade_id: create(:education_grade).id,
             is_student: true,
           },
         }
