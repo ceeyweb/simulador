@@ -11,7 +11,7 @@ namespace :data do
         Kpis::LifeExpectancy,
         Kpis::LifeExpectancyCountry,
         Kpis::LifeExpectancyRegion,
-        Kpis::LifeExpectancyWorld
+        Kpis::LifeExpectancyWorld,
       ].each do |model|
         puts " > #{model.table_name}"
 
