@@ -10,9 +10,9 @@ class HealthResults::SchoolYear
   def value
     if age >= 18
       user_grade.school_year
-    elsif only_monther_with_education?
+    elsif only_monther_has_education?
       mother_grade.school_year
-    elsif only_father_with_education?
+    elsif only_father_has_education?
       father_grade.school_year
     else
       (mother_grade.school_year + father_grade.school_year) / 2
@@ -23,11 +23,11 @@ class HealthResults::SchoolYear
 
   attr_reader :age, :user_grade, :father_grade, :mother_grade
 
-  def only_mother_with_education?
+  def only_mother_has_education?
     mother_grade.has_education? && !father_grade.has_education?
   end
 
-  def only_father_with_education?
+  def only_father_has_education?
     father_grade.has_education? && !mother_grade.has_education?
   end
 
