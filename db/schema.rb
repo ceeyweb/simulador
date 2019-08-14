@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_214748) do
+ActiveRecord::Schema.define(version: 2019_08_14_033051) do
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -43,6 +43,43 @@ ActiveRecord::Schema.define(version: 2019_08_10_214748) do
 
   create_table "job_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
+  end
+
+  create_table "kpis_life_expectancies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "age", null: false
+    t.bigint "sex_id", null: false
+    t.bigint "state_id", null: false
+    t.float "expected_age", null: false
+    t.float "state_school_year", null: false
+    t.index ["age", "sex_id", "state_id"], name: "kpis_life_expectancies_key", unique: true
+    t.index ["sex_id"], name: "index_kpis_life_expectancies_on_sex_id"
+    t.index ["state_id"], name: "index_kpis_life_expectancies_on_state_id"
+  end
+
+  create_table "kpis_life_expectancies_country", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "age", null: false
+    t.bigint "sex_id", null: false
+    t.float "expected_age", null: false
+    t.index ["age", "sex_id"], name: "kpis_life_expectancies_country_key", unique: true
+    t.index ["sex_id"], name: "index_kpis_life_expectancies_country_on_sex_id"
+  end
+
+  create_table "kpis_life_expectancies_region", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "age", null: false
+    t.bigint "sex_id", null: false
+    t.bigint "region_id", null: false
+    t.float "expected_age", null: false
+    t.index ["age", "sex_id", "region_id"], name: "kpis_life_expectancies_region_key", unique: true
+    t.index ["region_id"], name: "index_kpis_life_expectancies_region_on_region_id"
+    t.index ["sex_id"], name: "index_kpis_life_expectancies_region_on_sex_id"
+  end
+
+  create_table "kpis_life_expectancies_world", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "age", null: false
+    t.bigint "sex_id", null: false
+    t.float "expected_age", null: false
+    t.index ["age", "sex_id"], name: "kpis_life_expectancies_world_key", unique: true
+    t.index ["sex_id"], name: "index_kpis_life_expectancies_world_on_sex_id"
   end
 
   create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -120,6 +157,12 @@ ActiveRecord::Schema.define(version: 2019_08_10_214748) do
   end
 
   add_foreign_key "education_grades", "education_levels"
+  add_foreign_key "kpis_life_expectancies", "sexes"
+  add_foreign_key "kpis_life_expectancies", "states"
+  add_foreign_key "kpis_life_expectancies_country", "sexes"
+  add_foreign_key "kpis_life_expectancies_region", "regions"
+  add_foreign_key "kpis_life_expectancies_region", "sexes"
+  add_foreign_key "kpis_life_expectancies_world", "sexes"
   add_foreign_key "states", "regions"
   add_foreign_key "users", "age_groups"
   add_foreign_key "users", "education_grades", column: "father_education_grade_id"
