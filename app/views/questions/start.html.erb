@@ -1,14 +1,14 @@
-<h1 class="uppercase">Necesitamos algunos datos sobre ti</h1>
+<h1 class="text-uppercase">Necesitamos algunos datos sobre ti</h1>
 
 <div class="card">
   <div class="card-header">
-    <p class="uppercase center">Progreso</p>
+    <p class="text-uppercase center">Progreso</p>
     <div class="progress-bar"></div>
   </div>
   <div class="card-body">
     <div class="question-header"></div>
     <div class="question-section">
-      <h4 class="uppercase">Escolares</h4>
+      <h4 class="text-uppercase">Escolares</h4>
       <%= simple_form_for(@user, html: { class: "form-inline" }) do |f| %>
         <%= f.input :father_age, label: label_for(:father_age), wrapper_html: { class: "col-4" } %>
         <%= f.input :father_residency_id, collection: Mexico::ESTADOS, label: label_for(:father_residency_id), wrapper_html: { class: "col-4" } %>

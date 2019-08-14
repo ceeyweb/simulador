@@ -14,11 +14,10 @@
  *= require_self
  */
 
-/* Utility */
-.uppercase {
-  text-transform: uppercase;
-}
+/* Colors */
+$primary: #FF7D00;
 
+/* Utility */
 .center {
   text-align: center;
 }
@@ -82,10 +81,23 @@
 }
 
 /* Footer */
-.footer {
-  background-color: #888;
-  height: 18em;
-  line-height: 0.9em;
+.page-footer {
+  background-color: #005962;
+  color: #FFF;
+}
+
+.footer-copyright, .footer-copyright a {
+  color: #5A8C91;
+}
+
+.brand {
+  margin-bottom: 0;
+  line-height: 1em;
+  margin-top: 0.5em;
+}
+
+.brand-name {
+  font-weight: bold;
 }
 
 /* Section specific */
@@ -154,3 +166,44 @@
   }
 }
 
+.header-image {
+  width: 100%;
+}
+
+.section-youtube-embed {
+  text-align: center;
+  height: 30em;
+  background-color: #FFF;
+}
+
+.know-more {
+  margin-top: 1.5em;
+  font-size: 2.5em;
+  margin-bottom: 1.5em;
+}
+
+.section-start-questions {
+  text-align: center;
+  height: 23em;
+  background-color: $primary;
+}
+
+.perspectives {
+  font-size: 3em;
+  font-weight: bold;
+  color: #FFF;
+  padding-top: 2em;
+}
+
+.start-questions-button {
+  background-color: #FFF;
+  border-radius: 22px;
+  margin-top: 1.5em;
+  font-size: 2em;
+  font-weight: bold;
+  color: $primary;
+  padding: 0.4em 2em;
+  &:hover {
+    color: darken($primary, 5%);
+  }
+}

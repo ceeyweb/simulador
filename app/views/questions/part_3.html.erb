@@ -1,15 +1,15 @@
 <div class="progress">
-  <p class="uppercase center">Progreso</p>
+  <p class="text-uppercase center">Progreso</p>
   <div class="progress-bar"></div>
 </div>
 <div class="card">
   <div class="card-header">
-    <h1 class="uppercase">Necesitamos algunos datos sobre ti</h1>
+    <h1 class="text-uppercase">Necesitamos algunos datos sobre ti</h1>
   </div>
   <div class="card-body">
     <div class="question-header"></div>
     <div class="question-section">
-      <h4 class="uppercase">Escolares</h4>
+      <h4 class="text-uppercase">Escolares</h4>
       <%= simple_form_for(@user, method: :put, html: { class: "form-inline" }) do |f| %>
         <%= f.input :is_employed, collection: yes_no, label: label_for(:is_employed), wrapper_html: { class: "col-4" } %>
         <%= f.input :is_first_job, collection: yes_no, label: label_for(:is_first_job), wrapper_html: { class: "col-4" } %>
@@ -24,7 +24,7 @@
   <div class="card-body">
     <div class="question-header"></div>
     <div class="question-section">
-      <h4 class="uppercase">Hogar</h4>
+      <h4 class="text-uppercase">Hogar</h4>
         <div class="col-6">
           <strong>Cuando tenías 14 años, en tu casa había...</strong>
           <%= f.input :home_had_mobile_phone, collection: yes_no, label: label_for(:en_hogar_habia_celular), wrapper_html: { class: "col-4" } %>

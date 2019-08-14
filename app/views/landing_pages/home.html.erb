@@ -1,45 +1,27 @@
-<section class="hero-banner" style="background-color: gray">
-  <h1 class="headline">
-    <span class="red-headline">
-      Simulador de
-    </span>
-    <span class="black-headline">
-      Movilidad Social
-    </span>
-  </h1>
+<section>
+  <%= image_tag "encabezado_inicio_1920.png", class: "header-image" %>
 </section>
 
-<section style="background-color: green">
-  <%= image_tag "https://via.placeholder.com/300?text=folder+adn" %>
-  <h2>Movilidad en la salud</h2>
-  <p>la esperanza de vida ha mejorado de una generación a otra, pero aún está lejos del estándar internacional</p>
-  <%= image_tag "https://via.placeholder.com/200?text=gráficas" %>
+<section>
+  <%= image_tag "movilidad_en_la_salud_1920.png", class: "header-image" %>
 </section>
 
-<section style="background-color: blue">
-  <h2>Movilidad educativa</h2>
-  <span class="big-number orange">5%<span>
-  <p>de los hijos de padres sin escolaridad logran estudiar una licenciatura,</p>
-  <p>en comparación con el</p>
-  <span class="big-number teal">64%<span>
-  <p>de los hijos de padres con estudios universitarios.</p>
-  <%= image_tag "https://via.placeholder.com/300?text=libros" %>
+<section>
+  <%= image_tag "movilidad_educativa_1920.png", class: "header-image" %>
 </section>
 
-<section style="background-color: yellow">
-  <%= image_tag "https://via.placeholder.com/300?text=pila+dinero" %>
-  <h2>Movilidad laboral</h2>
-  <p>El ingreso laboral promedio, según el nivel educativo alcanzado es:</p>
+<section>
+  <%= image_tag "movilidad_laboral_1920.png", class: "header-image" %>
 </section>
 
-<section style="background-color: violet">
-  <h3>En este video puedes conocer más sobre la movilidad social</h3>
-  <p>[[ youtube embed ]]</p>
+<section class="section-youtube-embed">
+  <h3 class="know-more">Conoce más sobre la movilidad social en este video</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/ObFvGb-6UAs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 
-<section style="background-color: cyan">
-  <h3>¿Cuáles son tus perspectivas?</h3>
-  <%= link_to "Start Questions", question_start_path, class: "btn" %>
+<section class="section-start-questions">
+  <h3 class="perspectives">¿Cuáles son tus perspectivas?</h3>
+  <%= link_to "Simulador", question_start_path, class: "btn start-questions-button" %>
 </section>
 
 <%= render "shared/footer" %>
