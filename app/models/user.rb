@@ -38,6 +38,10 @@ class User < ApplicationRecord
 
   delegate :education_level, to: :education_grade
 
+  def health_results
+    HealthResults.new(self)
+  end
+
   private
 
   def set_age_group
