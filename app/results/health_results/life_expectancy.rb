@@ -1,5 +1,11 @@
 class HealthResults::LifeExpectancy
 
+  # TODO: rename `SEX_MODIFIER_1` and `SEX_MODIFIER_2` (and related methods)
+  # with more explicit names. This will be done as soon as Analytics team
+  # shares more context about these values.
+  SEX_MODIFIER_1 = { Sex::FEMALE_ID => 0.25, Sex::MALE_ID => 0.28 }.freeze
+  SEX_MODIFIER_2 = { Sex::FEMALE_ID => 0.06, Sex::MALE_ID => 1.99 }.freeze
+
   def initialize(age, sex, state_id, school_year, future_school_year = nil)
     @age = age
     @sex = sex
@@ -33,11 +39,11 @@ class HealthResults::LifeExpectancy
   end
 
   def sex_modifier_1
-    sex.female? ? 0.25 : 0.28
+    SEX_MODIFIER_1[sex.id]
   end
 
   def sex_modifier_2
-    sex.female? ? 0.06 : 1.99
+    SEX_MODIFIER_2[sex.id]
   end
 
   def kpis_life_expectancy

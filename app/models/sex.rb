@@ -11,12 +11,4 @@ class Sex < ApplicationRecord
     find(MALE_ID)
   end
 
-  def female?
-    id == FEMALE_ID
-  end
-
-  def male?
-    id == MALE_ID
-  end
-
 end
