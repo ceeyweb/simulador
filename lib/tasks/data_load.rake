@@ -22,4 +22,26 @@ namespace :data do
     end
 
   end
+
+  namespace :education do
+
+    desc "Load all education related 'Kpis' tables"
+    task load_all: :environment do
+      puts "Loading tables..."
+
+      [
+        Kpis::EducationAchievementAgeTertile,
+        Kpis::EducationAchievementRegionTertile,
+        Kpis::EducationAchievementSexTertile,
+        Kpis::EducationAverageIncome,
+      ].each do |model|
+        puts " > #{model.table_name}"
+
+        CSVLoader.load(model)
+      end
+
+      puts "...complete!"
+    end
+
+  end
 end
