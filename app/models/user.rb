@@ -37,6 +37,7 @@ class User < ApplicationRecord
   belongs_to :job_sector, optional: true
 
   delegate :education_level, to: :education_grade
+  delegate :region, to: :residency
 
   private
 
