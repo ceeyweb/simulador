@@ -1,28 +1,130 @@
-<h1 class="text-uppercase">Necesitamos algunos datos sobre ti</h1>
+<section class="above-fold-questions-1">
+  <h1 class="text-center heading-1-white">Simulador de</h1>
+  <h1 class="text-uppercase text-center heading-1-black">Movilidad Social</h1>
+  <%= image_tag "padres.png", class: "header-image" %>
+</section>
 
-<div class="card">
-  <div class="card-header">
-    <p class="text-uppercase center">Progreso</p>
-    <div class="progress-bar"></div>
-  </div>
-  <div class="card-body">
-    <div class="question-header"></div>
-    <div class="question-section">
-      <h4 class="text-uppercase">Escolares</h4>
-      <%= simple_form_for(@user, html: { class: "form-inline" }) do |f| %>
-        <%= f.input :father_age, label: label_for(:father_age), wrapper_html: { class: "col-4" } %>
-        <%= f.input :father_residency_id, collection: Mexico::ESTADOS, label: label_for(:father_residency_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :father_education_grade_id, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:father_grade_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :mother_age, label: label_for(:mother_age), wrapper_html: { class: "col-4" } %>
-        <%= f.input :mother_residency_id, collection: Mexico::ESTADOS, label: label_for(:mother_residency_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :mother_education_grade_id, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:mother_grade_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :age, label: label_for(:age), wrapper_html: { class: "col-4" } %>
-        <%= f.input :residency_id, collection: Mexico::ESTADOS, label: label_for(:age), wrapper_html: { class: "col-4" } %>
-        <%= f.input :education_grade_id, collection: Mexico::GRADOS_ESCOLARES, label: label_for(:grade_id), wrapper_html: { class: "col-4" } %>
-        <%= f.input :sex, collection: { "Mujer": 1, "Hombre": 2 }, label: label_for(:sex), wrapper_html: { class: "col-4" } %>
-        <%= f.input :is_student, as: :radio_buttons, collection: yes_no, label: label_for(:do_you_go_to_school), wrapper_html: { class: "col-4" } %>
-        <%= f.submit "Guardar" %>
-      <% end %>
+<section class="below-fold-questions-1">
+  <div class="card questions-card">
+    <div class="card-header">
+      <p class="text-uppercase center">Progreso de respuestas</p>
+      <div class="progress">
+        <div class="progress-bar background-color-primary" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+          <span class="sr-only">25% Lleno</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2 class="card-title text-uppercase text-center color-primary">Necesitamos algunos datos sobre tus <span class="text-bold">padres</span></h1>
+      <div class="question-section">
+        <div class="offset-md-1">
+          <%= simple_form_for(@user) do |f| %>
+
+            <div class="container">
+
+              <div class="row">
+                <%= image_tag "birrete_verde.png", class: "col-md-1" %>
+                <h4 class="text-uppercase inline question-section-header col">Sobre tus Padres</h4>
+              </div>
+
+              <div class="row">
+
+                <%= f.input :father_age,
+                  label: label_for(:father_age),
+                  input_html: { class: "col-md-3" },
+                  wrapper_html: { class: "col-md-3" } %>
+
+                <%= f.input :father_residency_id,
+                  collection: Mexico::ESTADOS,
+                  label: label_for(:father_residency_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+                <%= f.input :father_education_grade_id,
+                  collection: Mexico::GRADOS_ESCOLARES,
+                  label: label_for(:father_education_grade_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+              </div>
+
+              <div class="row">
+                <%= f.input :mother_age,
+                  label: label_for(:mother_age),
+                  input_html: { class: "col-md-3" },
+                  wrapper_html: { class: "col-md-3" } %>
+
+                <%= f.input :mother_residency_id,
+                  collection: Mexico::ESTADOS,
+                  label: label_for(:mother_residency_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+                <%= f.input :mother_education_grade_id,
+                  collection: Mexico::GRADOS_ESCOLARES,
+                  label: label_for(:mother_education_grade_id),
+                  wrapper_html: { class: "col-md-4" } %>
+              </div>
+
+              <div class="row">
+                <%= image_tag "birrete_verde.png", class: "col-md-1" %>
+                <h4 class="text-uppercase question-section-header col-md">Sobre ti</h4>
+              </div>
+
+              <div class="row">
+
+                <%= f.input :age,
+                  label: label_for(:age),
+                  input_html: { class: "col-md-3" },
+                  wrapper_html: { class: "col-md-3" } %>
+
+                <%= f.input :residency_id,
+                  collection: Mexico::ESTADOS,
+                  label: label_for(:residency_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+                <%= f.input :education_grade_id,
+                  collection: Mexico::GRADOS_ESCOLARES,
+                  label: label_for(:education_grade_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+              </div>
+
+              <div class="row">
+                <%= f.input :sex,
+                  collection: { "Mujer": 1, "Hombre": 2 },
+                  label: label_for(:sex),
+                  input_html: { class: "col-md-3" },
+                  wrapper_html: { class: "col-md-4" } %>
+
+                <fieldset class="form-group radio_buttons required user_is_student custom-control custom-radio col-md-6">
+                  <legend class="col-form-label pt-0 text-bold">
+                    ¿Asistes a la escuela actualmente?
+                    <abbr title="required">*</abbr>
+                  </legend>
+                  <input type="hidden" name="user[is_student]" value="">
+
+                  <div class="form-check inline">
+                    <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="1" name="user[is_student]" id="user_is_student_1">
+                    <label class="custom-control-label" for="user_is_student_1">Sí</label>
+                  </div>
+
+                  <div class="form-check inline">
+                    <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="0" name="user[is_student]" id="user_is_student_0">
+                    <label class="custom-control-label" for="user_is_student_0">No</label>
+                  </div>
+
+                  <div class="form-check inline">
+                    <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="2" name="user[is_student]" id="user_is_student_2">
+                    <label class="custom-control-label" for="user_is_student_2">No Sabe / No Aplica</label>
+                  </div>
+
+                </fieldset>
+              </div>
+              <div class="row">
+                <%= f.submit "Guardar", class: "btn btn-primary questions-submit-button" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>

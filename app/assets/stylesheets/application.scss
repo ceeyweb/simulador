@@ -1,15 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
@@ -22,11 +11,35 @@ $primary: #FF7D00;
   text-align: center;
 }
 
+.debug {
+  border: 2px solid blue;
+}
+
+.color-primary {
+  color: $primary;
+}
+
+.background-color-primary {
+  background-color: $primary;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
 .inline {
   display: inline-block;
 }
 
 /* General styles */
+body {
+  font-size: 0.75rem;
+}
+
+label {
+  font-weight: bold;
+}
+
 .heading-2 {
   background-color: #888;
   font-weight: bold;
@@ -44,6 +57,108 @@ $primary: #FF7D00;
 .white-section {
   padding: 1em;
   background-color: #fff;
+}
+
+.card-title {
+  margin-top: 0.75rem;
+}
+
+/* Input styles */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
+  border-radius: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select {
+  border: 2px solid #19618A !important;
+  border-radius: 0 !important;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after {
+    background-image: none;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.custom-control-label {
+  margin-bottom: 0.5rem;
+  height: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  &::after {
+    margin-top: -0.2rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &::before {
+    margin-top: -0.2rem;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* Questions start */
+.above-fold-questions-1 {
+  background-color: #007273;
+}
+
+.below-fold-questions-1 {
+  background-color: #145861;
+}
+
+.heading-1-white {
+  color: #FFF;
+  padding-top: 1em;
+  font-size: 3.5em;
+}
+
+.heading-1-black {
+  color: #000;
+  font-weight: bold;
+  font-size: 3.5em;
+  padding-bottom: 1em;
+}
+
+.questions-card {
+  margin: 0 5%;
+}
+
+.question-section-header {
+  margin-top: 1rem;
+  color: #3B3B3B;
+  font-weight: bold;
+}
+
+.integer {
+  display: block !important;
+}
+
+.form-group {
+  margin: 1rem 0;
+}
+
+.questions-submit-button {
+  background-color: $primary;
+  border-radius: 0;
+  border-color: $primary;
+  margin-top: 1rem;
+  &:hover {
+    background-color: darken($primary, 5%);
+    border-color: $primary;
+  }
 }
 
 /* Benefit sections */
