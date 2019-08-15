@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_033051) do
+ActiveRecord::Schema.define(version: 2019_08_15_120806) do
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -43,6 +43,41 @@ ActiveRecord::Schema.define(version: 2019_08_14_033051) do
 
   create_table "job_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
+  end
+
+  create_table "kpis_education_achievement_age_tertiles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "tertile", null: false
+    t.bigint "age_group_id", null: false
+    t.integer "lower_limit", null: false
+    t.integer "upper_limit", null: false
+    t.index ["age_group_id"], name: "index_kpis_education_achievement_age_tertiles_on_age_group_id"
+  end
+
+  create_table "kpis_education_achievement_region_tertiles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "tertile", null: false
+    t.bigint "region_id", null: false
+    t.integer "lower_limit", null: false
+    t.integer "upper_limit", null: false
+    t.index ["region_id"], name: "index_kpis_education_achievement_region_tertiles_on_region_id"
+  end
+
+  create_table "kpis_education_achievement_sex_tertiles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "tertile", null: false
+    t.bigint "sex_id", null: false
+    t.integer "lower_limit", null: false
+    t.integer "upper_limit", null: false
+    t.index ["sex_id"], name: "index_kpis_education_achievement_sex_tertiles_on_sex_id"
+  end
+
+  create_table "kpis_education_average_incomes", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "sex_id", null: false
+    t.bigint "education_level_id", null: false
+    t.bigint "region_id", null: false
+    t.integer "average_income", null: false
+    t.index ["education_level_id"], name: "index_kpis_education_average_incomes_on_education_level_id"
+    t.index ["region_id"], name: "index_kpis_education_average_incomes_on_region_id"
+    t.index ["sex_id", "education_level_id", "region_id"], name: "kpis_education_average_incomes_key", unique: true
+    t.index ["sex_id"], name: "index_kpis_education_average_incomes_on_sex_id"
   end
 
   create_table "kpis_life_expectancies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -157,6 +192,12 @@ ActiveRecord::Schema.define(version: 2019_08_14_033051) do
   end
 
   add_foreign_key "education_grades", "education_levels"
+  add_foreign_key "kpis_education_achievement_age_tertiles", "age_groups"
+  add_foreign_key "kpis_education_achievement_region_tertiles", "regions"
+  add_foreign_key "kpis_education_achievement_sex_tertiles", "sexes"
+  add_foreign_key "kpis_education_average_incomes", "education_levels"
+  add_foreign_key "kpis_education_average_incomes", "regions"
+  add_foreign_key "kpis_education_average_incomes", "sexes"
   add_foreign_key "kpis_life_expectancies", "sexes"
   add_foreign_key "kpis_life_expectancies", "states"
   add_foreign_key "kpis_life_expectancies_country", "sexes"
