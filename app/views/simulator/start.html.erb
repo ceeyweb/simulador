@@ -1,82 +1,161 @@
-<h2 class="center">Simulador de</h2>
-<h1 class="center">Movilidad Social</h1>
-<%= render "shared/benefit_sections" %>
-
 <section>
-<h1 class="center text-uppercase">Salud</h1>
+  <h2 class="heading-2-orange text-center">Simulador de</h2>
+  <h1 class="heading-1-black text-center">Movilidad Social</h1>
+  <%= render "shared/benefit_sections" %>
+  <%= image_tag "encabezado_salud_1920.png", class: "header-image" %>
 </section>
 
-<section>
-  <h3>¿Cuál es tu esperanza de vida y la de tus padres?</h3>
-  <p><strong>Esperanza de vida:</strong> número de años que en promedio se espera que viva una persona después de nacer</p>
+<section class="life-expectancy-section">
+  <h3 class="simulator-header-text text-center">¿Cuál es tu esperanza de vida y la de tus padres?</h3>
+  <p class="text-center text-size-md simulator-paragraph-text">
+    <strong>Esperanza de vida:</strong> número de años que en promedio se espera que viva una persona después de nacer
+  </p>
 
-  <div class="col-md-4">
-    <div style="border: solid 1px black">
-      <p><strong>Tu</strong> esperanza de vida:</p>
-      <div style="border: solid 1px black">
-        <p><%= "85 años" %></p>
+  <hr class="dotted-hr">
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <%= image_tag "esperanza_vida_hombre.png", class: "life-expectancy-image" %>
+        <div class="life-expectancy-number-input">
+          <p class="life-expectancy-number"><%= "85 años" %></p>
+        </div>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <%= image_tag "esperanza_vida_madre.png", class: "life-expectancy-image" %>
+        <div class="life-expectancy-number-input">
+          <p class="life-expectancy-number"><%= "85 años" %></p>
+        </div>
+      </div>
+
+      <div class="col-md-4 text-center">
+        <%= image_tag "esperanza_vida_padre.png", class: "life-expectancy-image" %>
+        <div class="life-expectancy-number-input">
+          <p class="life-expectancy-number"><%= "85 años" %></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-4">
-    <div style="border: solid 1px black">
-      <p>La esperanza de vida de tu <strong>madre</strong>:</p>
-      <div style="border: solid 1px black">
-        <p><%= "85 años" %></p>
+</section>
+
+<section class="simulator-header-section">
+  <h3 class="simulator-header-text text-center">¿Cómo estás con respecto a...?</h3>
+</section>
+
+<section class="map-header-section">
+
+  <div class="row map-colored-row">
+    <div class="col-md-6 text-center">
+      <div class="offset-1">
+        <%= image_tag "mapa_mundo.png", class: "map-image" %>
       </div>
+    </div>
+    <div class="col-md-6 my-auto">
+      <p class="text-size-lg map-paragraph-text">
+        En el <span class="orange-underline">mundo</span>,
+        <span class="orange-underline"><%= "las mujeres" %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= "89 años" %></span>
+      </p>
     </div>
   </div>
 
-  <div class="col-md-4">
-    <div style="border: solid 1px black">
-      <p>La esperanza de vida de tu <strong>padre</strong>:</p>
-      <div style="border: solid 1px black">
-        <p><%= "85 años" %></p>
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <div class="offset-1">
+        <%= image_tag "mapa_mexico.png", class: "map-image" %>
       </div>
     </div>
+    <div class="col-md-6 my-auto">
+      <p class="text-size-lg map-paragraph-text">
+        En <span class="orange-underline">México</span>,
+        <span class="orange-underline"><%= "las mujeres" %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= "89 años" %></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="row map-colored-row">
+    <div class="col-md-6 text-center">
+      <div class="offset-1">
+        <%= image_tag "mapa_region_centro.png", class: "map-image" %>
+      </div>
+    </div>
+    <div class="col-md-6 my-auto">
+      <p class="text-size-lg map-paragraph-text">
+        En la región <span class="orange-underline">Centro</span>,
+        <span class="orange-underline"><%= "las mujeres" %></span> de tu generación tienen una esperanza de vida entre <span class="orange-underline"><%= "79" %></span> y <span class="orange-underline"><%= "89 años" %></span>.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<section class="simulator-header-section">
+  <h3 class="simulator-header-text text-center">¿Y qué pasa si continúas estudiando?</h3>
+</section>
+
+<section class="health-simulation-section">
+  <p class="text-center text-size-md simulator-paragraph-text">
+    Usa la barra para avanzar en el logro escolar y revisa los resultados
+  </p>
+
+  <hr class="dotted-hr">
+
+  <div class="container">
+    <div class="row">
+      <% 5.times do |n| %>
+        <div class="col-2 <%= "offset-1" if n.zero? %>">
+          <%= image_tag "hombre_con_birrete.png", class: "grad-image" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <input type="range" step="25" class="education-range-input">
+    </div>
+
+    <div class="row" style="height: 100px">
+
+      <div class="col-6 background-teal">
+        <div class="row">
+          <div class="col-md-3 simulation-results text-center">
+            <%= image_tag "life_expectancy_icon.png", class: "health-icon" %>
+          </div>
+          <div class="col-md-4 simulation-results">
+            <p class="text-uppercase life-expectancy-text">Esperanza de vida</p>
+          </div>
+          <div class="col-md-2 white-box text-center">
+            <p class="life-expectancy-number-text">85</p>
+          </div>
+          <div class="col-md-2 simulation-results text-center">
+            <p class="text-uppercase life-expectancy-text">años</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 background-orange">
+        <div class="row">
+          <div class="col-md-3 simulation-results text-center">
+            <%= image_tag "wellbeing_icon.png", class: "health-icon" %>
+          </div>
+          <div class="col-md-4 simulation-results">
+            <p class="text-uppercase wellbeing-text" style="padding-top: 0.5rem">Bienestar</p>
+          </div>
+          <div class="col-md-4 white-box text-center">
+            <p class="life-expectancy-number-text text-uppercase">Mayor</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
-<section>
-  <h3 class="center">¿Cómo estás con respecto a...?</h3>
+<section class="print-section text-center">
+  <button class="btn btn-primary print-button">Imprimir</button>
 </section>
 
-<section>
-<%= image_tag "https://via.placeholder.com/300?text=mundo" %>
-<p>En el mundo, <%= "las mujeres" %> de tu generación tienen una esperanza de vida máxima de <%= "89 años" %></p>
-
-<%= image_tag "https://via.placeholder.com/300?text=mexico" %>
-<p>En México, <%= "las mujeres" %> de tu generación tienen una esperanza de vida máxima de <%= "89 años" %></p>
-
-<%= image_tag "https://via.placeholder.com/300?text=region" %>
-<p>En la región <%= "Norte" %>, <%= "las mujeres" %> de tu generación tienen una esperanza de vida entre <%= "76" %> y <%= "89 años" %> (Desviaciones estándar)</p>
-</section>
-
-<section>
-  <h3 class="center">¿Y qué pasa si continúas estudiando?</h3>
-</section>
-
-<section>
-  <p>Usa la barra para avanzar en el logro escolar y revisa los resultados</p>
-
-  <hr>
-
-  <input type="range">
-
-  <div class="col-6">
-    <p class="text-uppercase">Esperanza de vida</p>
-  </div>
-
-  <div class="col-6">
-    <p class="text-uppercase">Bienestar</p>
-  </div>
-</section>
-
-<section>
-  <button>Imprimir</button>
-</section>
-
-<%= render "shared/benefit_sections" %>
+<%= render "shared/benefit_sections", background_dark: true %>
 
 <%= render "shared/footer" %>

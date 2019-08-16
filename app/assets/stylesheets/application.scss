@@ -5,10 +5,26 @@
 
 /* Colors */
 $primary: #FF7D00;
+$dark-gray: #007071;
+$teal: #7ECDC0;
 
 /* Utility */
 .center {
   text-align: center;
+}
+
+.text-size-md {
+  font-size: 1rem;
+}
+
+.text-size-lg {
+  font-size: 1.5rem;
+}
+
+.dotted-hr {
+  border-top: 3px dotted $dark-gray;
+  width: 80%;
+  margin: 2rem auto;
 }
 
 .debug {
@@ -48,10 +64,9 @@ label {
 }
 
 .heading-2-orange {
-  background-color: orange;
-  font-weight: bold;
-  color: #ffffff;
-  padding: 1.5em;
+  padding-top: 0.5em;
+  color: $primary;
+  font-size: 3rem;
 }
 
 .white-section {
@@ -61,6 +76,22 @@ label {
 
 .card-title {
   margin-top: 0.75rem;
+}
+
+.orange-underline {
+  color: $primary;
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  padding: 0.5rem 2.5rem;
+  font-size: 1.3rem;
+  &:hover {
+    background-color: darken($primary, 5%);
+    border-color: darken($primary, 5%);
+  }
 }
 
 /* Input styles */
@@ -128,8 +159,7 @@ select {
 .heading-1-black {
   color: #000;
   font-weight: bold;
-  font-size: 3.5em;
-  padding-bottom: 1em;
+  font-size: 4rem;
 }
 
 .questions-card {
@@ -151,48 +181,167 @@ select {
 }
 
 .questions-submit-button {
-  background-color: $primary;
   border-radius: 0;
-  border-color: $primary;
   margin-top: 1rem;
-  &:hover {
-    background-color: darken($primary, 5%);
-    border-color: $primary;
+}
+
+/* Simulator sections */
+
+.print-section {
+  height: 150px;
+  background-color: #FFF;
+}
+
+.print-button {
+  margin-top: 55px;
+}
+
+.simulator-header-text {
+  color: #006C6F;
+  margin-top: 2rem;
+  font-size: 2.5rem;
+}
+
+.simulator-paragraph-text {
+  margin-top: 1rem;
+}
+
+.simulator-header-section {
+  background-color: $teal;
+  padding: 2rem 0;
+  .simulator-header-text {
+    margin-top: 0;
   }
+}
+
+.life-expectancy-section {
+  margin-bottom: 3rem;
+}
+
+.life-expectancy-image {
+  height: 350px;
+  margin: 0 auto;
+}
+
+.life-expectancy-number-input {
+  border: solid 1px black;
+  position: absolute;
+  top: 17.2rem;
+  left: 6.8rem;
+  width: 10rem;
+  .life-expectancy-number {
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+  }
+}
+
+.map-image {
+  width: 80%;
+}
+
+.map-paragraph-text {
+  padding-right: 30%;
+  padding-left: 2rem;
+  color: $dark-gray;
+}
+
+.map-colored-row {
+  background-color: #F3F8F9;
+  &:last-child {
+    padding-bottom: 1rem;
+  }
+}
+
+.map-header-section {
+}
+
+.grad-image {
+  height: 150px;
+}
+
+.education-range-input {
+  width: 80%;
+  padding-top: 2rem;
+  margin: 0 auto;
+}
+
+.background-teal {
+  background-color: $teal;
+}
+
+.background-orange {
+  background-color: $primary;
+}
+
+.life-expectancy-text {
+  color: $dark-gray;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.white-box {
+  background-color: #FFF;
+  margin: 1rem;
+}
+
+.life-expectancy-number-text {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.3rem 0;
+}
+
+.health-icon {
+  padding-top: 0.2rem;
+  height: 50px;
+}
+
+.simulation-results {
+  padding-top: 1.5rem;
+}
+
+.wellbeing-text {
+  color: #FFF;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 /* Benefit sections */
 .benefit-sections {
-  height: 14em;
+  padding-bottom: 5rem;
+  padding-top: 5rem;
   text-align: center;
-  background-color: #ddd;
-}
-
-.benefit-section {
-  display: inline-block;
-  width: 6em;
 }
 
 .benefit-section-circle {
   background: #cccccc;
-  border-radius: 1.8em;
-  -moz-border-radius: 1.8em;
-  -webkit-border-radius: 1.8em;
+  border-radius: 2.8em;
+  -moz-border-radius: 2.8em;
+  -webkit-border-radius: 2.8em;
   color: #ffffff;
   display: inline-block;
-  font-weight: bold;
   text-align: center;
-  line-height: 2.6em;
-  width: 2.6em;
+  line-height: 3.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 2rem;
 }
 
 .benefit-sections-header {
   margin-bottom: 2em;
+  color: #007072;
 }
 
 .benefit-section-name {
   display: block;
   text-align: center;
+  font-size: 1.3rem;
+  margin-top: 0.3rem;
+  color: #1A646B;
+}
+
+.benefit-section-divider {
+  font-size: 2rem;
+  color: #3B3B3BBF;
 }
 
 /* Footer */
