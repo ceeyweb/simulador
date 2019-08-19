@@ -7,15 +7,8 @@ namespace :data do
     task load_all: :environment do
       puts "Loading tables..."
 
-      [
-        Kpis::LifeExpectancy,
-        Kpis::LifeExpectancyCountry,
-        Kpis::LifeExpectancyRegion,
-        Kpis::LifeExpectancyWorld,
-      ].each do |model|
+      LoadKpis.call(:health) do |model|
         puts " > #{model.table_name}"
-
-        CSVLoader.load(model)
       end
 
       puts "...complete!"
@@ -29,15 +22,8 @@ namespace :data do
     task load_all: :environment do
       puts "Loading tables..."
 
-      [
-        Kpis::EducationAchievementAgeTertile,
-        Kpis::EducationAchievementRegionTertile,
-        Kpis::EducationAchievementSexTertile,
-        Kpis::EducationAverageIncome,
-      ].each do |model|
+      LoadKpis.call(:education) do |model|
         puts " > #{model.table_name}"
-
-        CSVLoader.load(model)
       end
 
       puts "...complete!"
