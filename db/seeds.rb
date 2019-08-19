@@ -186,3 +186,6 @@ AGE_GROUPS.each do |id, description, lower_limit, upper_limit|
     upper_limit: upper_limit,
   )
 end
+
+# KPIs data
+LoadKpis.call
