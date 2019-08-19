@@ -122,19 +122,6 @@ AGE_GROUPS = [ # id, description, lower_limit, upper_limit
   [5, "Más de 23 años", 24, 120],
 ].freeze
 
-# Clean tables - keep specified order, otherwise DB foreign key restriction
-# errors may occur
-State.delete_all
-Region.delete_all
-EducationGrade.delete_all
-EducationLevel.delete_all
-Sex.delete_all
-JobType.delete_all
-JobSector.delete_all
-JobEmployeesGroup.delete_all
-JobSchedule.delete_all
-AgeGroup.delete_all
-
 # Load data - keep specified order, otherwise DB foreign key restriction
 # errors may occur
 REGIONS.each do |id, description|
@@ -186,6 +173,3 @@ AGE_GROUPS.each do |id, description, lower_limit, upper_limit|
     upper_limit: upper_limit,
   )
 end
-
-# KPIs data
-LoadKpis.call
