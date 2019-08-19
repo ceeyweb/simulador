@@ -1,5 +1,3 @@
-require Rails.root.join("lib", "csv_loader")
-
 namespace :data do
   namespace :health do
 
@@ -7,7 +5,7 @@ namespace :data do
     task load_all: :environment do
       puts "Loading tables..."
 
-      LoadKpis.call(:health) do |model|
+      KpisLoader.load(:health) do |model|
         puts " > #{model.table_name}"
       end
 
@@ -22,7 +20,7 @@ namespace :data do
     task load_all: :environment do
       puts "Loading tables..."
 
-      LoadKpis.call(:education) do |model|
+      KpisLoader.load(:education) do |model|
         puts " > #{model.table_name}"
       end
 

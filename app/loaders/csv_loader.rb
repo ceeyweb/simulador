@@ -1,10 +1,6 @@
 require "csv"
 
-class CSVLoader
-
-  def self.load(*args)
-    new(*args).load
-  end
+class CSVLoader < ApplicationLoader
 
   def initialize(model)
     @model = model
@@ -13,7 +9,8 @@ class CSVLoader
   def load
     model.delete_all
     model.connection.execute(insert)
-    model.table_name
+
+    true
   end
 
   private

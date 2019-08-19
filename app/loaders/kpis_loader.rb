@@ -1,12 +1,6 @@
-require Rails.root.join("lib", "csv_loader")
-
-class LoadKpis
+class KpisLoader < ApplicationLoader
 
   class KpisNotFoundError < StandardError; end
-
-  def self.call(*args, &block)
-    new(*args).call(&block)
-  end
 
   def initialize(kpis = nil)
     @kpis = kpis
@@ -14,7 +8,7 @@ class LoadKpis
     raise KpisNotFoundError, "KPIs for `#{kpis}' not found." unless kpis_exist?
   end
 
-  def call
+  def load
     models.each do |model|
       CSVLoader.load(model)
 
