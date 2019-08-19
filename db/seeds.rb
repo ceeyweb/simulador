@@ -5,8 +5,8 @@ REGIONS = [ # id, description
   [3, "Centro Norte"],
   [4, "Centro"],
   [5, "Sur"],
-  [99, "No sabe/No aplica"]
-]
+  [99, "No sabe/No aplica"],
+].freeze
 
 STATES = [ # id, description, region_id
   [1, "Aguascalientes", 3],
@@ -41,8 +41,8 @@ STATES = [ # id, description, region_id
   [30, "Veracruz", 5],
   [31, "Yucatán", 5],
   [32, "Zacatecas", 2],
-  [99, "No sabe/No aplica", 99]
-]
+  [99, "No sabe/No aplica", 99],
+].freeze
 
 EDUCATION_LEVELS = [ # id, description
   [0, "Sin escolaridad"],
@@ -51,8 +51,8 @@ EDUCATION_LEVELS = [ # id, description
   [3, "Preparatoria"],
   [4, "Universidad"],
   [5, "Posgrado"],
-  [99, "No sabe/No aplica"]
-]
+  [99, "No sabe/No aplica"],
+].freeze
 
 EDUCATION_GRADES = [ # id, school_year, description, education_level_id
   [1, 0, "Sin escolaridad", 0],
@@ -78,49 +78,49 @@ EDUCATION_GRADES = [ # id, school_year, description, education_level_id
   [21, 20, "3° Posgrado", 5],
   [22, 21, "4° Posgrado", 5],
   [23, 22, "5° Posgrado", 5],
-  [99, 0, "No sabe/No aplica", 99]
-]
+  [99, 0, "No sabe/No aplica", 99],
+].freeze
 
 SEXES = [ # id, description
   [1, "Mujer"],
-  [2, "Hombre"]
-]
+  [2, "Hombre"],
+].freeze
 
 JOB_TYPES = [ # id, description
-  [1,	"Jornalero"],
-  [2,	"Empleado"],
-  [3,	"Patrón"],
-  [4,	"Trabajador por cuenta propia"],
+  [1, "Jornalero"],
+  [2, "Empleado"],
+  [3, "Patrón"],
+  [4, "Trabajador por cuenta propia"],
   [99, "No sabe/No aplica"],
-]
+].freeze
 
 JOB_SECTORS = [ # id, description
-  [1,	"Primario"],
-  [2,	"Secundario"],
-  [3,	"Servicios"],
-  [99, "No sabe/No aplica"]
-]
+  [1, "Primario"],
+  [2, "Secundario"],
+  [3, "Servicios"],
+  [99, "No sabe/No aplica"],
+].freeze
 
 JOB_EMPLOYEES_GROUPS = [ # id, description
   [1, "1 a 10"],
   [2, "11 a 50"],
   [3, "Más de 50"],
-  [99, "No sabe/No aplica"]
-]
+  [99, "No sabe/No aplica"],
+].freeze
 
 JOB_SCHEDULES = [ # id, description
   [1, "Tiempo completo (40 horas semanales o más)"],
   [2, "Medio tiempo (menos de 40 horas semanales)"],
-  [99, "No sabe/No aplica"]
-]
+  [99, "No sabe/No aplica"],
+].freeze
 
 AGE_GROUPS = [ # id, description, lower_limit, upper_limit
   [1, "6 a 11 años", 6, 11],
   [2, "12 a 14 años", 12, 14],
   [3, "15 a 17 años", 15, 17],
   [4, "18 a 23 años", 18, 23],
-  [5, "Más de 23 años", 24, 120]
-]
+  [5, "Más de 23 años", 24, 120],
+].freeze
 
 # Clean tables - keep specified order, otherwise DB foreign key restriction
 # errors may occur
@@ -154,7 +154,7 @@ EDUCATION_GRADES.each do |id, year, description, education_level_id|
     id: id,
     school_year: year,
     description: description,
-    education_level_id: education_level_id
+    education_level_id: education_level_id,
   )
 end
 
@@ -183,6 +183,6 @@ AGE_GROUPS.each do |id, description, lower_limit, upper_limit|
     id: id,
     description: description,
     lower_limit: lower_limit,
-    upper_limit: upper_limit
+    upper_limit: upper_limit,
   )
 end
