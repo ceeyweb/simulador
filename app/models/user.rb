@@ -39,6 +39,19 @@ class User < ApplicationRecord
   delegate :education_level, to: :education_grade
   delegate :region, to: :residency
 
+  def school_year
+    if age > 18
+      education_grade.school_year
+    elsif only_mother_has_education?
+      mother_education_grade.school_year
+    elsif only_father_has_education?
+      father_education_grade.school_year
+    else
+      (mother_education_grade.school_year +
+       father_education_grade.school_year) / 2
+    end
+  end
+
   private
 
   def set_age_group
@@ -57,6 +70,16 @@ class User < ApplicationRecord
       education_grade_id_changed?)
       errors.add(:base, "Can't change attribute")
     end
+  end
+
+  def only_mother_has_education?
+    mother_education_grade.has_education? &&
+      !father_education_grade.has_education?
+  end
+
+  def only_father_has_education?
+    father_education_grade.has_education? &&
+      !mother_education_grade.has_education?
   end
 
 end

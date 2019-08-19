@@ -5,7 +5,7 @@ class HealthResults
   end
 
   def expected_age
-    LifeExpectancy.new(age, user.sex, user.residency_id, school_year).value
+    LifeExpectancy.new(age, user.sex, user.residency_id, user.school_year).value
   end
 
   def mother_expected_age
@@ -53,15 +53,6 @@ class HealthResults
 
   def age
     user.is_student ? user.age + 1 : user.age
-  end
-
-  def school_year
-    SchoolYear.new(
-      age,
-      user.education_grade,
-      user.father_education_grade,
-      user.mother_education_grade,
-    ).value
   end
 
 end
