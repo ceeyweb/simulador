@@ -5,7 +5,12 @@ class HealthResults
   end
 
   def expected_age
-    LifeExpectancy.new(age, user.sex, user.residency_id, user.school_year).value
+    LifeExpectancy.new(
+      user.age,
+      user.sex,
+      user.residency_id,
+      user.school_year,
+    ).value
   end
 
   def mother_expected_age
@@ -50,9 +55,5 @@ class HealthResults
   private
 
   attr_reader :user
-
-  def age
-    user.is_student ? user.age + 1 : user.age
-  end
 
 end
