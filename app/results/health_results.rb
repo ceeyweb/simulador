@@ -47,11 +47,6 @@ class HealthResults
     )
   end
 
-  def wellness
-    # Update initialization values when formula is defined
-    Wellness.new.value
-  end
-
   private
 
   attr_reader :user
