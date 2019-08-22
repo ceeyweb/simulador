@@ -3,7 +3,7 @@ class EducationResults < SimpleDelegator
   PARENTS_EXPECTED_AVERAGE_SCHOOL_YEAR = 18
 
   def education_achievement
-    EducationAchievement.new(user_age, education_grade.school_year).value
+    EducationAchievement.new(student_age, school_year).value
   end
 
   def parents_education_achievement
@@ -39,12 +39,6 @@ class EducationResults < SimpleDelegator
 
   def average_income
     AverageIncome.new(sex_id, education_level.id, region.id).value
-  end
-
-  private
-
-  def user_age
-    is_student ? age + 1 : age
   end
 
 end

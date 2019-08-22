@@ -44,6 +44,14 @@ class User < ApplicationRecord
     self[:age] + @school_year - education_grade.school_year
   end
 
+  def student_age
+    if is_student
+      age + 1
+    else
+      age
+    end
+  end
+
   def school_year
     if age > 18
       @school_year
