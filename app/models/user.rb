@@ -1,21 +1,6 @@
 class User < ApplicationRecord
 
-  before_validation :set_age_group
-
-  validates :ip_address,
-            :father_age,
-            :mother_age,
-            :age,
-            :is_student,
-            presence: true
-
-  validates :age, numericality: { greater_than_or_equal_to: 0, less_than: 100 }
-
-  validates :father_age,
-            :mother_age,
-            numericality: { greater_than_or_equal_to: 15, less_than: 100 }
-
-  validate :disallow_changing_values_after_create
+  attr_writer :school_year
 
   belongs_to :father_residency, class_name: "State"
   belongs_to :father_education_grade, class_name: "EducationGrade"
@@ -36,23 +21,54 @@ class User < ApplicationRecord
   belongs_to :job_schedule, optional: true
   belongs_to :job_sector, optional: true
 
+  validates :ip_address,
+            :father_age,
+            :mother_age,
+            :age,
+            :is_student,
+            presence: true
+  validates :age, numericality: { greater_than_or_equal_to: 0, less_than: 100 }
+  validates :father_age,
+            :mother_age,
+            numericality: { greater_than_or_equal_to: 15, less_than: 100 }
+
+  validate :disallow_changing_values_after_create
+
+  before_validation :set_age_group
+  after_initialize :set_school_year
+
   delegate :education_level, to: :education_grade
   delegate :region, to: :residency
 
+  def age
+    self[:age] + @school_year - education_grade.school_year
+  end
+
   def school_year
     if age > 18
-      education_grade.school_year
-    elsif only_mother_has_education?
-      mother_education_grade.school_year
-    elsif only_father_has_education?
-      father_education_grade.school_year
-    else
-      (mother_education_grade.school_year +
-       father_education_grade.school_year) / 2
+      @school_year
+    elsif mother_and_father_have_education?
+      (mother_school_year + father_school_year).to_f / 2
+    elsif mother_has_education?
+      mother_school_year
+    elsif father_has_education?
+      father_school_year
     end
   end
 
+  def mother_school_year
+    mother_education_grade.school_year
+  end
+
+  def father_school_year
+    father_education_grade.school_year
+  end
+
   private
+
+  def set_school_year
+    @school_year = education_grade.school_year
+  end
 
   def set_age_group
     self["age_group_id"] = AgeGroup.for(age)&.id
@@ -72,14 +88,16 @@ class User < ApplicationRecord
     end
   end
 
-  def only_mother_has_education?
-    mother_education_grade.has_education? &&
-      !father_education_grade.has_education?
+  def mother_and_father_have_education?
+    mother_has_education? && father_has_education?
   end
 
-  def only_father_has_education?
-    father_education_grade.has_education? &&
-      !mother_education_grade.has_education?
+  def mother_has_education?
+    mother_education_grade.has_education?
+  end
+
+  def father_has_education?
+    father_education_grade.has_education?
   end
 
 end

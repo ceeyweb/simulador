@@ -10,16 +10,15 @@ class LifeExpectancy
     Sex::MALE_ID => 1.99,
   }.freeze
 
-  def initialize(age, sex_id, state_id, school_year, future_school_year = nil)
+  def initialize(age, sex_id, state_id, school_year)
     @age = age
     @sex_id = sex_id
     @state_id = state_id
-    @school_year = school_year
-    @future_school_year = future_school_year || school_year
+    @school_year = school_year || state_school_year
   end
 
   def value
-    future_age +
+    age +
       life_expectancy +
       education_grade_coefficient *
       (school_year - state_school_year) +
@@ -28,11 +27,7 @@ class LifeExpectancy
 
   private
 
-  attr_reader :age, :sex_id, :state_id, :school_year, :future_school_year
-
-  def future_age
-    age + future_school_year - school_year
-  end
+  attr_reader :age, :sex_id, :state_id, :school_year
 
   def life_expectancy
     kpis_life_expectancy.expected_age
@@ -52,7 +47,7 @@ class LifeExpectancy
 
   def kpis_life_expectancy
     @kpis_life_expectancy ||= Kpis::LifeExpectancy.find_by(
-      age: future_age,
+      age: age,
       sex_id: sex_id,
       state_id: state_id,
     )

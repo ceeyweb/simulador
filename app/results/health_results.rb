@@ -9,7 +9,7 @@ class HealthResults < SimpleDelegator
       mother_age,
       Sex::FEMALE_ID,
       mother_residency_id,
-      mother_education_grade.school_year,
+      mother_school_year,
     ).value
   end
 
@@ -18,7 +18,7 @@ class HealthResults < SimpleDelegator
       father_age,
       Sex::MALE_ID,
       father_residency_id,
-      father_education_grade.school_year,
+      father_school_year,
     ).value
   end
 
