@@ -35,12 +35,13 @@ class User < ApplicationRecord
   validate :disallow_changing_values_after_create
 
   before_validation :set_age_group
-  after_initialize :set_school_year
 
   delegate :education_level, to: :education_grade
   delegate :region, to: :residency
 
   def age
+    return self[:age] if @school_year.nil?
+
     self[:age] + @school_year - education_grade.school_year
   end
 
@@ -54,7 +55,7 @@ class User < ApplicationRecord
 
   def school_year
     if age > 18
-      @school_year
+      @school_year || education_grade.school_year
     elsif mother_and_father_have_education?
       parents_average_school_year
     elsif mother_has_education?
@@ -78,12 +79,8 @@ class User < ApplicationRecord
 
   private
 
-  def set_school_year
-    @school_year = education_grade.school_year
-  end
-
   def set_age_group
-    self["age_group_id"] = AgeGroup.for(age)&.id
+    self[:age_group_id] = AgeGroup.for(age)&.id
   end
 
   def disallow_changing_values_after_create
