@@ -48,12 +48,16 @@ class User < ApplicationRecord
     if age > 18
       @school_year
     elsif mother_and_father_have_education?
-      (mother_school_year + father_school_year).to_f / 2
+      parents_average_school_year
     elsif mother_has_education?
       mother_school_year
     elsif father_has_education?
       father_school_year
     end
+  end
+
+  def parents_average_school_year
+    (mother_school_year + father_school_year).to_f / 2
   end
 
   def mother_school_year

@@ -1,4 +1,4 @@
-class EducationResults::EducationAchievement
+class EducationAchievement
 
   # TODO: rename `AGE_MODIFIER` with explicit name. This will be done as soon
   # as Analytics team shares more context about these value.
