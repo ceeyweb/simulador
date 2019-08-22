@@ -1,15 +1,16 @@
 class EducationResults < SimpleDelegator
 
-  # TODO: rename `PARENTS_DIVIDER` with explicit name. This will be done as
-  # soon as Analytics team shares more context about these value.
-  PARENTS_DIVIDER = 18
+  PARENTS_EXPECTED_AVERAGE_SCHOOL_YEAR = 18
 
   def education_achievement
     EducationAchievement.new(user_age, education_grade.school_year).value
   end
 
   def parents_education_achievement
-    [(parents_average_school_year / PARENTS_DIVIDER), 1].min * 100
+    [
+      (parents_average_school_year / PARENTS_EXPECTED_AVERAGE_SCHOOL_YEAR),
+      1,
+    ].min * 100
   end
 
   def sex_tertiles

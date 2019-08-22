@@ -1,8 +1,6 @@
 class EducationAchievement
 
-  # TODO: rename `AGE_MODIFIER` with explicit name. This will be done as soon
-  # as Analytics team shares more context about these value.
-  AGE_MODIFIER = 5
+  PRESCHOOL_YEARS = 5
 
   def initialize(age, school_year, future_school_year = nil)
     @age = age
@@ -11,7 +9,7 @@ class EducationAchievement
   end
 
   def value
-    [future_school_year / (future_age - AGE_MODIFIER).to_f, 1].min * 100
+    [future_school_year / (future_age - PRESCHOOL_YEARS).to_f, 1].min * 100
   end
 
   private
