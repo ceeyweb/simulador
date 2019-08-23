@@ -46,11 +46,7 @@ class User < ApplicationRecord
   end
 
   def student_age
-    if is_student
-      age + 1
-    else
-      age
-    end
+    age + (is_student ? 1 : 0)
   end
 
   def school_year
