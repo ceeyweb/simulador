@@ -7,12 +7,4 @@ class Sex < ApplicationRecord
            class_name: "Kpis::EducationAchievementSexTertile",
            dependent: :delete_all
 
-  def self.female
-    find(FEMALE_ID)
-  end
-
-  def self.male
-    find(MALE_ID)
-  end
-
 end

@@ -1,4 +1,4 @@
-class EducationResults::AverageIncome
+class AverageIncome
 
   def initialize(sex_id, education_level_id, region_id)
     @sex_id = sex_id
