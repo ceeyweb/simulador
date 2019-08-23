@@ -25,8 +25,8 @@ class User < ApplicationRecord
             :father_age,
             :mother_age,
             :age,
-            :is_student,
             presence: true
+  validates :is_student, inclusion: { in: [true, false] }
   validates :age, numericality: { greater_than_or_equal_to: 0, less_than: 100 }
   validates :father_age,
             :mother_age,

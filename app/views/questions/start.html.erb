@@ -35,12 +35,16 @@
                   wrapper_html: { class: "col-md-3" } %>
 
                 <%= f.input :father_residency_id,
-                  collection: Mexico::ESTADOS,
+                  collection: State.all,
+                  label_method: :description,
+                  value_method: :id,
                   label: label_for(:father_residency_id),
                   wrapper_html: { class: "col-md-4" } %>
 
                 <%= f.input :father_education_grade_id,
-                  collection: Mexico::GRADOS_ESCOLARES,
+                  collection: EducationGrade.all,
+                  label_method: :description,
+                  value_method: :id,
                   label: label_for(:father_education_grade_id),
                   wrapper_html: { class: "col-md-4" } %>
 
@@ -53,12 +57,16 @@
                   wrapper_html: { class: "col-md-3" } %>
 
                 <%= f.input :mother_residency_id,
-                  collection: Mexico::ESTADOS,
+                  collection: State.all,
+                  label_method: :description,
+                  value_method: :id,
                   label: label_for(:mother_residency_id),
                   wrapper_html: { class: "col-md-4" } %>
 
                 <%= f.input :mother_education_grade_id,
-                  collection: Mexico::GRADOS_ESCOLARES,
+                  collection: EducationGrade.all,
+                  label_method: :description,
+                  value_method: :id,
                   label: label_for(:mother_education_grade_id),
                   wrapper_html: { class: "col-md-4" } %>
               </div>
@@ -76,19 +84,23 @@
                   wrapper_html: { class: "col-md-3" } %>
 
                 <%= f.input :residency_id,
-                  collection: Mexico::ESTADOS,
+                  collection: State.without_no_response,
+                  label_method: :description,
+                  value_method: :id,
                   label: label_for(:residency_id),
                   wrapper_html: { class: "col-md-4" } %>
 
                 <%= f.input :education_grade_id,
-                  collection: Mexico::GRADOS_ESCOLARES,
+                  collection: EducationGrade.without_no_response,
+                  label_method: :description,
+                  value_method: :id,
                   label: label_for(:education_grade_id),
                   wrapper_html: { class: "col-md-4" } %>
 
               </div>
 
               <div class="row">
-                <%= f.input :sex,
+                <%= f.input :sex_id,
                   collection: { "Mujer": 1, "Hombre": 2 },
                   label: label_for(:sex),
                   input_html: { class: "col-md-3" },
@@ -109,11 +121,6 @@
                   <div class="form-check inline">
                     <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="0" name="user[is_student]" id="user_is_student_0">
                     <label class="custom-control-label" for="user_is_student_0">No</label>
-                  </div>
-
-                  <div class="form-check inline">
-                    <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="2" name="user[is_student]" id="user_is_student_2">
-                    <label class="custom-control-label" for="user_is_student_2">No Sabe / No Aplica</label>
                   </div>
 
                 </fieldset>
