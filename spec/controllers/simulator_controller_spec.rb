@@ -1,5 +1,10 @@
 require "rails_helper"
 RSpec.describe SimulatorController do
+  before do
+    user = create(:user)
+    cookies["user_id"] = user.id
+  end
+
   describe "GET start" do
     it "returns a 200 response" do
       get :start
