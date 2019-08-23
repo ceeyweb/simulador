@@ -17,23 +17,23 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 text-center">
-        <%= image_tag "esperanza_vida_hombre.png", class: "life-expectancy-image" %>
+        <%= image_tag @user.expected_age_image, class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number"><%= "85 años" %></p>
+          <p class="life-expectancy-number"><%= @user.expected_age %> años</p>
         </div>
       </div>
 
       <div class="col-md-4 text-center">
         <%= image_tag "esperanza_vida_madre.png", class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number"><%= "85 años" %></p>
+          <p class="life-expectancy-number"><%= @user.mother_expected_age %> años</p>
         </div>
       </div>
 
       <div class="col-md-4 text-center">
         <%= image_tag "esperanza_vida_padre.png", class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number"><%= "85 años" %></p>
+          <p class="life-expectancy-number"><%= @user.father_expected_age %> años</p>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="col-md-6 my-auto">
       <p class="text-size-lg map-paragraph-text">
         En el <span class="orange-underline">mundo</span>,
-        <span class="orange-underline"><%= "las mujeres" %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= "89 años" %></span>
+        <span class="orange-underline"><%= @user.sex_text %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= @user.world_expected_age %> años</span>
       </p>
     </div>
   </div>
@@ -70,7 +70,7 @@
     <div class="col-md-6 my-auto">
       <p class="text-size-lg map-paragraph-text">
         En <span class="orange-underline">México</span>,
-        <span class="orange-underline"><%= "las mujeres" %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= "89 años" %></span>
+        <span class="orange-underline"><%= @user.sex_text %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= @user.country_expected_age %> años</span>
       </p>
     </div>
   </div>
@@ -78,13 +78,13 @@
   <div class="row map-colored-row">
     <div class="col-md-6 text-center">
       <div class="offset-1">
-        <%= image_tag "mapa_region_centro.png", class: "map-image" %>
+        <%= image_tag @user.region_map_image, class: "map-image" %>
       </div>
     </div>
     <div class="col-md-6 my-auto">
       <p class="text-size-lg map-paragraph-text">
-        En la región <span class="orange-underline">Centro</span>,
-        <span class="orange-underline"><%= "las mujeres" %></span> de tu generación tienen una esperanza de vida entre <span class="orange-underline"><%= "79" %></span> y <span class="orange-underline"><%= "89 años" %></span>.
+        En la región <span class="orange-underline"><%= @user.region %></span>,
+        <span class="orange-underline"><%= @user.sex_text %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= @user.region_expected_age %> años</span>
       </p>
     </div>
   </div>
@@ -104,14 +104,17 @@
 
   <div class="container">
     <div class="row">
-      <% 5.times do |n| %>
-        <div class="col-2 <%= "offset-1" if n.zero? %>">
-          <%= image_tag "hombre_con_birrete.png", class: "grad-image" %>
+      <% EducationLevel.with_education.each do |education_level| %>
+        <div class="col-2 <%= "offset-1" if education_level.id == 1 %>">
+          <figure>
+            <%= simulator_user_image(education_level.id, @user.education_level, @user.sex, :salud) %>
+            <figcaption><br /><%= education_level.description %></figcaption>
+          </figure>
         </div>
       <% end %>
     </div>
     <div class="row">
-      <input type="range" step="25" class="education-range-input">
+      <input type="range" step="1" min="0" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
     </div>
 
     <div class="row" style="height: 100px">
@@ -125,7 +128,7 @@
             <p class="text-uppercase life-expectancy-text">Esperanza de vida</p>
           </div>
           <div class="col-md-2 white-box text-center">
-            <p class="life-expectancy-number-text">85</p>
+            <p class="life-expectancy-number-text" id="life-expectancy"><%= @user.expected_age %></p>
           </div>
           <div class="col-md-2 simulation-results text-center">
             <p class="text-uppercase life-expectancy-text">años</p>
@@ -142,7 +145,7 @@
             <p class="text-uppercase wellbeing-text" style="padding-top: 0.5rem">Bienestar</p>
           </div>
           <div class="col-md-4 white-box text-center">
-            <p class="life-expectancy-number-text text-uppercase">Mayor</p>
+            <p class="life-expectancy-number-text text-uppercase" id="wellness">MAYOR</p>
           </div>
         </div>
       </div>
