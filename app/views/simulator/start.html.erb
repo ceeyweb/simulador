@@ -162,3 +162,16 @@
 <%= render "shared/benefit_sections", background_dark: true %>
 
 <%= render "shared/footer" %>
+
+<script charset="utf-8">
+  function updateKpis(education_level) {
+    Rails.ajax({
+      url: "/kpis/health?education_level_id=" + education_level,
+      type: "get",
+      success: function(data) {
+        document.getElementById("life-expectancy").innerHTML = data["life_expectancy"];
+      },
+      error: function(data) { console.log("error: ver logs del servidor"); }
+    });
+  }
+</script>
