@@ -1,46 +1,135 @@
-<div class="progress">
-  <p class="text-uppercase center">Progreso</p>
-  <div class="progress-bar"></div>
-</div>
-<div class="card">
-  <div class="card-header">
-    <h1 class="text-uppercase">Necesitamos algunos datos sobre ti</h1>
-  </div>
-  <div class="card-body">
-    <div class="question-header"></div>
-    <div class="question-section">
-      <h4 class="text-uppercase">Escolares</h4>
-      <%= simple_form_for(@user, method: :put, html: { class: "form-inline" }) do |f| %>
-        <%= f.input :is_employed, collection: yes_no, label: label_for(:is_employed), wrapper_html: { class: "col-md-4" } %>
-        <%= f.input :is_first_job, collection: yes_no, label: label_for(:is_first_job), wrapper_html: { class: "col-md-4" } %>
-        <%= f.input :has_healthcare, collection: yes_no, label: label_for(:has_healthcare), wrapper_html: { class: "col-md-4" } %>
-        <%= f.input :job_type_id, collection: yes_no, label: label_for(:job_type_id), wrapper_html: { class: "col-md-4" } %>
-        <%= f.input :has_employees, collection: yes_no, label: label_for(:has_employees), wrapper_html: { class: "col-md-4" } %>
-        <%= f.input :job_employees_group_id, collection: yes_no, label: label_for(:how_many_employees_id), wrapper_html: { class: "col-md-4" } %>
-        <%= f.input :job_schedule_id, collection: yes_no, label: label_for(:job_time_id), wrapper_html: { class: "col-md-4" } %>
-        <%= f.input :job_sector_id, collection: yes_no, label: label_for(:job_sector_id), wrapper_html: { class: "col-md-4" } %>
-    </div>
-  </div>
-  <div class="card-body">
-    <div class="question-header"></div>
-    <div class="question-section">
-      <h4 class="text-uppercase">Hogar</h4>
-        <div class="col-6">
-          <strong>Cuando tenías 14 años, en tu casa había...</strong>
-          <%= f.input :home_had_mobile_phone, collection: yes_no, label: label_for(:en_hogar_habia_celular), wrapper_html: { class: "col-md-4" } %>
-          <%= f.input :home_had_fixed_phone, collection: yes_no, label: label_for(:en_hogar_habia_telefono_fijo), wrapper_html: { class: "col-md-4" } %>
-          <%= f.input :home_had_internet, collection: yes_no, label: label_for(:en_hogar_habia_internet), wrapper_html: { class: "col-md-4" } %>
-          <%= f.input :home_had_stove, collection: yes_no, label: label_for(:en_hogar_habia_estufa), wrapper_html: { class: "col-md-4" } %>
-          <%= f.input :home_had_fridge, collection: yes_no, label: label_for(:en_hogar_habia_refri), wrapper_html: { class: "col-md-4" } %>
-          <%= f.input :home_had_heater, collection: yes_no, label: label_for(:en_hogar_habia_calentador), wrapper_html: { class: "col-md-4" } %>
-          <%= f.input :home_had_toaster, collection: yes_no, label: label_for(:en_hogar_habia_tostador), wrapper_html: { class: "col-md-4" } %>
-          <%= f.input :home_had_water, collection: yes_no, label: label_for(:en_hogar_habia_agua), wrapper_html: { class: "col-md-4" } %>
-          <%= f.input :home_had_bathroom, collection: yes_no, label: label_for(:en_hogar_habia_bano), wrapper_html: { class: "col-md-4" } %>
-          <%= f.input :home_had_electricity, collection: yes_no, label: label_for(:en_hogar_habia_electricidad), wrapper_html: { class: "col-md-4" } %>
+<section class="above-fold-questions-1">
+  <h1 class="text-center heading-1-white">Simulador de</h1>
+  <h1 class="text-uppercase text-center heading-1-black">Movilidad Social</h1>
+  <%= image_tag "padres.png", class: "header-image" %>
+</section>
+
+<section class="below-fold-questions-1">
+  <div class="card questions-card">
+    <div class="card-header">
+      <p class="text-uppercase center">Progreso de respuestas</p>
+      <div class="progress">
+        <div class="progress-bar background-color-primary" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width: 99%;">
+          <span class="sr-only">99% Lleno</span>
         </div>
-        <%= hidden_field_tag :next_step, simulator_start_path %>
-        <%= f.submit "Simulador" %>
-      <% end %>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="question-section">
+        <div class="offset-md-1">
+          <%= simple_form_for(@user, method: :put) do |f| %>
+
+            <div class="container">
+
+              <div class="row">
+                <%= image_tag "maletin_verde.png", class: "col-md-1" %>
+                <h4 class="text-uppercase inline question-section-header col">Laborales</h4>
+              </div>
+
+              <div class="row">
+
+                <%= f.input :is_employed,
+                  collection: yes_no,
+                  label: label_for(:is_employed),
+                  wrapper_html: { class: "col-md-4" } %>
+
+                <%= f.input :is_first_job,
+                  collection: yes_no,
+                  label: label_for(:is_first_job),
+                  wrapper_html: { class: "col-md-4" } %>
+
+                <%= f.input :job_sector_id,
+                  collection: JobSector.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:job_sector_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <strong>En ese empleo o actividad...</strong>
+                </div>
+              </div>
+
+              <div class="row">
+
+                <%= f.input :has_healthcare,
+                  collection: yes_no,
+                  label_method: :first,
+                  value_method: :last,
+                  label: label_for(:has_healthcare),
+                  wrapper_html: { class: "col-md-5" } %>
+
+                <%= f.input :job_type_id,
+                  collection: JobType.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:job_type_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+              </div>
+
+              <div class="row">
+
+                <%= f.input :has_employees,
+                  collection: yes_no,
+                  label: label_for(:has_employees),
+                  wrapper_html: { class: "col-md-4" } %>
+
+                <%= f.input :job_employees_group_id,
+                  collection: JobEmployeesGroup.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:job_employees_group_id),
+                  wrapper_html: { class: "col-md-3" } %>
+
+                <%= f.input :job_schedule_id,
+                  collection: JobSchedule.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:job_schedule_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+              </div>
+
+              <div class="row">
+                <%= image_tag "casa_verde.png", class: "col-md-1" %>
+                <h4 class="text-uppercase inline question-section-header col">Tu Hogar</h4>
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <strong>Cuando tenías 14 años, en tu casa había...</strong>
+                </div>
+              </div>
+
+             <% [
+                  :home_had_mobile_phone,
+                  :home_had_fixed_phone,
+                  :home_had_internet,
+                  :home_had_stove,
+                  :home_had_fridge,
+                  :home_had_heater,
+                  :home_had_toaster,
+                  :home_had_water,
+                  :home_had_bathroom,
+                  :home_had_electricity,
+                ].each do |column| %>
+                <div class="row">
+                  <%= render "custom_radio_buttons", column: column, na_allowed: true  %>
+                </div>
+              <% end %>
+
+              <div class="row">
+                <%= hidden_field_tag :next_step, simulator_start_path %>
+                <%= f.submit "Simulador", class: "btn btn-primary questions-submit-button" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>

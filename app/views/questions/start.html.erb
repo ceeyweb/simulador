@@ -9,8 +9,8 @@
     <div class="card-header">
       <p class="text-uppercase center">Progreso de respuestas</p>
       <div class="progress">
-        <div class="progress-bar background-color-primary" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-          <span class="sr-only">25% Lleno</span>
+        <div class="progress-bar background-color-primary" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%;">
+          <span class="sr-only">33% Lleno</span>
         </div>
       </div>
     </div>
@@ -102,28 +102,13 @@
               <div class="row">
                 <%= f.input :sex_id,
                   collection: { "Mujer": 1, "Hombre": 2 },
-                  label: label_for(:sex),
+                  label: label_for(:sex_id),
                   input_html: { class: "col-md-3" },
                   wrapper_html: { class: "col-md-4" } %>
 
-                <fieldset class="form-group radio_buttons required user_is_student custom-control custom-radio col-md-6">
-                  <legend class="col-form-label pt-0 text-bold">
-                    ¿Asistes a la escuela actualmente?
-                    <abbr title="required">*</abbr>
-                  </legend>
-                  <input type="hidden" name="user[is_student]" value="">
-
-                  <div class="form-check inline">
-                    <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="1" name="user[is_student]" id="user_is_student_1">
-                    <label class="custom-control-label" for="user_is_student_1">Sí</label>
-                  </div>
-
-                  <div class="form-check inline">
-                    <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="0" name="user[is_student]" id="user_is_student_0">
-                    <label class="custom-control-label" for="user_is_student_0">No</label>
-                  </div>
-
-                </fieldset>
+                <div class="col-md-6">
+                  <%= render "custom_radio_buttons", column: :is_student, required: true %>
+                </div>
               </div>
               <div class="row">
                 <%= f.submit "Guardar", class: "btn btn-primary questions-submit-button" %>

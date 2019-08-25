@@ -1,34 +1,82 @@
-<div class="progress">
-  <p class="text-uppercase center">Progreso</p>
-  <div class="progress-bar"></div>
-</div>
-<div class="card">
-  <div class="card-header">
-    <h1 class="text-uppercase">Necesitamos algunos datos sobre tus padres</h1>
-  </div>
-  <div class="card-body">
-    <div class="question-header"></div>
-    <div class="question-section">
-      <h4 class="text-uppercase">Laborales</h4>
-      <%= simple_form_for(@user, method: :put, html: { class: "form-inline" }) do |f| %>
-        <%= f.input :father_is_employed, collection: yes_no, label: label_for(:father_is_employed), wrapper_html: { class: "col-6" } %>
-        <div class="col-6">
-          <strong>En ese empleo o actividad...</strong>
-          <%= f.input :father_has_healthcare, collection: yes_no, label: label_for(:father_has_healthcare) %>
-        </div>
-        <%= f.input :father_job_type, collection: [], label: label_for(:father_job_type), wrapper_html: { class: "col-6" } %>
-        <%= f.input :father_has_employees, collection: [], label: label_for(:father_has_employees), wrapper_html: { class: "col-6" } %>
+<section class="above-fold-questions-1">
+  <h1 class="text-center heading-1-white">Simulador de</h1>
+  <h1 class="text-uppercase text-center heading-1-black">Movilidad Social</h1>
+  <%= image_tag "padres.png", class: "header-image" %>
+</section>
 
-        <%= f.input :mother_is_employed, collection: yes_no, label: label_for(:mother_is_employed), wrapper_html: { class: "col-6" } %>
-        <div class="col-6">
-          <strong>En ese empleo o actividad...</strong>
-          <%= f.input :mother_has_healthcare, collection: yes_no, label: label_for(:mother_has_healthcare) %>
+<section class="below-fold-questions-1">
+  <div class="card questions-card">
+    <div class="card-header">
+      <p class="text-uppercase center">Progreso de respuestas</p>
+      <div class="progress">
+        <div class="progress-bar background-color-primary" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+          <span class="sr-only">66% Lleno</span>
         </div>
-        <%= f.input :mother_job_type, collection: yes_no, label: label_for(:mother_job_type), wrapper_html: { class: "col-6" } %>
-        <%= f.input :mother_has_employees, collection: yes_no, label: label_for(:mother_has_employees), wrapper_html: { class: "col-6" } %>
-        <%= hidden_field_tag :next_step, question_part_3_path %>
-        <%= f.submit "Siguiente" %>
-      <% end %>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="question-section">
+        <div class="offset-md-1">
+          <%= simple_form_for(@user, method: :put) do |f| %>
+
+            <div class="container">
+
+              <div class="row">
+                <%= image_tag "maletin_verde.png", class: "col-md-1" %>
+                <h4 class="text-uppercase inline question-section-header col">Laborales</h4>
+              </div>
+
+              <div class="row">
+
+                <%= f.input :father_is_employed,
+                  collection: yes_no,
+                  label: label_for(:father_is_employed),
+                  wrapper_html: { class: "col-md-3" } %>
+
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <strong>En ese empleo o actividad...</strong>
+                </div>
+              </div>
+              <div class="row">
+
+                <%= f.input :father_has_healthcare,
+                  collection: yes_no,
+                  label_method: :first,
+                  value_method: :last,
+                  label: label_for(:father_has_healthcare),
+                  input_html: { class: "col-md-6" },
+                  wrapper_html: { class: "col-md-6" } %>
+
+                <%= f.input :father_job_type_id,
+                  collection: JobType.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:father_job_type_id),
+                  input_html: { class: "col-md-6" },
+                  wrapper_html: { class: "col-md-6" } %>
+
+              </div>
+
+              <div class="row">
+                <%= f.input :father_job_employees_group_id,
+                  collection: JobEmployeesGroup.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:father_job_employees_group_id),
+                  wrapper_html: { class: "col-md-3" } %>
+              </div>
+
+              <div class="row">
+                <%= hidden_field_tag :next_step, question_part_3_path %>
+                <%= f.submit "Guardar", class: "btn btn-primary questions-submit-button" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
