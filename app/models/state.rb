@@ -4,6 +4,6 @@ class State < ApplicationRecord
 
   belongs_to :region
 
-  scope :without_no_response, -> { where.not(id: NO_RESPONSE_ID) }
+  scope :without_blank, -> { where.not(id: NO_RESPONSE_ID) }
 
 end

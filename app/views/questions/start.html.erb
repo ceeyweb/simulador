@@ -84,14 +84,14 @@
                   wrapper_html: { class: "col-md-3" } %>
 
                 <%= f.input :residency_id,
-                  collection: State.without_no_response,
+                  collection: State.without_blank,
                   label_method: :description,
                   value_method: :id,
                   label: label_for(:residency_id),
                   wrapper_html: { class: "col-md-4" } %>
 
                 <%= f.input :education_grade_id,
-                  collection: EducationGrade.without_no_response,
+                  collection: EducationGrade.without_blank,
                   label_method: :description,
                   value_method: :id,
                   label: label_for(:education_grade_id),
