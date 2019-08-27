@@ -175,4 +175,4 @@ AGE_GROUPS.each do |id, description, lower_limit, upper_limit|
 end
 
 # KPIs data
-KpisLoader.load
+KpisLoader.load_all

@@ -2,7 +2,30 @@ class KpisLoader < ApplicationLoader
 
   class KpisNotFoundError < StandardError; end
 
-  def initialize(kpis = nil)
+  MODELS = {
+    health: [
+      Kpis::LifeExpectancy,
+      Kpis::LifeExpectancyCountry,
+      Kpis::LifeExpectancyRegion,
+      Kpis::LifeExpectancyWorld,
+    ],
+    education: [
+      Kpis::EducationAchievementAgeTertile,
+      Kpis::EducationAchievementRegionTertile,
+      Kpis::EducationAchievementSexTertile,
+      Kpis::EducationAverageIncome,
+    ],
+  }.freeze
+
+  def self.load_all
+    MODELS.each_key do |kpis|
+      load(kpis)
+    end
+
+    true
+  end
+
+  def initialize(kpis)
     @kpis = kpis
 
     raise KpisNotFoundError, "KPIs for `#{kpis}' not found." unless kpis_exist?
@@ -20,33 +43,14 @@ class KpisLoader < ApplicationLoader
 
   private
 
-  MODELS = {
-    health: [
-      Kpis::LifeExpectancy,
-      Kpis::LifeExpectancyCountry,
-      Kpis::LifeExpectancyRegion,
-      Kpis::LifeExpectancyWorld,
-    ],
-    education: [
-      Kpis::EducationAchievementAgeTertile,
-      Kpis::EducationAchievementRegionTertile,
-      Kpis::EducationAchievementSexTertile,
-      Kpis::EducationAverageIncome,
-    ],
-  }.freeze
-
   attr_reader :kpis
 
   def models
-    if kpis.nil?
-      MODELS.values.flatten
-    else
-      MODELS[kpis]
-    end
+    MODELS.values_at(kpis)
   end
 
   def kpis_exist?
-    kpis.nil? || MODELS.keys.include?(kpis)
+    MODELS.key?(kpis)
   end
 
 end
