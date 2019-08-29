@@ -5,9 +5,11 @@ class SimulatorController < ApplicationController
   end
 
   def part_2
+    @user = HealthUser.new(user)
   end
 
   def part_3
+    @user = HealthUser.new(user)
   end
 
   private

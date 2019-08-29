@@ -1,66 +1,160 @@
-<h2 class="center">Simulador de</h2>
-<h1 class="center">Movilidad Social</h1>
-<%= render "shared/benefit_sections" %>
-
 <section>
-<h1 class="center text-uppercase">Educación</h1>
+  <h2 class="heading-2-orange text-center">Simulador de</h2>
+  <h1 class="heading-1-black text-center">Movilidad Social</h1>
+  <%= image_tag "encabezado_educacion_1920.png", class: "header-image" %>
 </section>
 
-<section>
-  <h3 class="center">¿Cuáles son tus logros educativos y los de tus padres?</h3>
-  <p class="center"><strong>Logro educativo:</strong> años de escolaridad cursados con relación a los años que pudiste haber cursado, tomando en cuenta edad, y los logros educativos que ha logrado tu generación.</p>
+<section class="life-expectancy-section">
+  <h3 class="simulator-header-text text-center">¿Cuáles son tus logros educativos y los de tus padres?</h3>
+  <div class="col-md-8 offset-2">
+    <p class="text-center text-size-md simulator-paragraph-text">
+      <strong>Logro educativo:</strong> años de escolaridad cursados con relación
+      a los años que podrías haber cursado, tomando en cuenta tu edad y los logros
+      que ha obtenido tu generación.
+    </p>
+  </div>
 
-  <div class="educational-achievements">
-    <div class="educational-achievement">
-      <p>Tienes el <%= "89" %>% de los logros educativos que podrías haber obtenido</p>
-      <%= image_tag "https://via.placeholder.com/300?text=aguja" %>
-      <p class="text-uppercase"><span class="orange">Tu</span> logro educativo</p>
+  <hr class="dotted-hr">
+
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6 text-center marker-box marker-box-gray">
+        <p class="text-size-lg col-md-8 offset-2">
+          Tienes el <span class="orange">89%</span> de los logros educativos que podrías haber obtenido
+        </p>
+        <%= image_tag "marcador_logro_verde.png", class: "marker-image" %>
+        <p class="text-size-lg uppercase">
+          <span class="orange">Tu</span> logro educativo
+        </p>
+      </div>
+
+      <div class="col-md-6 text-center marker-box">
+        <p class="text-size-lg col-md-8 offset-2">
+          Tus padres tienen el <span class="orange">66%</span> de los logros educativos que se esperaba que obtuvieran
+        </p>
+        <%= image_tag "marcador_logro_verde.png", class: "marker-image" %>
+        <p class="text-size-lg uppercase">
+          Logro educativo de <span class="orange">tus padres</span>
+        </p>
+      </div>
     </div>
 
-    <div class="educational-achievement">
-      <p>Tus padres tienen el <%= "89" %>% de los logros educativos que se esperaba que tuvieran</p>
-      <%= image_tag "https://via.placeholder.com/300?text=aguja" %>
-      <p class="text-uppercase">Logro educativo <span class="orange">tus padres</span></p>
+  </div>
+
+</section>
+
+<section class="simulator-header-section-dark">
+  <h3 class="simulator-header-text text-center">
+    ¿Cómo estás con respecto a
+    <select class="big-select">
+      <option value="mujeres">Mujeres</option>
+    </select>
+    ?
+  </h3>
+</section>
+
+<section class="books-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 offset-1">
+        <p class="text-size-lg center books-section-paragraph-big">
+          De acuerdo con los logros académicos de tu generación, tu desempeño es...
+        </p>
+      </div>
+      <div class="col-md-6">
+        <p class="books-section-heading center uppercase text-size-lg">Logro Escolar</p>
+      </div>
+    </div>
+    <div class="row" style="flex-direction: row-reverse">
+      <%= image_tag "libros_alto.png", class: "books-section-image" %>
     </div>
   </div>
-
 </section>
 
-<section class="heading-2">
-  <h3 class="center">¿Cómo estás con respecto a <input type="dropdown" placeholder="Mujeres">?</h3>
+<section class="simulator-header-section-dark">
+  <h3 class="simulator-header-text text-center">¿Y qué pasa si continúas estudiando?</h3>
 </section>
 
-<section>
-<p class="center">De acuerdo con los logros esperados de tu generación, tu desempeño es...</p>
-<p class="text-uppercase">Logro escolar</p>
-<%= image_tag "https://via.placeholder.com/300?text=libros" %>
+<section class="health-simulation-section">
+  <p class="text-center text-size-md simulator-paragraph-text">
+    Usa la barra para avanzar en el logro escolar y revisa los resultados
+  </p>
 
-</section>
+  <hr class="dotted-hr">
 
-<section class="heading-2">
-  <h3 class="center">¿Y qué pasa si continúas estudiando?</h3>
-</section>
+  <div class="container">
+    <div class="row">
+      <% EducationLevel.with_education.each do |education_level| %>
+        <div class="col-2 <%= "offset-1" if education_level.id == 1 %>">
+          <figure>
+            <%= simulator_user_image(education_level.id, @user.education_level, @user.sex, :salud) %>
+            <figcaption><br /><%= education_level.description %></figcaption>
+          </figure>
+        </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <input type="range" step="1" min="0" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
+    </div>
 
-<section>
-  <p class="center">Usa la barra para avanzar en el logro escolar y revisa los resultados</p>
+    <div class="row" style="height: 100px">
 
-  <hr>
+      <div class="col-6 background-dark-green">
+        <div class="row">
+          <div class="col-md-3 simulation-results text-center">
+            <%= image_tag "logro_icon.png", class: "health-icon" %>
+          </div>
+          <div class="col-md-4 simulation-results">
+            <p class="text-uppercase school-achievement-text">Logro Escolar</p>
+          </div>
+          <div class="col-md-2 white-box text-center">
+            <p class="life-expectancy-number-text" id="life-expectancy"><%= @user.expected_age %></p>
+          </div>
+          <div class="col-md-2 simulation-results text-center">
+            <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
+          </div>
+        </div>
+      </div>
 
-  <input type="range">
+      <div class="col-6 background-orange">
+        <div class="row">
+          <div class="col-md-3 simulation-results text-center">
+            <%= image_tag "ingreso_icon.png", class: "health-icon" %>
+          </div>
+          <div class="col-md-3 simulation-results" style="">
+            <p class="text-uppercase wellbeing-text">Ingreso Mensual</p>
+          </div>
+          <p class="school-achievement-dollar">$</p>
+          <div class="col-md-4 white-box text-center">
+            <p class="life-expectancy-number-text text-uppercase" id="wellness">12,000</p>
+          </div>
+        </div>
+      </div>
 
-  <div class="col-6">
-    <p class="text-uppercase">Logro Escolar</p>
+    </div>
+
   </div>
-
-  <div class="col-6">
-    <p class="text-uppercase">Ingreso Mensual</p>
-  </div>
 </section>
 
-<section>
-  <button>Imprimir</button>
+<section class="print-section text-center">
+  <button class="btn btn-primary print-button">Imprimir</button>
 </section>
 
-<%= render "shared/benefit_sections" %>
+<%= render "shared/benefit_sections", background_dark: true %>
 
 <%= render "shared/footer" %>
+
+<script charset="utf-8">
+  function updateKpis(education_level) {
+    Rails.ajax({
+      url: "/kpis/health?education_level_id=" + education_level,
+      type: "get",
+      success: function(data) {
+        document.getElementById("life-expectancy").innerHTML = data["life_expectancy"];
+      },
+      error: function(data) { console.log("error: ver logs del servidor"); }
+    });
+  }
+</script>
