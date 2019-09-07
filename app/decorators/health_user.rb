@@ -17,7 +17,7 @@ class HealthUser < SimpleDelegator
   end
 
   def region
-    user.region.description
+    super.description
   end
 
   def expected_age_image
@@ -29,25 +29,21 @@ class HealthUser < SimpleDelegator
   end
 
   def sex
-    user.sex.description
+    super.description
   end
 
   def sex_text
-    SEX_TEXT[user.sex_id]
+    SEX_TEXT[sex_id]
   end
 
   def education_level
-    user.education_level.id
+    super.id
   end
 
   private
 
-  def user
-    __getobj__
-  end
-
   def results
-    @results ||= HealthResults.new(user)
+    @results ||= HealthResults.new(__getobj__)
   end
 
 end
