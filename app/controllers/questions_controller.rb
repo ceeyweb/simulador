@@ -1,15 +1,18 @@
 class QuestionsController < ApplicationController
 
   def start
+    return redirect_to where_user_left_off unless is_new_user?
     @user = User.new
   end
 
   def part_2
-    @user = User.find(cookies["user_id"])
+    return redirect_to :question_start if is_new_user?
+    @user = user
   end
 
   def part_3
-    @user = User.find(cookies["user_id"])
+    return redirect_to :question_start if is_new_user?
+    @user = user
   end
 
 end
