@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   private
 
   def is_new_user?
-    !!cookies["user_id"]
+    !cookies["user_id"]
   end
 
   def where_user_left_off

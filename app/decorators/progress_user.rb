@@ -2,8 +2,8 @@ class ProgressUser < SimpleDelegator
 
   def last_url_path
     return :simulator_start if filled_out_all_parts?
-    return :questions_part_2 if part_2_is_incomplete?
-    :questions_part_3
+    return :question_part_2 if part_2_is_incomplete?
+    :question_part_3
   end
 
   private
