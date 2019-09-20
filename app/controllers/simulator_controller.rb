@@ -5,7 +5,7 @@ class SimulatorController < ApplicationController
   end
 
   def part_2
-    @user = HealthUser.new(user)
+    @user = HealthUser.new(EducationUser.new(user))
   end
 
   def part_3

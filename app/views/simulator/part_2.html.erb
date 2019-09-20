@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-md-6 text-center marker-box marker-box-gray">
         <p class="text-size-lg col-md-8 offset-2">
-          Tienes el <span class="orange">89%</span> de los logros educativos que podrías haber obtenido
+          Tienes el <%= content_tag :span, "#{@user.education_achievement}%", class: "orange" %> de los logros educativos que podrías haber obtenido
         </p>
         <%= image_tag "marcador_logro_verde.png", class: "marker-image" %>
         <p class="text-size-lg uppercase">
@@ -32,7 +32,7 @@
 
       <div class="col-md-6 text-center marker-box">
         <p class="text-size-lg col-md-8 offset-2">
-          Tus padres tienen el <span class="orange">66%</span> de los logros educativos que se esperaba que obtuvieran
+          Tus padres tienen el <%= content_tag :span, "#{@user.parents_education_achievement}%", class: "orange" %> de los logros educativos que se esperaba que obtuvieran
         </p>
         <%= image_tag "marcador_logro_verde.png", class: "marker-image" %>
         <p class="text-size-lg uppercase">
@@ -128,7 +128,7 @@
           </div>
           <p class="school-achievement-dollar">$</p>
           <div class="col-md-4 white-box text-center">
-            <p class="life-expectancy-number-text text-uppercase" id="wellness">12,000</p>
+            <p class="life-expectancy-number-text text-uppercase" id="wellness"><%= @user.average_income %></p>
           </div>
         </div>
       </div>
