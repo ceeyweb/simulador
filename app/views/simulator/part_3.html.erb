@@ -110,30 +110,6 @@
   </div>
 </section>
 
-<section class="simulator-header-section-primary">
-  <h3 class="simulator-header-text text-center">Estatus Laboral</h3>
-</section>
-
-<section class="work-marker-section">
-  <div class="container">
-    <div class="row">
-        <%= image_tag "marcador_laboral_1.png", class: "work-marker-image mx-auto" %>
-    </div>
-
-    <div class="row" style="justify-content: space-evenly">
-      <p class="low-work-status">
-        0 - Bajo estatus laboral
-      </p>
-      <div class="work-status-box debug">
-        3.5
-      </div>
-      <p class="high-work-status">
-        5 - Alto estatus laboral
-      </p>
-    </div>
-  </div>
-</section>
-
 <section class="simulator-header-section-dark">
   <h3 class="simulator-header-text text-center">¿Y qué pasa si continúas estudiando?</h3>
 </section>
@@ -168,7 +144,7 @@
             <%= image_tag "face_icon_1.png", class: "health-icon", style: "height: 70px;" %>
           </div>
           <div class="col-md-4 work-simulation-results">
-            <p class="text-uppercase school-achievement-text" style="font-size: 1.6rem">Estatus Laboral</p>
+            <p class="text-uppercase wellbeing-text">Probabilidad de participar en el mercado laboral</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
             <p class="life-expectancy-number-text"><%= @user.expected_age %></p>
@@ -182,7 +158,7 @@
             <%= image_tag "social_security_icon.png", class: "health-icon", style: "margin-top: 1rem" %>
           </div>
           <div class="col-md-5 work-simulation-results">
-            <p class="text-uppercase wellbeing-text">Probabilidad de tener seguridad social</p>
+            <p class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
             <p class="life-expectancy-number-text text-uppercase">80</p>

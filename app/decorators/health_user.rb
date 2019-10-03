@@ -16,6 +16,10 @@ class HealthUser < SimpleDelegator
     end
   end
 
+  def currently_works?
+    false
+  end
+
   def region
     super.description
   end

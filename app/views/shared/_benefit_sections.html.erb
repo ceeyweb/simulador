@@ -3,31 +3,45 @@
 
   <div class="row">
     <div class="col-md-2 offset-1">
-      <span class="benefit-section-circle">1</span>
-      <%= link_to simulator_start_path do %>
+      <span class="benefit-section-circle circle-aqua">1</span>
+
+      <% if defined?(health_enabled) && health_enabled %>
+        <%= link_to simulator_start_path do %>
+          <span class="benefit-section-name">Salud</span>
+        <% end %>
+      <% else %>
         <span class="benefit-section-name">Salud</span>
       <% end %>
     </div>
 
     <div class="col-md-2 benefit-section-divider">
-      <span class="">–––––––</span>
+      <span class="">–––––</span>
     </div>
 
     <div class="col-md-2">
-      <span class="benefit-section-circle">2</span>
-      <%= link_to simulator_part_2_path do %>
+      <span class="benefit-section-circle circle-green">2</span>
+      <% if defined?(education_enabled) && education_enabled %>
+        <%= link_to simulator_part_2_path do %>
+          <span class="benefit-section-name">Educación</span>
+        <% end %>
+      <% else %>
         <span class="benefit-section-name">Educación</span>
       <% end %>
     </div>
 
     <div class="col-md-2">
-      <span class="benefit-section-divider">–––––––</span>
+      <span class="benefit-section-divider">–––––</span>
     </div>
 
     <div class="col-md-2">
-      <span class="benefit-section-circle">3</span>
-      <%= link_to simulator_part_3_path do %>
+      <span class="benefit-section-circle circle-orange">3</span>
+      <% if defined?(work_enabled) && work_enabled %>
+        <%= link_to simulator_part_3_path do %>
+          <span class="benefit-section-name">Trabajo</span>
+        <% end %>
+      <% else %>
         <span class="benefit-section-name">Trabajo</span>
+        <%# <%= image_tag "lock-closed.png" %>
       <% end %>
     </div>
   </div>

@@ -1,14 +1,13 @@
 <section>
   <h2 class="heading-2-orange text-center">Simulador de</h2>
   <h1 class="heading-1-black text-center">Movilidad Social</h1>
-  <%= render "shared/benefit_sections" %>
   <%= image_tag "encabezado_salud_1920.png", class: "header-image" %>
 </section>
 
 <section class="life-expectancy-section">
-  <h3 class="simulator-header-text text-center">¿Cuál es tu esperanza de vida y la de tus padres?</h3>
+  <h3 class="simulator-header-text text-center">¿Cuáles son los años de vida esperados para ti y para tus padres?</h3>
   <p class="text-center text-size-md simulator-paragraph-text">
-    <strong>Esperanza de vida:</strong> número de años que en promedio se espera que viva una persona después de nacer
+    <strong>Años totales de vida esperada:</strong> número de años que en promedio se espera que viva una persona a partir de su edad
   </p>
 
   <hr class="dotted-hr">
@@ -42,7 +41,7 @@
 </section>
 
 <section class="simulator-header-section">
-  <h3 class="simulator-header-text text-center">¿Cómo estás con respecto a...?</h3>
+  <h3 class="simulator-header-text text-center">¿Cómo estás con respecto a <%= @user.sex_text %> de tu generación?</h3>
 </section>
 
 <section class="map-header-section">
@@ -119,7 +118,7 @@
 
     <div class="row" style="height: 100px">
 
-      <div class="col-6 background-teal">
+      <div class="col-12 background-teal">
         <div class="row">
           <div class="col-md-3 simulation-results text-center">
             <%= image_tag "life_expectancy_icon.png", class: "health-icon" %>
@@ -132,20 +131,6 @@
           </div>
           <div class="col-md-2 simulation-results text-center">
             <p class="text-uppercase life-expectancy-text">años</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6 background-orange">
-        <div class="row">
-          <div class="col-md-3 simulation-results text-center">
-            <%= image_tag "wellbeing_icon.png", class: "health-icon" %>
-          </div>
-          <div class="col-md-4 simulation-results">
-            <p class="text-uppercase wellbeing-text" style="padding-top: 0.5rem">Bienestar</p>
-          </div>
-          <div class="col-md-4 white-box text-center">
-            <p class="life-expectancy-number-text text-uppercase" id="wellness">MAYOR</p>
           </div>
         </div>
       </div>

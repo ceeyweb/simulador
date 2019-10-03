@@ -1,7 +1,5 @@
 <section class="above-fold-questions-1">
-  <h1 class="text-center heading-1-white">Simulador de</h1>
-  <h1 class="text-uppercase text-center heading-1-black">Movilidad Social</h1>
-  <%= image_tag "padres.png", class: "header-image" %>
+  <%= image_tag "encabezado_inicio_1920.png", class: "header-image" %>
 </section>
 
 <section class="below-fold-questions-1">
@@ -15,7 +13,6 @@
       </div>
     </div>
     <div class="card-body">
-      <h2 class="card-title text-uppercase text-center color-primary">Necesitamos algunos datos sobre tus <span class="text-bold">padres</span></h1>
       <div class="question-section">
         <div class="offset-md-1">
           <%= simple_form_for(@user) do |f| %>
@@ -23,64 +20,15 @@
             <div class="container">
 
               <div class="row">
-                <%= image_tag "birrete_verde.png", class: "col-md-1" %>
-                <h4 class="text-uppercase inline question-section-header col">Sobre tus Padres</h4>
-              </div>
-
-              <div class="row">
-
-                <%= f.input :father_age,
-                  label: label_for(:father_age),
-                  input_html: { class: "col-md-3" },
-                  wrapper_html: { class: "col-md-3" } %>
-
-                <%= f.input :father_residency_id,
-                  collection: State.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:father_residency_id),
-                  wrapper_html: { class: "col-md-4" } %>
-
-                <%= f.input :father_education_grade_id,
-                  collection: EducationGrade.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:father_education_grade_id),
-                  wrapper_html: { class: "col-md-4" } %>
-
-              </div>
-
-              <div class="row">
-                <%= f.input :mother_age,
-                  label: label_for(:mother_age),
-                  input_html: { class: "col-md-3" },
-                  wrapper_html: { class: "col-md-3" } %>
-
-                <%= f.input :mother_residency_id,
-                  collection: State.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:mother_residency_id),
-                  wrapper_html: { class: "col-md-4" } %>
-
-                <%= f.input :mother_education_grade_id,
-                  collection: EducationGrade.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:mother_education_grade_id),
-                  wrapper_html: { class: "col-md-4" } %>
-              </div>
-
-              <div class="row">
-                <%= image_tag "birrete_verde.png", class: "col-md-1" %>
-                <h4 class="text-uppercase question-section-header col-md">Sobre ti</h4>
+                <%= image_tag "birrete_verde.png", class: "heading-image" %>
+                <h4 class="text-uppercase question-section-header col-md">Tus <strong>Estudios</strong></h4>
               </div>
 
               <div class="row">
 
                 <%= f.input :age,
                   label: label_for(:age),
-                  input_html: { class: "col-md-3" },
+                  input_html: { class: "col-md-4" },
                   wrapper_html: { class: "col-md-3" } %>
 
                 <%= f.input :residency_id,
@@ -103,13 +51,63 @@
                 <%= f.input :sex_id,
                   collection: { "Mujer": 1, "Hombre": 2 },
                   label: label_for(:sex_id),
-                  input_html: { class: "col-md-3" },
+                  input_html: { class: "col-md-6" },
                   wrapper_html: { class: "col-md-4" } %>
 
                 <div class="col-md-6">
                   <%= render "custom_radio_buttons", column: :is_student, required: true %>
                 </div>
               </div>
+
+              <div class="row">
+                <%= image_tag "birrete_verde.png", class: "heading-image" %>
+                <h4 class="text-uppercase inline question-section-header col"><strong>Estudios</strong> de tus Padres</h4>
+              </div>
+
+              <div class="row">
+
+                <%= f.input :father_age,
+                  label: label_for(:father_age),
+                  input_html: { class: "col-md-4" },
+                  wrapper_html: { class: "col-md-3" } %>
+
+                <%= f.input :father_residency_id,
+                  collection: State.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:father_residency_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+                <%= f.input :father_education_grade_id,
+                  collection: EducationGrade.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:father_education_grade_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+              </div>
+
+              <div class="row">
+                <%= f.input :mother_age,
+                  label: label_for(:mother_age),
+                  input_html: { class: "col-md-4" },
+                  wrapper_html: { class: "col-md-3" } %>
+
+                <%= f.input :mother_residency_id,
+                  collection: State.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:mother_residency_id),
+                  wrapper_html: { class: "col-md-4" } %>
+
+                <%= f.input :mother_education_grade_id,
+                  collection: EducationGrade.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:mother_education_grade_id),
+                  wrapper_html: { class: "col-md-4" } %>
+              </div>
+
               <div class="row">
                 <%= f.submit "Guardar", class: "btn btn-primary questions-submit-button" %>
               </div>
@@ -118,5 +116,7 @@
         </div>
       </div>
     </div>
+    <%= render "shared/benefit_sections" %>
   </div>
 </section>
+

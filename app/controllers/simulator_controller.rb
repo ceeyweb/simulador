@@ -10,6 +10,7 @@ class SimulatorController < ApplicationController
 
   def part_3
     @user = HealthUser.new(user)
+    render :user_currently_works if @user.currently_works?
   end
 
   private
