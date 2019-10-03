@@ -6,6 +6,7 @@
 /* Colors */
 $primary: rgb(245, 133, 49);
 $dark-gray: #007071;
+$light-gray: #f3f8f9;
 $teal: #7ecdc0;
 $dark-green: rgb(20, 88, 97);
 $aqua: rgb(128, 216, 198);
@@ -491,7 +492,22 @@ input[type='range']::-ms-thumb {
 
 .books-section-image {
   height: 25rem;
-  text-align: center;
+  position: relative;
+  z-index: 100;
+  top: -410px;
+}
+
+.books-section-stripe {
+  height: 100px;
+  background-color: $light-gray;
+  margin-bottom: 40px;
+}
+
+.books-section-stripe-text {
+  font-size: 21px;
+  width: 250px;
+  margin-top: 15px;
+  text-align: right;
 }
 
 .books-section {

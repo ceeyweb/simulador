@@ -14,7 +14,7 @@ class EducationResults < SimpleDelegator
   end
 
   def sex_tertiles
-    sex.education_achievement_tertiles
+    sex.education_achievement_tertiles.order(:tertile)
   end
 
   def region_tertiles

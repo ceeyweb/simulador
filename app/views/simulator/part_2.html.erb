@@ -70,7 +70,22 @@
       </div>
     </div>
     <div class="row" style="flex-direction: row-reverse">
-      <%= image_tag "libros_alto.png", class: "books-section-image" %>
+      <div class="col-12 books-section-stripe">
+        <p class="books-section-stripe-text" style="margin-left: 300px">
+          Entre <%= tertile_for(@user, :top).lower_limit %>% y <%= tertile_for(@user, :top).upper_limit %>% del desempeño escolar
+        </p>
+      </div>
+      <div class="col-12 books-section-stripe">
+        <p class="books-section-stripe-text" style="margin-left: 200px">
+          Entre <%= tertile_for(@user, :middle).lower_limit %>% y <%= tertile_for(@user, :middle).upper_limit %>% del desempeño escolar
+        </p>
+      </div>
+      <div class="col-12 books-section-stripe">
+        <p class="books-section-stripe-text" style="margin-left: 100px">
+          Entre <%= tertile_for(@user, :bottom).lower_limit %>% y <%= tertile_for(@user, :bottom).upper_limit %>% del desempeño escolar
+        </p>
+      </div>
+      <%= image_tag tertile_image_for(@user), class: "books-section-image" %>
     </div>
   </div>
 </section>
