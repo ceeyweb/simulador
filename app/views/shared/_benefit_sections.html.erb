@@ -8,9 +8,11 @@
       <% if defined?(health_enabled) && health_enabled %>
         <%= link_to simulator_start_path do %>
           <span class="benefit-section-name">Salud</span>
+          <%= image_tag "lock-open.png", class: "lock-image" %>
         <% end %>
       <% else %>
         <span class="benefit-section-name">Salud</span>
+        <%= image_tag "lock-closed.png", class: "lock-image" %>
       <% end %>
     </div>
 
@@ -23,9 +25,11 @@
       <% if defined?(education_enabled) && education_enabled %>
         <%= link_to simulator_part_2_path do %>
           <span class="benefit-section-name">Educación</span>
+          <%= image_tag "lock-open.png", class: "lock-image" %>
         <% end %>
       <% else %>
         <span class="benefit-section-name">Educación</span>
+        <%= image_tag "lock-closed.png", class: "lock-image" %>
       <% end %>
     </div>
 
@@ -38,10 +42,11 @@
       <% if defined?(work_enabled) && work_enabled %>
         <%= link_to simulator_part_3_path do %>
           <span class="benefit-section-name">Trabajo</span>
+          <%= image_tag "lock-closed.png", class: "lock-image" %>
         <% end %>
       <% else %>
         <span class="benefit-section-name">Trabajo</span>
-        <%# <%= image_tag "lock-closed.png" %>
+        <%= image_tag "lock-closed.png", class: "lock-image" %>
       <% end %>
     </div>
   </div>

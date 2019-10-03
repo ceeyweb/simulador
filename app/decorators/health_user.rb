@@ -24,6 +24,10 @@ class HealthUser < SimpleDelegator
     super.description
   end
 
+  def age_group
+    super.description
+  end
+
   def expected_age_image
     "esperanza_vida_#{sex.downcase}.png"
   end

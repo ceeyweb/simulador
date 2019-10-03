@@ -318,7 +318,7 @@ input[type='range']::-ms-thumb {
   border: solid 1px black;
   position: absolute;
   top: 17.2rem;
-  left: 6.8rem;
+  left: 5.8rem;
   width: 10rem;
   .life-expectancy-number {
     margin-bottom: 0;
@@ -434,7 +434,7 @@ input[type='range']::-ms-thumb {
   font-family: sans-serif;
   color: #fff;
   padding: 0.2em 1.4em 0.1em 0.8em;
-  width: 30%;
+  width: 33%;
   border: 1px solid $primary;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -731,4 +731,8 @@ input[type='range']::-ms-thumb {
 
 .heading-image {
   height: 55px;
+}
+
+.lock-image {
+  height: 50px;
 }

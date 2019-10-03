@@ -49,10 +49,9 @@
   <h3 class="simulator-header-text text-center">
     ¿Cómo estás con respecto a
     <select class="big-select">
-      <option value="mujeres">Mujeres</option>
-      <option value="mujeres">Region</option>
-      <option value="mujeres">Age Group</option>
-      <option value="mujeres">Norte Occidente</option>
+      <option value="<%= @user.sex %>"><%= @user.sex_text.titleize %></option>
+      <option value="<%= @user.region %>">La Región <%= @user.region %></option>
+      <option value="<%= @user.age_group %>">Edad <%= @user.age_group %></option>
     </select>
     ?
   </h3>
