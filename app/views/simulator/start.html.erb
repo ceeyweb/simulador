@@ -46,45 +46,41 @@
 
 <section class="map-header-section">
 
-  <div class="row map-colored-row">
-    <div class="col-md-6 text-center">
-      <div class="offset-1">
-        <%= image_tag "mapa_mundo.png", class: "map-image" %>
-      </div>
-    </div>
-    <div class="col-md-6 my-auto">
-      <p class="text-size-lg map-paragraph-text">
-        En el <span class="orange-underline">mundo</span>,
-        <span class="orange-underline"><%= @user.sex_text %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= @user.world_expected_age %> años</span>
-      </p>
-    </div>
-  </div>
-
   <div class="row">
-    <div class="col-md-6 text-center">
-      <div class="offset-1">
-        <%= image_tag "mapa_mexico.png", class: "map-image" %>
+    <div class="col-md-4">
+      <%= image_tag "mapa_mundo.png", class: "map-image" %>
+      <div class="row">
+        <div class="col-md-12 my-auto">
+          <p class="text-size-lg map-paragraph-text">
+            En el <span class="orange-underline">mundo</span>,
+            los años de vida esperados máximos son <span class="orange-underline"><%= @user.world_expected_age %> años</span>
+          </p>
+        </div>
       </div>
     </div>
-    <div class="col-md-6 my-auto">
-      <p class="text-size-lg map-paragraph-text">
-        En <span class="orange-underline">México</span>,
-        <span class="orange-underline"><%= @user.sex_text %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= @user.country_expected_age %> años</span>
-      </p>
-    </div>
-  </div>
 
-  <div class="row map-colored-row">
-    <div class="col-md-6 text-center">
-      <div class="offset-1">
-        <%= image_tag @user.region_map_image, class: "map-image" %>
+    <div class="col-md-4">
+      <%= image_tag "mapa_mexico.png", class: "map-image" %>
+      <div class="row">
+        <div class="col-md-12 my-auto">
+          <p class="text-size-lg map-paragraph-text">
+            En <span class="orange-underline">México</span>,
+            los años de vida esperados máximos son <span class="orange-underline"><%= @user.country_expected_age %> años</span>
+          </p>
+        </div>
       </div>
     </div>
-    <div class="col-md-6 my-auto">
-      <p class="text-size-lg map-paragraph-text">
-        En la región <span class="orange-underline"><%= @user.region %></span>,
-        <span class="orange-underline"><%= @user.sex_text %></span> de tu generación tienen una esperanza de vida máxima de <span class="orange-underline"><%= @user.region_expected_age %> años</span>
-      </p>
+
+    <div class="col-md-4">
+      <%= image_tag @user.region_map_image, class: "map-image" %>
+      <div class="row">
+        <div class="col-md-12 my-auto">
+          <p class="text-size-lg map-paragraph-text">
+            En la región <span class="orange-underline"><%= @user.region %></span>,
+            los años de vida esperados máximos son <span class="orange-underline"><%= @user.region_expected_age %> años</span>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
