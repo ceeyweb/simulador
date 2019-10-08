@@ -159,7 +159,7 @@
   <button class="btn btn-primary print-button">Imprimir</button>
 </section>
 
-<%= render "shared/benefit_sections", background_dark: true %>
+<%= render "shared/benefit_sections", background_dark: true, education_enabled: true, work_enabled: @user.is_employed, health_enabled: true %>
 
 <%= render "shared/footer" %>
 
