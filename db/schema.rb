@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_120806) do
+ActiveRecord::Schema.define(version: 2019_10_11_150212) do
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2019_08_15_120806) do
     t.bigint "sex_id", null: false
     t.bigint "education_level_id", null: false
     t.bigint "region_id", null: false
-    t.integer "average_income", null: false
+    t.float "average_income", null: false
     t.index ["education_level_id"], name: "index_kpis_education_average_incomes_on_education_level_id"
     t.index ["region_id"], name: "index_kpis_education_average_incomes_on_region_id"
     t.index ["sex_id", "education_level_id", "region_id"], name: "kpis_education_average_incomes_key", unique: true
