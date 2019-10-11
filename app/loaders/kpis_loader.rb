@@ -46,7 +46,7 @@ class KpisLoader < ApplicationLoader
   attr_reader :kpis
 
   def models
-    MODELS.values_at(kpis)
+    MODELS.values_at(kpis).first
   end
 
   def kpis_exist?
