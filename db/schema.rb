@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_150212) do
+ActiveRecord::Schema.define(version: 2019_10_11_201518) do
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(version: 2019_10_11_150212) do
     t.integer "home_had_electricity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "home_had_washer"
     t.index ["age_group_id"], name: "index_users_on_age_group_id"
     t.index ["education_grade_id"], name: "index_users_on_education_grade_id"
     t.index ["father_education_grade_id"], name: "index_users_on_father_education_grade_id"
