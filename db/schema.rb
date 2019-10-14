@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_201518) do
+ActiveRecord::Schema.define(version: 2019_10_13_140101) do
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -117,6 +117,27 @@ ActiveRecord::Schema.define(version: 2019_10_11_201518) do
     t.index ["sex_id"], name: "index_kpis_life_expectancies_world_on_sex_id"
   end
 
+  create_table "kpis_work_participation_rates", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "sex_id", null: false
+    t.bigint "region_id", null: false
+    t.integer "age_lower_limit", null: false
+    t.integer "age_upper_limit", null: false
+    t.float "participation_rate", null: false
+    t.float "formal_participation_rate", null: false
+    t.index ["region_id"], name: "index_kpis_work_participation_rates_on_region_id"
+    t.index ["sex_id", "region_id", "age_lower_limit", "age_upper_limit"], name: "kpis_work_participation_rate_key", unique: true
+    t.index ["sex_id"], name: "index_kpis_work_participation_rates_on_sex_id"
+  end
+
+  create_table "kpis_work_transition_probabilities", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "state_id", null: false
+    t.float "keep_formal_work_probability", null: false
+    t.float "lose_formal_work_probability", null: false
+    t.float "lose_informal_work_probability", null: false
+    t.float "keep_informal_work_probability", null: false
+    t.index ["state_id"], name: "index_kpis_work_transition_probabilities_on_state_id"
+  end
+
   create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
   end
@@ -205,6 +226,9 @@ ActiveRecord::Schema.define(version: 2019_10_11_201518) do
   add_foreign_key "kpis_life_expectancies_region", "regions"
   add_foreign_key "kpis_life_expectancies_region", "sexes"
   add_foreign_key "kpis_life_expectancies_world", "sexes"
+  add_foreign_key "kpis_work_participation_rates", "regions"
+  add_foreign_key "kpis_work_participation_rates", "sexes"
+  add_foreign_key "kpis_work_transition_probabilities", "states"
   add_foreign_key "states", "regions"
   add_foreign_key "users", "age_groups"
   add_foreign_key "users", "education_grades", column: "father_education_grade_id"
