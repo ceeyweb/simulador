@@ -15,11 +15,15 @@ class KpisLoader < ApplicationLoader
       Kpis::EducationAchievementSexTertile,
       Kpis::EducationAverageIncome,
     ],
+    work: [
+      Kpis::WorkParticipationRate,
+      Kpis::WorkTransitionProbability,
+    ],
   }.freeze
 
-  def self.load_all
+  def self.load_all(&block)
     MODELS.each_key do |kpis|
-      load(kpis)
+      load(kpis, &block)
     end
 
     true
