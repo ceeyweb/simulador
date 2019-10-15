@@ -698,13 +698,56 @@ input[type='range']::-ms-thumb {
     margin-right: 5%;
 }
 
+.formality-paragraph-one {
+    margin-top: 30px;
+}
+
+.formality-paragraph-two {
+    margin-top: 30px;
+    margin-left: 32%;
+}
+
+.formality-paragraph-green {
+    padding-left: 20px;
+    color: rgb(20, 88, 97);
+    font-size: 1rem
+}
+
+.formality-paragraph-white {
+    padding-left: 20px;
+    color: #FFF;
+    font-size: 1rem
+}
+
+.formality-paragraph-white-bold {
+    color: fff;
+    font-size: 1.6rem
+}
+
+.formality-paragraph-white-num {
+    color: fff;
+    font-size: 3.5rem
+}
+
+.formality-paragraph-green-bold {
+    color: rgb(20, 88, 97);
+    font-size: 1.6rem
+}
+
+.formality-paragraph-green-num {
+    color: rgb(20, 88, 97);
+    font-size: 3.5rem
+}
+
 .form_inform {
     width: 100%;
     height: 405px;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("form_inform.png");
-    margin-left: 5%;
+    margin-left: 0.5%;
+    margin-bottom: 10%;
+    margin-top: 10%;
 }
 
 .market-probabilities {
