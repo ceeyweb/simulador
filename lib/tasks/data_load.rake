@@ -24,7 +24,7 @@ namespace :data do
     end
 
     desc "Load education related 'Kpis' tables"
-    task eduaction: :environment do
+    task education: :environment do
       puts "Loading tables..."
 
       KpisLoader.load(:education) do |model|
