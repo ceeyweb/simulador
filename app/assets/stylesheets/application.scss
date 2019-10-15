@@ -19,6 +19,10 @@ $aqua: rgb(128, 216, 198);
     text-align: center;
 }
 
+.text-size-xs {
+    font-size: 0.7rem;
+}
+
 .text-size-md {
     font-size: 1rem;
 }
@@ -342,6 +346,14 @@ input[type='range']::-ms-thumb {
     width: 80%;
 }
 
+.health-image {
+    width: 80%;
+}
+
+.health-images {
+    padding-left: 18%;
+}
+
 .map-paragraph-text {
     padding-right: 30%;
     padding-left: 2rem;
@@ -580,6 +592,18 @@ input[type='range']::-ms-thumb {
 .benefit-section-divider {
     font-size: 2rem;
     color: #3b3b3bbf;
+}
+
+
+/* Health Section*/
+
+.health-paragraph-text-black {
+    padding-left: 1rem;
+    color: black;
+}
+
+.health-paragraph-text {
+    color: $dark-gray;
 }
 
 

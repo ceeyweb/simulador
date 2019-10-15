@@ -28,7 +28,7 @@
         <%= image_tag "bajo.png", class: "marker-image" %>
         <% elsif @user.education_achievement <= "66" %>
         <%= image_tag "medio.png", class: "marker-image" %>
-        <% elsif @user.education_achievement >= "67" %>
+        <% else @user.education_achievement >= "67" %>
         <%= image_tag "alto.png", class: "marker-image" %>
         <% end %>
         <p class="text-size-lg uppercase">
@@ -44,7 +44,7 @@
         <%= image_tag "bajo.png", class: "marker-image" %>
         <% elsif @user.parents_education_achievement <= "66" %>
         <%= image_tag "medio.png", class: "marker-image" %>
-        <% elsif @user.parents_education_achievement >= "67" %>
+        <% else @user.parents_education_achievement >= "67" %>
         <%= image_tag "alto.png", class: "marker-image" %>
         <% end %>
         <p class="text-size-lg uppercase">

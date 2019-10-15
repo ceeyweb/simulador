@@ -39,6 +39,74 @@
   </div>
 
 </section>
+<section>
+  <h3 class="heading-2-orange text-center">CUÍDATE</h3>
+  <p class="text-size-lg health-paragraph-text-black text-center">La mayoría de los jovenes goza de buena salud,<br> 
+  pero la <span class="text-size-lg health-paragraph-text text-center">mortalidad prematura </span>
+  es considerablemente alta por:</p>
+  
+  <div class="row health-images">
+
+    <div class="col-md-2">
+      <%= image_tag "accidente.png",  class: 'health-image' %>
+      <div class="row">
+        <div class="col-md-9">
+          <p class="text-size-md text-center">
+            accidentes de tránsito
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <%= image_tag "drogas.png", class: 'health-image' %>
+      <div class="row">
+        <div class="col-md-9">
+          <p class="text-size-md text-center">
+            consumo de drogas
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <%= image_tag "obeso.png", class: 'health-image'%>
+      <div class="row">
+        <div class="col-md-9">
+          <p class="text-size-md text-center">
+            falta de actividad física
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-2">
+      <%= image_tag "condon.png",  class: 'health-image' %>
+      <div class="row">
+        <div class="col-md-9">
+          <p class="text-size-md text-center">
+            relaciones sexuales sin protección
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <%= image_tag "violencia.png",  class: 'health-image' %>
+      <div class="row">
+        <div class="col-md-9">
+          <p class="text-size-md text-center">
+            exposición a la violencia
+          </p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <p class="text-size-xs health-paragraph-text-black text-center">Referencia: Organización Mundial de la Salud. (13 de diciembre de 2018). Adolescentes: riesgos para la salud y soluciones</p>
+
+</section>
 
 <section class="simulator-header-section">
   <h3 class="simulator-header-text text-center">¿Cómo estás con respecto a <%= @user.sex_text %> de tu generación?</h3>
@@ -82,6 +150,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
 </section>
