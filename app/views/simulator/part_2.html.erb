@@ -24,7 +24,13 @@
         <p class="text-size-lg col-md-8 offset-2">
           Tienes el <%= content_tag :span, "#{@user.education_achievement}%", class: "orange" %> de los logros educativos que podrías haber obtenido
         </p>
-        <%= image_tag "marcador_logro_verde.png", class: "marker-image" %>
+        <% if @user.education_achievement <= "33" %>
+        <%= image_tag "bajo.png", class: "marker-image" %>
+        <% elsif @user.education_achievement <= "66" %>
+        <%= image_tag "medio.png", class: "marker-image" %>
+        <% elsif @user.education_achievement >= "67" %>
+        <%= image_tag "alto.png", class: "marker-image" %>
+        <% end %>
         <p class="text-size-lg uppercase">
           <span class="orange">Tu</span> logro educativo
         </p>
@@ -34,7 +40,13 @@
         <p class="text-size-lg col-md-8 offset-2">
           Tus padres tienen el <%= content_tag :span, "#{@user.parents_education_achievement}%", class: "orange" %> de los logros educativos que se esperaba que obtuvieran
         </p>
-        <%= image_tag "marcador_logro_verde.png", class: "marker-image" %>
+        <% if @user.parents_education_achievement <= "33" %>
+        <%= image_tag "bajo.png", class: "marker-image" %>
+        <% elsif @user.parents_education_achievement <= "66" %>
+        <%= image_tag "medio.png", class: "marker-image" %>
+        <% elsif @user.parents_education_achievement >= "67" %>
+        <%= image_tag "alto.png", class: "marker-image" %>
+        <% end %>
         <p class="text-size-lg uppercase">
           Logro educativo de <span class="orange">tus padres</span>
         </p>
