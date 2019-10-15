@@ -5,71 +5,8 @@
 </section>
 
 <section class="life-expectancy-section">
-  <h3 class="simulator-header-text text-center">Comparación entre tus padres y tu generación</h3>
-  <div class="col-md-8 offset-2">
-    <p class="text-center text-size-md simulator-paragraph-text">
-      Características de tu primer empleo
-    </p>
-  </div>
+  
 
-  <hr class="dotted-hr">
-
-<section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center">
-    Participación Laboral
-  </h3>
-</section>
-
-
-<section>
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-4 text-center pie-chart-box">
-        <p class="text-size-lg col-md-11 offset-1">
-          Tu probabilidad de entrar al mercado laboral es:
-        </p>
-        <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="73">
-          <span class="easy-pie-chart-percentage">73%</span>
-        </div>
-        <p class="text-size-lg uppercase">
-          Tú
-        </p>
-      </div>
-
-      <div class="col-md-8 text-center pie-chart-box">
-        <p class="text-size-lg col-md-8 offset-2">
-          La tasa de participación laboral de la generación de tus padres es:
-        </p>
-        <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="chart" data-percent="73">
-                <span class="easy-pie-chart-percentage percentage-multiple">73%</span>
-              </div>
-              <p class="text-size-lg uppercase">
-                Tu Madre
-              </p>
-            </div>
-
-            <div class="col-md-6">
-              <div class="chart" data-percent="73">
-                <span class="easy-pie-chart-percentage percentage-multiple">73%</span>
-              </div>
-              <p class="text-size-lg uppercase">
-                Tu Padre
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-</section>
 
 <section class="simulator-header-section-dark">
   <h3 class="simulator-header-text text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">
@@ -79,9 +16,10 @@
 
 <section>
   <div class="container">
+      <h3 class="simulator-header-text text-center">Comparación entre tus padres y tu generación</h3>
 
-    <div class="row">
-      <div class="col-md-5 text-center pie-chart-box">
+    <div class="row">    
+      <div class="col-md-5 text-center pie-chart-box">     
         <p class="text-size-lg col-md-12">
           La probabilidad de tener seguridad social (IMSS, ISSSTE u otros) en tu empleo es:
         </p>
@@ -215,6 +153,8 @@
 <%= render "shared/benefit_sections", background_dark: true, education_enabled: true, work_enabled: @user.is_employed, health_enabled: true %>
 
 <%= render "shared/footer" %>
+
+
 
 <script charset="utf-8">
   function updateKpis(education_level) {

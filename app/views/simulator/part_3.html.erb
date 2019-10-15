@@ -111,12 +111,6 @@
 </section>
 
 <section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">
-    Pérdida de la Formalidad
-  </h3>
-</section>
-
-<section class="simulator-header-section-dark">
   <h3 class="simulator-header-text text-center">¿Y qué pasa si continúas estudiando?</h3>
 </section>
 
@@ -184,7 +178,7 @@
   <button class="btn btn-primary print-button">Imprimir</button>
 </section>
 
-<%= render "shared/benefit_sections", background_dark: true, education_enabled: true, work_enabled: true, health_enabled: true %>
+<%= render "shared/benefit_sections", background_dark: true, education_enabled: true, work_enabled: !@user.is_employed.nil?, health_enabled: true %>
 
 <%= render "shared/footer" %>
 
