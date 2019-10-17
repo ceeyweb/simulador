@@ -47,7 +47,7 @@ class WorkResults < SimpleDelegator
       Kpis::WorkParticipationRate.
         female.
         age(mother_age).
-        region(mother_residency_id).
+        region(mother_residency.region_id).
         first
   end
 
@@ -56,7 +56,7 @@ class WorkResults < SimpleDelegator
       Kpis::WorkParticipationRate.
         male.
         age(father_age).
-        region(father_residency_id).
+        region(father_residency.region_id).
         first
   end
 
