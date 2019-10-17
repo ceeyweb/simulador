@@ -1,7 +1,5 @@
 <section class="above-fold-questions-1">
-  <h1 class="text-center heading-1-white">Simulador de</h1>
-  <h1 class="text-uppercase text-center heading-1-black">Movilidad Social</h1>
-  <%= image_tag "padres.png", class: "header-image" %>
+  <%= image_tag "encabezado_inicio_1920.png", class: "header-image" %>
 </section>
 
 <section class="below-fold-questions-1">
@@ -21,87 +19,16 @@
 
             <div class="container">
 
-              <div class="row">
-                <%= image_tag "maletin_verde.png", class: "col-md-1" %>
-                <h4 class="text-uppercase inline question-section-header col">Laborales</h4>
-              </div>
+              
 
               <div class="row">
-
-                <%= f.input :is_employed,
-                  collection: yes_no,
-                  label: label_for(:is_employed),
-                  wrapper_html: { class: "col-md-4" } %>
-
-                <%= f.input :is_first_job,
-                  collection: yes_no,
-                  label: label_for(:is_first_job),
-                  wrapper_html: { class: "col-md-4" } %>
-
-                <%= f.input :job_sector_id,
-                  collection: JobSector.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:job_sector_id),
-                  wrapper_html: { class: "col-md-4" } %>
-
-              </div>
-
-              <div class="row">
-                <div class="col-6">
-                  <strong>En ese empleo o actividad...</strong>
-                </div>
-              </div>
-
-              <div class="row">
-
-                <%= f.input :has_healthcare,
-                  collection: yes_no,
-                  label_method: :first,
-                  value_method: :last,
-                  label: label_for(:has_healthcare),
-                  wrapper_html: { class: "col-md-5" } %>
-
-                <%= f.input :job_type_id,
-                  collection: JobType.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:job_type_id),
-                  wrapper_html: { class: "col-md-4" } %>
-
-              </div>
-
-              <div class="row">
-
-                <%= f.input :has_employees,
-                  collection: yes_no,
-                  label: label_for(:has_employees),
-                  wrapper_html: { class: "col-md-4" } %>
-
-                <%= f.input :job_employees_group_id,
-                  collection: JobEmployeesGroup.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:job_employees_group_id),
-                  wrapper_html: { class: "col-md-3" } %>
-
-                <%= f.input :job_schedule_id,
-                  collection: JobSchedule.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:job_schedule_id),
-                  wrapper_html: { class: "col-md-4" } %>
-
-              </div>
-
-              <div class="row">
-                <%= image_tag "casa_verde.png", class: "col-md-1" %>
+                <%= image_tag "casa_verde.png", style: "width:50px" %>
                 <h4 class="text-uppercase inline question-section-header col">Tu Hogar</h4>
               </div>
 
-              <div class="row">
+              <div class="row" style="margin-top:20px">
                 <div class="col-6">
-                  <strong>Cuando tenías 14 años, en tu casa había...</strong>
+                  <strong>Cuando tenías 14 años, en tu casa ¿había...?</strong>
                 </div>
               </div>
 
@@ -118,11 +45,11 @@
                   :home_had_electricity,
                 ].each do |column| %>
                 <div class="row">
-                  <%= render "custom_radio_buttons", column: column, na_allowed: true  %>
+                  <%= render "custom_radio_buttons", column: column, na_allowed: true, aqua: true  %>
                 </div>
               <% end %>
 
-              <div class="row">
+              <div class="row" style="justify-content:center">
                 <%= hidden_field_tag :next_step, simulator_start_path %>
                 <%= f.submit "Simulador", class: "btn btn-primary questions-submit-button" %>
               </div>
@@ -131,5 +58,7 @@
         </div>
       </div>
     </div>
+    <%= render "shared/benefit_sections", health_enabled: true, education_enabled: !@user.part_2_is_incomplete?, work_enabled: @user.filled_out_all_parts? %>
   </div>
 </section>
+<%= render "shared/footer" %>

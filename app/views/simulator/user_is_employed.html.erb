@@ -7,9 +7,11 @@
 <section class="life-expectancy-section">
   
 
-
+<section>
+<div class="space_blank"></div>
+</section>
 <section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">
+  <h3 class="simulator-header-text text-center" >
    <span class="tooltip-form text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">?</span>
   Formalidad
   </h3>
@@ -50,7 +52,7 @@
 </section>
 
 <section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">
+  <h3 class="simulator-header-text text-center" >
     Pérdida de la Formalidad
   </h3>
 </section>
@@ -65,14 +67,14 @@
             <p class="text-size-lg formality-paragraph-green text-center">
               La probabilidad <br> de pasar de la <br><span class="formality-paragraph-green-bold">FORMALIDAD </span>a la 
               <span class="formality-paragraph-green-bold">INFORMALIDAD</span> es de: 
-              <span class="formality-paragraph-green-num"><%= @user.keep_formal_work_probability %></span>
+              <span class="formality-paragraph-green-num"><%= @user.lose_formal_work_probability %>%</span>
             </p>          
       </div>
 
       <div class="col-md-4 formality-paragraph-two"> 
             <p class="text-size-lg formality-paragraph-white text-center">
               Una vez estando <br> en la <span class="formality-paragraph-white-bold">INFORMALIDAD, </span><br>
-              la probabilidad de <br> mantenerse en ella es de: <span class="formality-paragraph-white-num"><%= @user.keep_formal_work_probability %></span>
+              la probabilidad de <br> mantenerse en ella es de: <span class="formality-paragraph-white-num"><%= @user.keep_informal_work_probability %>%</span>
             </p>
       </div>
 
@@ -121,7 +123,9 @@
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
             <p  id="work_probability" class="life-expectancy-number-text"><%= @user.work_probability %></p>
+            <span class="text-uppercase school-achievement-text" style="display: inline-block;font-size: 2.5rem">%</span>
           </div>
+            
         </div>
       </div>
 
@@ -131,13 +135,13 @@
             <%= image_tag "social_security_icon.png", class: "health-icon", style: "margin-top: 1rem" %>
           </div>
           <div class="col-md-5 work-simulation-results">
-            <p id="formal_work_probability" class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
+            <p  class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p class="life-expectancy-number-text text-uppercase"></p>
+            <p id="formal_work_probability" class="life-expectancy-number-text text-uppercase"><%= @user.formal_work_probability %></p>
           </div>
           <div class="col-md-2 work-simulation-results text-center">
-            <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem"><%= @user.formal_work_probability %>%</p>
+            <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
           </div>
         </div>
       </div>
@@ -149,6 +153,7 @@
 
 <section class="print-section text-center">
   <button class="btn btn-primary print-button">Imprimir</button>
+  <button class="btn btn-primary print-button" onClick="delete_cookie('user_id')">Comenzar de nuevo</button>
 </section>
 
 <%= render "shared/benefit_sections", background_dark: true, education_enabled: true, work_enabled: @user.is_employed, health_enabled: true %>
@@ -182,6 +187,14 @@
       size: 180,
     });
   });
+</script>
+
+<script>
+function delete_cookie( name ) {
+  document.cookie = "user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  location.replace('/')
+
+}
 </script>
 
 <script>

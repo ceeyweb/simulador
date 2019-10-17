@@ -18,23 +18,24 @@
       <div class="col-md-4 text-center">
         <%= image_tag @user.expected_age_image, class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number"><%= @user.expected_age %> años</p>
+          <p class="life-expectancy-number" style="font-size:1.5rem; color:#215862"><%= @user.expected_age %> años</p>
         </div>
       </div>
 
       <div class="col-md-4 text-center">
         <%= image_tag "esperanza_vida_madre.png", class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number"><%= @user.mother_expected_age %> años</p>
+          <p class="life-expectancy-number" style="font-size:1.5rem; color:#60dac7"><%= @user.mother_expected_age %> años</p>
         </div>
       </div>
 
       <div class="col-md-4 text-center">
         <%= image_tag "esperanza_vida_padre.png", class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number"><%= @user.father_expected_age %> años</p>
+          <p class="life-expectancy-number" style="font-size:1.5rem; color:rgb(245, 133, 49)" ><%= @user.father_expected_age %> años</p>
         </div>
       </div>
+      <p class="text-size-md health-paragraph-text-black text-center" style="margin-top:30px">Los años de vida esperados de los padres son, generalmente mayores porque han superado periodos de riesgo, como los accidentes en la adolescencia.</p>
     </div>
   </div>
 
@@ -178,24 +179,24 @@
       <% end %>
     </div>
     <div class="row">
-      <input type="range" step="1" min="0" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
+      <input type="range" step="1" min="<%=  @user.education_level %>" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
     </div>
 
     <div class="row" style="height: 100px">
 
       <div class="col-12 background-teal">
-        <div class="row">
-          <div class="col-md-3 simulation-results text-center">
-            <%= image_tag "life_expectancy_icon.png", class: "health-icon" %>
+        <div class="row" style="justify-content: center">
+          <div class="col-md-2 simulation-results text-center">
+            <%= image_tag "esperanza.png", class: "health-icon" %>
           </div>
-          <div class="col-md-4 simulation-results">
-            <p class="text-uppercase life-expectancy-text">Esperanza de vida</p>
+          <div class="col-md-3 simulation-results" style="margin-right:-80px">
+            <p class="text-uppercase life-expectancy-text">Años de vida esperados</p>
           </div>
-          <div class="col-md-2 white-box text-center">
+          <div class="col-md-1 white-box text-center">
             <p class="life-expectancy-number-text" id="life-expectancy"><%= @user.expected_age %></p>
           </div>
-          <div class="col-md-2 simulation-results text-center">
-            <p class="text-uppercase life-expectancy-text">años</p>
+          <div class="col-md-1 simulation-results text-center">
+            <p class="text-uppercase life-expectancy-text" style="padding-top:10px">años</p>
           </div>
         </div>
       </div>

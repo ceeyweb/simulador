@@ -55,6 +55,7 @@ class WorkResults < SimpleDelegator
   def father_kpis
     
     @father_kpis ||=
+    
       Kpis::WorkParticipationRate.
         male.
         age(father_age).

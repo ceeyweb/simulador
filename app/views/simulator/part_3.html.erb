@@ -133,7 +133,7 @@
       <% end %>
     </div>
     <div class="row">
-      <input type="range" step="1" min="0" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
+      <input type="range" step="1" min="<%=  @user.education_level %>" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
     </div>
 
     <div class="row" style="height: 100px">
@@ -176,7 +176,7 @@
 
 <section class="print-section text-center">
   <button class="btn btn-primary print-button">Imprimir</button>
-  <button class="btn btn-primary print-button" delete: user_id >Comenzar de nuevo</button>
+  <button class="btn btn-primary print-button" onClick="delete_cookie('user_id')">Comenzar de nuevo</button>
 </section>
 
 <%= render "shared/benefit_sections", background_dark: true, education_enabled: true, work_enabled: !@user.is_employed.nil?, health_enabled: true %>
@@ -211,8 +211,10 @@
 </script>
 
 <script>
-function delete_cookie(req,res,next) {
-  res.clearCookie('user_id')
+function delete_cookie( name ) {
+  document.cookie = "user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  location.replace('/')
+
 }
 </script>
 

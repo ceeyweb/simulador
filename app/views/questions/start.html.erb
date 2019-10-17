@@ -13,18 +13,18 @@
       </div>
     </div>
     <div class="card-body">
-      <div class="question-section">
+      <div class="question-section" >
         <div class="offset-md-1">
           <%= simple_form_for(@user) do |f| %>
 
-            <div class="container">
+            <div class="container" style="margin-left:-30px">
 
-              <div class="row">
+              <div class="row" style="padding-left:20px">
                 <%= image_tag "birrete_verde.png", class: "heading-image" %>
                 <h4 class="text-uppercase question-section-header col-md">Tus <strong>Estudios</strong></h4>
               </div>
 
-              <div class="row">
+              <div class="row" style="padding-left:20px">
 
                 <%= f.input :age,
                   label: label_for(:age),
@@ -47,7 +47,7 @@
 
               </div>
 
-              <div class="row">
+              <div class="row" style="padding-left:20px">
                 <%= f.input :sex_id,
                   collection: { "Mujer": 1, "Hombre": 2 },
                   label: label_for(:sex_id),
@@ -59,12 +59,13 @@
                 </div>
               </div>
 
-              <div class="row">
+              
+              <div class="row healthy" style="padding-top:30px; padding-left:20px">
                 <%= image_tag "birrete_verde.png", class: "heading-image" %>
                 <h4 class="text-uppercase inline question-section-header col"><strong>Estudios</strong> de tus Padres</h4>
               </div>
 
-              <div class="row">
+              <div class="row healthy" style="padding-left:20px">
 
                 <%= f.input :father_age,
                   label: label_for(:father_age),
@@ -87,7 +88,7 @@
 
               </div>
 
-              <div class="row">
+              <div class="row healthy" style="padding-left:20px">
                 <%= f.input :mother_age,
                   label: label_for(:mother_age),
                   input_html: { class: "col-md-4" },
@@ -108,8 +109,8 @@
                   wrapper_html: { class: "col-md-4" } %>
               </div>
 
-              <div class="row">
-                <%= f.submit "Guardar", class: "btn btn-primary questions-submit-button" %>
+              <div class="row" style="justify-content: center">
+                <%= f.submit "Siguiente", class: "btn btn-primary questions-submit-button" %>
               </div>
             </div>
           <% end %>
@@ -117,6 +118,8 @@
       </div>
     </div>
     <%= render "shared/benefit_sections" %>
+    
+
   </div>
 </section>
-
+<%= render "shared/footer" %>

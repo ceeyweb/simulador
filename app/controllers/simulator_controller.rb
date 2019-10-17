@@ -9,11 +9,6 @@ class SimulatorController < ApplicationController
   end
 
   def part_3
-
-    def delete(name, options = {})
-    options.stringify_keys!
-    set_cookie(options.merge("name" => name.to_s, "value" => "", "expires" => Time.at(0)))
-    end
     
     @user = HealthUser.new(WorkUser.new(user))
     render :user_is_employed if @user.is_employed?

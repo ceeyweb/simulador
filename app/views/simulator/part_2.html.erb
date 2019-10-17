@@ -125,7 +125,7 @@
       <% end %>
     </div>
     <div class="row">
-      <input type="range" step="1" min="0" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
+      <input type="range" step="1" min="<%=  @user.education_level %>" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
     </div>
 
     <div class="row" style="height: 100px">

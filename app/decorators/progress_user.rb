@@ -6,8 +6,6 @@ class ProgressUser < SimpleDelegator
     :question_part_3
   end
 
-  private
-
   def part_2_is_incomplete?
     part_2_columns.
       map { |s| __getobj__.public_send(s) }.
@@ -19,6 +17,8 @@ class ProgressUser < SimpleDelegator
       map { |s| __getobj__.public_send(s) }.
       all? { |s| !s.nil? }
   end
+
+  private
 
   def part_2_columns
     %w[

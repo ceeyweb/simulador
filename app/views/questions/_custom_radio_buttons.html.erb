@@ -8,18 +8,18 @@
   <input type="hidden" name="user[<%= column %>]" value="">
 
   <div class="form-check inline">
-    <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="1" name="user[<%= column %>]" id="user_<%= column %>_1">
+    <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="1" name="user[<%= column %>]" id="user_<%= column %>_1">
     <label class="custom-control-label" for="user_<%= column %>_1">Sí</label>
   </div>
 
   <div class="form-check inline">
-    <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="0" name="user[<%= column %>]" id="user_<%= column %>_0">
+    <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="0" name="user[<%= column %>]" id="user_<%= column %>_0">
     <label class="custom-control-label" for="user_<%= column %>_0">No</label>
   </div>
 
   <% if defined?(na_allowed) && na_allowed %>
     <div class="form-check inline">
-      <input class="form-check-input radio_buttons required custom-control-input" type="radio" value="2" name="user[<%= column %>]" id="user_<%= column %>_2">
+      <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="2" name="user[<%= column %>]" id="user_<%= column %>_2">
       <label class="custom-control-label" for="user_<%= column %>_2">No Sabe / No Aplica</label>
     </div>
   <% end %>
