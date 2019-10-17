@@ -30,8 +30,8 @@
           Tu probabilidad de entrar al mercado laboral es:
         </p>
         <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="73">
-          <span class="easy-pie-chart-percentage">73%</span>
+        <div class="chart" data-percent="<%=@user.work_probability %>">
+          <span class="easy-pie-chart-percentage"><%= @user.work_probability %>%</span>
         </div>
         <p class="text-size-lg uppercase">
           Tú
@@ -46,8 +46,8 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <div class="chart" data-percent="73">
-                <span class="easy-pie-chart-percentage percentage-multiple">73%</span>
+              <div class="chart" data-percent="<%= @user.mother_work_participation_rate %>">
+                <span class="easy-pie-chart-percentage percentage-multiple"><%= @user.mother_work_participation_rate %>%</span>
               </div>
               <p class="text-size-lg uppercase">
                 Tu Madre
@@ -55,8 +55,8 @@
             </div>
 
             <div class="col-md-6">
-              <div class="chart" data-percent="73">
-                <span class="easy-pie-chart-percentage percentage-multiple">73%</span>
+              <div class="chart" data-percent="<%= @user.father_work_participation_rate %>">
+                <span class="easy-pie-chart-percentage percentage-multiple"><%= @user.father_work_participation_rate %>%</span>
               </div>
               <p class="text-size-lg uppercase">
                 Tu Padre
@@ -72,8 +72,8 @@
 </section>
 
 <section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">
-    Formalidad
+  <h3 class="simulator-header-text text-center">
+   <div class="tooltip-form text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">?</div> Formalidad
   </h3>
 </section>
 
@@ -86,8 +86,8 @@
           La probabilidad de tener seguridad social (IMSS, ISSSTE u otros) en tu empleo es:
         </p>
         <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="73">
-          <span class="easy-pie-chart-percentage">73%</span>
+        <div class="chart" data-percent="<%= @user.formal_work_probability %>">
+          <span class="easy-pie-chart-percentage"><%= @user.formal_work_probability %>%</span>
         </div>
         <p class="text-size-lg uppercase">
           Tú
@@ -99,8 +99,8 @@
           La tasa de trabajos con seguridad social de la generación de tus padres es:
         </p>
         <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="73">
-          <span class="easy-pie-chart-percentage">73%</span>
+        <div class="chart" data-percent=" <%= @user.father_formal_work_participation_rate %>">
+          <span class="easy-pie-chart-percentage"><%= @user.father_formal_work_participation_rate %>%</span>
         </div>
         <p class="text-size-lg uppercase">
           Tus padres
@@ -141,13 +141,13 @@
       <div class="col-6 background-dark-green">
         <div class="row">
           <div class="col-md-3 work-simulation-results text-center offset-1">
-            <%= image_tag "face_icon_1.png", class: "health-icon", style: "height: 70px;" %>
+            <%= image_tag "mercado_laboral.png", class: "health-icon", style: "height: 70px;" %>
           </div>
           <div class="col-md-4 work-simulation-results">
             <p class="text-uppercase wellbeing-text">Probabilidad de participar en el mercado laboral</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p class="life-expectancy-number-text"><%= @user.expected_age %></p>
+            <p id="work_probability" class="life-expectancy-number-text"><%= @user.work_probability %></p>
           </div>
         </div>
       </div>
@@ -161,7 +161,7 @@
             <p class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p class="life-expectancy-number-text text-uppercase">80</p>
+            <p id="formal_work_probability" class="life-expectancy-number-text text-uppercase"><%= @user.formal_work_probability %></p>
           </div>
           <div class="col-md-2 work-simulation-results text-center">
             <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
@@ -185,10 +185,11 @@
 <script charset="utf-8">
   function updateKpis(education_level) {
     Rails.ajax({
-      url: "/kpis/health?education_level_id=" + education_level,
+      url: "/kpis/work?education_level_id=" + education_level,
       type: "get",
       success: function(data) {
-        document.getElementById("life-expectancy").innerHTML = data["life_expectancy"];
+        document.getElementById("formal_work_probability").innerHTML = data["formal_work_probability"];
+        document.getElementById("work_probability").innerHTML = data["work_probability"];
       },
       error: function(data) { console.log("error: ver logs del servidor"); }
     });

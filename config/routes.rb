@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "simulator/part_3", as: :simulator_part_3
 
   get "kpis/health"
+  get "kpis/work"
+  get "kpis/education"
 
   resources :users, only: [:create, :update]
 end

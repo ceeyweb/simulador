@@ -139,7 +139,7 @@
             <p class="text-uppercase school-achievement-text">Logro Escolar</p>
           </div>
           <div class="col-md-2 white-box text-center">
-            <p class="life-expectancy-number-text" id="life-expectancy"><%= @user.expected_age %></p>
+            <p class="life-expectancy-number-text" id="education_achievement"><%= @user.education_achievement %></p>
           </div>
           <div class="col-md-2 simulation-results text-center">
             <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
@@ -157,7 +157,7 @@
           </div>
           <p class="school-achievement-dollar">$</p>
           <div class="col-md-4 white-box text-center">
-            <p class="life-expectancy-number-text text-uppercase" id="wellness"><%= @user.average_income %></p>
+            <p class="life-expectancy-number-text text-uppercase" id="average_income"><%= @user.average_income %></p>
           </div>
         </div>
       </div>
@@ -178,10 +178,11 @@
 <script charset="utf-8">
   function updateKpis(education_level) {
     Rails.ajax({
-      url: "/kpis/health?education_level_id=" + education_level,
+      url: "/kpis/education?education_level_id=" + education_level,
       type: "get",
       success: function(data) {
-        document.getElementById("life-expectancy").innerHTML = data["life_expectancy"];
+        document.getElementById("education_achievement").innerHTML = data["education_achievement"];
+        document.getElementById("average_income").innerHTML = data["average_income"];
       },
       error: function(data) { console.log("error: ver logs del servidor"); }
     });

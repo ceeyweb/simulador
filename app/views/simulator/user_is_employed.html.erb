@@ -10,7 +10,8 @@
 
 <section class="simulator-header-section-dark">
   <h3 class="simulator-header-text text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">
-    Formalidad
+   <span class="tooltip-form text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">?</span>
+  Formalidad
   </h3>
 </section>
 
@@ -24,8 +25,8 @@
           La probabilidad de tener seguridad social (IMSS, ISSSTE u otros) en tu empleo es:
         </p>
         <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="73">
-          <span class="easy-pie-chart-percentage">73%</span>
+        <div class="chart" data-percent="<%= @user.formal_work_probability %>">
+          <span class="easy-pie-chart-percentage"><%= @user.formal_work_probability %>%</span>
         </div>
         <p class="text-size-lg uppercase">
           Tú
@@ -37,8 +38,8 @@
           La tasa de trabajos con seguridad social de la generación de tus padres es:
         </p>
         <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="73">
-          <span class="easy-pie-chart-percentage">73%</span>
+        <div class="chart" data-percent="<%= @user.father_work_participation_rate %>">
+          <span class="easy-pie-chart-percentage"><%= @user.father_work_participation_rate %>%</span>
         </div>
         <p class="text-size-lg uppercase">
           Tus padres
@@ -64,14 +65,14 @@
             <p class="text-size-lg formality-paragraph-green text-center">
               La probabilidad <br> de pasar de la <br><span class="formality-paragraph-green-bold">FORMALIDAD </span>a la 
               <span class="formality-paragraph-green-bold">INFORMALIDAD</span> es de: 
-              <span class="formality-paragraph-green-num">40%</span>
+              <span class="formality-paragraph-green-num"><%= @user.keep_formal_work_probability %></span>
             </p>          
       </div>
 
       <div class="col-md-4 formality-paragraph-two"> 
             <p class="text-size-lg formality-paragraph-white text-center">
               Una vez estando <br> en la <span class="formality-paragraph-white-bold">INFORMALIDAD, </span><br>
-              la probabilidad de <br> mantenerse en ella es de: <span class="formality-paragraph-white-num">80%</span>
+              la probabilidad de <br> mantenerse en ella es de: <span class="formality-paragraph-white-num"><%= @user.keep_formal_work_probability %></span>
             </p>
       </div>
 
@@ -119,7 +120,7 @@
             <p class="text-uppercase wellbeing-text">Probabilidad de participar en el mercado laboral</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p class="life-expectancy-number-text"><%= @user.expected_age %></p>
+            <p  id="work_probability" class="life-expectancy-number-text"><%= @user.work_probability %></p>
           </div>
         </div>
       </div>
@@ -130,13 +131,13 @@
             <%= image_tag "social_security_icon.png", class: "health-icon", style: "margin-top: 1rem" %>
           </div>
           <div class="col-md-5 work-simulation-results">
-            <p class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
+            <p id="formal_work_probability" class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p class="life-expectancy-number-text text-uppercase">80</p>
+            <p class="life-expectancy-number-text text-uppercase"></p>
           </div>
           <div class="col-md-2 work-simulation-results text-center">
-            <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
+            <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem"><%= @user.formal_work_probability %>%</p>
           </div>
         </div>
       </div>
@@ -159,10 +160,11 @@
 <script charset="utf-8">
   function updateKpis(education_level) {
     Rails.ajax({
-      url: "/kpis/health?education_level_id=" + education_level,
+      url: "/kpis/work?education_level_id=" + education_level,
       type: "get",
       success: function(data) {
-        document.getElementById("life-expectancy").innerHTML = data["life_expectancy"];
+        document.getElementById("formal_work_probability").innerHTML = data["formal_work_probability"];
+        document.getElementById("work_probability").innerHTML = data["work_probability"];
       },
       error: function(data) { console.log("error: ver logs del servidor"); }
     });

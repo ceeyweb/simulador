@@ -9,7 +9,7 @@ class SimulatorController < ApplicationController
   end
 
   def part_3
-    @user = HealthUser.new(user)
+    @user = HealthUser.new(WorkUser.new(user))
     render :user_is_employed if @user.is_employed?
   end
 

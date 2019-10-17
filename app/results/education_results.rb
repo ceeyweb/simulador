@@ -5,7 +5,7 @@ class EducationResults < SimpleDelegator
   def education_achievement
     EducationAchievement.new(student_age, school_year).value
   end
-
+ 
   def parents_education_achievement
     [
       (parents_average_school_year / PARENTS_EXPECTED_AVERAGE_SCHOOL_YEAR),
