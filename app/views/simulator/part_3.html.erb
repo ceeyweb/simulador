@@ -176,6 +176,7 @@
 
 <section class="print-section text-center">
   <button class="btn btn-primary print-button">Imprimir</button>
+  <button class="btn btn-primary print-button" delete: user_id >Comenzar de nuevo</button>
 </section>
 
 <%= render "shared/benefit_sections", background_dark: true, education_enabled: true, work_enabled: !@user.is_employed.nil?, health_enabled: true %>
@@ -207,6 +208,12 @@
       size: 180,
     });
   });
+</script>
+
+<script>
+function delete_cookie(req,res,next) {
+  res.clearCookie('user_id')
+}
 </script>
 
 <script>
