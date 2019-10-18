@@ -11,8 +11,10 @@
           <%= image_tag "lock-open.png", class: "lock-image" %>
         <% end %>
       <% else %>
-        <span class="benefit-section-name">Salud</span>
-        <%= image_tag "lock-closed.png", class: "lock-image" %>
+        <%= link_to question_start_path do %>
+          <span class="benefit-section-name">Salud</span>
+          <%= image_tag "lock-closed.png", class: "lock-image" %>
+        <% end %>
       <% end %>
     </div>
 
@@ -28,8 +30,10 @@
           <%= image_tag "lock-open.png", class: "lock-image" %>
         <% end %>
       <% else %>
-        <span class="benefit-section-name">Educación</span>
-        <%= image_tag "lock-closed.png", class: "lock-image" %>
+        <%= link_to questions_part_2_path do %>
+          <span class="benefit-section-name">Educación</span>
+          <%= image_tag "lock-closed.png", class: "lock-image" %>
+        <% end %>
       <% end %>
     </div>
 
@@ -45,8 +49,10 @@
           <%= image_tag "lock-open.png", class: "lock-image" %>
         <% end %>
       <% else %>
-        <span class="benefit-section-name">Trabajo</span>
-        <%= image_tag "lock-closed.png", class: "lock-image" %>
+        <%= link_to questions_part_2_path do %>
+          <span class="benefit-section-name">Trabajo</span>
+          <%= image_tag "lock-closed.png", class: "lock-image" %>
+        <% end %>
       <% end %>
     </div>
   </div>
