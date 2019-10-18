@@ -114,44 +114,33 @@
 </section>
 
 <section class="map-header-section">
+  <h3 class="simulator-header-text text-center" style="margin-top:0.5rem" >Máximo de años de vida esperados en...</h3>
 
-  <div class="row">
-    <div class="col-md-4">
-      <%= image_tag "mapa_mundo.png", class: "map-image" %>
+
+  <div class="row map-full" style="margin-top:50px"> 
+    <div class="col-md-5 my-auto" style="margin-left:685px; "> 
+      <p class="text-size-md map-paragraph-text" style="color:white; margin-top:60px; font-size: 22px">
+        el mundo
+        <span class="block-map"><%= @user.world_expected_age %> años</span> 
+      </p>
+    </div>
+    <div class="col-md-5 my-auto" style="margin-left:685px; "> 
+      <p class="text-size-lg map-paragraph-text" style="color:white; margin-top:-10px; font-size: 22px">
+        en México
+        <span class="block-map"><%= @user.country_expected_age %> años</span>
+      </p>
+    </div>
+    <div class="col-md-5 my-auto" style="margin-left:685px; ">
       <div class="row">
-        <div class="col-md-12 my-auto">
-          <p class="text-size-lg map-paragraph-text">
-            En el <span class="orange-underline">mundo</span>,
-            los años de vida esperados máximos son <span class="orange-underline"><%= @user.world_expected_age %> años</span>
-          </p>
+        <div class="col-sm-7 my-auto" style="margin-top:50px; margin-left: -30px; font-size:20px">
+        <p class="text-size-md map-paragraph-text" >
+            la región <%= @user.region %></p>
+        </div>
+        <div class="col-sm-4 my auto" style="margin-top:5px; margin-left:-80px; font-size:22px">
+        <span class="block-map" ><%= @user.region_expected_age %> años</span>
         </div>
       </div>
     </div>
-
-    <div class="col-md-4">
-      <%= image_tag "mapa_mexico.png", class: "map-image" %>
-      <div class="row">
-        <div class="col-md-12 my-auto">
-          <p class="text-size-lg map-paragraph-text">
-            En <span class="orange-underline">México</span>,
-            los años de vida esperados máximos son <span class="orange-underline"><%= @user.country_expected_age %> años</span>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <%= image_tag @user.region_map_image, class: "map-image" %>
-      <div class="row">
-        <div class="col-md-12 my-auto">
-          <p class="text-size-lg map-paragraph-text">
-            En la región <span class="orange-underline"><%= @user.region %></span>,
-            los años de vida esperados máximos son <span class="orange-underline"><%= @user.region_expected_age %> años</span>
-          </p>
-        </div>
-      </div>
-    </div>
-
   </div>
 
 </section>
