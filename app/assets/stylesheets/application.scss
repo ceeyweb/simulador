@@ -407,8 +407,10 @@
             background-color: white;
             width: 80px;
             height: 60px;
-            margin-left: 10px;
-            color: black
+            margin-left: 5px;
+            color: black;
+            display: inline-flexbox;
+            padding: 5px;
         }
         
         .map-header-section {
