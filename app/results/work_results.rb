@@ -1,5 +1,5 @@
 class WorkResults < SimpleDelegator
- 
+
   def lose_formal_work_probability
     transition_kpis.lose_formal_work_probability * 100
   end
@@ -43,7 +43,6 @@ class WorkResults < SimpleDelegator
   end
 
   def mother_kpis
-    
     @mother_kpis ||=
       Kpis::WorkParticipationRate.
         female.
@@ -53,9 +52,8 @@ class WorkResults < SimpleDelegator
   end
 
   def father_kpis
-    
     @father_kpis ||=
-    
+
       Kpis::WorkParticipationRate.
         male.
         age(father_age).
