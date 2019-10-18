@@ -132,14 +132,19 @@
     </div>
     <div class="col-md-5 my-auto" style="margin-left:680px; ">
       <div class="row">
-        <div class="col-sm-7 my-auto" style="margin-top:60px; margin-left: -30px; font-size:20px">
-        <p class=" map-paragraph-text" style="color:white;" >
-            la región <%= @user.region %></p>
+        <div class="col-sm-8 my-auto" style="margin-top:70px; margin-left: -30px; font-size:18px">
+        <p class=" map-paragraph-text" style="color:#215862; margin-top:20px" >
+            la región <%= @user.region %>
+        </p>
+        <p  style="width:180px; font-size: 9px; margin-left:32px; margin-top:-15px">
+        <%= @user.region_states %>
+        </p>
+            
             
         </div>
-        <div class="col-sm-4 my auto" style="margin-top:30px; margin-left:-80px; font-size:22px">
+        <div class="col-sm-4 my auto" style="margin-top:30px; margin-left:-100px; font-size:22px">
         <span class="block-map" ><%= @user.region_expected_age %> años</span>
-        <%= @user.region_states %>
+        
         </div>
         
         
