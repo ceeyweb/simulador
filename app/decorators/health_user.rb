@@ -24,6 +24,16 @@ class HealthUser < SimpleDelegator
     super.description
   end
 
+  def region_states
+    __getobj__.
+      region.states.
+      pluck(:description).
+      join(", ").
+      reverse.
+      sub(",", "y ").
+      reverse
+  end
+
   def age_group
     super.description
   end
