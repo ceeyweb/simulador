@@ -12,30 +12,42 @@
 
   <hr class="dotted-hr">
 
-
   <div class="container">
     <div class="row">
       <div class="col-md-4 text-center">
         <%= image_tag @user.expected_age_image, class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number" style="font-size:1.5rem; color:#215862"><%= @user.expected_age %> años</p>
+          <p class="life-expectancy-number" style="font-size:1.5rem; color:#215862">
+            <%= @user.expected_age %> años
+          </p>
         </div>
       </div>
 
       <div class="col-md-4 text-center">
         <%= image_tag "esperanza_vida_madre.png", class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number" style="font-size:1.5rem; color:#60dac7"><%= @user.mother_expected_age %> años</p>
+          <p class="life-expectancy-number" style="font-size:1.5rem; color:#60dac7">
+            <%= @user.mother_expected_age %> años
+          </p>
         </div>
       </div>
 
       <div class="col-md-4 text-center">
         <%= image_tag "esperanza_vida_padre.png", class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number" style="font-size:1.5rem; color:rgb(245, 133, 49)" ><%= @user.father_expected_age %> años</p>
+          <p class="life-expectancy-number" style="font-size:1.5rem; color:rgb(245, 133, 49)">
+            <%= @user.father_expected_age %> años
+          </p>
         </div>
       </div>
-      <p class="text-size-md health-paragraph-text-black text-center" style="margin-top:30px">Los años de vida esperados de los padres son, generalmente mayores porque han superado periodos de riesgo, como los accidentes en la adolescencia.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p class="text-size-md health-paragraph-text-black text-center" style="margin-top:60px">
+      Los años de vida esperados de los padres son, generalmente mayores porque han superado periodos de riesgo, como los accidentes en la adolescencia.
+      </p>
     </div>
   </div>
 
@@ -117,14 +129,14 @@
   <h3 class="simulator-header-text text-center" style="margin-top:0.5rem" >Máximo de años de vida esperados en...</h3>
 
 
-  <div class="row map-full" style="margin-top:50px"> 
-    <div class="col-md-5 my-auto" style="margin-left:685px; "> 
+  <div class="row map-full" style="margin-top:50px">
+    <div class="col-md-5 my-auto" style="margin-left:685px; ">
       <p class="text-size-md map-paragraph-text" style="color:white; margin-top:60px; font-size: 22px">
         el mundo
-        <span class="block-map"><%= @user.world_expected_age %> años</span> 
+        <span class="block-map"><%= @user.world_expected_age %> años</span>
       </p>
     </div>
-    <div class="col-md-5 my-auto" style="margin-left:685px; "> 
+    <div class="col-md-5 my-auto" style="margin-left:685px; ">
       <p class="text-size-lg map-paragraph-text" style="color:white; margin-top:-10px; font-size: 22px">
         en México
         <span class="block-map"><%= @user.country_expected_age %> años</span>
