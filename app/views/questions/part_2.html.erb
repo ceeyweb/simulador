@@ -2,7 +2,7 @@
   <%= image_tag "encabezado_inicio_1920.png", class: "header-image" %>
 </section>
 
-<section class="below-fold-questions-1">
+<section class="below-fold-questions-2">
   <div class="card questions-card">
     <div class="card-header">
       <p class="text-uppercase center">Progreso de respuestas</p>
@@ -14,23 +14,18 @@
     </div>
     <div class="card-body">
       <div class="question-section">
-        <div class="offset-md-1">
+        <div class="offset-md-1 col-md-10">
           <%= simple_form_for(@user, method: :put) do |f| %>
 
             <div class="container">
 
               <div class="row">
-                <%= image_tag "maletin_verde.png", style: "width: 50px" %>
+                <%= image_tag "maletin_naranja.png", style: "width: 50px" %>
                 <h4 class="text-uppercase inline question-section-header col"><strong>Trabajo </strong> de tu padre</h4>
               </div>
 
               <div class="row">
-
-                <%= f.input :father_is_employed,
-                  collection: yes_no,
-                  label: label_for(:father_is_employed),
-                  input_html: { class: "col-md-8" } %>
-
+                <%= render "custom_radio_buttons", column: :father_is_employed, na_allowed: true  %>
               </div>
 
               <div class="row">
@@ -40,13 +35,7 @@
               </div>
               <div class="row">
 
-                <%= f.input :father_has_healthcare,
-                  collection: yes_no,
-                  label_method: :first,
-                  value_method: :last,
-                  label: label_for(:father_has_healthcare),
-                  input_html: { class: "col-md-6" },
-                  wrapper_html: { class: "col-md-6" } %>
+                <%= render "custom_radio_buttons", column: :father_has_healthcare, na_allowed: true  %>
 
                 <%= f.input :father_job_type_id,
                   collection: JobType.all,
@@ -67,9 +56,6 @@
                   input_html: { class: "col-md-8" } %>
               </div>
 
-              
-
-
               <div class="row">
                 <%= image_tag "maletin_naranja.png", style: "width: 50px" %>
                 <h4 class="text-uppercase inline question-section-header col">Tu <strong>trabajo</strong> </h4>
@@ -77,15 +63,8 @@
 
               <div class="row">
 
-                <%= f.input :is_employed,
-                  collection: yes_no,
-                  label: label_for(:is_employed),
-                  wrapper_html: { class: "col-md-4" } %>
-
-                <%= f.input :is_first_job,
-                  collection: yes_no,
-                  label: label_for(:is_first_job),
-                  wrapper_html: { class: "col-md-4" } %>
+                <%= render "custom_radio_buttons", column: :is_employed, na_allowed: true  %>
+                <%= render "custom_radio_buttons", column: :is_first_job, na_allowed: true  %>
 
                 <%= f.input :job_sector_id,
                   collection: JobSector.all,
@@ -104,12 +83,7 @@
 
               <div class="row">
 
-                <%= f.input :has_healthcare,
-                  collection: yes_no,
-                  label_method: :first,
-                  value_method: :last,
-                  label: label_for(:has_healthcare),
-                  wrapper_html: { class: "col-md-5" } %>
+                <%= render "custom_radio_buttons", column: :has_healthcare, na_allowed: true  %>
 
                 <%= f.input :job_type_id,
                   collection: JobType.all,
@@ -122,10 +96,7 @@
 
               <div class="row">
 
-                <%= f.input :has_employees,
-                  collection: yes_no,
-                  label: label_for(:has_employees),
-                  wrapper_html: { class: "col-md-4" } %>
+                <%= render "custom_radio_buttons", column: :has_employees, na_allowed: true  %>
 
                 <%= f.input :job_employees_group_id,
                   collection: JobEmployeesGroup.all,
