@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
 
   def part_3
     return redirect_to :question_start if is_new_user?
-    @user = user
+    @user = ProgressUser.new(user)
   end
 
 end

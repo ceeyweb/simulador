@@ -42,10 +42,10 @@
 </section>
 <section class="healthy">
   <h3 class="heading-2-orange text-center">CUÍDATE</h3>
-  <p class="text-size-lg health-paragraph-text-black text-center">La mayoría de los jovenes goza de buena salud,<br> 
+  <p class="text-size-lg health-paragraph-text-black text-center">La mayoría de los jovenes goza de buena salud,<br>
   pero la <span class="text-size-lg health-paragraph-text text-center">mortalidad prematura </span>
   es considerablemente alta por:</p>
-  
+
   <div class="row health-images">
 
     <div class="col-md-2">
@@ -80,7 +80,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-md-2">
       <%= image_tag "condon.png",  class: 'health-image' %>
       <div class="row">
@@ -184,9 +184,6 @@
           <div class="col-md-1 white-box text-center">
             <p class="life-expectancy-number-text" id="life-expectancy"><%= @user.expected_age %></p>
           </div>
-          <div class="col-md-1 simulation-results text-center">
-            <p class="text-uppercase life-expectancy-text" style="padding-top:10px">años</p>
-          </div>
         </div>
       </div>
 
@@ -197,7 +194,7 @@
 
 <section class="print-section text-center">
   <button class="btn btn-primary print-button">Imprimir</button>
-  
+
 </section>
 
 <%= render "shared/benefit_sections", background_dark: true, education_enabled: true, work_enabled: !@user.is_employed.nil?, health_enabled: true %>
