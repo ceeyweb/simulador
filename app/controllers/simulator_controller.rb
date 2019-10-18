@@ -1,7 +1,7 @@
 class SimulatorController < ApplicationController
 
   def start
-    @user = HealthUser.new(user)
+    @user = HealthUser.new(ProgressUser.new(user))
   end
 
   def part_2
