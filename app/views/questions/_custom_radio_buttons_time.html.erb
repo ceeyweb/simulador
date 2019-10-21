@@ -1,0 +1,27 @@
+<fieldset class="form-group radio_buttons required user_is_student custom-control custom-radio col-md-12">
+  <legend class="col-form-label pt-0 text-bold">
+    <%= label_for(column) %>
+    <% if defined?(required) && required %>
+      <abbr title="required">*</abbr>
+    <% end %>
+  </legend>
+  <input type="hidden" name="user[<%= column %>]" value="">
+
+  <div class="form-check inline">
+    <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="1" name="user[<%= column %>]" id="user_<%= column %>_1">
+    <label class="custom-control-label" for="user_<%= column %>_1">Tiempo completo (40 horas semanales o más)</label>
+  </div>
+
+  <div class="form-check inline">
+    <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="2" name="user[<%= column %>]" id="user_<%= column %>_0">
+    <label class="custom-control-label" for="user_<%= column %>_0">Medio tiempo (menos de 40 horas semanales)</label>
+  </div>
+
+  <% if defined?(na_allowed) && na_allowed %>
+    <div class="form-check inline">
+      <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="99" name="user[<%= column %>]" id="user_<%= column %>_2" checked>
+      <label class="custom-control-label" for="user_<%= column %>_2">No Sabe / No Aplica</label>
+    </div>
+  <% end %>
+
+</fieldset>

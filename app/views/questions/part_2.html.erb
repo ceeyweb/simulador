@@ -37,23 +37,13 @@
 
                 <%= render "custom_radio_buttons", column: :father_has_healthcare, na_allowed: true  %>
 
-                <%= f.input :father_job_type_id,
-                  collection: JobType.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:father_job_type_id),
-                  input_html: { class: "col-md-6" },
-                  wrapper_html: { class: "col-md-6" } %>
+                <%= render "custom_radio_buttons_work", column: :father_job_type_id, na_allowed: true  %>
 
               </div>
 
               <div class="row">
-                <%= f.input :father_job_employees_group_id,
-                  collection: JobEmployeesGroup.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:father_job_employees_group_id),
-                  input_html: { class: "col-md-8" } %>
+
+                <%= render "custom_radio_buttons_number", column: :father_job_employees_group_id, na_allowed: true  %>
               </div>
 
               <div class="row">
@@ -66,12 +56,7 @@
                 <%= render "custom_radio_buttons", column: :is_employed, na_allowed: true  %>
                 <%= render "custom_radio_buttons", column: :is_first_job, na_allowed: true  %>
 
-                <%= f.input :job_sector_id,
-                  collection: JobSector.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:job_sector_id),
-                  wrapper_html: { class: "col-md-4" } %>
+                <%= render "custom_radio_buttons_sector", column: :job_sector_id, na_allowed: true  %>
 
               </div>
 
@@ -84,13 +69,7 @@
               <div class="row">
 
                 <%= render "custom_radio_buttons", column: :has_healthcare, na_allowed: true  %>
-
-                <%= f.input :job_type_id,
-                  collection: JobType.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:job_type_id),
-                  wrapper_html: { class: "col-md-4" } %>
+                <%= render "custom_radio_buttons_work", column: :job_type_id, na_allowed: true  %>
 
               </div>
 
@@ -98,19 +77,9 @@
 
                 <%= render "custom_radio_buttons", column: :has_employees, na_allowed: true  %>
 
-                <%= f.input :job_employees_group_id,
-                  collection: JobEmployeesGroup.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:job_employees_group_id),
-                  wrapper_html: { class: "col-md-3" } %>
+                <%= render "custom_radio_buttons_number", column: :job_employees_group_id, na_allowed: true  %>
 
-                <%= f.input :job_schedule_id,
-                  collection: JobSchedule.all,
-                  label_method: :description,
-                  value_method: :id,
-                  label: label_for(:job_schedule_id),
-                  wrapper_html: { class: "col-md-4" } %>
+                <%= render "custom_radio_buttons_time", column: :job_schedule_id, na_allowed: true  %>
 
               </div>
 
