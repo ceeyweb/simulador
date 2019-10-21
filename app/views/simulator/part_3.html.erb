@@ -31,49 +31,55 @@
         </p>
         <hr class="dotted-hr" style="margin: 1.5rem auto">
         <div class="chart" data-percent="<%=@user.work_probability %>">
-          <span class="easy-pie-chart-percentage"><%= @user.work_probability %>%</span>
+          <span class="easy-pie-chart-percentage">
+            <%= @user.work_probability %>%
+          </span>
         </div>
-        <p class="text-size-lg uppercase">
-          Tú
-        </p>
+        <p class="text-size-lg uppercase">Tú</p>
       </div>
 
       <div class="col-md-8 text-center pie-chart-box">
         <p class="text-size-lg col-md-8 offset-2">
           La tasa de participación laboral de la generación de tus padres es:
         </p>
+
         <hr class="dotted-hr" style="margin: 1.5rem auto">
+
         <div class="container">
           <div class="row">
             <div class="col-md-6">
               <div class="chart" data-percent="<%= @user.mother_work_participation_rate %>">
-                <span class="easy-pie-chart-percentage percentage-multiple"><%= @user.mother_work_participation_rate %>%</span>
+                <span class="easy-pie-chart-percentage percentage-multiple">
+                  <%= @user.mother_work_participation_rate %>%
+                </span>
               </div>
-              <p class="text-size-lg uppercase">
-                Tu Madre
-              </p>
+              <p class="text-size-lg uppercase">Tu Madre</p>
             </div>
 
             <div class="col-md-6">
               <div class="chart" data-percent="<%= @user.father_work_participation_rate %>">
-                <span class="easy-pie-chart-percentage percentage-multiple"><%= @user.father_work_participation_rate %>%</span>
+                <span class="easy-pie-chart-percentage percentage-multiple">
+                  <%= @user.father_work_participation_rate %>%
+                </span>
               </div>
-              <p class="text-size-lg uppercase">
-                Tu Padre
-              </p>
+              <p class="text-size-lg uppercase">Tu Padre</p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
 
   </div>
-
 </section>
 
 <section class="simulator-header-section-dark">
   <h3 class="simulator-header-text text-center">
-   <div class="tooltip-form text-center" data-toggle="tooltip" data-placement="top" title="<%= tooltip_text %>">?</div> Formalidad
+    <div class="tooltip-form text-center"
+         data-toggle="tooltip"
+         data-placement="top"
+         title="<%= tooltip_text %>">?</div>
+    Formalidad
   </h3>
 </section>
 
@@ -87,7 +93,9 @@
         </p>
         <hr class="dotted-hr" style="margin: 1.5rem auto">
         <div class="chart" data-percent="<%= @user.formal_work_probability %>">
-          <span class="easy-pie-chart-percentage"><%= @user.formal_work_probability %>%</span>
+          <span class="easy-pie-chart-percentage">
+            <%= @user.formal_work_probability %>%
+          </span>
         </div>
         <p class="text-size-lg uppercase">
           Tú
@@ -100,7 +108,9 @@
         </p>
         <hr class="dotted-hr" style="margin: 1.5rem auto">
         <div class="chart" data-percent=" <%= @user.father_formal_work_participation_rate %>">
-          <span class="easy-pie-chart-percentage"><%= @user.father_formal_work_participation_rate %>%</span>
+          <span class="easy-pie-chart-percentage">
+            <%= @user.father_formal_work_participation_rate %>%
+          </span>
         </div>
         <p class="text-size-lg uppercase">
           Tus padres
@@ -115,29 +125,10 @@
 </section>
 
 <section class="health-simulation-section" style="padding-bottom: 5rem">
-  <p class="text-center text-size-md simulator-paragraph-text">
-    Usa la barra para avanzar en el logro escolar y revisa los resultados
-  </p>
-
-  <hr class="dotted-hr">
-
   <div class="container">
-    <div class="row">
-      <% EducationLevel.with_education.each do |education_level| %>
-        <div class="col-2 <%= "offset-1" if education_level.id == 1 %>">
-          <figure>
-            <%= simulator_user_image(education_level.id, @user.education_level, @user.sex, :salud) %>
-            <figcaption><br /><%= education_level.description %></figcaption>
-          </figure>
-        </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <input type="range" step="1" min="<%=  @user.education_level %>" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
-    </div>
+    <%= render "slider" %>
 
     <div class="row" style="height: 100px">
-
       <div class="col-6 background-dark-green">
         <div class="row">
           <div class="col-md-3 work-simulation-results text-center offset-1">
@@ -147,7 +138,9 @@
             <p class="text-uppercase wellbeing-text">Probabilidad de participar en el mercado laboral</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p id="work_probability" class="life-expectancy-number-text"><%= @user.work_probability %></p>
+            <p id="work-probability" class="life-expectancy-number-text">
+              <%= @user.work_probability %>
+            </p>
           </div>
         </div>
       </div>
@@ -161,7 +154,9 @@
             <p class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p id="formal_work_probability" class="life-expectancy-number-text text-uppercase"><%= @user.formal_work_probability %></p>
+            <p id="formal-work-probability" class="life-expectancy-number-text text-uppercase">
+              <%= @user.formal_work_probability %>
+            </p>
           </div>
           <div class="col-md-2 work-simulation-results text-center">
             <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
@@ -170,8 +165,6 @@
       </div>
 
     </div>
-
-  </div>
 </section>
 
 <section class="print-section text-center">
@@ -179,26 +172,18 @@
   <button class="btn btn-primary print-button" onClick="delete_cookie('user_id')">Comenzar de nuevo</button>
 </section>
 
-<%= render "shared/benefit_sections", background_dark: true, health_enabled: true, education_enabled: @user.filled_out_all_parts?, work_enabled: @user.filled_out_all_parts? %>
+<%= render "shared/benefit_sections",
+  background_dark: true,
+  health_enabled: true,
+  education_enabled: @user.filled_out_all_parts?,
+  work_enabled: @user.filled_out_all_parts? %>
 
 <%= render "shared/footer" %>
 
-<script charset="utf-8">
-  function updateKpis(education_level) {
-    Rails.ajax({
-      url: "/kpis/work?education_level_id=" + education_level,
-      type: "get",
-      success: function(data) {
-        document.getElementById("formal_work_probability").innerHTML = data["formal_work_probability"];
-        document.getElementById("work_probability").innerHTML = data["work_probability"];
-      },
-      error: function(data) { console.log("error: ver logs del servidor"); }
-    });
-  }
-</script>
-
 <script>
   $(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+
     $('.chart').easyPieChart({
       barColor: "#FF7D00",
       trackColor: "#B5B5B5",
@@ -208,16 +193,9 @@
       size: 180,
     });
   });
-</script>
 
-<script>
-function delete_cookie( name ) {
-  document.cookie = "user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  location.replace('/')
-
-}
-</script>
-
-<script>
-  $('[data-toggle="tooltip"]').tooltip();
+  function delete_cookie( name ) {
+    document.cookie = "user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    location.replace('/')
+  }
 </script>

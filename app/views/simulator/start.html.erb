@@ -54,9 +54,11 @@
 </section>
 <section class="healthy">
   <h3 class="heading-2-orange text-center">CUÍDATE</h3>
-  <p class="text-size-lg health-paragraph-text-black text-center">La mayoría de los jovenes goza de buena salud,<br>
-  pero la <span class="text-size-lg health-paragraph-text text-center">mortalidad prematura </span>
-  es considerablemente alta por:</p>
+  <p class="text-size-lg health-paragraph-text-black text-center">
+    La mayoría de los jovenes goza de buena salud,<br> pero la
+    <span class="text-size-lg health-paragraph-text text-center">mortalidad prematura </span>
+    es considerablemente alta por:
+  </p>
 
   <div class="row health-images">
 
@@ -65,7 +67,7 @@
       <div class="row">
         <div class="col-md-9">
           <p class="text-size-md text-center">
-            accidentes de tránsito
+          accidentes de tránsito
           </p>
         </div>
       </div>
@@ -76,7 +78,7 @@
       <div class="row">
         <div class="col-md-9">
           <p class="text-size-md text-center">
-            consumo de drogas
+          consumo de drogas
           </p>
         </div>
       </div>
@@ -87,7 +89,7 @@
       <div class="row">
         <div class="col-md-9">
           <p class="text-size-md text-center">
-            falta de actividad física
+          falta de actividad física
           </p>
         </div>
       </div>
@@ -98,7 +100,7 @@
       <div class="row">
         <div class="col-md-9">
           <p class="text-size-md text-center">
-            relaciones sexuales sin protección
+          relaciones sexuales sin protección
           </p>
         </div>
       </div>
@@ -109,16 +111,18 @@
       <div class="row">
         <div class="col-md-9">
           <p class="text-size-md text-center">
-            exposición a la violencia
+          exposición a la violencia
           </p>
         </div>
       </div>
     </div>
 
-    </div>
+  </div>
 
-    <p class="text-size-xs health-paragraph-text-black text-center">Referencia: Organización Mundial de la Salud. (13 de diciembre de 2018). Adolescentes: riesgos para la salud y soluciones</p>
-
+  <p class="text-size-xs health-paragraph-text-black text-center">
+    Referencia: Organización Mundial de la Salud. (13 de diciembre de 2018).
+    Adolescentes: riesgos para la salud y soluciones
+  </p>
 </section>
 
 <section class="simulator-header-section">
@@ -126,20 +130,21 @@
 </section>
 
 <section class="map-header-section">
-  <h3 class="simulator-header-text text-center" style="margin-top:0.5rem" >Máximo de años de vida esperados en...</h3>
-
+  <h3 class="simulator-header-text text-center" style="margin-top:0.5rem" >
+    Máximo de años de vida esperados en...
+  </h3>
 
   <div class="row" style="width: 100%;
             height: 500px; margin-top:50px; background-image: url(<%= image_url('mapa_'+@user.region.gsub(" ", "_")+'.png') %>);
             background-size: cover;
-            background-repeat: no-repeat"> 
-    <div class="col-md-5 my-auto" style="margin-left:680px; "> 
+            background-repeat: no-repeat">
+    <div class="col-md-5 my-auto" style="margin-left:680px; ">
       <p class="map-paragraph-text" style="color:white; margin-top:80px; font-size: 22px">
         el mundo
         <span class="block-map"><%= @user.world_expected_age %> años</span>
       </p>
     </div>
-    <div class="col-md-5 my-auto" style="margin-left:680px; "> 
+    <div class="col-md-5 my-auto" style="margin-left:680px; ">
       <p class=" map-paragraph-text" style="color:white; margin-top:40px;font-size: 22px">
         en México
         <span class="block-map"><%= @user.country_expected_age %> años</span>
@@ -148,25 +153,19 @@
     <div class="col-md-5 my-auto" style="margin-left:680px; ">
       <div class="row">
         <div class="col-sm-8 my-auto" style="margin-top:50px; margin-left: -30px; font-size:18px">
-        <p class=" map-paragraph-text" style="color:#215862; margin-top:20px" >
+          <p class="map-paragraph-text" style="color:#215862; margin-top:20px">
             la región <%= @user.region %>
-        </p>
-        <p  style="width:180px; font-size: 9px; margin-left:32px; margin-top:-15px">
-        <%= @user.region_states %>
-        </p>
-            
-            
+          </p>
+          <p  style="width:180px; font-size: 9px; margin-left:32px; margin-top:-15px">
+            <%= @user.region_states %>
+          </p>
         </div>
         <div class="col-sm-4 my auto" style="margin-top:35px; margin-left:-100px; font-size:22px">
-        <span class="block-map" ><%= @user.region_expected_age %> años</span>
-        
+          <span class="block-map" ><%= @user.region_expected_age %> años</span>
         </div>
-        
-        
       </div>
     </div>
   </div>
-
 </section>
 
 <section class="simulator-header-section">
@@ -174,29 +173,10 @@
 </section>
 
 <section class="health-simulation-section">
-  <p class="text-center text-size-md simulator-paragraph-text">
-    Usa la barra para avanzar en el logro escolar y revisa los resultados
-  </p>
-
-  <hr class="dotted-hr">
-
   <div class="container">
-    <div class="row">
-      <% EducationLevel.with_education.each do |education_level| %>
-        <div class="col-2 <%= "offset-1" if education_level.id == 1 %>">
-          <figure>
-            <%= simulator_user_image(education_level.id, @user.education_level, @user.sex, :salud) %>
-            <figcaption><br /><%= education_level.description %></figcaption>
-          </figure>
-        </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <input type="range" step="1" min="<%=  @user.education_level %>" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
-    </div>
+    <%= render "slider" %>
 
     <div class="row" style="height: 100px">
-
       <div class="col-12 background-teal">
         <div class="row" style="justify-content: center">
           <div class="col-md-2 simulation-results text-center">
@@ -210,7 +190,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
   </div>
@@ -221,19 +200,10 @@
 
 </section>
 
-<%= render "shared/benefit_sections", background_dark: true, health_enabled: true, education_enabled: @user.filled_out_all_parts?, work_enabled: @user.filled_out_all_parts? %>
+<%= render "shared/benefit_sections",
+  background_dark: true,
+  health_enabled: true,
+  education_enabled: @user.filled_out_all_parts?,
+  work_enabled: @user.filled_out_all_parts? %>
 
 <%= render "shared/footer" %>
-
-<script charset="utf-8">
-  function updateKpis(education_level) {
-    Rails.ajax({
-      url: "/kpis/health?education_level_id=" + education_level,
-      type: "get",
-      success: function(data) {
-        document.getElementById("life-expectancy").innerHTML = data["life_expectancy"];
-      },
-      error: function(data) { console.log("error: ver logs del servidor"); }
-    });
-  }
-</script>

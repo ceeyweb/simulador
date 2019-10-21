@@ -16,45 +16,44 @@
 
   <hr class="dotted-hr">
 
-
   <div class="container">
-
     <div class="row">
       <div class="col-md-6 text-center marker-box marker-box-gray">
         <p class="text-size-lg col-md-8 offset-2">
           Tienes el <%= content_tag :span, "#{@user.education_achievement}%", class: "orange" %> de los logros educativos que podrías haber obtenido
         </p>
         <% if @user.education_achievement <= "33" %>
-        <%= image_tag "bajo.png", class: "marker-image" %>
+          <%= image_tag "bajo.png", class: "marker-image" %>
         <% elsif @user.education_achievement <= "66" %>
-        <%= image_tag "medio.png", class: "marker-image" %>
+          <%= image_tag "medio.png", class: "marker-image" %>
         <% else @user.education_achievement >= "67" %>
-        <%= image_tag "alto.png", class: "marker-image" %>
+          <%= image_tag "alto.png", class: "marker-image" %>
         <% end %>
+
         <p class="text-size-lg uppercase">
           <span class="orange">Tu</span> logro educativo
         </p>
       </div>
 
       <div class="col-md-6 text-center marker-box">
-        <p class="text-size-lg col-md-9 offset-2">
-          Tus padres tienen el <%= content_tag :span, "#{@user.parents_education_achievement}%", class: "orange" %> de los logros educativos que se esperaba que obtuvieran
+        <p class="text-size-lg col-md-8 offset-2">
+          Tus padres tienen el
+          <%= content_tag :span, "#{@user.parents_education_achievement}%", class: "orange" %>
+          de los logros educativos que se esperaba que obtuvieran
         </p>
         <% if @user.parents_education_achievement <= "33" %>
-        <%= image_tag "bajo.png", class: "marker-image" %>
+          <%= image_tag "bajo.png", class: "marker-image" %>
         <% elsif @user.parents_education_achievement <= "66" %>
-        <%= image_tag "medio.png", class: "marker-image" %>
+          <%= image_tag "medio.png", class: "marker-image" %>
         <% else @user.parents_education_achievement >= "67" %>
-        <%= image_tag "alto.png", class: "marker-image" %>
+          <%= image_tag "alto.png", class: "marker-image" %>
         <% end %>
         <p class="text-size-lg uppercase" style="padding-top:2px">
           Logro educativo de <span class="orange">tus padres</span>
         </p>
       </div>
     </div>
-
   </div>
-
 </section>
 
 <section class="simulator-header-section-dark">
@@ -84,19 +83,26 @@
     <div class="row" style="flex-direction: row-reverse">
       <div class="col-12 books-section-stripe">
         <p class="books-section-stripe-text" style="margin-left: 300px">
-          Entre <%= tertile_for(@user, :top).lower_limit %>% y <%= tertile_for(@user, :top).upper_limit %>% del desempeño escolar
+          Entre
+          <%= tertile_for(@user, :top).lower_limit %>% y <%= tertile_for(@user, :top).upper_limit %>%
+          del desempeño escolar
         </p>
       </div>
       <div class="col-12 books-section-stripe">
         <p class="books-section-stripe-text" style="margin-left: 200px">
-          Entre <%= tertile_for(@user, :middle).lower_limit %>% y <%= tertile_for(@user, :middle).upper_limit %>% del desempeño escolar
+          Entre
+          <%= tertile_for(@user, :middle).lower_limit %>% y <%= tertile_for(@user, :middle).upper_limit %>%
+          del desempeño escolar
         </p>
       </div>
       <div class="col-12 books-section-stripe">
         <p class="books-section-stripe-text" style="margin-left: 100px">
-          Entre <%= tertile_for(@user, :bottom).lower_limit %>% y <%= tertile_for(@user, :bottom).upper_limit %>% del desempeño escolar
+          Entre
+          <%= tertile_for(@user, :bottom).lower_limit %>% y <%= tertile_for(@user, :bottom).upper_limit %>%
+          del desempeño escolar
         </p>
       </div>
+
       <%= image_tag tertile_image_for(@user), class: "books-section-image" %>
     </div>
   </div>
@@ -107,29 +113,10 @@
 </section>
 
 <section class="health-simulation-section">
-  <p class="text-center text-size-md simulator-paragraph-text">
-    Usa la barra para avanzar en el logro escolar y revisa los resultados
-  </p>
-
-  <hr class="dotted-hr">
-
   <div class="container">
-    <div class="row">
-      <% EducationLevel.with_education.each do |education_level| %>
-        <div class="col-2 <%= "offset-1" if education_level.id == 1 %>">
-          <figure>
-            <%= simulator_user_image(education_level.id, @user.education_level, @user.sex, :salud) %>
-            <figcaption><br /><%= education_level.description %></figcaption>
-          </figure>
-        </div>
-      <% end %>
-    </div>
-    <div class="row">
-      <input type="range" step="1" min="<%=  @user.education_level %>" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
-    </div>
+    <%= render "slider" %>
 
     <div class="row" style="height: 100px">
-
       <div class="col-6 background-dark-green">
         <div class="row">
           <div class="col-md-3 simulation-results text-center">
@@ -139,7 +126,9 @@
             <p class="text-uppercase school-achievement-text">Logro Escolar</p>
           </div>
           <div class="col-md-2 white-box text-center">
-            <p class="life-expectancy-number-text" id="education_achievement"><%= @user.education_achievement %></p>
+            <p class="life-expectancy-number-text" id="education-achievement">
+            <%= @user.education_achievement %>
+            </p>
           </div>
           <div class="col-md-2 simulation-results text-center">
             <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
@@ -157,11 +146,12 @@
           </div>
           <p class="school-achievement-dollar">$</p>
           <div class="col-md-4 white-box text-center">
-            <p class="life-expectancy-number-text text-uppercase" id="average_income"><%= @user.average_income %></p>
+            <p class="life-expectancy-number-text text-uppercase" id="average-income">
+            <%= @user.average_income %>
+            </p>
           </div>
         </div>
       </div>
-
     </div>
 
   </div>
@@ -171,20 +161,10 @@
   <button class="btn btn-primary print-button">Imprimir</button>
 </section>
 
-<%= render "shared/benefit_sections", background_dark: true, health_enabled: true, education_enabled: @user.filled_out_all_parts?, work_enabled: @user.filled_out_all_parts? %>
+<%= render "shared/benefit_sections",
+  background_dark: true,
+  health_enabled: true,
+  education_enabled: @user.filled_out_all_parts?,
+  work_enabled: @user.filled_out_all_parts? %>
 
 <%= render "shared/footer" %>
-
-<script charset="utf-8">
-  function updateKpis(education_level) {
-    Rails.ajax({
-      url: "/kpis/education?education_level_id=" + education_level,
-      type: "get",
-      success: function(data) {
-        document.getElementById("education_achievement").innerHTML = data["education_achievement"];
-        document.getElementById("average_income").innerHTML = data["average_income"];
-      },
-      error: function(data) { console.log("error: ver logs del servidor"); }
-    });
-  }
-</script>
