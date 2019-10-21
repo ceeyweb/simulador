@@ -108,7 +108,7 @@
       <% end %>
     </div>
     <div class="row">
-      <input type="range" step="1" min="0" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
+      <input type="range" step="1" min="<%=  @user.education_level %>" max="5" value="<%= @user.education_level %>" onchange="updateKpis(this.value)">
     </div>
 
     <div class="row" style="height: 100px">
@@ -122,10 +122,8 @@
             <p class="text-uppercase wellbeing-text">Probabilidad de participar en el mercado laboral</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p  id="work_probability" class="life-expectancy-number-text"><%= @user.work_probability %></p>
-            <span class="text-uppercase school-achievement-text" style="display: inline-block;font-size: 2.5rem">%</span>
+            <p id="work_probability" class="life-expectancy-number-text"><%= @user.work_probability %></p>
           </div>
-            
         </div>
       </div>
 
@@ -135,7 +133,7 @@
             <%= image_tag "social_security_icon.png", class: "health-icon", style: "margin-top: 1rem" %>
           </div>
           <div class="col-md-5 work-simulation-results">
-            <p  class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
+            <p class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
           </div>
           <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
             <p id="formal_work_probability" class="life-expectancy-number-text text-uppercase"><%= @user.formal_work_probability %></p>

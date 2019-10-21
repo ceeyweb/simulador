@@ -37,7 +37,7 @@
       </div>
 
       <div class="col-md-6 text-center marker-box">
-        <p class="text-size-lg col-md-8 offset-2">
+        <p class="text-size-lg col-md-9 offset-2">
           Tus padres tienen el <%= content_tag :span, "#{@user.parents_education_achievement}%", class: "orange" %> de los logros educativos que se esperaba que obtuvieran
         </p>
         <% if @user.parents_education_achievement <= "33" %>
@@ -70,7 +70,7 @@
 </section>
 
 <section class="books-section">
-  <div class="container">
+  <div class="container" style="height:530px">
     <div class="row">
       <div class="col-md-5 offset-1">
         <p class="text-size-lg center books-section-paragraph-big">
