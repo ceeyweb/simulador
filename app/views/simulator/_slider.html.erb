@@ -1,0 +1,44 @@
+<div class="slider">
+  <p class="text-center text-size-md simulator-paragraph-text">
+    Usa la barra para avanzar en el logro escolar y revisa los resultados
+  </p>
+
+  <div class="row">
+    <div class="col-10 offset-1">
+      <hr class="dotted-hr">
+    </div>
+  </div>
+
+  <div class="row">
+    <% EducationLevel.with_education.each do |education_level| %>
+      <div class="col-2 <%= "offset-1" if education_level.id == 1 %>">
+        <%= simulator_user_image(education_level.id, @user.education_level, @user.sex, :salud) %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row slider__track"
+       data-behavior="slider" data-kpis="<%= @user.kpis %>" data-section="<%= @user.section %>">
+    <% EducationLevel.with_education.each do |education_level| %>
+      <div class="col-2 slider__section
+             <%= "slider__section--left offset-1" if education_level.id == 1 %>
+             <%= "slider__section--right"         if education_level.id == 5 %>
+             <%= "slider__section--selected"      if education_level.id <= @user.education_level %>"
+           data-behavior="<%= "slider-enabled"    if education_level.id >= @user.education_level %>"
+           data-value="<%= education_level.id %>">
+
+        <% if @user.education_level == education_level.id %>
+          <div class="slider__thumb"></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row slider__labels" >
+    <div class="col-2 offset-1">Primaria</div>
+    <div class="col-2">Secundaria</div>
+    <div class="col-2">Preparatoria</div>
+    <div class="col-2">Universidad</div>
+    <div class="col-2">Posgrado</div>
+  </div>
+</div>
