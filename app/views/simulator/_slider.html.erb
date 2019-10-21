@@ -10,15 +10,14 @@
   </div>
 
   <div class="row">
-    <% EducationLevel.with_education.each do |education_level| %>
-      <div class="col-2 <%= "offset-1" if education_level.id == 1 %>">
-        <%= simulator_user_image(education_level.id, @user.education_level, @user.sex, :salud) %>
-      </div>
-    <% end %>
+    <div class="col-10 offset-1">
+      <img src="<%= @user.slider_image %>" data-behavior="slider-image">
+    </div>
   </div>
 
   <div class="row slider__track"
-       data-behavior="slider" data-kpis="<%= @user.kpis %>" data-section="<%= @user.section %>">
+       data-behavior="slider" data-kpis="<%= @user.kpis %>"
+       data-section="<%= @user.section %>">
     <% EducationLevel.with_education.each do |education_level| %>
       <div class="col-2 slider__section
              <%= "slider__section--left offset-1" if education_level.id == 1 %>

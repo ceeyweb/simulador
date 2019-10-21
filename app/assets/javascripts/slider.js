@@ -1,6 +1,7 @@
 class Slider {
   constructor() {
     this.slider = document.querySelector("[data-behavior='slider']");
+    this.image = document.querySelector("[data-behavior='slider-image']");
 
     if (this.slider) {
       this.slider.addEventListener('click', function(event) {
@@ -8,6 +9,7 @@ class Slider {
 
         if (event.target.getAttribute('data-behavior') === "slider-enabled") {
           this.updateSlider(event, selectedValue);
+          this.updateImage(selectedValue);
           this.updateKpis(selectedValue);
         }
       }.bind(this), false);
@@ -31,6 +33,12 @@ class Slider {
       });
 
     event.target.innerHTML = "<div class='slider__thumb'></div>";
+  }
+
+  updateImage(selectedValue) {
+    let partial_name = this.image.src.split(".")[0].slice(0, -1);
+
+    this.image.src = partial_name + selectedValue + ".png";
   }
 
   updateKpis(value) {
