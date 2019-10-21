@@ -30,6 +30,14 @@ class ProgressUser < SimpleDelegator
       father_has_healthcare
       father_job_type_id
       father_job_employees_group_id
+      is_employed
+      is_first_job
+      job_sector_id
+      has_healthcare
+      job_type_id
+      has_employees
+      job_employees_group_id
+      job_schedule_id
     ]
   end
 

@@ -21,8 +21,9 @@ class KpisController < ApplicationController
     @user.school_year = school_year
 
     @kpis = {
-      formal_work_probability: WorkUser.new(@user).formal_work_probability,
-      work_probability: WorkUser.new(@user).work_probability,
+      formal_work_probability: FormalWorkProbability.new(WorkKpisUser.new(@user)).value,
+      work_probability: WorkProbability.new(WorkKpisUser.new(@user)).value,
+      keep_work_probability: KeepFormalWorkProbability.new(WorkKpisUser.new(@user)).value,
     }
 
     render json: @kpis.as_json

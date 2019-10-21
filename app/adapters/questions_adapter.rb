@@ -25,6 +25,7 @@ class QuestionsAdapter
     home_had_water: "Agua entubada dentro de la vivienda",
     home_had_bathroom: "Baño dentro de la vivienda",
     home_had_electricity: "Electricidad",
+    home_had_washer: "Lavadora",
     father_age: "¿Cuál es la edad de tu padre?",
     father_residency_id: "¿En qué Estado de la República Mexicana vive tu padre?",
     father_education_grade_id: "¿Cuál fue el último grado escolar que terminó tu padre?",

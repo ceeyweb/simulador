@@ -3,7 +3,7 @@
  *= require_self
  */
         /* Colors */
-        
+
         $primary: rgb(245, 133, 49);
         $dark-gray: #007071;
         $light-gray: #f3f8f9;
@@ -11,102 +11,102 @@
         $dark-green: rgb(20, 88, 97);
         $aqua: rgb(128, 216, 198);
         /* Utility */
-        
+
         .col-md-1 {
             width: 40px;
         }
-        
+
         .center {
             text-align: center;
         }
-        
+
         .text-size-xs {
             font-size: 0.7rem;
         }
-        
+
         .text-size-md {
             font-size: 1rem;
         }
-        
+
         .text-size-lg {
             font-size: 1.5rem;
         }
-        
+
         .dotted-hr {
             border-top: 3px dotted $dark-gray;
             width: 80%;
             margin: 2rem auto;
         }
-        
+
         .debug {
             border: 2px solid blue;
         }
-        
+
         .color-primary {
             color: $primary;
         }
-        
+
         .background-color-primary {
             background-color: $primary;
         }
-        
+
         .text-bold {
             font-weight: bold;
         }
-        
+
         .inline {
             display: inline-block;
         }
-        
+
         .uppercase {
             text-transform: uppercase;
         }
         /* General styles */
-        
+
         body {
             font-size: 0.75rem;
         }
-        
+
         label {
             font-weight: bold;
         }
-        
+
         figure {
             text-align: center;
         }
-        
+
         figcaption {
             font-weight: bold;
             font-size: 0.9rem;
         }
-        
+
         .heading-2 {
             background-color: #888;
             font-weight: bold;
             color: #ffffff;
             padding: 1em;
         }
-        
+
         .heading-2-orange {
             padding-top: 0.5em;
             color: $primary;
             font-size: 3rem;
         }
-        
+
         .white-section {
             padding: 1em;
             background-color: #fff;
         }
-        
+
         .card-title {
             margin-top: 0.75rem;
         }
-        
+
         .orange-underline {
             color: $primary;
             text-decoration: underline;
         }
-        
+
         .btn-primary {
             background-color: $primary;
             border-color: $primary;
@@ -118,39 +118,39 @@
             }
         }
         /* Input styles */
-        
+
         input[type='number'] {
             -moz-appearance: textfield;
             appearance: textfield;
             margin: 0;
             border-radius: 0;
         }
-        
+
         input[type='number']::-webkit-inner-spin-button,
         input[type='number']::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
-        
+
         select {
             border: 2px solid #19618a !important;
             border-radius: 0 !important;
         }
-        
+
         .custom-radio .custom-control-input:checked~.custom-control-label::after {
             background-image: none;
         }
-        
+
         .custom-control-input:checked~.custom-control-label::before {
             background-color: $primary;
             border-color: $primary;
         }
-        
+
         .input-background-aqua:checked~.custom-control-label::before {
             background-color: $aqua;
             border-color: $aqua;
         }
-        
+
         .custom-control-label {
             margin-bottom: 0.5rem;
             height: 2rem;
@@ -169,17 +169,17 @@
             }
         }
         /* Input 'range' styles */
-        
+
         input[type='range'] {
             -webkit-appearance: none;
             margin: 25px 122px 45px;
             width: 100%;
         }
-        
+
         input[type='range']:focus {
             outline: none;
         }
-        
+
         input[type='range']::-webkit-slider-runnable-track {
             width: 100%;
             height: 14px;
@@ -188,7 +188,7 @@
             background: #cdcbd5;
             border-radius: 15px;
         }
-        
+
         input[type='range']::-webkit-slider-thumb {
             height: 25px;
             width: 25px;
@@ -198,7 +198,7 @@
             -webkit-appearance: none;
             margin-top: -7px;
         }
-        
+
         input[type='range']::-moz-range-track {
             width: 100%;
             height: 14px;
@@ -207,7 +207,7 @@
             background: $primary;
             border-radius: 15px;
         }
-        
+
         input[type='range']::-moz-range-thumb {
             height: 25px;
             width: 25px;
@@ -215,7 +215,7 @@
             background: $primary;
             cursor: pointer;
         }
-        
+
         input[type='range']::-ms-track {
             width: 100%;
             height: 14px;
@@ -226,17 +226,17 @@
             border-width: 0px 0;
             color: transparent;
         }
-        
+
         input[type='range']::-ms-fill-lower {
             background: $primary;
             border-radius: 15px;
         }
-        
+
         input[type='range']::-ms-fill-upper {
             background: #cdcbd5;
             border-radius: 15px;
         }
-        
+
         input[type='range']::-ms-thumb {
             height: 25px;
             width: 25px;
@@ -245,15 +245,15 @@
             cursor: pointer;
         }
         /* Questions start */
-        
+
         .above-fold-questions-1 {
             background-color: #007273;
         }
-        
+
         .below-fold-questions-1 {
             background-color: #145861;
         }
-        
+
         .below-fold-questions-2 {
             background-color: $primary;
         }
@@ -263,52 +263,52 @@
             padding-top: 1em;
             font-size: 3.5em;
         }
-        
+
         .heading-1-black {
             color: #000;
             font-weight: bold;
             font-size: 4rem;
         }
-        
+
         .questions-card {
             margin: 0 5%;
         }
-        
+
         .question-section-header {
             margin-top: 1rem;
             color: #3b3b3b;
             font-weight: bold;
         }
-        
+
         .integer {
             display: block !important;
         }
-        
+
         .form-group {
             margin: 1rem 0;
         }
-        
+
         .questions-submit-button {
             border-radius: 0;
             margin-top: 1rem;
         }
         /* Simulator sections */
-        
+
         .print-section {
             height: 150px;
             background-color: #fff;
         }
-        
+
         .print-button {
             margin-top: 55px;
         }
-        
+
         .simulator-header-text {
             color: #006c6f;
             margin-top: 2rem;
             font-size: 2.5rem;
         }
-        
+
         .tooltip-form {
             position: relative;
             display: inline-block;
@@ -321,11 +321,11 @@
             font-size: 2.5rem;
             margin-top: 0;
         }
-        
+
         .simulator-paragraph-text {
             margin-top: 1rem;
         }
-        
+
         .simulator-header-section {
             background-color: $teal;
             padding: 15px 0;
@@ -333,36 +333,37 @@
                 margin-top: 0;
             }
         }
-        
+
         .space_blank {
             height: 50px;
         }
-        
+
         .life-expectancy-section {
-            margin-bottom: 3rem;
+            margin-bottom: 20px;
         }
-        
+
         .life-expectancy-image {
             height: 350px;
             margin: 0 auto;
         }
-        
+
         .life-expectancy-number-input {
-            border: solid 1px black;
-            position: absolute;
-            top: 16.5rem;
-            left: 4.6rem;
-            width: 10rem;
+            outline: solid 1px black;
+            width: 150px;
+            margin: auto;
+            margin-top: -87px;
+            z-index: 1;
+
             .life-expectancy-number {
                 margin-bottom: 0;
                 padding: 0.5rem 0;
             }
         }
-        
+
         .map-image {
             width: 80%;
         }
-        
+
         .map-full {
             width: 100%;
             height: 500px;
@@ -370,39 +371,39 @@
             background-size: cover;
             background-repeat: no-repeat
         }
-        
+
         .health-image {
             width: 80%;
         }
-        
+
         .health-images {
             padding-left: 18%;
         }
-        
+
         .healthy {
             background-color: #F3F8F9;
         }
-        
+
         .map-paragraph-text {
             padding-right: 30%;
             padding-left: 2rem;
             color: $dark-gray;
         }
-        
+
         .formalidad-paragraph-text {
             font-size: 2rem;
             padding-right: 5%;
             padding-left: 2rem;
             color: $dark-gray;
         }
-        
+
         .map-colored-row {
             background-color: #f3f8f9;
             &:last-child {
                 padding-bottom: 1rem;
             }
         }
-        
+
         .block-map {
             background-color: white;
             width: 80px;
@@ -412,94 +413,94 @@
             display: inline-flexbox;
             padding: 5px;
         }
-        
+
         .map-header-section {
             padding: 50px 0;
         }
-        
+
         .grad-image {
             width: 124px;
         }
-        
+
         .background-teal {
             background-color: $teal;
         }
-        
+
         .background-orange {
             background-color: $primary;
         }
-        
+
         .background-dark-green {
             background-color: $dark-green;
         }
-        
+
         .school-achievement-text {
             color: #fff;
             font-size: 1.2rem;
             font-weight: bold;
         }
-        
+
         .school-achievement-dollar {
             color: #fff;
             font-size: 2.5rem;
             font-weight: bold;
             padding-top: 1.1rem;
         }
-        
+
         .life-expectancy-text {
             color: $dark-gray;
             font-size: 1.2rem;
             font-weight: bold;
         }
-        
+
         .white-box {
             background-color: #fff;
             margin: 1rem;
         }
-        
+
         .life-expectancy-number-text {
             font-size: 2rem;
             font-weight: bold;
             margin: 0.3rem 0;
         }
-        
+
         .health-icon {
             padding-top: 0.2rem;
             height: 50px;
         }
-        
+
         .simulation-results {
             padding-top: 1.5rem;
         }
-        
+
         .work-simulation-results {
             padding-top: 2rem;
         }
-        
+
         .wellbeing-text {
             color: #fff;
             font-size: 1.2rem;
             font-weight: bold;
         }
-        
+
         .marker-box {
             height: 24rem;
             padding: 1rem;
             color: #006c6f;
         }
-        
+
         .marker-box-gray {
             background-color: #f3f8f9;
         }
-        
+
         .marker-image {
             height: 11rem;
         }
-        
+
         .orange {
             color: $primary;
         }
-        
+
         .big-select {
             font-size: 30px;
             font-family: sans-serif;
@@ -532,7 +533,7 @@
                 font-size: 22px;
             }
         }
-        
+
         .simulator-header-section-dark {
             background-color: #006c6f;
             padding: 2rem 0;
@@ -541,7 +542,7 @@
                 color: #fff;
             }
         }
-        
+
         .simulator-header-section-primary {
             background-color: $primary;
             padding: 2rem 0;
@@ -550,47 +551,47 @@
                 color: #fff;
             }
         }
-        
+
         .books-section-paragraph-big {
             color: $dark-gray;
         }
-        
+
         .books-section-heading {
             color: black;
             font-weight: bold;
         }
-        
+
         .books-section-image {
             height: 25rem;
             position: relative;
             z-index: 100;
             top: -410px;
         }
-        
+
         .books-section-stripe {
             height: 100px;
             background-color: $light-gray;
             margin-bottom: 40px;
         }
-        
+
         .books-section-stripe-text {
             font-size: 21px;
             width: 250px;
             margin-top: 15px;
             text-align: right;
         }
-        
+
         .books-section {
             padding: 2rem 0;
         }
         /* Benefit sections */
-        
+
         .benefit-sections {
             padding-bottom: 5rem;
             padding-top: 5rem;
             text-align: center;
         }
-        
+
         .benefit-section-circle {
             background: #cccccc;
             border-radius: 2.8em;
@@ -604,27 +605,27 @@
             height: 3.5rem;
             font-size: 2rem;
         }
-        
+
         .circle-aqua {
             background-color: $aqua;
             color: $dark-green;
         }
-        
+
         .circle-green {
             background-color: $dark-green;
             color: #FFF;
         }
-        
+
         .circle-orange {
             background-color: $primary;
             color: #FFF;
         }
-        
+
         .benefit-sections-header {
             margin-bottom: 2em;
             color: #007072;
         }
-        
+
         .benefit-section-name {
             display: block;
             text-align: center;
@@ -632,46 +633,46 @@
             margin-top: 0.3rem;
             color: #1a646b;
         }
-        
+
         .benefit-section-divider {
             font-size: 2rem;
             color: #3b3b3bbf;
         }
         /* Health Section*/
-        
+
         .health-paragraph-text-black {
             padding-left: 1rem;
             color: black;
             margin-bottom: 0;
             padding-bottom: 10px;
         }
-        
+
         .health-paragraph-text {
             color: $dark-gray;
         }
         /* Footer */
-        
+
         .page-footer {
             background-color: #005962;
             color: #fff;
         }
-        
+
         .footer-copyright,
         .footer-copyright a {
             color: #5a8c91;
         }
-        
+
         .brand {
             margin-bottom: 0;
             line-height: 1em;
             margin-top: 0.5em;
         }
-        
+
         .brand-name {
             font-weight: bold;
         }
         /* Section specific */
-        
+
         .educational-achievements {
             text-align: justify;
             &:after {
@@ -680,7 +681,7 @@
                 width: 100%;
             }
         }
-        
+
         .educational-achievement {
             display: inline-block;
             width: 30%;
@@ -691,19 +692,19 @@
                 margin-right: 15%;
             }
         }
-        
+
         .market-probability-self {
             display: inline-block;
             width: 25%;
             margin-left: 5%;
         }
-        
+
         .market-probability-parents {
             display: inline-block;
             width: 55%;
             margin-right: 5%;
         }
-        
+
         .market-probabilities {
             text-align: justify;
             &:after {
@@ -712,60 +713,60 @@
                 width: 100%;
             }
         }
-        
+
         .formality-self {
             display: inline-block;
             width: 25%;
             margin-left: 5%;
         }
-        
+
         .formality-parents {
             display: inline-block;
             width: 55%;
             margin-right: 5%;
         }
-        
+
         .formality-paragraph-one {
             margin-top: 30px;
         }
-        
+
         .formality-paragraph-two {
             margin-top: 30px;
             margin-left: 32%;
         }
-        
+
         .formality-paragraph-green {
             padding-left: 20px;
             color: rgb(20, 88, 97);
             font-size: 1rem
         }
-        
+
         .formality-paragraph-white {
             padding-left: 20px;
             color: #FFF;
             font-size: 1rem
         }
-        
+
         .formality-paragraph-white-bold {
             color: fff;
             font-size: 1.6rem
         }
-        
+
         .formality-paragraph-white-num {
             color: fff;
             font-size: 3.5rem
         }
-        
+
         .formality-paragraph-green-bold {
             color: rgb(20, 88, 97);
             font-size: 1.6rem
         }
-        
+
         .formality-paragraph-green-num {
             color: rgb(20, 88, 97);
             font-size: 3.5rem
         }
-        
+
         .form_inform {
             width: 100%;
             height: 405px;
@@ -776,7 +777,7 @@
             margin-bottom: 8%;
             margin-top: 10%;
         }
-        
+
         .market-probabilities {
             text-align: justify;
             &:after {
@@ -785,36 +786,36 @@
                 width: 100%;
             }
         }
-        
+
         .header-image {
             width: 100%;
         }
-        
+
         .section-youtube-embed {
             text-align: center;
             height: 37em;
             background-color: #fff;
         }
-        
+
         .know-more {
             margin-top: 1.5em;
             font-size: 2.5em;
             margin-bottom: 1.5em;
         }
-        
+
         .section-start-questions {
             text-align: center;
             height: 23em;
             background-color: $primary;
         }
-        
+
         .perspectives {
             font-size: 3em;
             font-weight: bold;
             color: #fff;
             padding-top: 2em;
         }
-        
+
         .start-questions-button {
             background-color: #fff;
             border-radius: 22px;
@@ -827,59 +828,59 @@
                 color: darken($primary, 5%);
             }
         }
-        
+
         .easy-pie-chart-percentage {
             display: block;
             font-size: 3rem;
             margin-top: 5rem;
             margin-bottom: -8rem;
         }
-        
+
         .percentage-multiple {
             margin-top: 3.5rem;
         }
-        
+
         .pie-chart-box {
             height: 28rem;
             padding: 1rem;
             color: #006c6f;
         }
-        
+
         .work-marker-image {
             height: 19rem;
             margin-bottom: 1rem;
         }
-        
+
         .work-marker-section {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 2rem;
         }
-        
+
         .low-work-status {
             font-size: 1.4rem;
             font-weight: bold;
             color: #ff0000;
         }
-        
+
         .high-work-status {
             font-size: 1.4rem;
             font-weight: bold;
             color: #00d56b;
         }
-        
+
         .work-status-box {
             border: 1px solid $dark-gray;
             padding: 0.5rem 2rem;
             font-size: 1.5rem;
             font-weight: bold;
         }
-        
+
         .heading-image {
             height: 55px;
         }
-        
+
         .lock-image {
             height: 50px;
         }
