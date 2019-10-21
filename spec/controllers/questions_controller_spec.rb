@@ -26,7 +26,7 @@ RSpec.describe QuestionsController do
 
     it "assigns @user" do
       get :part_2
-      expect(assigns(:user)).to(be_a User)
+      expect(assigns(:user)).to(be_a ProgressUser)
     end
 
   end
@@ -44,7 +44,7 @@ RSpec.describe QuestionsController do
 
     it "assigns @user" do
       get :part_3
-      expect(assigns(:user)).to(be_a User)
+      expect(assigns(:user)).to(be_a ProgressUser)
     end
   end
 end
