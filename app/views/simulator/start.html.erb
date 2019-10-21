@@ -129,33 +129,25 @@
   <h3 class="simulator-header-text text-center" style="margin-top:0.5rem" >Máximo de años de vida esperados en...</h3>
 
 
-<<<<<<< HEAD
-  <div class="row map-full" style="margin-top:50px"> 
+  <div class="row" style="width: 100%;
+            height: 500px; margin-top:50px; background-image: url(<%= image_url('mapa_'+@user.region+'.png') %>);
+            background-size: cover;
+            background-repeat: no-repeat"> 
     <div class="col-md-5 my-auto" style="margin-left:680px; "> 
-      <p class="map-paragraph-text" style="color:white; margin-top:70px; font-size: 22px">
-=======
-  <div class="row map-full" style="margin-top:50px">
-    <div class="col-md-5 my-auto" style="margin-left:685px; ">
-      <p class="text-size-md map-paragraph-text" style="color:white; margin-top:60px; font-size: 22px">
->>>>>>> 4db49f24d779f570844e1c251c7abdc99b42259d
+      <p class="map-paragraph-text" style="color:white; margin-top:80px; font-size: 22px">
         el mundo
         <span class="block-map"><%= @user.world_expected_age %> años</span>
       </p>
     </div>
-<<<<<<< HEAD
     <div class="col-md-5 my-auto" style="margin-left:680px; "> 
-      <p class=" map-paragraph-text" style="color:white; margin-top: 30px;font-size: 22px">
-=======
-    <div class="col-md-5 my-auto" style="margin-left:685px; ">
-      <p class="text-size-lg map-paragraph-text" style="color:white; margin-top:-10px; font-size: 22px">
->>>>>>> 4db49f24d779f570844e1c251c7abdc99b42259d
+      <p class=" map-paragraph-text" style="color:white; margin-top:40px;font-size: 22px">
         en México
         <span class="block-map"><%= @user.country_expected_age %> años</span>
       </p>
     </div>
     <div class="col-md-5 my-auto" style="margin-left:680px; ">
       <div class="row">
-        <div class="col-sm-8 my-auto" style="margin-top:70px; margin-left: -30px; font-size:18px">
+        <div class="col-sm-8 my-auto" style="margin-top:50px; margin-left: -30px; font-size:18px">
         <p class=" map-paragraph-text" style="color:#215862; margin-top:20px" >
             la región <%= @user.region %>
         </p>
@@ -165,7 +157,7 @@
             
             
         </div>
-        <div class="col-sm-4 my auto" style="margin-top:30px; margin-left:-100px; font-size:22px">
+        <div class="col-sm-4 my auto" style="margin-top:35px; margin-left:-100px; font-size:22px">
         <span class="block-map" ><%= @user.region_expected_age %> años</span>
         
         </div>
