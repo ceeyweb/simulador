@@ -1,10 +1,9 @@
 class KpisController < ApplicationController
 
-  def health
-    @user = User.find(cookies["user_id"])
-    @user.school_year = school_year
+  before_action :set_user
 
-    @kpis = {
+  def health
+    kpis = {
       life_expectancy: LifeExpectancy.new(
         @user.age,
         @user.sex_id,
@@ -13,36 +12,56 @@ class KpisController < ApplicationController
       ).value.round,
     }
 
-    render json: @kpis.as_json
+    render json: kpis.as_json
   end
 
   def work
-    @user = User.find(cookies["user_id"])
-    @user.school_year = school_year
+    work_kpis = WorkKpisUser.new(@user).kpis
 
-    @kpis = {
-      formal_work_probability: FormalWorkProbability.new(WorkKpisUser.new(@user)).value,
-      work_probability: WorkProbability.new(WorkKpisUser.new(@user)).value,
-      keep_work_probability: KeepFormalWorkProbability.new(WorkKpisUser.new(@user)).value,
-    }
+    kpis =
+      if @user.is_employed?
+        {
+          keep_formal_work_probability: KeepFormalWorkProbability.new(
+            work_kpis,
+          ).value.round,
+        }
+      else
+        {
+          work_probability: WorkProbability.new(
+            work_kpis,
+          ).value.round,
+          formal_work_probability: FormalWorkProbability.new(
+            work_kpis,
+          ).value.round,
+        }
+      end
 
-    render json: @kpis.as_json
+    render json: kpis.as_json
   end
 
   def education
-    @user = User.find(cookies["user_id"])
-    @user.school_year = school_year
+    kpis =
+      {
+        education_achievement: EducationAchievement.new(
+          @user.age,
+          @user.school_year,
+        ).value.round,
+        average_income: AverageIncome.new(
+          @user.sex_id,
+          params[:education_level_id],
+          @user.region.id,
+        ).value.round,
+      }
 
-    @kpis = {
-      education_achievement: EducationAchievement.new(@user.age, school_year).value.round,
-      average_income: AverageIncome.new(@user.sex_id, params[:education_level_id], @user.region.id).value.round,
-
-    }
-
-    render json: @kpis.as_json
+    render json: kpis.as_json
   end
 
   private
+
+  def set_user
+    @user = User.find(cookies["user_id"])
+    @user.school_year = school_year
+  end
 
   def school_year
     EducationLevel.find(params[:education_level_id]).max_school_year
