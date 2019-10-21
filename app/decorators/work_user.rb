@@ -1,6 +1,4 @@
-class WorkUser < SimpleDelegator
-
-  include ActionView::Helpers::NumberHelper
+class WorkUser < ResultsUser
 
   WorkResults.instance_methods(false).each do |method|
     define_method(method) do
@@ -11,10 +9,22 @@ class WorkUser < SimpleDelegator
     end
   end
 
+  def kpis
+    if is_employed?
+      "keep-formal-work-probability"
+    else
+      "work-probability,formal-work-probability"
+    end
+  end
+
+  def section
+    "work"
+  end
+
   private
 
   def results
-    WorkResults.new(__getobj__)
+    @resulrs ||= WorkResults.new(__getobj__)
   end
 
 end

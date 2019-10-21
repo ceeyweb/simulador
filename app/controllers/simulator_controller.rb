@@ -5,11 +5,12 @@ class SimulatorController < ApplicationController
   end
 
   def part_2
-    @user = HealthUser.new(EducationUser.new(ProgressUser.new(user)))
+    @user = EducationUser.new(ProgressUser.new(user))
   end
 
   def part_3
-    @user = HealthUser.new(WorkUser.new(ProgressUser.new(user)))
+    @user = WorkUser.new(ProgressUser.new(user))
+
     render :user_is_employed if @user.is_employed?
   end
 

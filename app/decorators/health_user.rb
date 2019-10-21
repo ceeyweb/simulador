@@ -1,11 +1,4 @@
-class HealthUser < SimpleDelegator
-
-  include ActionView::Helpers::NumberHelper
-  include ActionView::Helpers::AssetTagHelper
-
-  SEX_TEXT = {
-    Sex::FEMALE_ID => "las mujeres", Sex::MALE_ID => "los hombres"
-  }.freeze
+class HealthUser < ResultsUser
 
   HealthResults.instance_methods(false).each do |method|
     define_method(method) do
@@ -14,14 +7,6 @@ class HealthUser < SimpleDelegator
         precision: 0,
       )
     end
-  end
-
-  def currently_works?
-    false
-  end
-
-  def region
-    super.description
   end
 
   def region_states
@@ -34,10 +19,6 @@ class HealthUser < SimpleDelegator
       reverse
   end
 
-  def age_group
-    super.description
-  end
-
   def expected_age_image
     "esperanza_vida_#{sex.downcase}.png"
   end
@@ -46,16 +27,12 @@ class HealthUser < SimpleDelegator
     "mapa_region_#{region.tr(" ", "_").downcase}.png"
   end
 
-  def sex
-    super.description
+  def kpis
+    "life-expectancy"
   end
 
-  def sex_text
-    SEX_TEXT[sex_id]
-  end
-
-  def education_level
-    super.id
+  def section
+    "health"
   end
 
   private

@@ -1,6 +1,4 @@
-class EducationUser < SimpleDelegator
-
-  include ActionView::Helpers::NumberHelper
+class EducationUser < ResultsUser
 
   EducationResults.instance_methods(false).each do |method|
     define_method(method) do
@@ -11,10 +9,18 @@ class EducationUser < SimpleDelegator
     end
   end
 
+  def kpis
+    "education-achievement,average-income"
+  end
+
+  def section
+    "education"
+  end
+
   private
 
   def results
-    EducationResults.new(__getobj__)
+    @results ||= EducationResults.new(__getobj__)
   end
 
 end
