@@ -1,0 +1,7 @@
+# Copy this file removing the '.sample' extension (but keep the original
+# directory and name!), provide values for ALL listed variables and delete
+# all commented lines. All values must be provided (i.e no blanks).
+#
+MYSQL_USERNAME=
+MYSQL_PASSWORD=
+SECRET_KEY_BASE=

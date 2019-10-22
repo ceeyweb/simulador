@@ -1,0 +1,42 @@
+README.md
+
+# git files
+.git*
+
+# docker files
+.docker/*
+.dockerignore
+!.docker/docker-entrypoint.sh
+Makefile
+
+# bundle files/configuration
+.bundle
+vendor/bundle
+
+# dev configuration related files
+spec/*
+.circleci/*
+.rubocop.yml
+.simplecov
+
+# logs and temporary files
+log/*
+!log/.keep
+tmp/*
+!tmp/.keep
+
+# debug files
+.byebug_history
+
+# pid files
+*.pid.*
+spring/*.pid
+
+# precompiled assets
+public/assets/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Trashes
