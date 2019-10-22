@@ -1,14 +1,14 @@
 class KpisController < ApplicationController
 
-  before_action :set_user
+  before_action :set_school_year
 
   def health
     kpis = {
       life_expectancy: LifeExpectancy.new(
-        @user.age,
-        @user.sex_id,
-        @user.residency_id,
-        @user.school_year,
+        user.age,
+        user.sex_id,
+        user.residency_id,
+        user.school_year,
       ).value.round,
     }
 
@@ -16,24 +16,11 @@ class KpisController < ApplicationController
   end
 
   def work
-    work_kpis = WorkKpisUser.new(@user).kpis
-
     kpis =
-      if @user.is_employed?
-        {
-          keep_formal_work_probability: KeepFormalWorkProbability.new(
-            work_kpis,
-          ).value.round,
-        }
+      if user.is_employed?
+        employed_user_kpis
       else
-        {
-          work_probability: WorkProbability.new(
-            work_kpis,
-          ).value.round,
-          formal_work_probability: FormalWorkProbability.new(
-            work_kpis,
-          ).value.round,
-        }
+        unemployed_user_kpis
       end
 
     render json: kpis.as_json
@@ -43,13 +30,13 @@ class KpisController < ApplicationController
     kpis =
       {
         education_achievement: EducationAchievement.new(
-          @user.age,
-          @user.school_year,
+          user.age,
+          user.school_year,
         ).value.round,
         average_income: AverageIncome.new(
-          @user.sex_id,
+          user.sex_id,
           params[:education_level_id],
-          @user.region.id,
+          user.region.id,
         ).value.round,
       }
 
@@ -58,9 +45,31 @@ class KpisController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(cookies["user_id"])
-    @user.school_year = school_year
+  def employed_user_kpis
+    {
+      keep_formal_work_probability: KeepFormalWorkProbability.new(
+        work_kpis,
+      ).value.round,
+    }
+  end
+
+  def unemployed_user_kpis
+    {
+      work_probability: WorkProbability.new(work_kpis).value.round,
+      formal_work_probability: FormalWorkProbability.new(work_kpis).value.round,
+    }
+  end
+
+  def user
+    @user ||= User.find(cookies["user_id"])
+  end
+
+  def work_kpis
+    @work_kpis ||= WorkKpisUser.new(user).kpis
+  end
+
+  def set_school_year
+    user.school_year = school_year
   end
 
   def school_year

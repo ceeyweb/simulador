@@ -24,7 +24,7 @@ class WorkUser < ResultsUser
   private
 
   def results
-    @resulrs ||= WorkResults.new(__getobj__)
+    @results ||= WorkResults.new(__getobj__)
   end
 
 end
