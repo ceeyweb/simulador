@@ -36,7 +36,7 @@ class Slider {
   }
 
   updateImage(selectedValue) {
-    let partial_name = this.image.src.split(".")[0].slice(0, -1);
+    let partial_name = this.image.src.split(".png")[0].slice(0, -1);
 
     this.image.src = partial_name + selectedValue + ".png";
   }
