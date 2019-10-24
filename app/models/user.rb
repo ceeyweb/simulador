@@ -27,10 +27,10 @@ class User < ApplicationRecord
             :age,
             presence: true
   validates :is_student, inclusion: { in: [true, false] }
-  validates :age, numericality: { greater_than_or_equal_to: 0, less_than: 100 }
+  validates :age, numericality: { greater_than_or_equal_to: 0, less_than: 100, allow_blank: true }
   validates :father_age,
             :mother_age,
-            numericality: { greater_than_or_equal_to: 15, less_than: 100 }
+            numericality: { greater_than_or_equal_to: 15, less_than: 100, allow_blank: true }
 
   validate :disallow_changing_values_after_create
 
