@@ -31,14 +31,14 @@
                   input_html: { class: "col-md-4" },
                   wrapper_html: { class: "col-md-4" } %>
 
-                <%= f.input :residency,
+                <%= f.input :residency_id,
                   collection: State.without_blank,
                   label_method: :description,
                   value_method: :id,
                   label: label_for(:residency_id),
                   wrapper_html: { class: "col-md-4" } %>
 
-                <%= f.input :education_grade,
+                <%= f.input :education_grade_id,
                   collection: EducationGrade.without_blank,
                   label_method: :description,
                   value_method: :id,
@@ -48,7 +48,7 @@
               </div>
 
               <div class="row" style="padding-left:20px">
-                <%= f.input :sex,
+                <%= f.input :sex_id,
                   collection: { "Mujer": 1, "Hombre": 2 },
                   label: label_for(:sex_id),
                   input_html: { class: "col-md-6" },
@@ -72,14 +72,14 @@
                   input_html: { class: "col-md-4" },
                   wrapper_html: { class: "col-md-4" } %>
 
-                <%= f.input :father_residency,
+                <%= f.input :father_residency_id,
                   collection: State.all,
                   label_method: :description,
                   value_method: :id,
                   label: label_for(:father_residency_id),
                   wrapper_html: { class: "col-md-4" } %>
 
-                <%= f.input :father_education_grade,
+                <%= f.input :father_education_grade_id,
                   collection: EducationGrade.all,
                   label_method: :description,
                   value_method: :id,
@@ -94,14 +94,14 @@
                   input_html: { class: "col-md-4" },
                   wrapper_html: { class: "col-md-4" } %>
 
-                <%= f.input :mother_residency,
+                <%= f.input :mother_residency_id,
                   collection: State.all,
                   label_method: :description,
                   value_method: :id,
                   label: label_for(:mother_residency_id),
                   wrapper_html: { class: "col-md-4" } %>
 
-                <%= f.input :mother_education_grade,
+                <%= f.input :mother_education_grade_id,
                   collection: EducationGrade.all,
                   label_method: :description,
                   value_method: :id,
