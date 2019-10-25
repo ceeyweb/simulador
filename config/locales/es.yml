@@ -9,21 +9,21 @@ es:
           one: edad del padre
         mother_age:
           one: edad de la madre
-        father_residency:
+        father_residency_id:
           one: residencia del padre
-        father_education:
+        father_education_id:
           one: educación del padre
-        mother_residency:
+        mother_residency_id:
           one: residencia de la madre
-        mother_education:
+        mother_education_id:
           one: educación de la madre
-        residency:
+        residency_id:
           one: residencia
-        sex:
+        sex_id:
           one: sexo
-        education:
+        education_id:
           one: educación
-        education_grade:
+        education_grade_id:
           one: grado
 
     errors:

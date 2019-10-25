@@ -8,12 +8,12 @@
   <input type="hidden" name="user[<%= column %>]" value="">
 
   <div class="form-check inline">
-    <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="1" name="user[<%= column %>]" id="user_<%= column %>_1">
+    <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="1" name="user[<%= column %>]" id="user_<%= column %>_1" <%= "checked" if @user.public_send(column) %>>
     <label class="custom-control-label" for="user_<%= column %>_1">Sí</label>
   </div>
 
   <div class="form-check inline">
-    <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="0" name="user[<%= column %>]" id="user_<%= column %>_0">
+    <input class="form-check-input radio_buttons required custom-control-input <%= "input-background-aqua" if defined?(aqua) && aqua %>" type="radio" value="0" name="user[<%= column %>]" id="user_<%= column %>_0" <%= "checked" if @user.public_send(column) == false %>>
     <label class="custom-control-label" for="user_<%= column %>_0">No</label>
   </div>
 
@@ -25,3 +25,6 @@
   <% end %>
 
 </fieldset>
+<% if @user.errors.messages[column].present? %>
+  <div class="invalid-feedback" style="display: block; margin: -15px 0px 15px 20px">no puede estar en blanco</div>
+<% end %>
