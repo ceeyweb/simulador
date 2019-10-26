@@ -45,6 +45,10 @@
   font-weight: bold;
 }
 
+.text-boldest {
+  font-weight: 900;
+}
+
 .inline {
   display: inline-block;
 }
@@ -229,7 +233,9 @@ select {
 
 .questions-submit-button {
   border-radius: 0;
-  margin-top: 1rem;
+  margin-top: .5em;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 /* Simulator sections */
@@ -539,10 +545,10 @@ select {
   color: #ffffff;
   display: inline-block;
   text-align: center;
-  line-height: 3.5rem;
-  width: 3.5rem;
-  height: 3.5rem;
-  font-size: 2rem;
+  line-height: 2.7em;
+  width: 2.7em;
+  height: 2.7em;
+  font-size: 1.5em;
 }
 
 .circle-aqua {
@@ -561,21 +567,25 @@ select {
 }
 
 .benefit-sections-header {
+  margin-top: 1em;
   margin-bottom: 2em;
-  color: #007072;
+  font-weight: bold;
+  font-family: "Montserrat";
+  font-size: 25px;
 }
 
 .benefit-section-name {
   display: block;
   text-align: center;
-  font-size: 1.3rem;
-  margin-top: 0.3rem;
+  font-size: 1.3em;
+  margin: 0.5em;
   color: #1a646b;
+  font-weight: bold;
 }
 
 .benefit-section-divider {
-  font-size: 2rem;
-  color: #3b3b3bbf;
+  border-top: 2px solid #cdcbd8;
+  margin: 1.9em -3em;
 }
 
 /* Health Section*/
@@ -824,5 +834,5 @@ select {
 }
 
 .lock-image {
-  height: 50px;
+  height: 40px;
 }
