@@ -6,17 +6,17 @@ es:
         age:
           one: edad
         father_age:
-          one: edad del padre
+          one: edad de tu padre
         mother_age:
-          one: edad de la madre
+          one: edad de tu madre
         father_residency_id:
-          one: residencia del padre
-        father_education_id:
-          one: educación del padre
+          one: residencia de tu padre
+        father_education_grade_id:
+          one: grado escolar de tu padre
         mother_residency_id:
-          one: residencia de la madre
-        mother_education_id:
-          one: educación de la madre
+          one: residencia de tu madre
+        mother_education_grade_id:
+          one: grado escolar de tu madre
         residency_id:
           one: residencia
         sex_id:
@@ -24,7 +24,7 @@ es:
         education_id:
           one: educación
         education_grade_id:
-          one: grado
+          one: grado escolar
 
     errors:
       messages:
@@ -42,7 +42,7 @@ es:
     - vie
     - sáb
     abbr_month_names:
-    - 
+    -
     - ene
     - feb
     - mar
@@ -68,7 +68,7 @@ es:
       long: "%-d de %B de %Y"
       short: "%-d de %b"
     month_names:
-    - 
+    -
     - enero
     - febrero
     - marzo
