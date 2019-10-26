@@ -1,9 +1,6 @@
 <fieldset class="form-group radio_buttons required user_is_student custom-control custom-radio col-md-12">
   <legend class="col-form-label pt-0 text-bold">
     <%= label_for(column) %>
-    <% if defined?(required) && required %>
-      <abbr title="required">*</abbr>
-    <% end %>
   </legend>
   <input type="hidden" name="user[<%= column %>]" value="">
 
@@ -21,7 +18,7 @@
            type="radio"
            value="0"
            name="user[<%= column %>]"
-           id="user_<%= column %>_0" <%= "checked" if @user.public_send(column) == false %>>
+           id="user_<%= column %>_0" <%= "checked" unless @user.public_send(column) %>>
     <label class="custom-control-label" for="user_<%= column %>_0">No</label>
   </div>
 

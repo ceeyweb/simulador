@@ -7,8 +7,8 @@
     <div class="card-header">
       <%= render "questions/progress_bar", progress: 33 %>
     </div>
-    <%= simple_form_for(@user, defaults: { required: false  }) do |f| %>
 
+    <%= simple_form_for(@user, defaults: { required: false  }) do |f| %>
       <div class="card-body">
         <div class="container left-indent">
 
@@ -117,5 +117,6 @@
       <%= render "shared/benefit_sections" %>
     </div>
   </div>
+
   <%= render "shared/footer" %>
 </section>
