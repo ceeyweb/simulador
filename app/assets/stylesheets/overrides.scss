@@ -1,0 +1,19 @@
+.form-control.is-invalid, .form-control.is-valid {
+  background-image: none;
+  padding-right: .75em;
+  border-color: #19618a;
+}
+
+.progress {
+  border-radius: 0;
+  margin: -1em 10em 0 10em;
+  background-color: #ffffff;
+}
+
+.card {
+  border-radius: 0;
+}
+
+.custom-control {
+  padding-left: 0;
+}

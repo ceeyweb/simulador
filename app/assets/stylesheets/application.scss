@@ -1,6 +1,6 @@
 @import "colors";
 @import "slider";
-@import "bootstrap-overrides";
+@import "overrides";
 
 /* Utility */
 
@@ -57,6 +57,7 @@
 
 body {
   font-size: 0.75rem;
+  font-family: "Lato";
 }
 
 label {
@@ -122,11 +123,17 @@ input[type='number'] {
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  margin: 0;
+  // margin: 0;
 }
 
 select {
-  border: 2px solid #19618a !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  border: 1px solid #19618a !important;
   border-radius: 0 !important;
 }
 
@@ -144,21 +151,26 @@ select {
   border-color: $aqua;
 }
 
+.input-background-green:checked~.custom-control-label::before {
+  background-color: $dark-green;
+  border-color: $dark-green;
+}
+
 .custom-control-label {
-  margin-bottom: 0.5rem;
-  height: 2rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.5rem;
+  margin-bottom: 0.5em;
+  height: 2em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.5em;
   &::after {
-    margin-top: -0.2rem;
-    width: 2rem;
-    height: 2rem;
+    margin-top: -0.2em;
+    width: 2.2em;
+    height: 2.2em;
   }
   &::before {
-    margin-top: -0.2rem;
-    width: 2rem;
-    height: 2rem;
+    margin-top: -0.2em;
+    width: 2.2em;
+    height: 2.2em;
   }
 }
 
@@ -190,12 +202,21 @@ select {
 
 .questions-card {
   margin: 0 5%;
+  margin-top: -4em;
 }
 
 .question-section-header {
   margin-top: 1rem;
   color: #3b3b3b;
-  font-weight: bold;
+  font-size: 30px;
+}
+
+.question-section-header-box {
+  margin: 15px 0 20px 0;
+}
+
+.left-indent {
+  padding-left: 30px;
 }
 
 .integer {
@@ -506,8 +527,7 @@ select {
 /* Benefit sections */
 
 .benefit-sections {
-  padding-bottom: 5rem;
-  padding-top: 5rem;
+  padding-bottom: 2em;
   text-align: center;
 }
 
@@ -800,7 +820,7 @@ select {
 }
 
 .heading-image {
-  height: 55px;
+  height: 70px;
 }
 
 .lock-image {
