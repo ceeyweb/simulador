@@ -1,65 +1,134 @@
 <section class="above-fold-questions-1">
-  <%= image_tag "encabezado_inicio_1920.png", class: "header-image" %>
+  <%= image_tag "encabezado_cuestionarios.png", class: "header-image" %>
 </section>
 
 <section class="below-fold-questions-1">
   <div class="card questions-card">
     <div class="card-header">
-      <p class="text-uppercase center">Progreso de respuestas</p>
-      <div class="progress">
-        <div class="progress-bar background-color-primary" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" style="width: 99%;">
-          <span class="sr-only">99% Lleno</span>
-        </div>
-      </div>
+      <%= render "questions/progress_bar", progress: 99 %>
     </div>
-    <div class="card-body">
-      <div class="question-section">
-        <div class="offset-md-1">
-          <%= simple_form_for(@user, method: :put) do |f| %>
 
-            <div class="container">
+    <%= simple_form_for(@user, method: :put) do |f| %>
+      <div class="card-body">
+        <div class="container left-indent">
 
-              
+          <div class="row question-header-section-box">
+            <%= image_tag "casa_verde.png", class: "heading-image" %>
+            <h4 class="text-uppercase inline question-section-header col-md">
+              Tu <span class="text-boldest">Hogar</span>
+            </h4>
+          </div>
 
-              <div class="row">
-                <%= image_tag "casa_verde.png", style: "width:50px" %>
-                <h4 class="text-uppercase inline question-section-header col">Tu Hogar</h4>
-              </div>
-
-              <div class="row" style="margin-top:20px">
-                <div class="col-6">
-                  <strong>Cuando tenías 14 años, en tu casa ¿había...?</strong>
-                </div>
-              </div>
-
-             <% [
-                  :home_had_mobile_phone,
-                  :home_had_fixed_phone,
-                  :home_had_internet,
-                  :home_had_stove,
-                  :home_had_fridge,
-                  :home_had_heater,
-                  :home_had_toaster,
-                  :home_had_water,
-                  :home_had_bathroom,
-                  :home_had_electricity,
-                  :home_had_washer,
-                ].each do |column| %>
-                <div class="row">
-                  <%= render "custom_radio_buttons", column: column, na_allowed: true, aqua: true  %>
-                </div>
-              <% end %>
-
-              <div class="row" style="justify-content:center">
-                <%= hidden_field_tag :next_step, simulator_start_path %>
-                <%= f.submit "Simulador", class: "btn btn-primary questions-submit-button" %>
-              </div>
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <strong>Cuando tenías 14 años, en tu casa ¿había...?</strong>
             </div>
-          <% end %>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_mobile_phone,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_fixed_phone,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_internet,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_stove,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_fridge,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_heater,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_toaster,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_water,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_bathroom,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_electricity,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <%= render "custom_radio_buttons",
+                column: :home_had_washer,
+                na_allowed: true,
+                color: "orange" %>
+            </div>
+          </div>
+
         </div>
       </div>
+
+      <div class="card-body center">
+        <%= hidden_field_tag :next_step, simulator_start_path %>
+        <%= f.submit "Simulador", class: "btn btn-primary questions-submit-button" %>
+      </div>
+    <% end %>
+    <div class="card-body">
+      <%= render "shared/benefit_sections",
+        health_enabled: true,
+        education_enabled: true,
+        work_enabled: false %>
     </div>
-    <%= render "shared/benefit_sections", health_enabled: true, education_enabled: false, work_enabled: false %>
   </div>
+
+  <%= render "shared/footer" %>
 </section>
-<%= render "shared/footer" %>

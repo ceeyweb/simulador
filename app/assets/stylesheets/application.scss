@@ -536,7 +536,8 @@ select {
 /* Benefit sections */
 
 .benefit-sections {
-  padding-bottom: 2em;
+  padding-top: 2em;
+  padding-bottom: 4em;
   text-align: center;
 }
 
@@ -570,7 +571,6 @@ select {
 }
 
 .benefit-sections-header {
-  margin-top: 1em;
   margin-bottom: 2em;
   font-weight: bold;
   font-family: $header-font;
