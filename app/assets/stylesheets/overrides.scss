@@ -17,3 +17,21 @@
 .custom-control {
   padding-left: 0;
 }
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  font-size: 1.3em;
+  padding: 0.5rem 2.5rem;
+  margin-top: .5em;
+
+  &:hover {
+    background-color: darken($primary, 5%);
+    border-color: darken($primary, 5%);
+  }
+}
+
+.btn-primary--submit {
+  text-transform: uppercase;
+  border-radius: 0;
+}

@@ -28,7 +28,7 @@ $default-font: "Lato";
 }
 
 .dotted-hr {
-  border-top: 3px dotted $dark-gray;
+  border-top: 3px dotted #cdcbd4;
   margin: 2rem auto;
 }
 
@@ -90,7 +90,17 @@ figcaption {
 .heading-2-orange {
   padding-top: 0.5em;
   color: $primary;
-  font-size: 3rem;
+  font-size: 3em;
+  font-weight: 400;
+  margin-bottom: -5px;
+}
+
+.heading-legend {
+  color: $dark-green;
+  font-size: 2em;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: -30px;
 }
 
 .white-section {
@@ -105,17 +115,6 @@ figcaption {
 .orange-underline {
   color: $primary;
   text-decoration: underline;
-}
-
-.btn-primary {
-  background-color: $primary;
-  border-color: $primary;
-  padding: 0.5rem 2.5rem;
-  font-size: 1.3rem;
-  &:hover {
-    background-color: darken($primary, 5%);
-    border-color: darken($primary, 5%);
-  }
 }
 
 /* Input styles */
@@ -203,8 +202,12 @@ select {
 
 .heading-1-black {
   color: #000;
-  font-weight: bold;
-  font-size: 4rem;
+  font-weight: 700;
+  font-size: 4em;
+}
+
+.heading {
+  font-family: $header-font;
 }
 
 .questions-card {
@@ -234,28 +237,24 @@ select {
   margin: 1rem 0;
 }
 
-.questions-submit-button {
-  border-radius: 0;
-  margin-top: .5em;
-  text-transform: uppercase;
-  font-size: 14px;
+.primary-buton--print {
+  text-transform: none;
+  border-radius: 2%;
 }
 
 /* Simulator sections */
 
 .print-section {
-  height: 150px;
-  background-color: #fff;
-}
-
-.print-button {
-  margin-top: 55px;
+  padding-top: 2em;
+  padding-bottom: 3em;
+  background-color: white;
 }
 
 .simulator-header-text {
   color: #006c6f;
-  margin-top: 2rem;
-  font-size: 2.5rem;
+  margin-top: 1.5em;
+  font-size: 2.2em;
+  font-weight: 800;
 }
 
 .tooltip-form {
@@ -272,14 +271,16 @@ select {
 }
 
 .simulator-paragraph-text {
-  margin-top: 1rem;
+  margin-top: 1em;
+  font-size: 1.1em;
 }
 
 .simulator-header-section {
   background-color: $teal;
-  padding: 15px 0;
+  padding: 1.5em 0;
+
   .simulator-header-text {
-    margin-top: 0;
+    margin: 0;
   }
 }
 
@@ -291,33 +292,65 @@ select {
   margin-bottom: 20px;
 }
 
-.life-expectancy-image {
-  height: 350px;
-  margin: 0 auto;
-}
+.life-expectancy-row {
+  padding-right: 4em;
+  padding-left: 4em;
+  margin-bottom: 1em;
 
-.life-expectancy-number-input {
-  outline: solid 1px black;
-  width: 150px;
-  margin: auto;
-  margin-top: -87px;
-  z-index: 1;
-  .life-expectancy-number {
-    margin-bottom: 0;
-    padding: 0.5rem 0;
+  img {
+    width: 100%;
+    height: auto;
   }
 }
 
-.map-image {
-  width: 80%;
+.life-expectancy-number-input {
+  position: absolute;
+  top: 74%;
+  right: 0;
+  left: 0;
+  width: 40%;
+  margin: 0 auto;
+  z-index: 1;
+  outline: inset 2px #cdcbd8;
+  background-color: white;
+
+  .life-expectancy-number {
+    margin-bottom: 0;
+    padding: 0.3em;
+    font-size: 1.3vw;
+    font-weight: 900;
+  }
 }
 
-.map-full {
-  width: 100%;
-  height: 500px;
-  background-image: image-url('centro');
-  background-size: cover;
-  background-repeat: no-repeat
+.take-care {
+  font-size: 3em;
+  font-weight: 700;
+  color: $primary;
+  padding-top: .7em;
+}
+
+
+.take-care-text {
+  font-size: 2em;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  padding: .5em 0;
+}
+
+.take-care-text-highlight {
+  color: $dark-green;
+  font-weight: 600;
+}
+
+.take-care-image-text {
+  font-size: 1.5em;
+  margin-top: 1em;
+}
+
+.reference-text {
+  font-size: 1em;
+  padding: 2em 0;
 }
 
 .health-image {
@@ -325,17 +358,12 @@ select {
 }
 
 .health-images {
-  padding-left: 18%;
+  padding-top: 0.5em;
+  text-align: center;
 }
 
 .healthy {
   background-color: #F3F8F9;
-}
-
-.map-paragraph-text {
-  padding-right: 30%;
-  padding-left: 2rem;
-  color: $dark-gray;
 }
 
 .formalidad-paragraph-text {
@@ -345,25 +373,69 @@ select {
   color: $dark-gray;
 }
 
-.map-colored-row {
-  background-color: #f3f8f9;
-  &:last-child {
-    padding-bottom: 1rem;
+.map-title {
+  color: $dark-gray;
+  font-size: 1.9em;
+  font-weight: 700;
+  margin-top: 1.5em;
+}
+
+.map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  > img {
+    width: 100%;
+    margin-bottom: 3em;
   }
 }
 
-.block-map {
-  background-color: white;
-  width: 80px;
-  height: 60px;
-  margin-left: 5px;
-  color: black;
-  display: inline-flexbox;
-  padding: 5px;
+.map-label {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  font-size: 1.2vw;
+  font-weight: 700;
+  right: 0;
+  margin: 0 auto;
+  margin-right: 1em;
+  width: 23%;
+  text-align: right;
+  display: flex;
 }
 
-.map-header-section {
-  padding: 50px 0;
+.map-text {
+  padding-top: .7em;
+  padding-right: .3em;
+  flex: 0 0 52%;
+}
+
+.map-label--world {
+  top: 5.3em;
+}
+
+.map-label--country {
+  top: 12.8em;
+}
+
+.map-label--region {
+  color: $dark-green;
+  top: 20.8em;
+  width: 28%;
+
+  > .map-text {
+    padding-top: 0;
+    flex: 0 0 60%;
+  }
+}
+
+.map-kpi {
+  color: black;
+  background-color: white;
+  font-size: 1.4vw;
+  margin-left:0.5em;
+  padding: 0.5em;
 }
 
 .grad-image {
@@ -406,19 +478,54 @@ select {
   margin: 1rem;
 }
 
-.life-expectancy-number-text {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0.3rem 0;
-}
-
 .health-icon {
   padding-top: 0.2rem;
   height: 50px;
 }
 
 .simulation-results {
-  padding-top: 1.5rem;
+  display: table;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.simulation-results__col {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 1.5em 0.5em;
+}
+
+.simulation-results__col--1 {
+  width: 40%;
+}
+
+.simulation-results__col--2 {
+  width: 40%;
+}
+
+.simulation-results__col--3 {
+  width: 20%;
+}
+
+.simulation-results__text {
+  text-transform: uppercase;
+  font-size: 1.3vw;
+  font-weight: 600;
+}
+
+.simulation-results__text--health {
+  color: $dark-green;
+}
+
+.simulation-results__kpi {
+  font-size: 2.5vw;
+  font-weight: 800;
+  padding: 0.2em 0.7em;
+  background-color: white;
 }
 
 .work-simulation-results {
@@ -485,6 +592,7 @@ select {
 .simulator-header-section-dark {
   background-color: #006c6f;
   padding: 2rem 0;
+
   .simulator-header-text {
     margin-top: 0;
     color: #fff;
@@ -494,6 +602,7 @@ select {
 .simulator-header-section-primary {
   background-color: $primary;
   padding: 2rem 0;
+
   .simulator-header-text {
     margin-top: 0;
     color: #fff;
@@ -594,10 +703,10 @@ select {
 /* Health Section*/
 
 .health-paragraph-text-black {
-  padding-left: 1rem;
-  color: black;
+  padding: 0 4em;
+  margin-top: 1em;
   margin-bottom: 0;
-  padding-bottom: 10px;
+  color: black;
 }
 
 .health-paragraph-text {

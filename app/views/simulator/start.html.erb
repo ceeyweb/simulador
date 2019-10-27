@@ -1,42 +1,47 @@
 <section>
-  <h2 class="heading-2-orange text-center">Simulador de</h2>
-  <h1 class="heading-1-black text-center">Movilidad Social</h1>
+  <h2 class="heading heading-2-orange center">Simulador de</h2>
+  <h1 class="heading uppercase heading-1-black center">Movilidad Social</h1>
+  <div class="center heading-legend">
+    Conoce los beneficios de la movilidad social para tu:
+  </div>
   <%= image_tag "encabezado_salud_1920.png", class: "header-image" %>
 </section>
 
 <section class="life-expectancy-section">
-  <h3 class="simulator-header-text text-center">¿Cuáles son los años de vida esperados para ti y para tus padres?</h3>
-  <p class="text-center text-size-md simulator-paragraph-text">
-    <strong>Años totales de vida esperada:</strong> número de años que en promedio se espera que viva una persona a partir de su edad
+  <h3 class="simulator-header-text center">
+    ¿Cuáles son los años de vida esperados para ti y para tus padres?
+  </h3>
+  <p class="center text-size-md simulator-paragraph-text">
+    <strong>Años totales de vida esperada:</strong> número de años que en
+    promedio se espera que viva una persona a partir de su edad
   </p>
 
-  <hr class="dotted-hr">
-
   <div class="container">
-    <div class="row">
-      <div class="col-md-4 text-center">
+    <hr class="dotted-hr">
+    <div class="row life-expectancy-row">
+      <div class="col-md-4 center">
         <%= image_tag @user.expected_age_image, class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number" style="font-size:1.5rem; color:#215862">
-            <%= @user.expected_age %> años
+          <p class="life-expectancy-number" style="color:#215862">
+            <%= @user.expected_age %> AÑOS
           </p>
         </div>
       </div>
 
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 center">
         <%= image_tag "esperanza_vida_madre.png", class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number" style="font-size:1.5rem; color:#60dac7">
-            <%= @user.mother_expected_age %> años
+          <p class="life-expectancy-number" style="color:#60dac7">
+            <%= @user.mother_expected_age %> AÑOS
           </p>
         </div>
       </div>
 
-      <div class="col-md-4 text-center">
+      <div class="col-md-4 center">
         <%= image_tag "esperanza_vida_padre.png", class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number" style="font-size:1.5rem; color:rgb(245, 133, 49)">
-            <%= @user.father_expected_age %> años
+          <p class="life-expectancy-number" style="color:rgb(245, 133, 49)">
+            <%= @user.father_expected_age %> AÑOS
           </p>
         </div>
       </div>
@@ -44,31 +49,29 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12 text-center">
-      <p class="text-size-md health-paragraph-text-black text-center" style="margin-top:60px">
-      Los años de vida esperados de los padres son, generalmente mayores porque han superado periodos de riesgo, como los accidentes en la adolescencia.
+    <div class="col-md-12 center">
+      <p class="text-size-md health-paragraph-text-black center">
+        Los años de vida esperados de los padres son, generalmente mayores porque
+        han superado periodos de riesgo, como los accidentes en la adolescencia.
       </p>
     </div>
   </div>
 
 </section>
 <section class="healthy">
-  <h3 class="heading-2-orange text-center">CUÍDATE</h3>
-  <p class="text-size-lg health-paragraph-text-black text-center">
-    La mayoría de los jovenes goza de buena salud,<br> pero la
-    <span class="text-size-lg health-paragraph-text text-center">mortalidad prematura </span>
+  <h3 class="take-care center">CUÍDATE</h3>
+  <p class="take-care-text">
+    La mayoría de los jovenes goza de buena salud, pero la
+    <span class="take-care-text-highlight">mortalidad prematura</span>
     es considerablemente alta por:
   </p>
 
   <div class="row health-images">
-
-    <div class="col-md-2">
+    <div class="col-md-2 offset-md-1">
       <%= image_tag "accidente.png",  class: 'health-image' %>
       <div class="row">
-        <div class="col-md-9">
-          <p class="text-size-md text-center">
-           accidentes de tránsito
-          </p>
+        <div class="col-md-12 take-care-image-text">
+          accidentes de tránsito
         </div>
       </div>
     </div>
@@ -76,10 +79,8 @@
     <div class="col-md-2">
       <%= image_tag "drogas.png", class: 'health-image' %>
       <div class="row">
-        <div class="col-md-9">
-          <p class="text-size-md text-center">
-           consumo de drogas
-          </p>
+        <div class="col-md-12 take-care-image-text">
+          consumo de drogas
         </div>
       </div>
     </div>
@@ -87,10 +88,8 @@
     <div class="col-md-2">
       <%= image_tag "obeso.png", class: 'health-image'%>
       <div class="row">
-        <div class="col-md-9">
-          <p class="text-size-md text-center">
-           falta de actividad física
-          </p>
+        <div class="col-md-12 take-care-image-text">
+          falta de actividad física
         </div>
       </div>
     </div>
@@ -98,10 +97,8 @@
     <div class="col-md-2">
       <%= image_tag "condon.png",  class: 'health-image' %>
       <div class="row">
-        <div class="col-md-9">
-          <p class="text-size-md text-center">
-           relaciones sexuales sin protección
-          </p>
+        <div class="col-md-12 take-care-image-text">
+          relaciones sexuales sin protección
         </div>
       </div>
     </div>
@@ -109,84 +106,72 @@
     <div class="col-md-2">
       <%= image_tag "violencia.png",  class: 'health-image' %>
       <div class="row">
-        <div class="col-md-9">
-          <p class="text-size-md text-center">
-           exposición a la violencia
-          </p>
+        <div class="col-md-12 take-care-image-text">
+          exposición a la violencia
         </div>
       </div>
     </div>
 
   </div>
 
-  <p class="text-size-xs health-paragraph-text-black text-center">
+  <div class="reference-text center">
     Referencia: Organización Mundial de la Salud. (13 de diciembre de 2018).
     Adolescentes: riesgos para la salud y soluciones
-  </p>
-</section>
-
-<section class="simulator-header-section">
-  <h3 class="simulator-header-text text-center">¿Cómo estás con respecto a <%= @user.sex_text %> de tu generación?</h3>
-</section>
-
-<section class="map-header-section">
-  <h3 class="simulator-header-text text-center" style="margin-top:0.5rem" >
-    Máximo de años de vida esperados en...
-  </h3>
-
-  <div class="row" style="width: 100%;
-            height: 500px; margin-top:50px; background-image: url(<%= image_url('mapa_'+@user.region.gsub(" ", "_")+'.png') %>);
-            background-size: cover;
-            background-repeat: no-repeat">
-    <div class="col-md-5 my-auto" style="margin-left:680px; ">
-      <p class="map-paragraph-text" style="color:white; margin-top:80px; font-size: 22px">
-        el mundo
-        <span class="block-map"><%= @user.world_expected_age %> años</span>
-      </p>
-    </div>
-    <div class="col-md-5 my-auto" style="margin-left:680px; ">
-      <p class=" map-paragraph-text" style="color:white; margin-top:40px;font-size: 22px">
-        en México
-        <span class="block-map"><%= @user.country_expected_age %> años</span>
-      </p>
-    </div>
-    <div class="col-md-5 my-auto" style="margin-left:680px; ">
-      <div class="row">
-        <div class="col-sm-8 my-auto" style="margin-top:50px; margin-left: -30px; font-size:18px">
-          <p class="map-paragraph-text" style="color:#215862; margin-top:20px">
-            la región <%= @user.region %>
-          </p>
-          <p  style="width:180px; font-size: 9px; margin-left:32px; margin-top:-15px">
-            <%= @user.region_states %>
-          </p>
-        </div>
-        <div class="col-sm-4 my auto" style="margin-top:35px; margin-left:-100px; font-size:22px">
-          <span class="block-map" ><%= @user.region_expected_age %> años</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <section class="simulator-header-section">
-  <h3 class="simulator-header-text text-center">¿Y qué pasa si continúas estudiando?</h3>
+  <h3 class="simulator-header-text center">
+    ¿Cómo estás con respecto a <%= @user.sex_text %> de tu generación?
+  </h3>
+</section>
+
+<section>
+  <h3 class="map-title center">
+    Máximo de años de vida esperados...
+  </h3>
+
+  <div class="map">
+     <img src="<%= image_url(@user.region_map_image) %>">
+
+     <div class="map-label map-label--world">
+       <span class="map-text">en el mundo</span>
+       <span class="map-kpi"><%= @user.world_expected_age %> años</span>
+     </div>
+     <div class="map-label map-label--country">
+       <span class="map-text">en México</span>
+       <span class="map-kpi"><%= @user.country_expected_age %> años</span>
+     </div>
+     <div class="map-label map-label--region">
+       <span class="map-text">en la región <br><%= @user.region.downcase %></span>
+       <span class="map-kpi"><%= @user.region_expected_age %> años</span>
+     </div>
+  </div>
+</section>
+
+<section class="simulator-header-section">
+  <h3 class="simulator-header-text center">
+    ¿Y qué pasa si continúas estudiando?
+  </h3>
 </section>
 
 <section class="health-simulation-section">
   <div class="container">
     <%= render "slider" %>
 
-    <div class="row" style="height: 100px">
-      <div class="col-12 background-teal">
-        <div class="row" style="justify-content: center">
-          <div class="col-md-2 simulation-results text-center">
+    <div class="row background-teal">
+      <div class="col-md-6 offset-md-3">
+        <div class="simulation-results">
+          <div class="simulation-results__col simulation-results__col--1">
             <%= image_tag "esperanza.png", class: "health-icon" %>
           </div>
-          <div class="col-md-3 simulation-results" style="margin-right:-80px">
-            <p class="text-uppercase life-expectancy-text">Años de vida esperados</p>
+          <div class="simulation-results__col simulation-results__col--2">
+            <span class="simulation-results__text simulation-results__text--health">
+              Años de vida esperados
+            </span>
           </div>
-          <div class="col-md-1 white-box text-center">
-            <p class="life-expectancy-number-text" id="life-expectancy"><%= @user.expected_age %></p>
+          <div class="simulation-results__col simulation-results__col--3">
+            <span class="simulation-results__kpi" id="life-expectancy"><%= @user.expected_age %></span>
           </div>
         </div>
       </div>
@@ -195,8 +180,8 @@
   </div>
 </section>
 
-<section class="print-section text-center">
-  <button class="btn btn-primary print-button">Imprimir</button>
+<section class="print-section center">
+  <button class="btn btn-primary" onclick="window.print();">Imprimir</button>
 
 </section>
 

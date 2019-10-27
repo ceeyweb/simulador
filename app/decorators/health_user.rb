@@ -24,7 +24,7 @@ class HealthUser < ResultsUser
   end
 
   def region_map_image
-    "mapa_region_#{region.tr(" ", "_").downcase}.png"
+    "mapa_#{region.tr(" ", "_").downcase}.png"
   end
 
   def kpis
