@@ -1,0 +1,57 @@
+.video {
+  text-align: center;
+  max-height: 41em;
+  background-color: white;
+}
+
+.video__title {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: $dark-green;
+}
+
+.video__container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.video__container iframe, .embed-container object, .embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 65%;
+  height: 65%;
+}
+
+.start {
+  padding: 5em 0;
+  text-align: center;
+  background-color: $primary;
+}
+
+.start__title {
+  font-size: 3em;
+  font-weight: 600;
+  color: white;
+}
+
+.start__button {
+  background-color: white;
+  border-radius: 15px;
+  margin-top: 1.5em;
+  font-size: 2em;
+  font-weight: 800;
+  color: $primary;
+  padding: 0.4em 2em;
+
+  &:hover {
+    color: darken($primary, 5%);
+  }
+}

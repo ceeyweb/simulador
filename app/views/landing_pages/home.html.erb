@@ -1,27 +1,33 @@
-  <section>
-    <%= image_tag "encabezado_inicio_1920.png", class: "header-image" %>
-  </section>
+<section>
+  <%= image_tag "home_movilidad_social.png", class: "header-image" %>
+</section>
 
-  <section>
-    <%= image_tag "movilidad_en_la_salud_1920.png", class: "header-image" %>
-  </section>
+<section>
+  <%= image_tag "home_movilidad_salud.png", class: "header-image" %>
+</section>
 
-  <section>
-    <%= image_tag "movilidad_educativa_1920.png", class: "header-image" %>
-  </section>
+<section>
+  <%= image_tag "home_movilidad_educativa.png", class: "header-image" %>
+</section>
 
-  <section>
-    <%= image_tag "movilidad_laboral_1920.png", class: "header-image" %>
-  </section>
+<section>
+  <%= image_tag "home_movilidad_laboral.png", class: "header-image" %>
+</section>
 
-  <section class="section-youtube-embed">
-    <h3 class="know-more">Conoce más sobre la movilidad social en este video</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/VxU69eSv7S4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </section>
+<section class="video">
+  <h3 class="video__title">Conoce más sobre la movilidad social en este video</h3>
 
-  <section class="section-start-questions">
-    <h3 class="perspectives">¿Cuáles son tus perspectivas?</h3>
-    <%= link_to "Simulador", question_start_path, class: "btn start-questions-button" %>
-  </section>
+  <div class="video__container">
+    <iframe src="https://www.youtube.com/embed//VxU69eSv7S4"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            frameborder="0"
+            allowfullscreen></iframe>
+  </div>
+</section>
 
-  <%= render "shared/footer" %>
+<section class="start">
+  <h3 class="start__title">¿Cuáles son tus perspectivas?</h3>
+  <%= link_to "Simulador", question_start_path, class: "btn start__button" %>
+</section>
+
+<%= render "shared/footer" %>

@@ -1,11 +1,65 @@
 @import "colors";
+@import "home";
 @import "slider";
 @import "overrides";
 
-/* Utility */
+/* General styles */
 
 $header-font: "Montserrat";
 $default-font: "Lato";
+
+body {
+  font-size: 0.75rem;
+  font-family: $default-font;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 6px;
+  }
+}
+
+label {
+  font-weight: bold;
+}
+
+.heading-2 {
+  background-color: #888;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 1em;
+}
+
+.heading-2-orange {
+  padding-top: 0.5em;
+  color: $primary;
+  font-size: 3em;
+  font-weight: 400;
+  margin-bottom: -5px;
+}
+
+.heading-legend {
+  color: $dark-green;
+  font-size: 2em;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: -30px;
+}
+
+.white-section {
+  padding: 1em;
+  background-color: #fff;
+}
+
+.card-title {
+  margin-top: 0.75rem;
+}
+
+.orange-underline {
+  color: $primary;
+  text-decoration: underline;
+}
+/* Utility */
 
 .col-md-1 {
   width: 40px;
@@ -58,63 +112,6 @@ $default-font: "Lato";
 
 .uppercase {
   text-transform: uppercase;
-}
-
-/* General styles */
-
-body {
-  font-size: 0.75rem;
-  font-family: $default-font;
-}
-
-label {
-  font-weight: bold;
-}
-
-figure {
-  text-align: center;
-}
-
-figcaption {
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-.heading-2 {
-  background-color: #888;
-  font-weight: bold;
-  color: #ffffff;
-  padding: 1em;
-}
-
-.heading-2-orange {
-  padding-top: 0.5em;
-  color: $primary;
-  font-size: 3em;
-  font-weight: 400;
-  margin-bottom: -5px;
-}
-
-.heading-legend {
-  color: $dark-green;
-  font-size: 2em;
-  font-weight: 600;
-  margin-top: 20px;
-  margin-bottom: -30px;
-}
-
-.white-section {
-  padding: 1em;
-  background-color: #fff;
-}
-
-.card-title {
-  margin-top: 0.75rem;
-}
-
-.orange-underline {
-  color: $primary;
-  text-decoration: underline;
 }
 
 /* Input styles */
@@ -853,44 +850,6 @@ select {
 
 .header-image {
   width: 100%;
-}
-
-.section-youtube-embed {
-  text-align: center;
-  height: 37em;
-  background-color: #fff;
-}
-
-.know-more {
-  margin-top: 1.5em;
-  font-size: 2.5em;
-  margin-bottom: 1.5em;
-}
-
-.section-start-questions {
-  text-align: center;
-  height: 23em;
-  background-color: $primary;
-}
-
-.perspectives {
-  font-size: 3em;
-  font-weight: bold;
-  color: #fff;
-  padding-top: 2em;
-}
-
-.start-questions-button {
-  background-color: #fff;
-  border-radius: 22px;
-  margin-top: 1.5em;
-  font-size: 2em;
-  font-weight: bold;
-  color: $primary;
-  padding: 0.4em 2em;
-  &:hover {
-    color: darken($primary, 5%);
-  }
 }
 
 .easy-pie-chart-percentage {
