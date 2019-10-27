@@ -1,15 +1,46 @@
 .slider {
   img {
+    margin-top: 1em;
     max-width: 100%;
     max-height: 100%;
   }
 }
 
-.slider__labels {
+.slider__text {
+  margin-top: 2em;
+  margin-bottom: -.7em;
+  font-size: 1.2em;
+  font-weight: 500;
   text-align: center;
+}
+
+.slider__labels {
+  text-align: left;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 1vw;
   margin-bottom: 25px;
+}
+
+.slider__labels-pos1 {
+  padding-left: 4.4%;
+}
+
+.slider__labels-pos2 {
+  padding-left: 4.2%;
+}
+
+.slider__labels-pos3 {
+  text-align: center;
+}
+
+.slider__labels-pos4 {
+  text-align: right;
+  padding-right: 3.4%;
+}
+
+.slider__labels-pos5 {
+  text-align: right;
+  padding-right: 4.2%;
 }
 
 .slider__track {

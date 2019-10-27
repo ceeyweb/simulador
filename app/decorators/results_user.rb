@@ -27,7 +27,7 @@ class ResultsUser < SimpleDelegator
   end
 
   def slider_image
-    "/images/sim_#{sex_id}_#{section}_#{education_level}.png"
+    "/images/sim_#{sex_id}_#{education_level}.png"
   end
 
 end
