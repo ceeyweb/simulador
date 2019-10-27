@@ -5,24 +5,26 @@ RSpec.describe SimulatorController do
     cookies["user_id"] = user.id
   end
 
-  describe "GET start" do
-    it "returns a 200 response" do
-      get :start
-      expect(response.status).to eq(200)
+  context "when user has not responded all questions" do
+    describe "GET start" do
+      it "returns a 200 response" do
+        get :start
+        expect(response.status).to eq(200)
+      end
     end
-  end
 
-  describe "GET part_2" do
-    it "returns a 200 response" do
-      get :part_2
-      expect(response.status).to eq(200)
+    describe "GET part_2" do
+      it "returns a 200 response" do
+        get :part_2
+        expect(response.status).to eq(302)
+      end
     end
-  end
 
-  describe "GET part_3" do
-    it "returns a 200 response" do
-      get :part_3
-      expect(response.status).to eq(200)
+    describe "GET part_3" do
+      it "returns a 200 response" do
+        get :part_3
+        expect(response.status).to eq(302)
+      end
     end
   end
 end

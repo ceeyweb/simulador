@@ -11,7 +11,7 @@ class SimulatorController < ApplicationController
 
     @user = EducationUser.new(ProgressUser.new(user))
 
-    redirect_to :simulator_start unless @user.filled_out_all_parts?
+    return redirect_to :simulator_start unless @user.filled_out_all_parts?
   end
 
   def part_3
