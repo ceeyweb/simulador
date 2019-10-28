@@ -62,10 +62,28 @@
 <section class="simulator-header-section-dark">
   <h3 class="simulator-header-text text-center">
     ¿Cómo estás con respecto a
-    <select class="education-select">
-      <option value="<%= @user.sex %>"><%= @user.sex.pluralize %></option>
-      <option value="<%= @user.region %>">Región <%= @user.region %></option>
-      <option value="<%= @user.age_group %>"><%= @user.age_group %></option>
+    <select class="education-select" id="education-select" onchange="updateBooks(this)">
+      <option value="<%= @user.sex %>"
+              data-legend-high="<%= @user.tertile_legend(:high, :sex) %>"
+              data-legend-medium="<%= @user.tertile_legend(:medium, :sex) %>"
+              data-legend-low="<%= @user.tertile_legend(:low, :sex) %>"
+              data-image="<%= image_path(@user.tertile_image(:sex)) %>">
+        <%= @user.sex.pluralize %>
+      </option>
+      <option value="<%= @user.region %>"
+              data-legend-high="<%= @user.tertile_legend(:high, :region) %>"
+              data-legend-medium="<%= @user.tertile_legend(:medium, :region) %>"
+              data-legend-low="<%= @user.tertile_legend(:low, :region) %>"
+              data-image="<%= image_path(@user.tertile_image(:region)) %>">
+        Región <%= @user.region %>
+      </option>
+      <option value="<%= @user.age_group %>"
+              data-legend-high="<%= @user.tertile_legend(:high, :age) %>"
+              data-legend-medium="<%= @user.tertile_legend(:medium, :age) %>"
+              data-legend-low="<%= @user.tertile_legend(:low, :age) %>"
+              data-image="<%= image_path(@user.tertile_image(:age)) %>">
+        <%= @user.age_group %>
+      </option>
     </select>
     ?
   </h3>
@@ -81,28 +99,25 @@
     <div class="row">
       <div class="col-12 education-comparison__row">
         <div class="education-comparison__text education-comparison__text--high">
-          Entre
-          <%= tertile_for(@user, :top).lower_limit %>% y <%= tertile_for(@user, :top).upper_limit %>%
+          <span id="legend-high"><%= @user.tertile_legend(:high) %></span>
           <br>del desempeño escolar
         </div>
       </div>
       <div class="col-12 education-comparison__row">
         <div class="education-comparison__text education-comparison__text--medium">
-          Entre
-          <%= tertile_for(@user, :middle).lower_limit %>% y <%= tertile_for(@user, :middle).upper_limit %>%
+          <span id="legend-medium"><%= @user.tertile_legend(:medium) %></span>
           <br>del desempeño escolar
         </div>
       </div>
       <div class="col-12 education-comparison__row">
         <div class="education-comparison__text education-comparison__text--low">
-          Entre
-          <%= tertile_for(@user, :bottom).lower_limit %>% y <%= tertile_for(@user, :bottom).upper_limit %>%
+          <span id="legend-low"><%= @user.tertile_legend(:low) %></span>
           <br>del desempeño escolar
         </div>
       </div>
 
       <div class="col-7 offset-5 education-comparison__image">
-        <%= image_tag tertile_image_for(@user) %>
+        <%= image_tag @user.tertile_image, id: "education-books" %>
       </div>
     </div>
   </div>
@@ -157,7 +172,7 @@
 </section>
 
 <section class="print-section text-center">
-  <button class="btn btn-primary print-button">Imprimir</button>
+  <button class="btn btn-primary" onclick="window.print();">Imprimir</button>
 </section>
 
 <%= render "shared/benefit_sections",

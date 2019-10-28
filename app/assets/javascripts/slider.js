@@ -4,10 +4,10 @@ class Slider {
     this.image = document.querySelector("[data-behavior='slider-image']");
 
     if (this.slider) {
-      this.slider.addEventListener('click', function(event) {
+      this.slider.addEventListener("click", function(event) {
         let selectedValue = parseInt(event.target.getAttribute("data-value"));
 
-        if (event.target.getAttribute('data-behavior') === "slider-enabled") {
+        if (event.target.getAttribute("data-behavior") === "slider-enabled") {
           this.updateSlider(event, selectedValue);
           this.updateImage(selectedValue);
           this.updateKpis(selectedValue);

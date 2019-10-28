@@ -18,14 +18,20 @@ class EducationUser < ResultsUser
   end
 
   def education_achievement_image
-    "#{image_for(education_achievement.to_i)}.png"
+    achievement_image_for(score_label_for(education_achievement.to_i))
   end
 
   def parents_education_achievement_image
-    "#{image_for(parents_education_achievement.to_i)}.png"
+    achievement_image_for(score_label_for(parents_education_achievement.to_i))
   end
 
-  def tertile_low
+  def tertile_legend(level, group = :sex)
+    legend_for(sex_tertiles.first)
+    legend_for(send("#{group}_tertiles").send(level))
+  end
+
+  def tertile_image(group = :sex)
+    "education_books_#{tertile_label_for(send("user_#{group}_tertile"))}.png"
   end
 
   private
@@ -34,13 +40,33 @@ class EducationUser < ResultsUser
     @results ||= EducationResults.new(__getobj__)
   end
 
-  def image_for(achievement_score)
-    if achievement_score <= 33
-      "bajo"
-    elsif achievement_score <= 66
-      "medio"
+  def legend_for(tertile)
+    if tertile.lower_limit == tertile.upper_limit
+      "#{tertile.lower_limit}%"
     else
-      "alto"
+      "Entre #{tertile.lower_limit}% y #{tertile.upper_limit}%"
+    end
+  end
+
+  def achievement_image_for(label)
+    "education_achievement_#{label}.png"
+  end
+
+  def tertile_label_for(tertile)
+    case tertile
+    when "1" then :low
+    when "2" then :medium
+    when "3" then :high
+    end
+  end
+
+  def score_label_for(achievement_score)
+    if achievement_score <= 33
+      :low
+    elsif achievement_score <= 66
+      :medium
+    else
+      :high
     end
   end
 
