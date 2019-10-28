@@ -17,6 +17,24 @@ class EducationUser < ResultsUser
     "education"
   end
 
+  def education_achievement_image
+    "#{image_for(education_achievement.to_i)}.png"
+  end
+
+  def parents_education_achievement_image
+    "#{image_for(parents_education_achievement.to_i)}.png"
+  end
+
+  def image_for(achievement_score)
+    if achievement_score <= 33
+      "bajo"
+    elsif achievement_score <= 66
+      "medio"
+    else
+      "alto"
+    end
+  end
+
   private
 
   def results

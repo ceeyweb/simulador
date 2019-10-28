@@ -1,55 +1,50 @@
 <section>
-  <h2 class="heading-2-orange text-center">Simulador de</h2>
-  <h1 class="heading-1-black text-center">Movilidad Social</h1>
-  <%= image_tag "encabezado_educacion_1920.png", class: "header-image" %>
+  <h2 class="heading heading-2-orange center">Simulador de</h2>
+  <h1 class="heading uppercase heading-1-black text-center">Movilidad Social</h1>
+  <div class="center heading-legend">
+    Conoce los beneficios de la movilidad social para tu:
+  </div>
+  <%= image_tag "encabezado_educacion.png", class: "header-image" %>
 </section>
 
-<section class="life-expectancy-section">
-  <h3 class="simulator-header-text text-center">¿Cuáles son tus logros educativos y los de tus padres?</h3>
-  <div class="col-md-8 offset-2">
-    <p class="text-center text-size-md simulator-paragraph-text">
-      <strong>Logro educativo:</strong> años de escolaridad cursados con relación
-      a los años que podrías haber cursado, tomando en cuenta tu edad y los logros
-      que ha obtenido tu generación.
-    </p>
-  </div>
+<section class="education-achievement">
+  <h3 class="simulator-header-text text-center">
+    ¿Cuáles son tus logros educativos y los de tus padres?
+  </h3>
 
-  <hr class="dotted-hr">
+  <div class="center simulator-paragraph-text">
+    <strong>Logro educativo:</strong> años de escolaridad cursados con relación
+    a los años que podrías haber cursado, tomando en cuenta tu edad y los logros
+    que ha obtenido tu generación.
+
+    <hr class="dotted-hr">
+  </div>
 
   <div class="container">
     <div class="row">
-      <div class="col-md-6 text-center marker-box marker-box-gray">
-        <p class="text-size-lg col-md-8 offset-2">
-          Tienes el <%= content_tag :span, "#{@user.education_achievement}%", class: "orange" %> de los logros educativos que podrías haber obtenido
-        </p>
-        <% if @user.education_achievement <= "33" %>
-          <%= image_tag "bajo.png", class: "marker-image" %>
-        <% elsif @user.education_achievement <= "66" %>
-          <%= image_tag "medio.png", class: "marker-image" %>
-        <% else @user.education_achievement >= "67" %>
-          <%= image_tag "alto.png", class: "marker-image" %>
-        <% end %>
+      <div class="col-6 background-gray education-achievement__text">
+        Tienes el <span class="highlight"><%= @user.education_achievement %></span>
+        de los logros educativos que podrías haber obtenido
+      </div>
+      <div class="col-6 education-achievement__text">
+        Tus padres tienen el <span class="highlight"><%= @user.parents_education_achievement %></span>
+        de los logros educativos que se esperaba que obtuvieran
+      </div>
+    </div>
 
-        <p class="text-size-lg uppercase">
-          <span class="orange">Tu</span> logro educativo
+    <div class="row">
+      <div class="col-6 education-alternate-bg">
+        <%= image_tag @user.education_achievement_image %>
+
+        <p class="education-achievement__title">
+          <span class="highlight">Tu</span> logro educativo
         </p>
       </div>
+      <div class="col-6">
+        <%= image_tag @user.parents_education_achievement_image %>
 
-      <div class="col-md-6 text-center marker-box">
-        <p class="text-size-lg col-md-8 offset-2">
-          Tus padres tienen el
-          <%= content_tag :span, "#{@user.parents_education_achievement}%", class: "orange" %>
-          de los logros educativos que se esperaba que obtuvieran
-        </p>
-        <% if @user.parents_education_achievement <= "33" %>
-          <%= image_tag "bajo.png", class: "marker-image" %>
-        <% elsif @user.parents_education_achievement <= "66" %>
-          <%= image_tag "medio.png", class: "marker-image" %>
-        <% else @user.parents_education_achievement >= "67" %>
-          <%= image_tag "alto.png", class: "marker-image" %>
-        <% end %>
-        <p class="text-size-lg uppercase" style="padding-top:2px">
-          Logro educativo de <span class="orange">tus padres</span>
+        <p class="education-achievement__title">
+          Logro educativo de <span class="highlight">tus padres</span>
         </p>
       </div>
     </div>
@@ -59,51 +54,48 @@
 <section class="simulator-header-section-dark">
   <h3 class="simulator-header-text text-center">
     ¿Cómo estás con respecto a
-    <select class="big-select">
-      <option value="<%= @user.sex %>"><%= @user.sex_text.titleize %> de tu generación</option>
-      <option value="<%= @user.region %>">La Región <%= @user.region %></option>
-      <option value="<%= @user.age_group %>">Edad <%= @user.age_group %></option>
+    <select class="education-select">
+      <option value="<%= @user.sex %>"><%= @user.sex.pluralize %></option>
+      <option value="<%= @user.region %>">Región <%= @user.region %></option>
+      <option value="<%= @user.age_group %>"><%= @user.age_group %></option>
     </select>
     ?
   </h3>
 </section>
 
-<section class="books-section">
-  <div class="container" style="height:530px">
+<section class="education-comparison">
+  <div class="container">
     <div class="row">
-      <div class="col-md-5 offset-1">
-        <p class="text-size-lg center books-section-paragraph-big">
-          De acuerdo con los logros académicos de tu generación, tu desempeño es...
-        </p>
-      </div>
-      <div class="col-md-6">
-        <p class="books-section-heading center uppercase text-size-lg">Logro Escolar</p>
+      <div class="col-md-6 education-comparison__paragraph">
+        De acuerdo con los logros académicos de tu generación, tu desempeño es...
       </div>
     </div>
-    <div class="row" style="flex-direction: row-reverse">
-      <div class="col-12 books-section-stripe">
-        <p class="books-section-stripe-text" style="margin-left: 300px">
+    <div class="row">
+      <div class="col-12 education-comparison__row">
+        <div class="education-comparison__text education-comparison__text--high">
           Entre
           <%= tertile_for(@user, :top).lower_limit %>% y <%= tertile_for(@user, :top).upper_limit %>%
-          del desempeño escolar
-        </p>
+          <br>del desempeño escolar
+        </div>
       </div>
-      <div class="col-12 books-section-stripe">
-        <p class="books-section-stripe-text" style="margin-left: 200px">
+      <div class="col-12 education-comparison__row">
+        <div class="education-comparison__text education-comparison__text--medium">
           Entre
           <%= tertile_for(@user, :middle).lower_limit %>% y <%= tertile_for(@user, :middle).upper_limit %>%
-          del desempeño escolar
-        </p>
+          <br>del desempeño escolar
+        </div>
       </div>
-      <div class="col-12 books-section-stripe">
-        <p class="books-section-stripe-text" style="margin-left: 100px">
+      <div class="col-12 education-comparison__row">
+        <div class="education-comparison__text education-comparison__text--low">
           Entre
           <%= tertile_for(@user, :bottom).lower_limit %>% y <%= tertile_for(@user, :bottom).upper_limit %>%
-          del desempeño escolar
-        </p>
+          <br>del desempeño escolar
+        </div>
       </div>
 
-      <%= image_tag tertile_image_for(@user), class: "books-section-image" %>
+      <div class="col-7 offset-5 education-comparison__image">
+        <%= image_tag tertile_image_for(@user) %>
+      </div>
     </div>
   </div>
 </section>
@@ -112,48 +104,47 @@
   <h3 class="simulator-header-text text-center">¿Y qué pasa si continúas estudiando?</h3>
 </section>
 
-<section class="health-simulation-section">
+<section>
   <div class="container">
     <%= render "slider" %>
 
-    <div class="row" style="height: 100px">
-      <div class="col-6 background-dark-green">
-        <div class="row">
-          <div class="col-md-3 simulation-results text-center">
-            <%= image_tag "logro_icon.png", class: "health-icon" %>
+    <div class="row">
+      <div class="col-lg-6 background-dark-green">
+        <div class="simulation-results">
+          <div class="simulation-results__col simulation-results__col--1">
+            <%= image_tag "logro_icon.png", class: "kpi-icon" %>
           </div>
-          <div class="col-md-4 simulation-results">
-            <p class="text-uppercase school-achievement-text">Logro Escolar</p>
+          <div class="simulation-results__col simulation-results__col--2">
+            <span class="simulation-results__text simulation-results__text--white">
+              Logro <br>Escolar
+            </span>
           </div>
-          <div class="col-md-2 white-box text-center">
-            <p class="life-expectancy-number-text" id="education-achievement">
-            <%= @user.education_achievement %>
-            </p>
-          </div>
-          <div class="col-md-2 simulation-results text-center">
-            <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
+          <div class="simulation-results__col simulation-results__col--3">
+            <span class="simulation-results__kpi" id="education-achievement">
+              <%= @user.education_achievement %>
+            </span>
           </div>
         </div>
       </div>
 
-      <div class="col-6 background-orange">
-        <div class="row">
-          <div class="col-md-3 simulation-results text-center">
-            <%= image_tag "ingreso_icon.png", class: "health-icon" %>
+      <div class="col-lg-6 background-orange">
+        <div class="simulation-results">
+          <div class="simulation-results__col simulation-results__col--1">
+            <%= image_tag "ingreso_icon.png", class: "kpi-icon" %>
           </div>
-          <div class="col-md-3 simulation-results" style="">
-            <p class="text-uppercase wellbeing-text">Ingreso Mensual</p>
+          <div class="simulation-results__col simulation-results__col--2">
+            <span class="simulation-results__text simulation-results__text--white">
+              Ingreso Mensual <br> Promedio
+            </span>
           </div>
-          <p class="school-achievement-dollar">$</p>
-          <div class="col-md-4 white-box text-center">
-            <p class="life-expectancy-number-text text-uppercase" id="average-income">
-            <%= @user.average_income %>
-            </p>
+          <div class="simulation-results__col simulation-results__col--3">
+            <span class="simulation-results__kpi" id="average-income">
+              <%= @user.average_income %>
+            </span>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 

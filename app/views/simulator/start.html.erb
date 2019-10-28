@@ -4,20 +4,23 @@
   <div class="center heading-legend">
     Conoce los beneficios de la movilidad social para tu:
   </div>
-  <%= image_tag "encabezado_salud_1920.png", class: "header-image" %>
+  <%= image_tag "encabezado_salud.png", class: "header-image" %>
 </section>
 
 <section class="life-expectancy-section">
   <h3 class="simulator-header-text center">
     ¿Cuáles son los años de vida esperados para ti y para tus padres?
   </h3>
-  <p class="center text-size-md simulator-paragraph-text">
+
+  <div class="center simulator-paragraph-text">
     <strong>Años totales de vida esperada:</strong> número de años que en
     promedio se espera que viva una persona a partir de su edad
-  </p>
+
+    <hr class="dotted-hr">
+  </div>
+
 
   <div class="container">
-    <hr class="dotted-hr">
     <div class="row life-expectancy-row">
       <div class="col-md-4 center">
         <%= image_tag @user.expected_age_image, class: "life-expectancy-image" %>
@@ -56,9 +59,9 @@
       </p>
     </div>
   </div>
-
 </section>
-<section class="healthy">
+
+<section class="background-gray">
   <h3 class="take-care center">CUÍDATE</h3>
   <p class="take-care-text">
     La mayoría de los jovenes goza de buena salud, pero la
@@ -155,7 +158,7 @@
   </h3>
 </section>
 
-<section class="health-simulation-section">
+<section>
   <div class="container">
     <%= render "slider" %>
 
@@ -163,15 +166,17 @@
       <div class="col-md-6 offset-md-3">
         <div class="simulation-results">
           <div class="simulation-results__col simulation-results__col--1">
-            <%= image_tag "esperanza.png", class: "health-icon" %>
+            <%= image_tag "esperanza.png", class: "kpi-icon" %>
           </div>
           <div class="simulation-results__col simulation-results__col--2">
-            <span class="simulation-results__text simulation-results__text--health">
+            <span class="simulation-results__text simulation-results__text--green">
               Años de vida esperados
             </span>
           </div>
           <div class="simulation-results__col simulation-results__col--3">
-            <span class="simulation-results__kpi" id="life-expectancy"><%= @user.expected_age %></span>
+            <span class="simulation-results__kpi" id="life-expectancy">
+              <%= @user.expected_age %>
+            </span>
           </div>
         </div>
       </div>

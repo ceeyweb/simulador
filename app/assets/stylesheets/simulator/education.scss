@@ -1,0 +1,102 @@
+.education-achievement {
+  text-align: center;
+  color: $dark-green;
+
+  img {
+    width: 75%;
+    height: auto;
+  }
+}
+
+.education-achievement__text {
+  padding: 1.5em;
+  font-size: 2em;
+}
+
+.education-achievement__title {
+  font-size: 1.8em;
+  margin: 1.5em 0 1em 0;
+  text-transform: uppercase;
+}
+
+.education-select {
+  color: white;
+  font-size: 0.8em;
+  margin: 0 1em;
+  padding: 0.2em 1.4em 0.2em 0.8em;
+  min-width: 8em;
+  border-radius: 12px !important;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Ctitle%3Edown-arrow%3C%2Ftitle%3E%3Cg%20fill%3D%22%23ffffff%22%3E%3Cpath%20d%3D%22M10.293%2C3.293%2C6%2C7.586%2C1.707%2C3.293A1%2C1%2C0%2C0%2C0%2C.293%2C4.707l5%2C5a1%2C1%2C0%2C0%2C0%2C1.414%2C0l5-5a1%2C1%2C0%2C1%2C0-1.414-1.414Z%22%20fill%3D%22%23ffffff%22%3E%3C%2Fpath%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-color: $primary;
+  background-repeat: no-repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:hover {
+    border-color: #888;
+  }
+
+  &:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    outline: none;
+  }
+}
+
+.education-comparison {
+  padding: 2em 0;
+  margin-bottom: -27vw;
+}
+
+.education-comparison__paragraph {
+  margin: 0 0 1.3em 1em;
+  color: $dark-gray;
+  font-size: 1.7em;
+  font-weight: 700;
+}
+
+.education-comparison__image {
+  position: relative;
+  z-index: 100;
+  top: -27vw;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.education-comparison__row {
+  height: 6.5vw;
+  background-color: $light-gray;
+  padding: 1.4vw;
+  margin-bottom: 2.5vw;
+  position: relative;
+}
+
+.education-comparison__text {
+  font-size: 1.1vw;
+  font-weight: 600;
+  text-align: right;
+  position: absolute;
+}
+
+.education-comparison__text--high {
+  margin-left: 23vw;
+}
+
+.education-comparison__text--medium {
+  margin-left: 15vw;
+}
+
+.education-comparison__text--low {
+  margin-left: 7vw;
+}
