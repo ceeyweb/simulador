@@ -132,7 +132,8 @@
             </div>
 
             <div class="col-md-6">
-              <%= render "boolean_radio_buttons",
+              <%= render "model_radio_buttons",
+                klass: "JobType",
                 column: :father_job_type_id,
                 na_allowed: true,
                 color: "orange" %>
