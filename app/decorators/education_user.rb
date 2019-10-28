@@ -25,6 +25,15 @@ class EducationUser < ResultsUser
     "#{image_for(parents_education_achievement.to_i)}.png"
   end
 
+  def tertile_low
+  end
+
+  private
+
+  def results
+    @results ||= EducationResults.new(__getobj__)
+  end
+
   def image_for(achievement_score)
     if achievement_score <= 33
       "bajo"
@@ -33,12 +42,6 @@ class EducationUser < ResultsUser
     else
       "alto"
     end
-  end
-
-  private
-
-  def results
-    @results ||= EducationResults.new(__getobj__)
   end
 
 end

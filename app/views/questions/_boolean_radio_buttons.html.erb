@@ -2,10 +2,11 @@
   <legend class="col-form-label pt-0 text-bold">
     <%= label_for(column) %>
   </legend>
+
   <input type="hidden" name="user[<%= column %>]" value="">
 
   <div class="form-check inline">
-    <input class="form-check-input radio_buttons required custom-control-input input-background-<%= color %>"
+    <input class="form-check-input radio_buttons custom-control-input input-background-<%= color %>"
            type="radio"
            value="1"
            name="user[<%= column %>]"
@@ -14,7 +15,7 @@
   </div>
 
   <div class="form-check inline">
-    <input class="form-check-input radio_buttons required custom-control-input input-background-<%= color %>"
+    <input class="form-check-input radio_buttons custom-control-input input-background-<%= color %>"
            type="radio"
            value="0"
            name="user[<%= column %>]"
@@ -22,9 +23,9 @@
     <label class="custom-control-label" for="user_<%= column %>_0">No</label>
   </div>
 
-  <% if defined?(na_allowed) && na_allowed %>
+  <% if na_allowed %>
     <div class="form-check inline">
-      <input class="form-check-input radio_buttons required custom-control-input input-background-<%= color %>"
+      <input class="form-check-input radio_buttons custom-control-input input-background-<%= color %>"
              type="radio"
              value="2"
              name="user[<%= column %>]"
@@ -33,6 +34,8 @@
     </div>
   <% end %>
 </fieldset>
+
 <% if @user.errors.messages[column].present? %>
-  <div class="invalid-feedback" style="display: block; margin: -15px 0px 15px 20px">no puede estar en blanco</div>
+  <div class="invalid-feedback"
+       style="display: block; margin: -15px 0px 15px 1px">no puede estar en blanco</div>
 <% end %>

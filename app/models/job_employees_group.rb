@@ -6,4 +6,8 @@ class JobEmployeesGroup < ApplicationRecord
     id == NO_EMPLOYEES_ID
   end
 
+  def is_na?
+    id == 99
+  end
+
 end

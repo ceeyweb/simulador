@@ -27,4 +27,8 @@ class JobType < ApplicationRecord
     id == JOB_TYPE_IDS[:self_employed]
   end
 
+  def is_na?
+    id == 99
+  end
+
 end

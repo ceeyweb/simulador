@@ -21,14 +21,14 @@
 
           <div class="row">
             <div class="col-md-6">
-              <%= render "custom_radio_buttons",
+              <%= render "boolean_radio_buttons",
                 column: :is_employed,
                 na_allowed: false,
                 color: "orange" %>
             </div>
 
             <div class="col-md-6">
-              <%= render "custom_radio_buttons",
+              <%= render "boolean_radio_buttons",
                 column: :is_first_job,
                 na_allowed: true,
                 color: "orange" %>
@@ -37,7 +37,8 @@
 
           <div class="row">
             <div class="col-md-6">
-              <%= render "custom_radio_buttons_sector",
+              <%= render "model_radio_buttons",
+                klass: "JobSector",
                 column: :job_sector_id,
                 na_allowed: true,
                 color: "orange" %>
@@ -52,14 +53,15 @@
 
           <div class="row">
             <div class="col-md-6">
-              <%= render "custom_radio_buttons",
+              <%= render "boolean_radio_buttons",
                 column: :has_healthcare,
                 na_allowed: true,
                 color: "orange" %>
             </div>
 
             <div class="col-md-6">
-              <%= render "custom_radio_buttons_work",
+              <%= render "model_radio_buttons",
+                klass: "JobType",
                 column: :job_type_id,
                 na_allowed: true,
                 color: "orange" %>
@@ -68,14 +70,15 @@
 
           <div class="row">
             <div class="col-md-6">
-              <%= render "custom_radio_buttons",
+              <%= render "boolean_radio_buttons",
                 column: :has_employees,
                 na_allowed: true,
                 color: "orange" %>
             </div>
 
             <div class="col-md-6">
-              <%= render "custom_radio_buttons_number",
+              <%= render "model_radio_buttons",
+                klass: "JobEmployeesGroup",
                 column: :job_employees_group_id,
                 na_allowed: true,
                 color: "orange" %>
@@ -84,7 +87,8 @@
 
           <div class="row">
             <div class="col-md-6">
-              <%= render "custom_radio_buttons_time",
+              <%= render "model_radio_buttons",
+                klass: "JobSchedule",
                 column: :job_schedule_id,
                 na_allowed: true,
                 color: "orange" %>
@@ -106,7 +110,7 @@
 
           <div class="row">
             <div class="col-md-6">
-              <%= render "custom_radio_buttons",
+              <%= render "boolean_radio_buttons",
                 column: :father_is_employed,
                 na_allowed: true,
                 color: "orange" %>
@@ -121,14 +125,14 @@
 
           <div class="row">
             <div class="col-md-6">
-              <%= render "custom_radio_buttons",
+              <%= render "boolean_radio_buttons",
                 column: :father_has_healthcare,
                 na_allowed: true,
                 color: "orange" %>
             </div>
 
             <div class="col-md-6">
-              <%= render "custom_radio_buttons",
+              <%= render "boolean_radio_buttons",
                 column: :father_job_type_id,
                 na_allowed: true,
                 color: "orange" %>
@@ -137,7 +141,8 @@
 
           <div class="row">
             <div class="col-md-6">
-              <%= render "custom_radio_buttons_number",
+              <%= render "model_radio_buttons",
+                klass: "JobEmployeesGroup",
                 column: :father_job_employees_group_id,
                 na_allowed: true,
                 color: "orange" %>

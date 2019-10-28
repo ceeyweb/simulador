@@ -1,0 +1,24 @@
+<fieldset class="form-group radio_buttons user_is_student custom-control custom-radio col-md-12">
+  <legend class="col-form-label pt-0 text-bold">
+    <%= label_for(column) %>
+  </legend>
+
+  <input type="hidden" name="user[<%= column %>]" value="">
+
+  <% klass.constantize.all.each.with_index do |option, i| %>
+    <% if !option.is_na? || na_allowed %>
+    <div class="form-check inline">
+      <input class="form-check-input radio_buttons custom-control-input input-background-<%= color %>"
+             type="radio"
+             value="<%= option.id %>"
+             name="user[<%= column %>]"
+             id="user_<%= column %>_<%= i %>"
+             <%= "checked" if option.is_na? %>>
+
+      <label class="custom-control-label" for="user_<%= column %>_<%= i %>">
+        <%= option.description %>
+      </label>
+    </div>
+    <% end %>
+  <% end %>
+</fieldset>
