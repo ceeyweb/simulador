@@ -1,12 +1,12 @@
+$header-font: "Montserrat";
+$default-font: "Lato";
+
 @import "colors";
 @import "home";
 @import "simulator/*";
 @import "overrides";
 
 /* General styles */
-
-$header-font: "Montserrat";
-$default-font: "Lato";
 
 body {
   font-size: 12px;
