@@ -23,17 +23,21 @@
   <div class="container">
     <div class="row">
       <div class="col-6 background-gray education-achievement__text">
-        Tienes el <span class="highlight"><%= @user.education_achievement %></span>
+        Tienes el <span class="highlight"><%= @user.education_achievement %>%</span>
         de los logros educativos que podrías haber obtenido
       </div>
       <div class="col-6 education-achievement__text">
-        Tus padres tienen el <span class="highlight"><%= @user.parents_education_achievement %></span>
+        Tus padres tienen el <span class="highlight"><%= @user.parents_education_achievement %>%</span>
         de los logros educativos que se esperaba que obtuvieran
       </div>
     </div>
 
     <div class="row">
-      <div class="col-6 education-alternate-bg">
+      <div class="col-6 background-gray">
+        <div class="education-achievement__kpi">
+          <%= @user.education_achievement %>%
+        </div>
+
         <%= image_tag @user.education_achievement_image %>
 
         <p class="education-achievement__title">
@@ -41,6 +45,10 @@
         </p>
       </div>
       <div class="col-6">
+        <div class="education-achievement__kpi">
+          <%= @user.parents_education_achievement %>%
+        </div>
+
         <%= image_tag @user.parents_education_achievement_image %>
 
         <p class="education-achievement__title">

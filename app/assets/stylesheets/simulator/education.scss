@@ -5,6 +5,7 @@
   img {
     width: 75%;
     height: auto;
+    margin-top: -3vw;
   }
 }
 
@@ -17,6 +18,14 @@
   font-size: 1.8em;
   margin: 1.5em 0 1em 0;
   text-transform: uppercase;
+}
+
+.education-achievement__kpi {
+  position: relative;
+  top: 10.5vw;
+  font-size: 2.5vw;
+  font-weight: 600;
+  color: white;
 }
 
 .education-select {
