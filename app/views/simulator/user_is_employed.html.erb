@@ -1,116 +1,171 @@
 <section>
-  <h2 class="heading-2-orange text-center">Simulador de</h2>
-  <h1 class="heading-1-black text-center">Movilidad Social</h1>
-  <%= image_tag "encabezado_trabajo_1920.png", class: "header-image" %>
+  <h2 class="heading heading-2-orange center">Simulador de</h2>
+  <h1 class="heading uppercase heading-1-black center">Movilidad Social</h1>
+  <div class="center heading-legend">
+    Conoce los beneficios de la movilidad social para tu:
+  </div>
+  <%= image_tag "encabezado_trabajo.png", class: "header-image" %>
 </section>
 
-<section>
-  <div class="space_blank"></div>
+<section class="">
+  <h3 class="simulator-header-text center">
+    Comparación entre tus padres y tu generación
+  </h3>
+
+  <div class="center simulator-paragraph-text">
+    <hr class="dotted-hr">
+  </div>
 </section>
 
 <section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center" >
-    <span class="tooltip-form text-center"
+  <h3 class="simulator-header-text center">
+    <span class="work-tooltip"
           data-toggle="tooltip"
           data-placement="top"
-          title="<%= tooltip_text %>">?</span>
+          title="<%= tooltip_text %>">?
+    </span>
     Formalidad
   </h3>
 </section>
 
-<section>
+<section class="work-participation">
   <div class="container">
-      <h3 class="simulator-header-text text-center">Comparación entre tus padres y tu generación</h3>
-
     <div class="row">
-      <div class="col-md-5 text-center pie-chart-box">
-        <p class="text-size-lg col-md-12">
-          La probabilidad de tener seguridad social (IMSS, ISSSTE u otros) en tu empleo es:
-        </p>
-        <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="<%= @user.formal_work_probability %>">
-          <span class="easy-pie-chart-percentage"><%= @user.formal_work_probability %>%</span>
-        </div>
-        <p class="text-size-lg uppercase">
-          Tú
-        </p>
+      <div class="col-md-4 work-participation__text">
+        La probabilidad de obtener o mantener un empleo formal
+        (IMSS, ISSSTE u otros) es:
       </div>
 
-      <div class="col-md-7 text-center pie-chart-box">
-        <p class="text-size-lg col-md-8 offset-2">
-          La tasa de trabajos con seguridad social de la generación de tus padres es:
-        </p>
-        <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="<%= @user.father_work_participation_rate %>">
-          <span class="easy-pie-chart-percentage"><%= @user.father_work_participation_rate %>%</span>
+      <div class="col-md-8 work-participation__text">
+        La tasa de empleos formales (IMSS, ISSSTE u otros) de la generación de
+        tus padres es:
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 work-participation__divider">
+        <hr class="dotted-hr">
+      </div>
+
+      <div class="col-md-8 work-participation__divider">
+        <hr class="dotted-hr">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 work-participation__chart">
+        <%= image_tag @user.work_image %>
+
+        <div class="chart center"
+             data-percent="<%= @user.keep_formal_work_probability %>">
+             <div class="work-participation__kpi">
+               <%= @user.keep_formal_work_probability %>%
+             </div>
         </div>
-        <p class="text-size-lg uppercase">
-          Tus padres
-        </p>
+
+        <div class="work-participation__chart-footer">
+          Tu
+        </div>
+      </div>
+
+      <div class="col-md-4 work-participation__chart">
+        <%= image_tag "work_mother.png" %>
+
+        <div class="chart-parent center"
+             data-percent="<%= @user.mother_formal_work_participation_rate %>">
+             <div class="work-participation__kpi">
+               <%= @user.mother_formal_work_participation_rate %>%
+             </div>
+        </div>
+
+        <div class="work-participation__chart-footer">
+          Tu madre
+        </div>
+      </div>
+
+      <div class="col-md-4 work-participation__chart">
+        <%= image_tag "work_father.png" %>
+
+        <div class="chart-parent center"
+             data-percent="<%= @user.father_formal_work_participation_rate %>">
+             <div class="work-participation__kpi">
+               <%= @user.father_formal_work_participation_rate %>%
+             </div>
+        </div>
+
+        <div class="work-participation__chart-footer">
+          Tu padre
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center" >
+  <h3 class="simulator-header-text center" >
     Pérdida de la Formalidad
   </h3>
 </section>
-<section>
+
+<section class="work-formality">
   <div class="container">
-    <p class="text-size-lg formalidad-paragraph-text text-center">
+    <h3 class="simulator-header-text center">
       Sabías que... en el mercado laboral mexicano, las personas tienden a
       permanecer en su condición laboral
-    </p>
+    </h3>
 
-    <div class="row form_inform">
-      <div class=  "col-md-4 formality-paragraph-one">
-        <p class="text-size-lg formality-paragraph-green text-center">
-          La probabilidad <br> de pasar de la <br>
-          <span class="formality-paragraph-green-bold">FORMALIDAD </span>a la
-          <span class="formality-paragraph-green-bold">INFORMALIDAD</span> es de:
-          <span class="formality-paragraph-green-num"><%= @user.lose_formal_work_probability %>%</span>
-        </p>
+    <div class="row work-formality__row">
+      <%= image_tag "form_inform.png" %>
+
+      <div class="col-4 work-formality__text">
+        La probabilidad <br> de pasar de la <br>
+        <span class="work-formality__highlight">FORMALIDAD </span>a la
+        <span class="work-formality__highlight">INFORMALIDAD</span> es de:
+        <span class="work-formality__highlight work-formality__highlight--kpi">
+          <%= @user.lose_formal_work_probability %>%
+        </span>
       </div>
 
-      <div class="col-md-4 formality-paragraph-two">
-        <p class="text-size-lg formality-paragraph-white text-center">
-          Una vez estando <br> en la
-          <span class="formality-paragraph-white-bold">INFORMALIDAD, </span><br>
-          la probabilidad de <br> mantenerse en ella es de:
-          <span class="formality-paragraph-white-num"><%= @user.keep_informal_work_probability %>%</span>
-        </p>
+      <div class="col-4 work-formality__text work-formality__text--right">
+        Una vez estando <br> en la
+        <span class="work-formality__highlight">INFORMALIDAD, </span><br>
+        la probabilidad de <br> mantenerse en ella es de:
+        <span class="work-formality__highlight work-formality__highlight--kpi">
+          <%= @user.keep_informal_work_probability %>%
+        </span>
       </div>
     </div>
 
   </div>
 </section>
 
-<section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center">¿Y qué pasa si continúas estudiando?</h3>
+<section class="simulator-header-section-orange">
+  <h3 class="simulator-header-text text-center">
+    ¿Y qué pasa si continúas estudiando?
+  </h3>
 </section>
 
-<section class="health-simulation-section" style="padding-bottom: 5rem">
+<section>
   <div class="container">
     <%= render "slider" %>
 
-    <div class="row" style="height: 100px">
+    <div class="row">
       <div class="col-12 background-orange">
-        <div class="row">
-          <div class="col-md-2 work-simulation-results text-center">
-            <%= image_tag "social_security_icon.png", class: "health-icon", style: "margin-top: 1rem" %>
-          </div>
-          <div class="col-md-5 work-simulation-results">
-            <p class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
-          </div>
-          <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p id="keep-formal-work-probability" class="life-expectancy-number-text text-uppercase">
-            <%= @user.keep_formal_work_probability %>
-            </p>
-          </div>
-          <div class="col-md-2 work-simulation-results text-center">
-            <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
+        <div class="col-md-8 offset-md-2">
+          <div class="simulation-results">
+            <div class="simulation-results__col simulation-results__col--1">
+              <%= image_tag "social_security_icon.png", class: "kpi-icon" %>
+            </div>
+            <div class="simulation-results__col simulation-results__col--2">
+              <span class="simulation-results__text simulation-results__text--white simulation-results__text--small">
+                Probabilidad de obtener o <br> mantener un empleo formal
+              </span>
+            </div>
+            <div class="simulation-results__col simulation-results__col--3">
+              <span class="simulation-results__kpi" id="keep-formal-work-probability">
+                <%= @user.keep_formal_work_probability %>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -119,9 +174,14 @@
   </div>
 </section>
 
-<section class="print-section text-center">
-  <button class="btn btn-primary print-button">Imprimir</button>
-  <button class="btn btn-primary print-button" onClick="delete_cookie('user_id')">Comenzar de nuevo</button>
+<section class="print">
+  <button class="btn btn-primary" onclick="window.print();">Imprimir</button>
+</section>
+
+<section class="start-over">
+  <button class="btn btn--submit btn-default" onclick="delete_cookie();">
+    Comenzar de nuevo
+  </button>
 </section>
 
 <%= render "shared/benefit_sections",
@@ -131,23 +191,3 @@
   work_enabled: @user.filled_out_all_parts? %>
 
 <%= render "shared/footer" %>
-
-<script>
-  $(function() {
-    $('[data-toggle="tooltip"]').tooltip();
-
-    $('.chart').easyPieChart({
-      barColor: "#FF7D00",
-      trackColor: "#B5B5B5",
-      scaleColor: false,
-      lineWidth: 25,
-      lineCap: 'square',
-      size: 180,
-    });
-  });
-
-  function delete_cookie(name) {
-    document.cookie = "user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    location.replace('/')
-  }
-</script>
