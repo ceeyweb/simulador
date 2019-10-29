@@ -1,25 +1,3 @@
-$(function() {
-  $('[data-toggle="tooltip"]').tooltip();
-
-  $('.chart').easyPieChart({
-    barColor: "#f58531",
-    trackColor: "#b5b5b5",
-    scaleColor: false,
-    lineWidth: 25,
-    lineCap: "butt",
-    size: 180,
-  });
-
-  $('.chart-parent').easyPieChart({
-    barColor: "#7ecdc0",
-    trackColor: "#b5b5b5",
-    scaleColor: false,
-    lineWidth: 25,
-    lineCap: "butt",
-    size: 180,
-  })
-});
-
 function updateBooks(select) {
   let selectedOption = select.options[select.selectedIndex];
 
