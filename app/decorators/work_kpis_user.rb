@@ -1,8 +1,8 @@
 class WorkKpisUser < SimpleDelegator
 
-  WEALTH_PERCENTILE_INTERCEPT = 4.048188
+  INTERCEPT = 4.048188
 
-  WEALTH_PERCENTILE_COEFFICIENTS = {
+  COEFFICIENTS = {
     home_had_mobile_phone: 7.138074,
     home_had_fixed_phone: 9.30827,
     home_had_internet: 4.466409,
@@ -32,9 +32,18 @@ class WorkKpisUser < SimpleDelegator
     :has_formal_work,
   ].freeze
 
+  NA_ELEMENTS = [
+    :father_was_employed,
+    :father_had_employees,
+    :father_had_formal_work,
+  ].freeze
+
   def kpis
     KPIS_ELEMENTS.each_with_object({}) do |element, result|
-      result[element] = send(element).to_f
+      kpi = send(element)
+      kpi = 0 if NA_ELEMENTS.include?(element) && kpi != 1
+
+      result[element] = kpi.to_f
     end
   end
 
@@ -49,8 +58,11 @@ class WorkKpisUser < SimpleDelegator
   end
 
   def wealth_percentile
-    WEALTH_PERCENTILE_COEFFICIENTS.reduce(0) do |total, (key, value)|
-      total + send(key).to_f * value
+    COEFFICIENTS.reduce(INTERCEPT) do |total, (key, value)|
+      kpi = send(key)
+      kpi = 0 unless key == :parents_average_school_year || kpi == 1
+
+      total + kpi * value
     end
   end
 
