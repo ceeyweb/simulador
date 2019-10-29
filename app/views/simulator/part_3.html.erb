@@ -1,165 +1,228 @@
 <section>
-  <h2 class="heading-2-orange text-center">Simulador de</h2>
-  <h1 class="heading-1-black text-center">Movilidad Social</h1>
-  <%= image_tag "encabezado_trabajo_1920.png", class: "header-image" %>
+  <h2 class="heading heading-2-orange center">Simulador de</h2>
+  <h1 class="heading uppercase heading-1-black center">Movilidad Social</h1>
+  <div class="center heading-legend">
+    Conoce los beneficios de la movilidad social para tu:
+  </div>
+  <%= image_tag "encabezado_trabajo.png", class: "header-image" %>
 </section>
 
-<section class="life-expectancy-section">
-  <h3 class="simulator-header-text text-center">Comparación entre tus padres y tu generación</h3>
-  <div class="col-md-8 offset-2">
-    <p class="text-center text-size-md simulator-paragraph-text">
-      Características de tu primer empleo
-    </p>
+<section class="">
+  <h3 class="simulator-header-text center">
+    Comparación entre tus padres y tu generación
+  </h3>
+
+  <div class="center simulator-paragraph-text">
+    Características de tu primer empleo
+
+    <hr class="dotted-hr">
   </div>
 
-  <hr class="dotted-hr">
-
 <section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center">
+  <h3 class="simulator-header-text center">
     Participación Laboral
   </h3>
 </section>
 
 
-<section>
+<section class="work-participation">
   <div class="container">
-
     <div class="row">
-      <div class="col-md-4 text-center pie-chart-box">
-        <p class="text-size-lg col-md-11 offset-1">
-          Tu probabilidad de entrar al mercado laboral es:
-        </p>
-        <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="<%=@user.work_probability %>">
-          <span class="easy-pie-chart-percentage">
-            <%= @user.work_probability %>%
-          </span>
-        </div>
-        <p class="text-size-lg uppercase">Tú</p>
+      <div class="col-md-4 work-participation__text">
+        Tu probabilidad de entrar al mercado laboral es:
       </div>
 
-      <div class="col-md-8 text-center pie-chart-box">
-        <p class="text-size-lg col-md-8 offset-2">
-          La tasa de participación laboral de la generación de tus padres es:
-        </p>
-
-        <hr class="dotted-hr" style="margin: 1.5rem auto">
-
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="chart" data-percent="<%= @user.mother_work_participation_rate %>">
-                <span class="easy-pie-chart-percentage percentage-multiple">
-                  <%= @user.mother_work_participation_rate %>%
-                </span>
-              </div>
-              <p class="text-size-lg uppercase">Tu Madre</p>
-            </div>
-
-            <div class="col-md-6">
-              <div class="chart" data-percent="<%= @user.father_work_participation_rate %>">
-                <span class="easy-pie-chart-percentage percentage-multiple">
-                  <%= @user.father_work_participation_rate %>%
-                </span>
-              </div>
-              <p class="text-size-lg uppercase">Tu Padre</p>
-            </div>
-          </div>
-        </div>
-
+      <div class="col-md-8 work-participation__text">
+        La tasa de participación laboral de la generación de tus padres es:
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-md-4 work-participation__divider">
+        <hr class="dotted-hr">
+      </div>
+
+      <div class="col-md-8 work-participation__divider">
+        <hr class="dotted-hr">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 work-participation__chart">
+        <%= image_tag @user.work_image %>
+
+        <div class="chart center"
+             data-percent="<%= @user.work_probability %>">
+          <div class="work-participation__kpi">
+            <%= @user.work_probability %>%
+          </div>
+        </div>
+
+        <div class="work-participation__chart-footer">
+          Tu
+        </div>
+      </div>
+
+      <div class="col-md-4 work-participation__chart">
+        <%= image_tag "work_mother.png" %>
+
+        <div class="chart-parent center"
+             data-percent="<%= @user.mother_work_participation_rate %>">
+          <div class="work-participation__kpi">
+            <%= @user.mother_work_participation_rate %>%
+          </div>
+        </div>
+
+        <div class="work-participation__chart-footer">
+          Tu madre
+        </div>
+      </div>
+
+      <div class="col-md-4 work-participation__chart">
+        <%= image_tag "work_father.png" %>
+
+        <div class="chart-parent center"
+             data-percent="<%= @user.father_work_participation_rate %>">
+          <div class="work-participation__kpi">
+            <%= @user.father_work_participation_rate %>%
+          </div>
+        </div>
+
+        <div class="work-participation__chart-footer">
+          Tu padre
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center">
-    <div class="tooltip-form text-center"
-         data-toggle="tooltip"
-         data-placement="top"
-         title="<%= tooltip_text %>">?</div>
+  <h3 class="simulator-header-text center">
+    <span class="work-tooltip"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="<%= tooltip_text %>">?
+    </span>
     Formalidad
+  </h3>
+</section>
+
+<section class="work-participation">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 work-participation__text">
+        La probabilidad de tener seguridad social (IMSS, ISSSTE u otros) en
+        tu empleo es:
+      </div>
+
+      <div class="col-md-8 work-participation__text">
+        La tasa de trabajos con seguridad social (IMSS, ISSSTE u otros) de
+        la generación de tus padres es:
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 work-participation__divider">
+        <hr class="dotted-hr">
+      </div>
+
+      <div class="col-md-8 work-participation__divider">
+        <hr class="dotted-hr">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 work-participation__chart">
+        <%= image_tag @user.work_image %>
+
+        <div class="chart center"
+             data-percent="<%= @user.formal_work_probability %>">
+             <div class="work-participation__kpi">
+               <%= @user.formal_work_probability %>%
+             </div>
+        </div>
+
+        <div class="work-participation__chart-footer">
+          Tu
+        </div>
+      </div>
+
+      <div class="col-md-4 work-participation__chart">
+        <%= image_tag "work_mother.png" %>
+
+        <div class="chart-parent center"
+             data-percent="<%= @user.mother_formal_work_participation_rate %>">
+             <div class="work-participation__kpi">
+               <%= @user.mother_formal_work_participation_rate %>%
+             </div>
+        </div>
+
+        <div class="work-participation__chart-footer">
+          Tu madre
+        </div>
+      </div>
+
+      <div class="col-md-4 work-participation__chart">
+        <%= image_tag "work_father.png" %>
+
+        <div class="chart-parent center"
+             data-percent="<%= @user.father_formal_work_participation_rate %>">
+             <div class="work-participation__kpi">
+               <%= @user.father_formal_work_participation_rate %>%
+             </div>
+        </div>
+
+        <div class="work-participation__chart-footer">
+          Tu padre
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="simulator-header-section-orange">
+  <h3 class="simulator-header-text text-center">
+    ¿Y qué pasa si continúas estudiando?
   </h3>
 </section>
 
 <section>
   <div class="container">
-
-    <div class="row">
-      <div class="col-md-5 text-center pie-chart-box">
-        <p class="text-size-lg col-md-12">
-          La probabilidad de tener seguridad social (IMSS, ISSSTE u otros) en tu empleo es:
-        </p>
-        <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent="<%= @user.formal_work_probability %>">
-          <span class="easy-pie-chart-percentage">
-            <%= @user.formal_work_probability %>%
-          </span>
-        </div>
-        <p class="text-size-lg uppercase">
-          Tú
-        </p>
-      </div>
-
-      <div class="col-md-7 text-center pie-chart-box">
-        <p class="text-size-lg col-md-8 offset-2">
-          La tasa de trabajos con seguridad social de la generación de tus padres es:
-        </p>
-        <hr class="dotted-hr" style="margin: 1.5rem auto">
-        <div class="chart" data-percent=" <%= @user.father_formal_work_participation_rate %>">
-          <span class="easy-pie-chart-percentage">
-            <%= @user.father_formal_work_participation_rate %>%
-          </span>
-        </div>
-        <p class="text-size-lg uppercase">
-          Tus padres
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="simulator-header-section-dark">
-  <h3 class="simulator-header-text text-center">¿Y qué pasa si continúas estudiando?</h3>
-</section>
-
-<section class="health-simulation-section" style="padding-bottom: 5rem">
-  <div class="container">
     <%= render "slider" %>
 
-    <div class="row" style="height: 100px">
+    <div class="row">
       <div class="col-6 background-dark-green">
-        <div class="row">
-          <div class="col-md-3 work-simulation-results text-center offset-1">
-            <%= image_tag "mercado_laboral.png", class: "health-icon", style: "height: 70px;" %>
+        <div class="simulation-results">
+          <div class="simulation-results__col simulation-results__col--1">
+            <%= image_tag "mercado_laboral.png", class: "kpi-icon" %>
           </div>
-          <div class="col-md-4 work-simulation-results">
-            <p class="text-uppercase wellbeing-text">Probabilidad de participar en el mercado laboral</p>
+          <div class="simulation-results__col simulation-results__col--2">
+            <span class="simulation-results__text simulation-results__text--white simulation-results__text--small">
+              Probabilidad de participar <br>en el mercado laboral
+            </span>
           </div>
-          <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p id="work-probability" class="life-expectancy-number-text">
+          <div class="simulation-results__col simulation-results__col--3">
+            <span class="simulation-results__kpi" id="work-probability">
               <%= @user.work_probability %>
-            </p>
+            </span>
           </div>
         </div>
       </div>
 
-      <div class="col-6 background-orange">
-        <div class="row">
-          <div class="col-md-2 work-simulation-results text-center">
-            <%= image_tag "social_security_icon.png", class: "health-icon", style: "margin-top: 1rem" %>
+      <div class="col-lg-6 background-orange">
+        <div class="simulation-results">
+          <div class="simulation-results__col simulation-results__col--1">
+            <%= image_tag "social_security_icon.png", class: "kpi-icon" %>
           </div>
-          <div class="col-md-5 work-simulation-results">
-            <p class="text-uppercase wellbeing-text">Probabilidad de obtener un empleo formal</p>
+          <div class="simulation-results__col simulation-results__col--2">
+            <span class="simulation-results__text simulation-results__text--white simulation-results__text--small">
+              Probabilidad de obtener <br>un empleo formal
+            </span>
           </div>
-          <div class="col-md-2 white-box text-center" style="height: 4rem; margin-top: 2rem">
-            <p id="formal-work-probability" class="life-expectancy-number-text text-uppercase">
+          <div class="simulation-results__col simulation-results__col--3">
+            <span class="simulation-results__kpi" id="formal-work-probability">
               <%= @user.formal_work_probability %>
-            </p>
-          </div>
-          <div class="col-md-2 work-simulation-results text-center">
-            <p class="text-uppercase school-achievement-text" style="font-size: 2.5rem">%</p>
+            </span>
           </div>
         </div>
       </div>
@@ -167,9 +230,22 @@
     </div>
 </section>
 
-<section class="print-section text-center">
-  <button class="btn btn-primary print-button">Imprimir</button>
-  <button class="btn btn-primary print-button" onClick="delete_cookie('user_id')">Comenzar de nuevo</button>
+<section class="print">
+  <button class="btn btn-primary" onclick="window.print();">Imprimir</button>
+</section>
+
+<section class="start-over">
+  <button class="btn btn--submit btn-default" onclick="delete_cookie();">
+    Comenzar de nuevo
+  </button>
+</section>
+
+<section class="references">
+  <strong>Referencias</strong>
+  <br>- Centro de Estudios Espinoza Yglesias (2017).
+  Encuesta ESRU de Movilidad Social en México.
+  <br>- Instituto Nacional de Estadística y Geografía (1er trimestre 2019).
+  Encuesta Nacional de Ocupación y Empleo.
 </section>
 
 <%= render "shared/benefit_sections",
@@ -179,23 +255,3 @@
   work_enabled: @user.filled_out_all_parts? %>
 
 <%= render "shared/footer" %>
-
-<script>
-  $(function() {
-    $('[data-toggle="tooltip"]').tooltip();
-
-    $('.chart').easyPieChart({
-      barColor: "#FF7D00",
-      trackColor: "#B5B5B5",
-      scaleColor: false,
-      lineWidth: 25,
-      lineCap: 'square',
-      size: 180,
-    });
-  });
-
-  function delete_cookie( name ) {
-    document.cookie = "user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    location.replace('/')
-  }
-</script>

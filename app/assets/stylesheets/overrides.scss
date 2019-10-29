@@ -31,7 +31,22 @@
   }
 }
 
-.btn-primary--submit {
+.btn-default {
+  background-color: $dark-green;
+  border-color: $dark-green;
+  font-size: 1.3em;
+  padding: 0.5rem 2.5rem;
+  margin-top: .5em;
+  color: white;
+
+  &:hover {
+    background-color: darken($dark-green, 5%);
+    border-color: darken($dark-green, 5%);
+    color: white;
+  }
+}
+
+.btn--submit {
   text-transform: uppercase;
   border-radius: 0;
 }

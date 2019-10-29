@@ -82,7 +82,7 @@ label {
 }
 
 .dotted-hr {
-  border-top: 3px dotted #cdcbd4;
+  border-top: 3px dotted $gray;
   margin: 2.7em auto;
 }
 
@@ -241,30 +241,11 @@ select {
 
 /* Simulator sections */
 
-.print-section {
-  padding-top: 2em;
-  padding-bottom: 3em;
-  background-color: white;
-}
-
 .simulator-header-text {
-  color: #006c6f;
+  color: $dark-green;
   margin-top: 1.5em;
   font-size: 2.2em;
   font-weight: 800;
-}
-
-.tooltip-form {
-  position: relative;
-  display: inline-block;
-  background-color: white;
-  border-radius: 100%;
-  width: 40px;
-  height: 45px;
-  color: #006c6f;
-  margin-top: 2rem;
-  font-size: 2.5rem;
-  margin-top: 0;
 }
 
 .simulator-paragraph-text {
@@ -299,7 +280,7 @@ select {
   width: 40%;
   margin: 0 auto;
   z-index: 1;
-  outline: inset 2px #cdcbd8;
+  outline: inset 2px $gray;
   background-color: white;
 
   .life-expectancy-number {
@@ -354,11 +335,11 @@ select {
   font-size: 2rem;
   padding-right: 5%;
   padding-left: 2rem;
-  color: $dark-gray;
+  color: $green;
 }
 
 .map-title {
-  color: $dark-gray;
+  color: $green;
   font-size: 1.9em;
   font-weight: 700;
   margin-top: 1.5em;
@@ -439,7 +420,7 @@ select {
 }
 
 .background-gray {
-  background-color: $light-gray;
+  background-color: $light-green;
 }
 
 .school-achievement-text {
@@ -456,7 +437,7 @@ select {
 }
 
 .life-expectancy-text {
-  color: $dark-gray;
+  color: $green;
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -510,6 +491,10 @@ select {
   color: white;
 }
 
+.simulation-results__text--small {
+  font-size: 1.3em;
+}
+
 .simulation-results__kpi {
   font-size: 2.5em;
   font-weight: 800;
@@ -537,7 +522,17 @@ select {
 }
 
 .simulator-header-section-dark {
-  background-color: #006c6f;
+  background-color: $dark-green;
+  padding: 1.5em 0;
+
+  .simulator-header-text {
+    margin: 0;
+    color: white;
+  }
+}
+
+.simulator-header-section-orange {
+  background-color: $primary;
   padding: 1.5em 0;
 
   .simulator-header-text {
@@ -610,7 +605,7 @@ select {
 }
 
 .benefit-section-divider {
-  border-top: 2px solid #cdcbd8;
+  border-top: 2px solid $gray;
   margin: 1.9em -3em;
 }
 
@@ -624,7 +619,7 @@ select {
 }
 
 .health-paragraph-text {
-  color: $dark-gray;
+  color: $green;
 }
 
 /* Footer */
@@ -769,21 +764,8 @@ select {
   width: 100%;
 }
 
-.easy-pie-chart-percentage {
-  display: block;
-  font-size: 3rem;
-  margin-top: 5rem;
-  margin-bottom: -8rem;
-}
-
 .percentage-multiple {
   margin-top: 3.5rem;
-}
-
-.pie-chart-box {
-  height: 28rem;
-  padding: 1rem;
-  color: #006c6f;
 }
 
 .work-marker-image {
@@ -811,7 +793,7 @@ select {
 }
 
 .work-status-box {
-  border: 1px solid $dark-gray;
+  border: 1px solid $green;
   padding: 0.5rem 2rem;
   font-size: 1.5rem;
   font-weight: bold;

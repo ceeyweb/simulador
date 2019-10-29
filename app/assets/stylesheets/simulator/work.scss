@@ -1,0 +1,56 @@
+.work-participation {
+  color: $green;
+
+  img {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.work-participation__text {
+  color: black;
+  padding: 1em 1.5em 0;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.work-participation__divider {
+  padding: 0 2.7em;
+}
+
+.work-participation__chart {
+  position: relative;
+  color: $dark-green;
+  margin-bottom: 2em;
+}
+
+.work-participation__chart-footer {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 600;
+  padding: 0.5em 0;
+  text-transform: uppercase;
+}
+
+.work-participation__kpi {
+  font-size: 3.5em;
+  margin-top: 1.4em;
+  margin-bottom: -2.9em;
+}
+
+.work-tooltip {
+  display: inline-block;
+  background-color: white;
+  border-radius: 50%;
+  width: .9em;
+  height: .9em;
+  line-height: .9em;
+  font-weight: 600;
+  color: #145861;
+  font-size: .8em;
+  margin-right: .5em;
+  cursor: default;
+}
+

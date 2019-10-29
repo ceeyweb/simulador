@@ -21,6 +21,10 @@ class WorkUser < ResultsUser
     "work"
   end
 
+  def work_image
+    "work_#{sex_id}.png"
+  end
+
   private
 
   def results
