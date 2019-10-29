@@ -41,4 +41,10 @@ class EducationResults < SimpleDelegator
     AverageIncome.new(sex_id, education_level.id, region.id).value
   end
 
+  private
+
+  def school_year
+    education_grade.school_year
+  end
+
 end
