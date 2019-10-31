@@ -1,5 +1,7 @@
 class KeepFormalWorkProbability
 
+  INTERCEPT = -0.4123
+
   MARGINAL_AVERAGE_EFFECTS = {
     is_female: -0.083690,
     school_year: 0.023271,
@@ -17,14 +19,18 @@ class KeepFormalWorkProbability
   end
 
   def value
-    MARGINAL_AVERAGE_EFFECTS.reduce(0) do |total, (element, value)|
-      work_user_element = work_user_kpis[element].presence || 0
-
-      total + work_user_element * value * 100
-    end
+    decimal_value * 100
   end
 
   private
+
+  def decimal_value
+    MARGINAL_AVERAGE_EFFECTS.reduce(INTERCEPT) do |total, (element, value)|
+      work_user_element = work_user_kpis[element].presence || 0
+
+      total + work_user_element * value
+    end
+  end
 
   attr_reader :work_user_kpis
 
