@@ -103,11 +103,11 @@ class User < ApplicationRecord
   end
 
   def mother_has_education?
-    mother_education_grade.has_education?
+    !mother_education_grade.no_response?
   end
 
   def father_has_education?
-    father_education_grade.has_education?
+    !father_education_grade.no_response?
   end
 
 end

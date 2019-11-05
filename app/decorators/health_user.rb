@@ -36,19 +36,19 @@ class HealthUser < ResultsUser
   end
 
   def expected_age_col_offset_class
-    if father_age.nil? && mother_age.nil?
+    if !father_has_expected_age? && !mother_has_expected_age?
       "offset-md-4"
-    elsif father_age.nil? || mother_age.nil?
+    elsif !father_has_expected_age? || !mother_has_expected_age?
       "offset-md-2"
     end
   end
 
   def father_has_expected_age?
-    !father_age.nil?
+    father_expected_age.present?
   end
 
   def mother_has_expected_age?
-    !mother_age.nil?
+    mother_expected_age.present?
   end
 
   def mother_or_father_have_expected_age?
