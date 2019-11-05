@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_182643) do
+ActiveRecord::Schema.define(version: 2019_11_05_142435) do
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -154,10 +154,10 @@ ActiveRecord::Schema.define(version: 2019_10_18_182643) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "ip_address", null: false
-    t.integer "father_age", null: false
+    t.integer "father_age"
     t.bigint "father_residency_id", null: false
     t.bigint "father_education_grade_id", null: false
-    t.integer "mother_age", null: false
+    t.integer "mother_age"
     t.bigint "mother_residency_id", null: false
     t.bigint "mother_education_grade_id", null: false
     t.integer "age", null: false

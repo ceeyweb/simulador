@@ -22,8 +22,6 @@ class User < ApplicationRecord
   belongs_to :job_sector, optional: true
 
   validates :ip_address,
-            :father_age,
-            :mother_age,
             :age,
             :residency_id,
             :education_grade_id,

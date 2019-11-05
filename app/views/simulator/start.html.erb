@@ -1,9 +1,11 @@
 <section>
   <h2 class="heading heading-2-orange center">Simulador de</h2>
   <h1 class="heading uppercase heading-1-black center">Movilidad Social</h1>
+
   <div class="center heading-legend">
     Conoce los beneficios de la movilidad social para tu:
   </div>
+
   <%= image_tag "encabezado_salud.png", class: "header-image" %>
 </section>
 
@@ -19,10 +21,9 @@
     <hr class="dotted-hr">
   </div>
 
-
   <div class="container">
     <div class="row life-expectancy-row">
-      <div class="col-md-4 center">
+      <div class="col-md-4 <%= @user.expected_age_col_offset_class %> center">
         <%= image_tag @user.expected_age_image, class: "life-expectancy-image" %>
         <div class="life-expectancy-number-input">
           <p class="life-expectancy-number" style="color:#215862">
@@ -31,32 +32,39 @@
         </div>
       </div>
 
-      <div class="col-md-4 center">
-        <%= image_tag "esperanza_vida_madre.png", class: "life-expectancy-image" %>
-        <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number" style="color:#60dac7">
-            <%= @user.mother_expected_age %> AÑOS
-          </p>
+      <% if @user.mother_has_expected_age? %>
+        <div class="col-md-4 %> center">
+          <%= image_tag "esperanza_vida_madre.png", class: "life-expectancy-image" %>
+          <div class="life-expectancy-number-input">
+            <p class="life-expectancy-number" style="color:#60dac7">
+              <%= @user.mother_expected_age %> AÑOS
+            </p>
+          </div>
         </div>
-      </div>
+      <% end %>
 
-      <div class="col-md-4 center">
-        <%= image_tag "esperanza_vida_padre.png", class: "life-expectancy-image" %>
-        <div class="life-expectancy-number-input">
-          <p class="life-expectancy-number" style="color:rgb(245, 133, 49)">
-            <%= @user.father_expected_age %> AÑOS
-          </p>
+      <% if @user.father_has_expected_age? %>
+        <div class="col-md-4 center">
+          <%= image_tag "esperanza_vida_padre.png", class: "life-expectancy-image" %>
+          <div class="life-expectancy-number-input">
+            <p class="life-expectancy-number" style="color:rgb(245, 133, 49)">
+              <%= @user.father_expected_age %> AÑOS
+            </p>
+          </div>
         </div>
-      </div>
+      <% end %>
+
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12 center">
-      <p class="text-size-md health-paragraph-text-black center">
-        Los años de vida esperados de los padres son, generalmente mayores porque
-        han superado periodos de riesgo, como los accidentes en la adolescencia.
-      </p>
+      <% if @user.mother_or_father_have_expected_age? %>
+        <p class="text-size-md health-paragraph-text-black center">
+          Los años de vida esperados de los padres son, generalmente mayores porque
+          han superado periodos de riesgo, como los accidentes en la adolescencia.
+        </p>
+    <% end %>
     </div>
   </div>
 </section>

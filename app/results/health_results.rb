@@ -5,6 +5,8 @@ class HealthResults < SimpleDelegator
   end
 
   def mother_expected_age
+    return nil if mother_age.nil?
+
     LifeExpectancy.new(
       mother_age,
       Sex::FEMALE_ID,
@@ -14,6 +16,8 @@ class HealthResults < SimpleDelegator
   end
 
   def father_expected_age
+    return nil if father_age.nil?
+
     LifeExpectancy.new(
       father_age,
       Sex::MALE_ID,

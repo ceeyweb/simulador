@@ -70,44 +70,53 @@
           <div class="row">
             <%= f.input :father_age,
               label: label_for(:father_age),
-              input_html: { class: "col-md-8" },
-              wrapper_html: { class: "col-md-2" } %>
+              input_html: { class: "col-md-6" },
+              wrapper_html: { class: "col-md-3" } %>
 
-            <%= f.input :father_residency_id,
-              collection: State.all,
-              label_method: :description,
-              value_method: :id,
-              label: label_for(:father_residency_id),
-              wrapper_html: { class: "col-md-5" } %>
+            <div class="col-md-9">
+              <div class="row">
+                <%= f.input :father_residency_id,
+                  collection: State.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:father_residency_id),
+                  wrapper_html: { class: "col-md-6" } %>
 
-            <%= f.input :father_education_grade_id,
-              collection: EducationGrade.all,
-              label_method: :description,
-              value_method: :id,
-              label: label_for(:father_education_grade_id),
-              wrapper_html: { class: "col-md-5" } %>
+                <%= f.input :father_education_grade_id,
+                  collection: EducationGrade.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:father_education_grade_id),
+                  wrapper_html: { class: "col-md-6" } %>
+              </div>
+            </div>
           </div>
 
           <div class="row">
             <%= f.input :mother_age,
               label: label_for(:mother_age),
-              input_html: { class: "col-md-8" },
-              wrapper_html: { class: "col-md-2" } %>
+              input_html: { class: "col-md-6" },
+              wrapper_html: { class: "col-md-3" } %>
 
-            <%= f.input :mother_residency_id,
-              collection: State.all,
-              label_method: :description,
-              value_method: :id,
-              label: label_for(:mother_residency_id),
-              wrapper_html: { class: "col-md-5" } %>
+            <div class="col-md-9">
+              <div class="row">
+                <%= f.input :mother_residency_id,
+                  collection: State.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:mother_residency_id),
+                  wrapper_html: { class: "col-md-6" } %>
 
-            <%= f.input :mother_education_grade_id,
-              collection: EducationGrade.all,
-              label_method: :description,
-              value_method: :id,
-              label: label_for(:mother_education_grade_id),
-              wrapper_html: { class: "col-md-5" } %>
+                <%= f.input :mother_education_grade_id,
+                  collection: EducationGrade.all,
+                  label_method: :description,
+                  value_method: :id,
+                  label: label_for(:mother_education_grade_id),
+                  wrapper_html: { class: "col-md-6" } %>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
       <div class="card-body center">
