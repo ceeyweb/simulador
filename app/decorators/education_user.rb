@@ -34,7 +34,55 @@ class EducationUser < ResultsUser
     "education_books_#{tertile_label_for(send("user_#{group}_tertile"))}.png"
   end
 
+  def education_achievement_title
+    "¿Cuáles son tus logros educativos#{education_achievement_strings[:title]}?"
+  end
+
+  def education_achievement_text
+    <<~TEXT.squish
+      #{education_achievement_strings[:text_1]} el <span class="highlight">
+      #{parents_education_achievement}%</span> de los logros
+      educativos que #{education_achievement_strings[:text_2]} haber obtenido
+    TEXT
+  end
+
+  def education_achievement_parents_text
+    education_achievement_strings[:parents]
+  end
+
+  def education_achievement_col_offset_class
+    "offset-md-3" unless mother_or_father_has_education?
+  end
+
   private
+
+  def education_achievement_strings
+    @education_achievement_strings ||=
+      if parents_have_education?
+        {
+          title: " y los de tus padres",
+          text_1: "Tus padres tienen",
+          text_2: "pudieran",
+          parents: "tus padres",
+        }
+      elsif mother_has_education?
+        {
+          title: " y los de tu madre",
+          text_1: "Tu madre tiene",
+          text_2: "pudiera",
+          parents: "tu madre",
+        }
+      elsif father_has_education?
+        {
+          title: " y los de tu padre",
+          text_1: "Tu padre tiene",
+          text_2: "pudiera",
+          parents: "tu padre",
+        }
+      else
+        {}
+      end
+  end
 
   def results
     @results ||= EducationResults.new(__getobj__)

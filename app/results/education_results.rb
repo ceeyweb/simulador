@@ -7,6 +7,9 @@ class EducationResults < SimpleDelegator
   end
 
   def parents_education_achievement
+    return nil unless mother_or_father_has_education?
+    return 66  unless parents_have_education?
+
     [
       (parents_average_school_year / PARENTS_EXPECTED_AVERAGE_SCHOOL_YEAR),
       1,
@@ -39,6 +42,10 @@ class EducationResults < SimpleDelegator
 
   def average_income
     AverageIncome.new(sex_id, education_level.id, region.id).value
+  end
+
+  def mother_or_father_has_education?
+    mother_has_education? || father_has_education?
   end
 
   private

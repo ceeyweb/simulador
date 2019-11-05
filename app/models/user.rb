@@ -57,7 +57,7 @@ class User < ApplicationRecord
   def school_year
     if age > 18
       @school_year || education_grade.school_year
-    elsif mother_and_father_have_education?
+    elsif parents_have_education?
       parents_average_school_year
     elsif mother_has_education?
       mother_school_year
@@ -67,7 +67,13 @@ class User < ApplicationRecord
   end
 
   def parents_average_school_year
-    (mother_school_year + father_school_year).to_f / 2
+    if father_has_education? && mother_has_education?
+      (mother_school_year + father_school_year).to_f / 2
+    elsif father_has_education?
+      father_school_year
+    elsif mother_has_education?
+      mother_school_year
+    end
   end
 
   def mother_school_year
@@ -76,6 +82,18 @@ class User < ApplicationRecord
 
   def father_school_year
     father_education_grade.school_year
+  end
+
+  def parents_have_education?
+    mother_has_education? && father_has_education?
+  end
+
+  def mother_has_education?
+    !mother_education_grade.no_response?
+  end
+
+  def father_has_education?
+    !father_education_grade.no_response?
   end
 
   private
@@ -96,18 +114,6 @@ class User < ApplicationRecord
       education_grade_id_changed?)
       errors.add(:base, "Can't change attribute")
     end
-  end
-
-  def mother_and_father_have_education?
-    mother_has_education? && father_has_education?
-  end
-
-  def mother_has_education?
-    !mother_education_grade.no_response?
-  end
-
-  def father_has_education?
-    !father_education_grade.no_response?
   end
 
 end

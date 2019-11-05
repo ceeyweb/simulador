@@ -9,7 +9,7 @@
 
 <section class="education-achievement">
   <h3 class="simulator-header-text center">
-    ¿Cuáles son tus logros educativos y los de tus padres?
+    <%= @user.education_achievement_title %>
   </h3>
 
   <div class="center simulator-paragraph-text">
@@ -22,18 +22,20 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-6 background-gray education-achievement__text">
+      <div class="col-6 education-achievement__text <%= @user.education_achievement_col_offset_class %>">
         Tienes el <span class="highlight"><%= @user.education_achievement %>%</span>
         de los logros educativos que podrías haber obtenido
       </div>
-      <div class="col-6 education-achievement__text">
-        Tus padres tienen el <span class="highlight"><%= @user.parents_education_achievement %>%</span>
-        de los logros educativos que se esperaba que obtuvieran
-      </div>
+
+      <% if @user.mother_or_father_has_education? %>
+        <div class="col-6 background-gray education-achievement__text">
+          <%= raw(@user.education_achievement_text) %>
+        </div>
+      <% end %>
     </div>
 
     <div class="row">
-      <div class="col-6 background-gray">
+      <div class="col-6 <%= @user.education_achievement_col_offset_class %>">
         <div class="education-achievement__kpi">
           <%= @user.education_achievement %>%
         </div>
@@ -44,17 +46,21 @@
           <span class="highlight">Tu</span> logro educativo
         </p>
       </div>
-      <div class="col-6">
-        <div class="education-achievement__kpi">
-          <%= @user.parents_education_achievement %>%
+
+      <% if @user.mother_or_father_has_education? %>
+        <div class="col-6 background-gray">
+          <div class="education-achievement__kpi">
+            <%= @user.parents_education_achievement %>%
+          </div>
+
+          <%= image_tag @user.parents_education_achievement_image %>
+
+          <p class="education-achievement__title">
+            Logro educativo de <span class="highlight">
+            <%= @user.education_achievement_parents_text %></span>
+          </p>
         </div>
-
-        <%= image_tag @user.parents_education_achievement_image %>
-
-        <p class="education-achievement__title">
-          Logro educativo de <span class="highlight">tus padres</span>
-        </p>
-      </div>
+      <% end %>
     </div>
   </div>
 </section>
