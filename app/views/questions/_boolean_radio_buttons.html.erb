@@ -1,4 +1,5 @@
-<fieldset class="form-group radio_buttons required user_is_student custom-control custom-radio col-md-12">
+<fieldset class="form-group radio_buttons required user_is_student custom-control custom-radio col-md-12"
+          data-behavior="questions-trigger">
   <legend class="col-form-label pt-0 text-bold">
     <%= label_for(column) %>
   </legend>
@@ -10,8 +11,9 @@
            type="radio"
            value="1"
            name="user[<%= column %>]"
+           data-action="show"
            id="user_<%= column %>_1" <%= "checked" if @user.public_send(column) %>>
-    <label class="custom-control-label" for="user_<%= column %>_1">Sí</label>
+    <label class="custom-control-label custom-control-label--left" for="user_<%= column %>_1">Sí</label>
   </div>
 
   <div class="form-check inline">
@@ -19,6 +21,7 @@
            type="radio"
            value="0"
            name="user[<%= column %>]"
+           data-action="hide"
            id="user_<%= column %>_0" <%= "checked" unless defined?(empty) || @user.public_send(column) %>>
     <label class="custom-control-label" for="user_<%= column %>_0">No</label>
   </div>
@@ -29,6 +32,7 @@
              type="radio"
              value="2"
              name="user[<%= column %>]"
+             data-action="hide"
              id="user_<%= column %>_2" checked>
       <label class="custom-control-label" for="user_<%= column %>_2">No Sabe / No Aplica</label>
     </div>

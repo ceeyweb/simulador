@@ -15,7 +15,8 @@
              id="user_<%= column %>_<%= i %>"
              <%= "checked" if option.is_na? %>>
 
-      <label class="custom-control-label" for="user_<%= column %>_<%= i %>">
+      <label class="custom-control-label <%= "custom-control-label--left" if i == 0 %>"
+             for="user_<%= column %>_<%= i %>">
         <%= option.description %>
       </label>
     </div>

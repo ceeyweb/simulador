@@ -94,23 +94,10 @@ JOB_TYPES = [ # id, description
   [99, "No sabe/No aplica"],
 ].freeze
 
-JOB_SECTORS = [ # id, description
-  [1, "Primario"],
-  [2, "Secundario"],
-  [3, "Servicios"],
-  [99, "No sabe/No aplica"],
-].freeze
-
 JOB_EMPLOYEES_GROUPS = [ # id, description
   [1, "1 a 10"],
   [2, "11 a 50"],
   [3, "Más de 50"],
-  [99, "No sabe/No aplica"],
-].freeze
-
-JOB_SCHEDULES = [ # id, description
-  [1, "Tiempo completo (40 horas semanales o más)"],
-  [2, "Medio tiempo (menos de 40 horas semanales)"],
   [99, "No sabe/No aplica"],
 ].freeze
 
@@ -153,16 +140,8 @@ JOB_TYPES.each do |id, description|
   JobType.create!(id: id, description: description)
 end
 
-JOB_SECTORS.each do |id, description|
-  JobSector.create!(id: id, description: description)
-end
-
 JOB_EMPLOYEES_GROUPS.each do |id, description|
   JobEmployeesGroup.create!(id: id, description: description)
-end
-
-JOB_SCHEDULES.each do |id, description|
-  JobSchedule.create!(id: id, description: description)
 end
 
 AGE_GROUPS.each do |id, description, lower_limit, upper_limit|

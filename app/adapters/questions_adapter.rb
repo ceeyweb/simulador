@@ -10,11 +10,6 @@ class QuestionsAdapter
     is_employed: "¿Trabajas actualmente?",
     is_first_job: "¿Es este tu primer empleo?",
     has_employees: "En tu primer empleo, ¿tienes o tuviste empleados a tu cargo?",
-    job_type_id: "¿Eres jornalero, empleado, patrón o trabajador por cuenta propia?",
-    job_employees_group_id: "En tu empleo, ¿cuántos empleados tienes a tu cargo?",
-    father_job_employees_group_id: "¿Cuántos empleados tenía tu padre a su cargo?",
-    job_schedule_id: "En tu empleo, ¿trabajas de tiempo completo o medio tiempo?",
-    job_sector_id: "¿En qué sector trabajas?",
     home_had_mobile_phone: "Teléfono celular",
     home_had_fixed_phone: "Teléfono fijo",
     home_had_internet: "Acceso a internet",
@@ -35,11 +30,7 @@ class QuestionsAdapter
     father_is_employed: "Cuando tenías 14 años ¿tu padre trabajaba?",
     father_has_healthcare: "¿Tu padre contaba con acceso a servicios médicos del IMSS o del ISSSTE?",
     father_job_type_id: "¿Tu padre era jornalero, empleado, patrón o trabajador por cuenta propia?",
-    father_has_employees: "¿Tu padre tenía empleados a su cargo?",
-    mother_is_employed: "Cuando tenías 14 años ¿tu madre trabajaba?",
-    mother_has_healthcare: "¿Tu madre contaba con acceso a servicios médicos del IMSS o del ISSSTE?",
-    mother_job_type: "¿Tu madre era jornalera, empleada, patrona o trabajadora por cuenta propia?",
-    mother_has_employees: "¿Tu madre tenía empleados a su cargo?",
+    father_had_employees: "¿Tu padre tenía empleados a su cargo?",
   }.freeze
 
   def self.label_for(column)

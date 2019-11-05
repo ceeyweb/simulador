@@ -19,78 +19,36 @@
             </h4>
           </div>
 
-          <div class="row">
+          <div class="row" data-behavior="questions" data-id="user">
             <div class="col-md-6">
               <%= render "boolean_radio_buttons",
                 column: :is_employed,
                 na_allowed: false,
                 color: "orange" %>
             </div>
+          </div>
 
-            <div class="col-md-6">
+          <div class="row hidden" data-behavior="questions-user">
+            <div class="col-md-3">
               <%= render "boolean_radio_buttons",
                 column: :is_first_job,
-                na_allowed: true,
+                na_allowed: false,
                 color: "orange" %>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-6">
-              <%= render "model_radio_buttons",
-                klass: "JobSector",
-                column: :job_sector_id,
-                na_allowed: true,
-                color: "orange" %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <strong>En ese empleo o actividad...</strong>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-9">
               <%= render "boolean_radio_buttons",
                 column: :has_healthcare,
-                na_allowed: true,
-                color: "orange" %>
-            </div>
-
-            <div class="col-md-6">
-              <%= render "model_radio_buttons",
-                klass: "JobType",
-                column: :job_type_id,
-                na_allowed: true,
+                na_allowed: false,
                 color: "orange" %>
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-6">
+          <div class="row hidden" data-behavior="questions-user">
+            <div class="col-md-12">
               <%= render "boolean_radio_buttons",
                 column: :has_employees,
-                na_allowed: true,
-                color: "orange" %>
-            </div>
-
-            <div class="col-md-6">
-              <%= render "model_radio_buttons",
-                klass: "JobEmployeesGroup",
-                column: :job_employees_group_id,
-                na_allowed: true,
-                color: "orange" %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <%= render "model_radio_buttons",
-                klass: "JobSchedule",
-                column: :job_schedule_id,
-                na_allowed: true,
+                na_allowed: false,
                 color: "orange" %>
             </div>
           </div>
@@ -108,7 +66,7 @@
             </h4>
           </div>
 
-          <div class="row">
+          <div class="row" data-behavior="questions" data-id="father">
             <div class="col-md-6">
               <%= render "boolean_radio_buttons",
                 column: :father_is_employed,
@@ -117,34 +75,27 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <strong>En ese empleo o actividad...</strong>
+          <div class="row hidden" data-behavior="questions-father">
+            <div class="col-md-5">
+              <%= render "boolean_radio_buttons",
+                column: :father_had_employees,
+                na_allowed: true,
+                color: "orange" %>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
               <%= render "boolean_radio_buttons",
                 column: :father_has_healthcare,
                 na_allowed: true,
                 color: "orange" %>
             </div>
+          </div>
 
-            <div class="col-md-6">
+          <div class="row hidden" data-behavior="questions-father">
+            <div class="col-md-12">
               <%= render "model_radio_buttons",
                 klass: "JobType",
                 column: :father_job_type_id,
-                na_allowed: true,
-                color: "orange" %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <%= render "model_radio_buttons",
-                klass: "JobEmployeesGroup",
-                column: :father_job_employees_group_id,
                 na_allowed: true,
                 color: "orange" %>
             </div>

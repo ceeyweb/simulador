@@ -70,10 +70,6 @@ class WorkKpisUser < SimpleDelegator
     father_job_type.employed? ? 1 : 0
   end
 
-  def father_had_employees
-    father_job_employees_group&.has_employees? ? 1 : 0
-  end
-
   def father_had_formal_work
     father_has_healthcare
   end

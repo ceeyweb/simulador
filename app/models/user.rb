@@ -11,15 +11,6 @@ class User < ApplicationRecord
   belongs_to :sex
   belongs_to :education_grade
   belongs_to :father_job_type, class_name: "JobType", optional: true
-  belongs_to :father_job_employees_group, class_name: "JobEmployeesGroup",
-             optional: true
-  belongs_to :mother_job_type, class_name: "JobType", optional: true
-  belongs_to :mother_job_employees_group, class_name: "JobEmployeesGroup",
-             optional: true
-  belongs_to :job_type, optional: true
-  belongs_to :job_employees_group, optional: true
-  belongs_to :job_schedule, optional: true
-  belongs_to :job_sector, optional: true
 
   validates :ip_address,
             :age,

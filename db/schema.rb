@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_142435) do
+ActiveRecord::Schema.define(version: 2019_11_05_192919) do
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -26,18 +26,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_142435) do
   end
 
   create_table "education_levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "description", null: false
-  end
-
-  create_table "job_employees_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "description", null: false
-  end
-
-  create_table "job_schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "description", null: false
-  end
-
-  create_table "job_sectors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
   end
 
@@ -169,15 +157,10 @@ ActiveRecord::Schema.define(version: 2019_11_05_142435) do
     t.integer "father_is_employed"
     t.integer "father_has_healthcare"
     t.bigint "father_job_type_id"
-    t.bigint "father_job_employees_group_id"
     t.boolean "is_employed"
     t.boolean "is_first_job"
     t.boolean "has_healthcare"
-    t.bigint "job_type_id"
     t.boolean "has_employees"
-    t.bigint "job_employees_group_id"
-    t.bigint "job_schedule_id"
-    t.bigint "job_sector_id"
     t.integer "home_had_mobile_phone"
     t.integer "home_had_fixed_phone"
     t.integer "home_had_internet"
@@ -191,16 +174,12 @@ ActiveRecord::Schema.define(version: 2019_11_05_142435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "home_had_washer"
+    t.integer "father_had_employees"
     t.index ["age_group_id"], name: "index_users_on_age_group_id"
     t.index ["education_grade_id"], name: "index_users_on_education_grade_id"
     t.index ["father_education_grade_id"], name: "index_users_on_father_education_grade_id"
-    t.index ["father_job_employees_group_id"], name: "index_users_on_father_job_employees_group_id"
     t.index ["father_job_type_id"], name: "index_users_on_father_job_type_id"
     t.index ["father_residency_id"], name: "index_users_on_father_residency_id"
-    t.index ["job_employees_group_id"], name: "index_users_on_job_employees_group_id"
-    t.index ["job_schedule_id"], name: "index_users_on_job_schedule_id"
-    t.index ["job_sector_id"], name: "index_users_on_job_sector_id"
-    t.index ["job_type_id"], name: "index_users_on_job_type_id"
     t.index ["mother_education_grade_id"], name: "index_users_on_mother_education_grade_id"
     t.index ["mother_residency_id"], name: "index_users_on_mother_residency_id"
     t.index ["residency_id"], name: "index_users_on_residency_id"
@@ -227,7 +206,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_142435) do
   add_foreign_key "users", "age_groups"
   add_foreign_key "users", "education_grades", column: "father_education_grade_id"
   add_foreign_key "users", "education_grades", column: "mother_education_grade_id"
-  add_foreign_key "users", "job_employees_groups", column: "father_job_employees_group_id"
   add_foreign_key "users", "job_types", column: "father_job_type_id"
   add_foreign_key "users", "states", column: "father_residency_id"
   add_foreign_key "users", "states", column: "mother_residency_id"

@@ -50,3 +50,20 @@
   text-transform: uppercase;
   border-radius: 0;
 }
+
+
+.custom-control-label {
+  &::before, &::after {
+    right: -1.5rem;
+    left: initial;
+  }
+}
+
+.custom-control-label--left {
+  padding-left: 0 !important;
+  margin-left: -10px !important;
+}
+
+.form-check {
+  position: unset;
+}
