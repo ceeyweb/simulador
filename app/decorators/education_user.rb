@@ -5,6 +5,7 @@ class EducationUser < ResultsUser
       number_with_precision(
         results.public_send(method),
         precision: 0,
+        delimiter: ",",
       )
     end
   end

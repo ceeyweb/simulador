@@ -53,7 +53,7 @@ class Slider {
         kpis.forEach(function (item) {
           document
             .getElementById(item)
-            .innerHTML = data[item.replace(/-/g, "_")];
+            .innerHTML = data[item.replace(/-/g, "_")].toLocaleString();
         });
       }.bind(this),
     });
