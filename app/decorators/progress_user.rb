@@ -37,7 +37,12 @@ class ProgressUser < SimpleDelegator
   end
 
   def nullable_columns
-    User.columns.select(&:null).map(&:name)
+    allowed_columns = %w[father_age mother_age]
+
+    User.
+      columns.
+      select { |col| col.null && !allowed_columns.include?(col.name) }.
+      map(&:name)
   end
 
 end
