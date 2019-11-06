@@ -49,19 +49,15 @@ class HealthResults < SimpleDelegator
   end
 
   def mother_residency_id
-    if mother_residency.no_response?
-      residency_id
-    else
-      super
-    end
+    return residency_id if mother_residency.no_response?
+
+    super
   end
 
   def father_residency_id
-    if father_residency.no_response?
-      residency_id
-    else
-      super
-    end
+    return residency_id if father_residency.no_response?
+
+    super
   end
 
 end
