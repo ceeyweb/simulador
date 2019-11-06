@@ -16,18 +16,6 @@ class EducationResults < SimpleDelegator
     ].min * 100
   end
 
-  def sex_tertiles
-    sex.education_achievement_tertiles.order(:tertile)
-  end
-
-  def region_tertiles
-    region.education_achievement_tertiles
-  end
-
-  def age_tertiles
-    age_group.education_achievement_tertiles
-  end
-
   def user_sex_tertile
     sex_tertiles.tertile_for(education_achievement)
   end
@@ -49,6 +37,18 @@ class EducationResults < SimpleDelegator
   end
 
   private
+
+  def sex_tertiles
+    sex.education_achievement_tertiles.order(:tertile)
+  end
+
+  def region_tertiles
+    region.education_achievement_tertiles
+  end
+
+  def age_tertiles
+    age_group.education_achievement_tertiles
+  end
 
   def school_year
     education_grade.school_year
