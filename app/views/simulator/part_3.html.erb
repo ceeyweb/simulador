@@ -113,7 +113,7 @@
     <div class="row">
       <div class="col-md-4 work-participation__text">
         La probabilidad de tener seguridad social (IMSS, ISSSTE u otros) en
-        tu empleo es:
+        tu primer empleo es:
       </div>
 
       <div class="col-md-8 work-participation__text">
@@ -243,6 +243,12 @@
   </button>
 </section>
 
+<%= render "shared/benefit_sections",
+  background_dark: true,
+  health_enabled: true,
+  education_enabled: @user.filled_out_all_parts?,
+  work_enabled: @user.filled_out_all_parts? %>
+
 <section class="references">
   <strong>Referencias</strong>
   <br>- Centro de Estudios Espinosa Yglesias. Participación laboral. Elaboración propia
@@ -250,11 +256,5 @@
   <br>- Encuesta Nacional de Ocupación y Empleo 1er trimestre 2018 (ENOE).
   Instituto Nacional de Estadística y Geografía (INEGI).
 </section>
-
-<%= render "shared/benefit_sections",
-  background_dark: true,
-  health_enabled: true,
-  education_enabled: @user.filled_out_all_parts?,
-  work_enabled: @user.filled_out_all_parts? %>
 
 <%= render "shared/footer" %>

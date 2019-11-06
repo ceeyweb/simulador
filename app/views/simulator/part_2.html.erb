@@ -172,17 +172,17 @@
   <button class="btn btn-primary" onclick="window.print();">Imprimir</button>
 </section>
 
+<%= render "shared/benefit_sections",
+  background_dark: true,
+  health_enabled: true,
+  education_enabled: true,
+  work_enabled: @user.filled_out_all_parts? %>
+
 <section class="references">
   <strong>Referencias</strong>
   <br>- Centro de Estudios Espinoza Yglesias. Logro escolar. Elaboración propia.
   <br>- Encuesta Nacional de Ocupación y Empleo 1er trimestre 2018 (ENOE).
   Instituto Nacional de Estadística y Geografía (INEGI).
 </section>
-
-<%= render "shared/benefit_sections",
-  background_dark: true,
-  health_enabled: true,
-  education_enabled: true,
-  work_enabled: @user.filled_out_all_parts? %>
 
 <%= render "shared/footer" %>
