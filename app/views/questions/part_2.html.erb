@@ -71,6 +71,7 @@
               <%= render "boolean_radio_buttons",
                 column: :father_is_employed,
                 na_allowed: true,
+                custom_label: ("¿Tu padre trabaja?" if @user.age < 14),
                 color: "orange" %>
             </div>
           </div>

@@ -19,7 +19,7 @@ class KeepFormalWorkProbability
   end
 
   def value
-    decimal_value * 100
+    [[decimal_value * 100, 0].max, 100].min
   end
 
   private

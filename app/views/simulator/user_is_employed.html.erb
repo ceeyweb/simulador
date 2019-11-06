@@ -38,7 +38,7 @@
 
       <div class="col-md-8 work-participation__text">
         La tasa de empleos formales (IMSS, ISSSTE u otros) de la generación de
-        tus padres es:
+        tus padres, de acuerdo a su edad y región, es:
       </div>
     </div>
 
@@ -73,13 +73,13 @@
 
         <div class="chart-parent center"
              data-percent="<%= @user.mother_formal_work_participation_rate %>">
-             <div class="work-participation__kpi">
-               <%= @user.mother_formal_work_participation_rate %>%
-             </div>
+          <div class="work-participation__kpi">
+            <%= @user.mother_formal_work_participation_rate %>%
+          </div>
         </div>
 
         <div class="work-participation__chart-footer">
-          Tu madre
+          Mujeres
         </div>
       </div>
 
@@ -94,7 +94,7 @@
         </div>
 
         <div class="work-participation__chart-footer">
-          Tu padre
+          Hombres
         </div>
       </div>
     </div>
