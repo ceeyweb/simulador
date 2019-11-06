@@ -274,14 +274,12 @@ select {
 
 .life-expectancy-number-input {
   position: absolute;
-  top: 74%;
+  top: 77%;
   right: 0;
   left: 0;
   width: 40%;
   margin: 0 auto;
   z-index: 1;
-  outline: inset 2px $gray;
-  background-color: white;
 
   .life-expectancy-number {
     margin-bottom: 0;
