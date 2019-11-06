@@ -31,7 +31,7 @@ class KpisController < ApplicationController
       {
         education_achievement: EducationAchievement.new(
           user.age,
-          user.school_year,
+          school_year,
         ).value.round,
         average_income: AverageIncome.new(
           user.sex_id,
@@ -64,12 +64,12 @@ class KpisController < ApplicationController
     @user ||= User.find(cookies["user_id"])
   end
 
-  def work_kpis
-    @work_kpis ||= WorkKpisUser.new(user).kpis
-  end
-
   def set_school_year
     user.school_year = school_year
+  end
+
+  def work_kpis
+    @work_kpis ||= WorkKpisUser.new(user).kpis
   end
 
   def school_year

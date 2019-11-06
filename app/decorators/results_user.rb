@@ -6,6 +6,8 @@ class ResultsUser < SimpleDelegator
     Sex::FEMALE_ID => "las mujeres", Sex::MALE_ID => "los hombres"
   }.freeze
 
+  delegate :complete_education_level, to: :education_grade
+
   def region
     super.description
   end
@@ -27,7 +29,7 @@ class ResultsUser < SimpleDelegator
   end
 
   def slider_image
-    "/images/sim_#{sex_id}_#{education_level}.png"
+    "/images/sim_#{sex_id}_#{complete_education_level}.png"
   end
 
 end

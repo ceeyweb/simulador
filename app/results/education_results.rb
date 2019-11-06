@@ -3,7 +3,8 @@ class EducationResults < SimpleDelegator
   PARENTS_EXPECTED_AVERAGE_SCHOOL_YEAR = 18
 
   def education_achievement
-    EducationAchievement.new(student_age, school_year).value
+    @education_achievement ||=
+      EducationAchievement.new(student_age, school_year).value
   end
 
   def parents_education_achievement

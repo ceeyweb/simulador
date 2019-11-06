@@ -10,4 +10,12 @@ class EducationGrade < ApplicationRecord
     id == NO_RESPONSE_ID
   end
 
+  def complete_education_level
+    if education_level.max_school_year == school_year
+      education_level_id
+    else
+      education_level_id - 1
+    end
+  end
+
 end

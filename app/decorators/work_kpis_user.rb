@@ -98,4 +98,8 @@ class WorkKpisUser < SimpleDelegator
     region.send("#{name}?") ? 1 : 0
   end
 
+  def school_year
+    instance_variable_get("@school_year")
+  end
+
 end
