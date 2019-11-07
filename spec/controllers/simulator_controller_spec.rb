@@ -16,7 +16,7 @@ RSpec.describe SimulatorController do
     describe "GET part_2" do
       it "returns a 200 response" do
         get :part_2
-        expect(response.status).to eq(302)
+        expect(response.status).to eq(200)
       end
     end
 

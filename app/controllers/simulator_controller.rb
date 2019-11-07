@@ -17,7 +17,7 @@ class SimulatorController < ApplicationController
 
     @user = WorkUser.new(ProgressUser.new(user))
 
-    return redirect_to :simulator_start unless @user.filled_out_all_parts?
+    return redirect_to :question_part_2 unless @user.filled_out_all_parts?
     render :user_is_employed if @user.is_employed?
   end
 
