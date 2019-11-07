@@ -417,8 +417,9 @@ select {
   background-color: $dark-green;
 }
 
-.background-gray {
-  background-color: $light-green;
+.body-main {
+  box-shadow: 0 5px 35px 0 black;
+  z-index: 99;
 }
 
 .school-achievement-text {
