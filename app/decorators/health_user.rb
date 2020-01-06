@@ -27,6 +27,20 @@ class HealthUser < ResultsUser
     "mapa_#{region.tr(" ", "_").downcase}.png"
   end
 
+  def expected_age_question_text
+    default = "Cuáles son los años de vida esperados para ti y para "
+
+    if mother_age.present? && father_age.present?
+      "#{default} tus padres"
+    elsif mother_age.present?
+      "#{default} tu madre"
+    elsif father_age.present?
+      "#{default} tu padre"
+    else
+      "Cuáles son tus años de vida esperados"
+    end
+  end
+
   def kpis
     "life-expectancy"
   end
