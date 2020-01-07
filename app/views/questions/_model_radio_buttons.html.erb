@@ -1,6 +1,10 @@
 <fieldset class="form-group radio_buttons user_is_student custom-control custom-radio col-md-12">
   <legend class="col-form-label pt-0 text-bold">
-    <%= label_for(column) %>
+    <% if defined?(text_replace) && text_replace.present? %>
+      <%= label_for(column).sub(text_replace.first, text_replace.last) %>
+    <% else %>
+      <%= label_for(column) %>
+    <% end %>
   </legend>
 
   <input type="hidden" name="user[<%= column %>]" value="">

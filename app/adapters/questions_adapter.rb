@@ -27,7 +27,7 @@ class QuestionsAdapter
     mother_age: "¿Cuál es la edad de tu madre?<br><small>(Déjala en blanco si no sabes/no aplica)</small>".html_safe,
     mother_residency_id: "¿En qué estado de la República Mexicana vive o vivía tu madre?",
     mother_education_grade_id: "¿Cuál fue el último grado escolar que terminó tu madre?",
-    father_is_employed: "Cuando tenías 14 años ¿tu padre trabajaba?",
+    father_is_employed: "¿Tu padre trabajaba?",
     father_has_healthcare: "¿Tu padre contaba con acceso a servicios médicos del IMSS o del ISSSTE?",
     father_job_type_id: "¿Tu padre era jornalero, empleado, patrón o trabajador por cuenta propia?",
     father_had_employees: "¿Tu padre tenía empleados a su cargo?",

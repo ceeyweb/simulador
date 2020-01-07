@@ -66,12 +66,17 @@
             </h4>
           </div>
 
+           <% unless @user.preteen? %>
+             <div class="text-bold">Cuándo tenías 14 años:</div>
+           <% end %>
+
           <div class="row" data-behavior="questions" data-id="father">
             <div class="col-md-6">
               <%= render "boolean_radio_buttons",
                 column: :father_is_employed,
                 na_allowed: true,
-                custom_label: ("¿Tu padre trabaja?" if @user.age < 14),
+                text_replace: (["trabajaba", "trabaja"] if @user.preteen?),
+                # text_replace: ("¿Tu padre trabaja?" if @user.age < 14),
                 color: "orange" %>
             </div>
           </div>
@@ -81,6 +86,8 @@
               <%= render "boolean_radio_buttons",
                 column: :father_had_employees,
                 na_allowed: true,
+                text_replace: (["tenía", "tiene"] if @user.preteen?),
+                # text_replace: ("¿Tu padre tiene empleados a su cargo?" if @user.age < 14),
                 color: "orange" %>
             </div>
 
@@ -88,6 +95,7 @@
               <%= render "boolean_radio_buttons",
                 column: :father_has_healthcare,
                 na_allowed: true,
+                text_replace: (["contaba", "cuenta"] if @user.preteen?),
                 color: "orange" %>
             </div>
           </div>
@@ -98,6 +106,7 @@
                 klass: "JobType",
                 column: :father_job_type_id,
                 na_allowed: true,
+                text_replace: (["era", "es"] if @user.preteen?),
                 color: "orange" %>
             </div>
           </div>

@@ -87,6 +87,10 @@ class User < ApplicationRecord
     !father_education_grade.no_response?
   end
 
+  def preteen?
+    age <= 14
+  end
+
   private
 
   def set_age_group
