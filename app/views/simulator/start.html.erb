@@ -60,74 +60,66 @@
   <div class="row">
     <div class="col-md-12 center">
       <% if @user.mother_or_father_have_expected_age? %>
-        <p class="text-size-md health-paragraph-text-black center">
+        <p class="text-size-md health-paragraph-text-black">
           Los años de vida esperados de los padres son, generalmente mayores porque
           han superado periodos de riesgo, como los accidentes en la adolescencia.
         </p>
-    <% end %>
-    </div>
-  </div>
-</section>
+      <% end %>
 
-<section class="background-gray">
-  <h3 class="take-care center">CUÍDATE</h3>
-  <p class="take-care-text">
-    La mayoría de los jóvenes goza de buena salud, pero la
-    <span class="take-care-text-highlight">mortalidad prematura</span>
-    es considerablemente alta por:
-  </p>
+      <p class="text-size-md health-paragraph-text-black">
+        La mayoría de los jóvenes goza de buena salud, pero la
+        <span class="take-care-text-highlight">mortalidad prematura</span>
+        es considerablemente alta por:
+      </p>
 
-  <div class="row health-images">
-    <div class="col-md-2 offset-md-1">
-      <%= image_tag "accidente.png",  class: 'health-image' %>
-      <div class="row">
-        <div class="col-md-12 take-care-image-text">
-          accidentes de tránsito
+      <div class="row health-images">
+        <div class="col-md-2 offset-md-1">
+          <%= image_tag "accidente.png",  class: 'health-image' %>
+          <div class="row">
+            <div class="col-md-12 take-care-image-text">
+              accidentes de tránsito
+            </div>
+          </div>
         </div>
+
+        <div class="col-md-2">
+          <%= image_tag "drogas.png", class: 'health-image' %>
+          <div class="row">
+            <div class="col-md-12 take-care-image-text">
+              consumo de drogas
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <%= image_tag "obeso.png", class: 'health-image'%>
+          <div class="row">
+            <div class="col-md-12 take-care-image-text">
+              falta de actividad física
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <%= image_tag "condon.png",  class: 'health-image' %>
+          <div class="row">
+            <div class="col-md-12 take-care-image-text">
+              relaciones sexuales sin protección
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <%= image_tag "violencia.png",  class: 'health-image' %>
+          <div class="row">
+            <div class="col-md-12 take-care-image-text">
+              exposición a la violencia
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <div class="col-md-2">
-      <%= image_tag "drogas.png", class: 'health-image' %>
-      <div class="row">
-        <div class="col-md-12 take-care-image-text">
-          consumo de drogas
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-2">
-      <%= image_tag "obeso.png", class: 'health-image'%>
-      <div class="row">
-        <div class="col-md-12 take-care-image-text">
-          falta de actividad física
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-2">
-      <%= image_tag "condon.png",  class: 'health-image' %>
-      <div class="row">
-        <div class="col-md-12 take-care-image-text">
-          relaciones sexuales sin protección
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-2">
-      <%= image_tag "violencia.png",  class: 'health-image' %>
-      <div class="row">
-        <div class="col-md-12 take-care-image-text">
-          exposición a la violencia
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="reference-text center">
-    Referencia: Organización Mundial de la Salud. (13 de diciembre de 2018).
-    Adolescentes: riesgos para la salud y soluciones
   </div>
 </section>
 
@@ -207,6 +199,7 @@
   <strong>Referencias</strong>
   <br>- Consejo Nacional de Población. Tablas de años de vida esperados.
   <br>- Organización Mundial de la Salud (OMS). Años máximos de vida esperados.
+  <br>- Organización Mundial de la Salud (OMS). Adolescentes: riesgos para la salud y soluciones
 </section>
 
 <%= render "shared/footer" %>
