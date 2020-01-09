@@ -27,7 +27,7 @@ class FormalWorkProbability
     MARGINAL_AVERAGE_EFFECTS.reduce(INTERCEPT) do |total, (element, value)|
       work_user_element = work_user_kpis[element].presence || 0
 
-      total + work_user_element * value
+      total + (work_user_element * value)
     end
   end
 

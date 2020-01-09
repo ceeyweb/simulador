@@ -101,5 +101,4 @@ class WorkKpisUser < SimpleDelegator
   def school_year
     super(false)
   end
-
 end

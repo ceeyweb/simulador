@@ -46,7 +46,9 @@ class User < ApplicationRecord
     age + (is_student ? 1 : 0)
   end
 
-  def school_year
+  def school_year(restricted = true)
+    return @school_year || education_grade.school_year unless restricted
+
     if age > 18
       @school_year || education_grade.school_year
     elsif parents_have_education?
