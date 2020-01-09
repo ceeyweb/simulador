@@ -6,7 +6,9 @@ class ResultsUser < SimpleDelegator
     Sex::FEMALE_ID => "las mujeres", Sex::MALE_ID => "los hombres"
   }.freeze
 
-  delegate :complete_education_level, to: :education_grade
+  def complete_education_level
+    @complete_education_level ||= education_grade.complete_education_level
+  end
 
   def region
     super.description
