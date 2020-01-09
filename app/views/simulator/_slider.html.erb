@@ -16,6 +16,13 @@
     </div>
   </div>
 
+  <% if @user.complete_education_level == 0 %>
+    <div class="slider__refresh" data-behavior="slider-refresh"
+        data-value="<%= @user.complete_education_level %>">
+      <%= image_tag("refresh.png") %>
+    </div>
+  <% end %>
+
   <div class="row slider__track"
        data-behavior="slider" data-kpis="<%= @user.kpis %>"
        data-section="<%= @user.section %>">

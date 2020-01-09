@@ -2,23 +2,38 @@ class Slider {
   constructor() {
     this.slider = document.querySelector("[data-behavior='slider']");
     this.image = document.querySelector("[data-behavior='slider-image']");
+    this.refresh = document.querySelector("[data-behavior='slider-refresh']");
 
-    if (this.slider) {
+    if(this.refresh) {
+      this.refresh.addEventListener("click", function(event) {
+        this.updateAll(
+          this.slider,
+          parseInt(this.refresh.getAttribute("data-value"))
+        );
+      }.bind(this), false);
+    }
+
+    if(this.slider) {
       this.slider.addEventListener("click", function(event) {
-        let selectedValue = parseInt(event.target.getAttribute("data-value"));
+        let section = event.target;
+        let selectedValue = parseInt(section.getAttribute("data-value"));
 
-        if (event.target.getAttribute("data-behavior") === "slider-enabled") {
-          this.updateSlider(event, selectedValue);
-          this.updateImage(selectedValue);
-          this.updateKpis(selectedValue);
+        if(section.getAttribute("data-behavior") === "slider-enabled") {
+          this.updateAll(event.currentTarget, selectedValue);
         }
       }.bind(this), false);
     }
   }
 
-  updateSlider(event, selectedValue) {
-    event.
-      currentTarget.
+  updateAll(target, selectedValue) {
+    this.updateSlider(target, selectedValue);
+    this.updateImage(selectedValue);
+    this.updateKpis(selectedValue);
+  }
+
+  updateSlider(target, selectedValue) {
+    console.log(selectedValue);
+    target.
       querySelectorAll("[data-behavior='slider-enabled']").
       forEach(function(section) {
         let sectionValue = parseInt(section.getAttribute("data-value"));
@@ -29,10 +44,14 @@ class Slider {
           section.classList.add("slider__section--selected");
         }
 
-        section.innerHTML = "";
+        if(sectionValue === selectedValue) {
+          section.innerHTML = "<div class='slider__thumb'></div>";
+        } else if(selectedValue === 0 && sectionValue === 1) {
+          section.innerHTML = "<div class='slider__thumb slider__thumb--left'></div>";
+        } else {
+          section.innerHTML = "";
+        }
       });
-
-    event.target.innerHTML = "<div class='slider__thumb'></div>";
   }
 
   updateImage(selectedValue) {
