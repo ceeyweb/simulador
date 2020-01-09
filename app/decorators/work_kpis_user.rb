@@ -99,7 +99,7 @@ class WorkKpisUser < SimpleDelegator
   end
 
   def school_year
-    instance_variable_get("@school_year")
+    super(false)
   end
 
 end

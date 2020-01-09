@@ -33,6 +33,7 @@ class User < ApplicationRecord
   before_validation :set_age_group
 
   delegate :education_level, to: :education_grade
+  delegate :complete_education_level, to: :education_grade
   delegate :region, to: :residency
 
   def age

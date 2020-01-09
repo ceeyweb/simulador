@@ -30,7 +30,7 @@ class EducationResults < SimpleDelegator
   end
 
   def average_income
-    AverageIncome.new(sex_id, education_level.id, region.id).value
+    AverageIncome.new(sex_id, complete_education_level, region.id).value
   end
 
   def mother_or_father_has_education?

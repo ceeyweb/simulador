@@ -30,7 +30,7 @@ class KpisController < ApplicationController
     kpis =
       {
         education_achievement: EducationAchievement.new(
-          user.age,
+          user.student_age,
           school_year,
         ).value.round,
         average_income: AverageIncome.new(
@@ -73,7 +73,10 @@ class KpisController < ApplicationController
   end
 
   def school_year
-    EducationLevel.find(params[:education_level_id]).max_school_year
+    [
+      user.education_grade.school_year,
+      EducationLevel.find(params[:education_level_id]).max_school_year,
+    ].max
   end
 
 end
