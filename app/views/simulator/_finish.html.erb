@@ -1,0 +1,77 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+
+    <div class="modal-header">
+      <h5 class="modal-title">Resumen</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body finish">
+
+      <div class="row background-teal finish__row">
+        <div class="col-2 no-mobile"><%= image_tag "health_icon.png", class: "finish__icon" %></div>
+        <div class="col-7 finish__col">Años de vida esperados</div>
+        <div class="col-3 finish__col finish__col--kpi">
+          <%= number_with_precision(user.expected_age, precision: 0) %>
+        </div>
+      </div>
+
+      <div class="row background-dark-green finish__row">
+        <div class="col-2"><%= image_tag "logro_icon.png", class: "finish__icon" %></div>
+        <div class="col-7 finish__col">Logro Escolar</div>
+        <div class="col-3 finish__col finish__col--kpi">
+          <%= number_with_precision(user.education_achievement, precision: 0) %> %
+        </div>
+      </div>
+
+      <div class="row background-orange finish__row">
+        <div class="col-2"><%= image_tag "ingreso_icon.png", class: "finish__icon" %></div>
+        <div class="col-7 finish__col">Ingreso Mensual Promedio<br>(24 a 35 años)</div>
+        <div class="col-3 finish__col finish__col--kpi">
+          $ <%= number_with_precision(user.average_income, precision: 0, delimiter: ",") %>
+        </div>
+      </div>
+
+      <% if user.is_employed? %>
+        <div class="row background-orange finish__row">
+          <div class="col-2"><%= image_tag "social_security_icon.png", class: "finish__icon" %></div>
+          <div class="col-7 finish__col">Probabilidad de obtener o<br>mantener un empleo formal</div>
+          <div class="col-3 finish__col finish__col--kpi">
+            <%= number_with_precision(user.keep_formal_work_probability, precision: 0) %> %
+          </div>
+        </div>
+      <% else %>
+        <div class="row background-dark-green finish__row">
+          <div class="col-2"><%= image_tag "mercado_laboral.png", class: "finish__icon" %></div>
+          <div class="col-7 finish__col">Probabilidad de participar<br>en el mercado laboral</div>
+          <div class="col-3 finish__col finish__col--kpi">
+            <%= number_with_precision(user.work_probability, precision: 0) %> %
+          </div>
+        </div>
+
+        <div class="row background-orange finish__row finish__row--bottom">
+          <div class="col-2"><%= image_tag "social_security_icon.png", class: "finish__icon" %></div>
+          <div class="col-7 finish__col">Probabilidad de obtener<br>un empleo formal</div>
+          <div class="col-3 finish__col finish__col--kpi">
+            <%= number_with_precision(user.formal_work_probability, precision: 0) %> %
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="modal-footer finish__footer">
+      <button type="button" class="btn btn--submit btn-default" onclick="deleteCookie();">
+        Comenzar de nuevo
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  $("#finishModal").on("hide.bs.modal", function () {
+    $(".body-main").css("z-index", 1);
+  });
+</script>

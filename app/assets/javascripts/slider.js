@@ -65,7 +65,7 @@ class Slider {
 
     Rails.ajax({
       url: "/kpis/" + section + "?education_level_id=" + value,
-      type: "get",
+      type: "GET",
       success: function(data) {
         let kpis = this.slider.getAttribute("data-kpis").split(",");
 

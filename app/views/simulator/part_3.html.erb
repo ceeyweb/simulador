@@ -233,6 +233,14 @@
     </div>
 </section>
 
+<section class="finish-button">
+  <button class="btn btn--submit btn-default" onclick="displayFinishModal();">
+    Finalizar
+  </button>
+</section>
+
+<div class="modal fade" id="finishModal" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
 <%= render "shared/benefit_sections",
   background_dark: true,
   health_enabled: true,

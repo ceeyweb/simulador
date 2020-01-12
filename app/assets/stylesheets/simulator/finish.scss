@@ -1,0 +1,40 @@
+.finish {
+  color: #ffffff;
+  font-size: 1.1em;
+  text-transform: uppercase;
+}
+
+.finish__footer {
+  justify-content: center;
+}
+
+.finish__icon {
+  padding-top: 0.2rem;
+  height: 2.7em;
+  width: auto;
+}
+
+.finish__row {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.finish__row--bottom {
+  margin-bottom: 0;
+}
+
+.finish__col {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+.finish__col--kpi {
+  font-weight: 600;
+  font-size: 1.3em;
+  color: #000000;
+  background-color: #ffffff;
+  padding: 5px;
+}

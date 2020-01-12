@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "simulator/start", as: :simulator_start
   get "simulator/part_2", as: :simulator_part_2
   get "simulator/part_3", as: :simulator_part_3
+  get "simulator/finish", as: :finish
 
   get "kpis/health"
   get "kpis/work"

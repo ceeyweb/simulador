@@ -21,6 +21,14 @@ class SimulatorController < ApplicationController
     render :user_is_employed if @user.is_employed?
   end
 
+  def finish
+    @user = SummaryUser.new(user)
+
+    render json: {
+      html: render_to_string(partial: "finish", locals: { user: @user }),
+    }
+  end
+
   private
 
   def user
