@@ -23,6 +23,8 @@ class FormalWorkProbability
 
   private
 
+  attr_reader :work_user_kpis
+
   def decimal_value
     MARGINAL_AVERAGE_EFFECTS.reduce(INTERCEPT) do |total, (element, value)|
       work_user_element = work_user_kpis[element].presence || 0
@@ -30,7 +32,5 @@ class FormalWorkProbability
       total + (work_user_element * value)
     end
   end
-
-  attr_reader :work_user_kpis
 
 end

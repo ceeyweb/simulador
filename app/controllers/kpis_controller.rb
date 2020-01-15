@@ -30,7 +30,7 @@ class KpisController < ApplicationController
     kpis =
       {
         education_achievement: EducationAchievement.new(
-          user.student_age,
+          user.age,
           school_year,
         ).value.round,
         average_income: AverageIncome.new(

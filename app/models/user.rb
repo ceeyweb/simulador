@@ -42,10 +42,6 @@ class User < ApplicationRecord
     self[:age] + @school_year - education_grade.school_year
   end
 
-  def student_age
-    age + (is_student ? 1 : 0)
-  end
-
   def school_year(restricted = true)
     return @school_year || education_grade.school_year unless restricted
 
