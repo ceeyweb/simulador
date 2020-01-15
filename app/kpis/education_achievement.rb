@@ -4,9 +4,10 @@ class EducationAchievement
   MAX_TSE = 14
   TSE_AGE_LIMIT = 24
 
-  def initialize(age, school_year)
+  def initialize(age, school_year, is_student)
     @age = age
     @school_year = school_year
+    @is_student = is_student
   end
 
   def value
@@ -15,12 +16,16 @@ class EducationAchievement
 
   private
 
-  attr_reader :age, :school_year
+  attr_reader :age, :is_student
 
   def tse
     return MAX_TSE if age > TSE_AGE_LIMIT
 
     age - PRESCHOOL_YEARS
+  end
+
+  def school_year
+    @school_year + (is_student ? 1 : 0)
   end
 
 end

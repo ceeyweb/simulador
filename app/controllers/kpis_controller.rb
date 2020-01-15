@@ -8,7 +8,7 @@ class KpisController < ApplicationController
         user.age,
         user.sex_id,
         user.residency_id,
-        user.school_year,
+        user.school_year(restricted: true),
       ).value.round,
     }
 
@@ -31,7 +31,8 @@ class KpisController < ApplicationController
       {
         education_achievement: EducationAchievement.new(
           user.age,
-          school_year,
+          user.school_year,
+          user.is_student,
         ).value.round,
         average_income: AverageIncome.new(
           user.sex_id,

@@ -60,4 +60,8 @@ class HealthResults < SimpleDelegator
     super
   end
 
+  def school_year
+    super(restricted: true)
+  end
+
 end

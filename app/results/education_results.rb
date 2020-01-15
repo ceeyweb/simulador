@@ -4,7 +4,7 @@ class EducationResults < SimpleDelegator
 
   def education_achievement
     @education_achievement ||=
-      EducationAchievement.new(age, school_year).value
+      EducationAchievement.new(age, school_year, is_student).value
   end
 
   def parents_education_achievement
@@ -49,10 +49,6 @@ class EducationResults < SimpleDelegator
 
   def age_tertiles
     age_group.education_achievement_tertiles
-  end
-
-  def school_year
-    education_grade.school_year + (is_student ? 1 : 0)
   end
 
 end
