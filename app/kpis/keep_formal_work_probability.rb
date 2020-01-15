@@ -1,6 +1,6 @@
 class KeepFormalWorkProbability
 
-  INTERCEPT = -0.4123
+  INTERCEPT = 0.4123
 
   MARGINAL_AVERAGE_EFFECTS = {
     is_female: -0.083690,

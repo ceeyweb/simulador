@@ -98,7 +98,4 @@ class WorkKpisUser < SimpleDelegator
     region.send("#{name}?") ? 1 : 0
   end
 
-  def school_year
-    super(false)
-  end
 end
