@@ -6,7 +6,8 @@ README.md
 # docker files
 .docker/*
 .dockerignore
-!.docker/docker-entrypoint.sh
+!.docker/production/docker-entrypoint.sh
+!.docker/development/docker-entrypoint.sh
 Makefile
 
 # bundle files/configuration

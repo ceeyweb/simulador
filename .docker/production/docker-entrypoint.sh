@@ -2,7 +2,7 @@
 set -e
 
 # Remove a potentially pre-existing server.pid files
-rm -f /app/tmp/pids/server.pid
+rm -f /pms/tmp/pids/server.pid
 
 # Execute migrations
 bundle exec rake db:migrate
