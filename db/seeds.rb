@@ -94,13 +94,6 @@ JOB_TYPES = [ # id, description
   [99, "No sabe/No aplica"],
 ].freeze
 
-JOB_EMPLOYEES_GROUPS = [ # id, description
-  [1, "1 a 10"],
-  [2, "11 a 50"],
-  [3, "Más de 50"],
-  [99, "No sabe/No aplica"],
-].freeze
-
 AGE_GROUPS = [ # id, description, lower_limit, upper_limit
   [1, "6 a 11 años", 6, 11],
   [2, "12 a 14 años", 12, 14],
@@ -138,10 +131,6 @@ end
 
 JOB_TYPES.each do |id, description|
   JobType.create!(id: id, description: description)
-end
-
-JOB_EMPLOYEES_GROUPS.each do |id, description|
-  JobEmployeesGroup.create!(id: id, description: description)
 end
 
 AGE_GROUPS.each do |id, description, lower_limit, upper_limit|
