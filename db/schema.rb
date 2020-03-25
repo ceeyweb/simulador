@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_192919) do
+ActiveRecord::Schema.define(version: 2020_03_25_150627) do
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
@@ -175,6 +175,8 @@ ActiveRecord::Schema.define(version: 2019_11_05_192919) do
     t.datetime "updated_at", null: false
     t.integer "home_had_washer"
     t.integer "father_had_employees"
+    t.boolean "father_is_alive", null: false
+    t.boolean "mother_is_alive", null: false
     t.index ["age_group_id"], name: "index_users_on_age_group_id"
     t.index ["education_grade_id"], name: "index_users_on_education_grade_id"
     t.index ["father_education_grade_id"], name: "index_users_on_father_education_grade_id"

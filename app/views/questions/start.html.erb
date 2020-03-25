@@ -47,7 +47,7 @@
             <div class="col-md-6">
               <%= render "questions/boolean_radio_buttons",
                 column: :is_student,
-                empty: true,
+                empty: f.object.is_student.nil?,
                 na_allowed: false,
                 color: "green" %>
             </div>
@@ -64,7 +64,18 @@
             </h4>
           </div>
 
-          <div class="row">
+          <div class="row" data-behavior="questions" data-id="father-alive">
+            <div class="col-md-6">
+              <%= render "questions/boolean_radio_buttons",
+                column: :father_is_alive,
+                empty: f.object.father_is_alive.nil?,
+                na_allowed: false,
+                color: "green" %>
+            </div>
+          </div>
+
+          <div class="row <%= " hidden" unless f.object.father_is_alive %>"
+               data-behavior="questions-father-alive">
             <%= f.input :father_age,
               label: label_for(:father_age),
               input_html: { class: "col-md-6" },
@@ -89,7 +100,18 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row" data-behavior="questions" data-id="mother-alive">
+            <div class="col-md-6">
+              <%= render "questions/boolean_radio_buttons",
+                column: :mother_is_alive,
+                empty: f.object.mother_is_alive.nil?,
+                na_allowed: false,
+                color: "green" %>
+            </div>
+          </div>
+
+          <div class="row <%= " hidden" unless f.object.mother_is_alive %>"
+               data-behavior="questions-mother-alive">
             <%= f.input :mother_age,
               label: label_for(:mother_age),
               input_html: { class: "col-md-6" },

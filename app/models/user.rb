@@ -17,16 +17,28 @@ class User < ApplicationRecord
             :residency_id,
             :education_grade_id,
             :sex_id,
-            :father_residency_id,
-            :father_education_grade_id,
-            :mother_residency_id,
-            :mother_education_grade_id,
             presence: true
-  validates :is_student, inclusion: { in: [true, false] }
-  validates :age, numericality: { greater_than: 5, less_than: 100, allow_blank: true }
+
+  validates :father_residency_id,
+            :father_education_grade_id,
+            presence: true,
+            if: :father_is_alive
+
+  validates :mother_residency_id,
+            :mother_education_grade_id,
+            presence: true,
+            if: :mother_is_alive
+
+  validates :is_student,
+            :father_is_alive,
+            :mother_is_alive,
+            inclusion: { in: [true, false] }
+
   validates :father_age,
             :mother_age,
             numericality: { greater_than_or_equal_to: 15, less_than: 100, allow_blank: true }
+
+  validates :age, numericality: { greater_than: 5, less_than: 100, allow_blank: true }
 
   validate :disallow_changing_values_after_create
 
@@ -35,6 +47,30 @@ class User < ApplicationRecord
   delegate :education_level, to: :education_grade
   delegate :complete_education_level, to: :education_grade
   delegate :region, to: :residency
+
+  def father_residency_id=(value)
+    value = State::NO_RESPONSE_ID unless father_is_alive
+
+    super(value)
+  end
+
+  def mother_residency_id=(value)
+    value = State::NO_RESPONSE_ID unless mother_is_alive
+
+    super(value)
+  end
+
+  def father_education_grade_id=(value)
+    value = EducationGrade::NO_RESPONSE_ID unless father_is_alive
+
+    super(value)
+  end
+
+  def mother_education_grade_id=(value)
+    value = EducationGrade::NO_RESPONSE_ID unless mother_is_alive
+
+    super(value)
+  end
 
   def age
     return self[:age] if @school_year.nil?

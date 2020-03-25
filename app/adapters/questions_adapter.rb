@@ -31,6 +31,8 @@ class QuestionsAdapter
     father_has_healthcare: "¿Tu padre contaba con acceso a servicios médicos del IMSS o del ISSSTE?",
     father_job_type_id: "¿Tu padre era jornalero, empleado, patrón o trabajador por cuenta propia?",
     father_had_employees: "¿Tu padre tenía empleados a su cargo?",
+    father_is_alive: "¿Tu padre vive?",
+    mother_is_alive: "¿Tu madre vive?",
   }.freeze
 
   def self.label_for(column)

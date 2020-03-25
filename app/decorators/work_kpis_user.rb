@@ -60,7 +60,10 @@ class WorkKpisUser < SimpleDelegator
   def wealth_percentile
     COEFFICIENTS.reduce(INTERCEPT) do |total, (key, value)|
       kpi = send(key)
-      kpi = 0 unless key == :parents_average_school_year || kpi == 1
+
+      if kpi.nil? || key != :parents_average_school_year && kpi != 1
+        kpi = 0
+      end
 
       total + kpi * value
     end

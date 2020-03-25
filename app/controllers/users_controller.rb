@@ -5,6 +5,16 @@ class UsersController < ApplicationController
     if @user.valid?
       create_user_and_redirect
     else
+      unless @user.father_is_alive?
+        @user.father_residency_id = nil
+        @user.father_education_grade_id = nil
+      end
+
+      unless @user.mother_is_alive?
+        @user.mother_residency_id = nil
+        @user.mother_education_grade_id = nil
+      end
+
       render question_start_path
     end
   end

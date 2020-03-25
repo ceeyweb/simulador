@@ -76,7 +76,6 @@
                 column: :father_is_employed,
                 na_allowed: true,
                 text_replace: (["trabajaba", "trabaja"] if @user.preteen?),
-                # text_replace: ("¿Tu padre trabaja?" if @user.age < 14),
                 color: "orange" %>
             </div>
           </div>
@@ -87,7 +86,6 @@
                 column: :father_had_employees,
                 na_allowed: true,
                 text_replace: (["tenía", "tiene"] if @user.preteen?),
-                # text_replace: ("¿Tu padre tiene empleados a su cargo?" if @user.age < 14),
                 color: "orange" %>
             </div>
 

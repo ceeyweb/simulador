@@ -26,7 +26,7 @@
            value="0"
            name="user[<%= column %>]"
            data-action="hide"
-           id="user_<%= column %>_0" <%= "checked" unless defined?(empty) || @user.public_send(column) %>>
+           id="user_<%= column %>_0" <%= "checked" unless defined?(empty) && empty || @user.public_send(column) %>>
     <label class="custom-control-label" for="user_<%= column %>_0">No</label>
   </div>
 
