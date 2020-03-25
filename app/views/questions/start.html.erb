@@ -20,24 +20,21 @@
           </div>
 
           <div class="row">
-            <%= f.input :age,
-              label: label_for(:age),
-              input_html: { class: "col-md-8" },
-              wrapper_html: { class: "col-md-2" } %>
+            <%= f.hidden_field :age, value: @user.age %>
 
             <%= f.input :residency_id,
               collection: State.without_blank,
               label_method: :description,
               value_method: :id,
               label: label_for(:residency_id),
-              wrapper_html: { class: "col-md-5" } %>
+              wrapper_html: { class: "col-md-6" } %>
 
             <%= f.input :education_grade_id,
               collection: EducationGrade.without_blank,
               label_method: :description,
               value_method: :id,
               label: label_for(:education_grade_id),
-              wrapper_html: { class: "col-md-5" } %>
+              wrapper_html: { class: "col-md-6" } %>
           </div>
 
           <div class="row">
@@ -45,7 +42,7 @@
               collection: { "Mujer": 1, "Hombre": 2 },
               label: label_for(:sex_id),
               input_html: { class: "col-md-12" },
-              wrapper_html: { class: "col-md-2" } %>
+              wrapper_html: { class: "col-md-3" } %>
 
             <div class="col-md-6">
               <%= render "questions/boolean_radio_buttons",

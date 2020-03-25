@@ -15,8 +15,15 @@
 </section>
 
 <section class="start">
-  <h3 class="start__title">¿Cuáles son tus perspectivas?</h3>
-  <%= link_to "Iniciar", question_start_path, class: "btn start__button" %>
+  <h3 class="start__title">¿Qué edad tienes?</h3>
+  <select class="form-control select start__age" onchange="redirectUser(this);">
+    <option></option>
+    <option value="14">14 años o menos</option>
+    <% (15..24).each do |age| %>
+      <option value="<%= age %>"><%= age %> años</option>
+    <% end %>
+    <option value="25">25 años o más</option>
+  </select>
 </section>
 
 <section class="references">
@@ -26,6 +33,7 @@
   </a>
   <br>- Centro de Estudios Espinosa Yglesias. Informe movilidad social en México 2019.
   <br>- Centro de Estudios Espinosa Yglesias. EMOVI 2017.
+  <br>- Fundación Espinosa Rugarcía. EMOVI 2017.
 </section>
 
 <%= render "shared/footer" %>

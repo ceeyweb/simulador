@@ -2,8 +2,9 @@ class QuestionsController < ApplicationController
 
   def start
     # return redirect_to where_user_left_off unless is_new_user?
+    redirect_to root_path if params[:age].blank?
 
-    @user = User.new
+    @user = User.new(age: params[:age])
   end
 
   def part_2
