@@ -38,7 +38,7 @@ class User < ApplicationRecord
             :mother_age,
             numericality: { greater_than_or_equal_to: 15, less_than: 100, allow_blank: true }
 
-  validates :age, numericality: { greater_than: 5, less_than: 100, allow_blank: true }
+  validates :age, numericality: { greater_than: 14, less_than: 25, allow_blank: true }
 
   validate :disallow_changing_values_after_create
 
@@ -47,6 +47,18 @@ class User < ApplicationRecord
   delegate :education_level, to: :education_grade
   delegate :complete_education_level, to: :education_grade
   delegate :region, to: :residency
+
+  def father_age=(value)
+    value = nil if value.to_i.zero?
+
+    super(value)
+  end
+
+  def mother_age=(value)
+    value = nil if value.to_i.zero?
+
+    super(value)
+  end
 
   def father_residency_id=(value)
     value = State::NO_RESPONSE_ID unless father_is_alive

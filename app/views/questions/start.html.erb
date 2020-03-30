@@ -22,27 +22,27 @@
           <div class="row">
             <%= f.hidden_field :age, value: @user.age %>
 
+            <%= f.input :sex_id,
+              collection: { "Mujer": 1, "Hombre": 2 },
+              label: label_for(:sex_id),
+              input_html: { class: "col-md-12" },
+              wrapper_html: { class: "col-md-3" } %>
+
             <%= f.input :residency_id,
               collection: State.without_blank,
               label_method: :description,
               value_method: :id,
               label: label_for(:residency_id),
-              wrapper_html: { class: "col-md-6" } %>
+              wrapper_html: { class: "col-md-9" } %>
+          </div>
 
+          <div class="row">
             <%= f.input :education_grade_id,
               collection: EducationGrade.without_blank,
               label_method: :description,
               value_method: :id,
               label: label_for(:education_grade_id),
               wrapper_html: { class: "col-md-6" } %>
-          </div>
-
-          <div class="row">
-            <%= f.input :sex_id,
-              collection: { "Mujer": 1, "Hombre": 2 },
-              label: label_for(:sex_id),
-              input_html: { class: "col-md-12" },
-              wrapper_html: { class: "col-md-3" } %>
 
             <div class="col-md-6">
               <%= render "questions/boolean_radio_buttons",
@@ -78,7 +78,7 @@
                data-behavior="questions-father-alive">
             <%= f.input :father_age,
               label: label_for(:father_age),
-              input_html: { class: "col-md-6" },
+              input_html: { class: "col-md-8" },
               wrapper_html: { class: "col-md-3" } %>
 
             <div class="col-md-9">
@@ -114,7 +114,7 @@
                data-behavior="questions-mother-alive">
             <%= f.input :mother_age,
               label: label_for(:mother_age),
-              input_html: { class: "col-md-6" },
+              input_html: { class: "col-md-8" },
               wrapper_html: { class: "col-md-3" } %>
 
             <div class="col-md-9">

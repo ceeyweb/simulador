@@ -81,6 +81,17 @@
           </div>
 
           <div class="row hidden" data-behavior="questions-father">
+            <div class="col-md-12">
+              <%= render "model_radio_buttons",
+                klass: "JobType",
+                column: :father_job_type_id,
+                na_allowed: true,
+                text_replace: (["era", "es"] if @user.preteen?),
+                color: "orange" %>
+            </div>
+          </div>
+
+          <div class="row hidden" data-behavior="questions-father">
             <div class="col-md-5">
               <%= render "boolean_radio_buttons",
                 column: :father_had_employees,
@@ -94,17 +105,6 @@
                 column: :father_has_healthcare,
                 na_allowed: true,
                 text_replace: (["contaba", "cuenta"] if @user.preteen?),
-                color: "orange" %>
-            </div>
-          </div>
-
-          <div class="row hidden" data-behavior="questions-father">
-            <div class="col-md-12">
-              <%= render "model_radio_buttons",
-                klass: "JobType",
-                column: :father_job_type_id,
-                na_allowed: true,
-                text_replace: (["era", "es"] if @user.preteen?),
                 color: "orange" %>
             </div>
           </div>

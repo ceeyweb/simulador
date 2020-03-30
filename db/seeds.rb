@@ -5,7 +5,7 @@ REGIONS = [ # id, description
   [3, "Centro Norte"],
   [4, "Centro"],
   [5, "Sur"],
-  [99, "No sabe/No aplica"],
+  [99, "No sabe"],
 ].freeze
 
 STATES = [ # id, description, region_id
@@ -41,7 +41,7 @@ STATES = [ # id, description, region_id
   [30, "Veracruz", 5],
   [31, "Yucatán", 5],
   [32, "Zacatecas", 2],
-  [99, "No sabe/No aplica", 99],
+  [99, "No sabe", 99],
 ].freeze
 
 EDUCATION_LEVELS = [ # id, description
@@ -51,7 +51,7 @@ EDUCATION_LEVELS = [ # id, description
   [3, "Preparatoria"],
   [4, "Universidad"],
   [5, "Posgrado"],
-  [99, "No sabe/No aplica"],
+  [99, "No sabe"],
 ].freeze
 
 EDUCATION_GRADES = [ # id, school_year, description, education_level_id
@@ -78,7 +78,7 @@ EDUCATION_GRADES = [ # id, school_year, description, education_level_id
   [21, 20, "3° Posgrado", 5],
   [22, 21, "4° Posgrado", 5],
   [23, 22, "5° Posgrado", 5],
-  [99, 0, "No sabe/No aplica", 99],
+  [99, 0, "No sabe", 99],
 ].freeze
 
 SEXES = [ # id, description
@@ -91,7 +91,7 @@ JOB_TYPES = [ # id, description
   [2, "Empleado"],
   [3, "Patrón"],
   [4, "Trabajador por cuenta propia"],
-  [99, "No sabe/No aplica"],
+  [99, "No sabe"],
 ].freeze
 
 AGE_GROUPS = [ # id, description, lower_limit, upper_limit

@@ -2,7 +2,7 @@ class QuestionsAdapter
 
   DATA = {
     age: "¿Cuál es tu edad?",
-    residency_id: "¿En qué Estado de la República Mexicana vives?",
+    residency_id: "¿En qué Estado de la República Mexicana vivías a los 14 años?",
     education_grade_id: "¿Cuál fue el último grado escolar que terminaste?",
     has_healthcare: "¿Cuentas con acceso a servicios médicos del IMSS o del ISSSTE o de alguna institución privada?",
     sex_id: "¿Cuál es tu sexo?",
@@ -21,10 +21,10 @@ class QuestionsAdapter
     home_had_bathroom: "Baño dentro de la vivienda",
     home_had_electricity: "Electricidad",
     home_had_washer: "Lavadora",
-    father_age: "¿Cuál es la edad de tu padre?<br><small>(Déjala en blanco si no sabes/no aplica)</small>".html_safe,
+    father_age: "¿Cuál es la edad de tu padre? <small>(déjala en blanco si no sabes)</small>".html_safe,
     father_residency_id: "¿En qué estado de la República Mexicana vive o vivía tu padre?",
     father_education_grade_id: "¿Cuál fue el último grado escolar que terminó tu padre?",
-    mother_age: "¿Cuál es la edad de tu madre?<br><small>(Déjala en blanco si no sabes/no aplica)</small>".html_safe,
+    mother_age: "¿Cuál es la edad de tu madre? <small>(déjala en blanco si no sabes)</small>".html_safe,
     mother_residency_id: "¿En qué estado de la República Mexicana vive o vivía tu madre?",
     mother_education_grade_id: "¿Cuál fue el último grado escolar que terminó tu madre?",
     father_is_employed: "¿Tu padre trabajaba?",
