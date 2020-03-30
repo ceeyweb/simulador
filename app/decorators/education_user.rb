@@ -58,21 +58,21 @@ class EducationUser < ResultsUser
         {
           title: " y los de tus padres",
           text_1: "Tus padres tienen",
-          text_2: "pudieran",
+          text_2: "podrían",
           parents: "tus padres",
         }
       elsif mother_has_education?
         {
           title: " y los de tu madre",
           text_1: "Tu madre tiene",
-          text_2: "pudiera",
+          text_2: "podría",
           parents: "tu madre",
         }
       elsif father_has_education?
         {
           title: " y los de tu padre",
           text_1: "Tu padre tiene",
-          text_2: "pudiera",
+          text_2: "podría",
           parents: "tu padre",
         }
       else

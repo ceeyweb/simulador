@@ -15,8 +15,8 @@
   </h3>
 
   <div class="center simulator-paragraph-text">
-    <strong>Años totales de vida esperada:</strong> número de años que en
-    promedio se espera que viva una persona a partir de su edad
+    <strong>Años totales de vida esperada:</strong> número de años que, en
+    promedio, se espera que viva una persona de una determinada edad.
 
     <hr class="dotted-hr">
   </div>
@@ -61,8 +61,10 @@
     <div class="col-md-12 center">
       <% if @user.mother_or_father_have_expected_age? %>
         <p class="text-size-md health-paragraph-text-black">
-          Los años de vida esperados de los padres son, generalmente mayores porque
-          han superado periodos de riesgo, como los accidentes en la adolescencia.
+          <strong>
+            Los años de vida esperados de los padres generalmente son más, porque
+            han superado periodos de riesgo, como los accidentes en la adolescencia.
+          </strong>
         </p>
       <% end %>
 

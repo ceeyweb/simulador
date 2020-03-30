@@ -28,7 +28,7 @@ class HealthUser < ResultsUser
   end
 
   def expected_age_question_text
-    default = "Cuáles son los años de vida esperados para ti y para "
+    default = "Cuántos años en total se espera que vivan tú y"
 
     if mother_age.present? && father_age.present?
       "#{default} tus padres"
@@ -37,7 +37,7 @@ class HealthUser < ResultsUser
     elsif father_age.present?
       "#{default} tu padre"
     else
-      "Cuáles son tus años de vida esperados"
+      "Cuántos años en total se espera que vivas"
     end
   end
 
