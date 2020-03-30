@@ -39,6 +39,7 @@ class Questions {
   }
 }
 
+
 document.addEventListener("turbolinks:load", function() {
   let questions = document.querySelectorAll("[data-behavior='questions']");
 
@@ -47,4 +48,35 @@ document.addEventListener("turbolinks:load", function() {
       new Questions(element);
     });
   }
+});
+
+function adjustHeaderImageBottomMargin() {
+  let headerImage = $("#header-image");
+
+  if(headerImage.length) {
+    let imageMargin = "-" + Math.round(headerImage[0].height * .1478) + "px";
+
+    headerImage.css("margin-bottom", imageMargin);
+  }
+}
+
+function adjustHomeImageBottomMargin() {
+  let headerImage = $("#home-image");
+
+  if(headerImage.length) {
+    let imageMargin = "-" + Math.round(headerImage[0].height * .0894) + "px";
+
+    console.log(headerImage[0].height);
+    headerImage.css("margin-bottom", imageMargin);
+  }
+}
+
+$(document).ready(function() {
+  adjustHomeImageBottomMargin();
+  adjustHeaderImageBottomMargin();
+});
+
+$(window).resize(function() {
+  adjustHomeImageBottomMargin();
+  adjustHeaderImageBottomMargin();
 });
