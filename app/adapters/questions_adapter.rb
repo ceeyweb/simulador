@@ -2,7 +2,7 @@ class QuestionsAdapter
 
   DATA = {
     age: "¿Cuál es tu edad?",
-    residency_id: "¿En qué Estado de la República Mexicana vivías a los 14 años?",
+    residency_id: "¿En qué estado de la República Mexicana vivías a los 14 años?",
     education_grade_id: "¿Cuál fue el último grado escolar que terminaste?",
     has_healthcare: "¿Cuentas con acceso a servicios médicos del IMSS o del ISSSTE o de alguna institución privada?",
     sex_id: "¿Cuál es tu sexo?",

@@ -58,13 +58,13 @@
 
         <div class="chart center"
              data-percent="<%= @user.keep_formal_work_probability %>">
-             <div class="work-participation__kpi">
-               <%= @user.keep_formal_work_probability %>%
-             </div>
+          <div class="work-participation__kpi">
+            <%= @user.keep_formal_work_probability %> %
+          </div>
         </div>
 
         <div class="work-participation__chart-footer">
-          Tu
+          Tú
         </div>
       </div>
 
@@ -74,7 +74,7 @@
         <div class="chart-parent center"
              data-percent="<%= @user.mother_formal_work_participation_rate %>">
           <div class="work-participation__kpi">
-            <%= @user.mother_formal_work_participation_rate %>%
+            <%= @user.mother_formal_work_participation_rate %> %
           </div>
         </div>
 
@@ -88,9 +88,9 @@
 
         <div class="chart-parent center"
              data-percent="<%= @user.father_formal_work_participation_rate %>">
-             <div class="work-participation__kpi">
-               <%= @user.father_formal_work_participation_rate %>%
-             </div>
+          <div class="work-participation__kpi">
+            <%= @user.father_formal_work_participation_rate %> %
+          </div>
         </div>
 
         <div class="work-participation__chart-footer">
@@ -110,8 +110,8 @@
 <section class="work-formality">
   <div class="container">
     <h3 class="simulator-header-text center">
-      Sabías que... en el mercado laboral mexicano, las personas tienden a
-      permanecer en su condición laboral
+      En el mercado laboral mexicano, las personas tienden a
+      permanecer en su condición laboral.
     </h3>
 
     <div class="row work-formality__row">
@@ -122,7 +122,7 @@
         <span class="work-formality__highlight">FORMALIDAD </span>a la
         <span class="work-formality__highlight">INFORMALIDAD</span> es de:
         <span class="work-formality__highlight work-formality__highlight--kpi">
-          <%= @user.lose_formal_work_probability %>%
+          <%= @user.lose_formal_work_probability %> %
         </span>
       </div>
 
@@ -131,7 +131,7 @@
         <span class="work-formality__highlight">INFORMALIDAD, </span><br>
         la probabilidad de <br> mantenerse en ella es de:
         <span class="work-formality__highlight work-formality__highlight--kpi">
-          <%= @user.keep_informal_work_probability %>%
+          <%= @user.keep_informal_work_probability %> %
         </span>
       </div>
     </div>
