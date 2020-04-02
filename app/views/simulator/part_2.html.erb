@@ -1,8 +1,4 @@
 <section>
-  <div class="center heading-legend">
-    Conoce los beneficios de la movilidad social para tu:
-  </div>
-
   <%= image_tag "encabezado_educacion.png", class: "header-image" %>
 </section>
 
@@ -16,7 +12,7 @@
     <hr class="dotted-hr">
   </div>
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-6 education-achievement__text <%= @user.education_achievement_col_offset_class %>">
         Tienes el <span class="highlight"><%= @user.education_achievement %>%</span>
@@ -80,9 +76,9 @@
 </section>
 
 <section class="education-comparison">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6 education-comparison__paragraph">
+      <div class="col-lg-6 education-comparison__paragraph">
         Tu posición en la escala educativa se ubica en...
       </div>
     </div>
@@ -117,7 +113,7 @@
 </section>
 
 <section>
-  <div class="container">
+  <div class="container-fluid">
     <%= render "slider" %>
 
     <div class="row">

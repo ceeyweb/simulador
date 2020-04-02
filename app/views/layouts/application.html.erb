@@ -75,35 +75,35 @@
     </div>
 
     <div class="row no-gutters">
-      <div class="col-md-2 background-dark-green"></div>
-      <div class="col-xs-12 col-md-8 body-main">
+      <div class="col-lg-2 background-dark-green"></div>
+      <div class="col-lg-8 body-main">
         <%= yield %>
       </div>
-      <div class="col-md-2 background-dark-green"></div>
+      <div class="col-lg-2 background-dark-green"></div>
     </div>
   </body>
 
   <script charset="utf-8">
     $(function() {
-    $('[data-toggle="tooltip"]').tooltip();
+      $('[data-toggle="tooltip"]').tooltip();
 
-    $('.chart').easyPieChart({
-      barColor: "#f58531",
-      trackColor: "#b5b5b5",
-      scaleColor: false,
-      lineWidth: 25,
-      lineCap: "butt",
-      size: 180,
+      $('.chart').easyPieChart({
+        barColor: "#f58531",
+        trackColor: "#b5b5b5",
+        scaleColor: false,
+        lineWidth: 25,
+        lineCap: "butt",
+        size: 180,
+      });
+
+      $('.chart-parent').easyPieChart({
+        barColor: "#7ecdc0",
+        trackColor: "#b5b5b5",
+        scaleColor: false,
+        lineWidth: 25,
+        lineCap: "butt",
+        size: 180,
+      })
     });
-
-    $('.chart-parent').easyPieChart({
-      barColor: "#7ecdc0",
-      trackColor: "#b5b5b5",
-      scaleColor: false,
-      lineWidth: 25,
-      lineCap: "butt",
-      size: 180,
-    })
-  });
   </script>
 </html>

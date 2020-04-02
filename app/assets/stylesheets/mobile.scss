@@ -1,0 +1,276 @@
+@media only screen and (max-width: 992px) {
+  .m-slider {
+    margin-left: 4vw;
+    flex: 0 0 91%;
+    max-width: 91%;
+  }
+
+  .m-hidden {
+    display: none;
+  }
+
+  canvas {
+    height: 25vw !important;
+    width: 25vw !important;
+  }
+
+  .dotted-hr {
+    margin: 1.7em auto !important;
+  }
+
+  .benefit-sections-header {
+    font-size: 2.3em !important;
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .lock-image {
+    width: 4em;
+    height: auto !important;
+  }
+
+  .benefit-sections {
+    padding-left: 0;
+    padding-right: 0;
+
+    .col-4 {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+  .benefit-section-name {
+    font-size: 2.5em !important;
+  }
+
+  .benefit-section-circle {
+    font-size: 2em !important;
+  }
+
+  .map-kpi {
+    font-size: 1em !important;
+  }
+
+  .map-label {
+    font-size: 2.1vw !important;
+    right: -4.5vw !important;
+    width: 30vw !important;
+  }
+
+  .map-label--world {
+    top: 10vw !important;
+  }
+  .map-label--country {
+    top: 23.7vw !important;
+  }
+
+  .map-label--region {
+    top: 38.2vw !important;
+    width: 36vw !important;
+  }
+
+  .slider__text {
+    font-size: 1.7em !important;
+  }
+
+  .slider__labels {
+    font-size: 2vw !important;
+
+    div > div {
+      position: initial;
+      display: inline-block;
+      width: 19%;
+    }
+  }
+
+  .slider__refresh {
+    margin-left: 0;
+  }
+
+  .simulation-results__text {
+    font-size: 3vw !important;
+  }
+
+  .education-achievement__kpi {
+    top: 15vw !important;
+    font-size: 4.5vw;
+  }
+
+  .education-achievement__text {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .education-comparison__paragraph {
+    font-size: 2em;
+  }
+
+  .education-comparison__text {
+    font-size: 1.5em;
+  }
+
+  .work-participation__text {
+    font-size: 1.8em;
+  }
+
+  .work-participation > .container {
+    max-width: 640px;
+  }
+
+  .work-participation__kpi {
+    margin-bottom: -16.5vw;
+  }
+
+  .work-formality__text {
+    font-size: 2.1vw;
+  }
+
+  .modal-body.finish {
+    font-size: 2vw;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .m-footer__left-col {
+    margin-left: 1rem;
+  }
+
+  .m-footer__right-col {
+    padding-left: 3rem;
+
+    h5 {
+      font-size: .8rem;
+    }
+
+    li {
+      font-size: 1.3em;
+    }
+  }
+
+  .references {
+    font-size: 1.3em;
+  }
+
+  .start__age {
+    width: 40%
+  }
+
+  .footer-copyright {
+    padding-top: .5em !important;
+    padding-bottom: 1.5em !important;
+    font-size: 1.3em;
+  }
+
+  .card-body {
+    padding: .8rem;
+
+    .left-indent {
+      padding-left: inherit;
+    }
+  }
+
+  input.btn--submit, button.btn--submit {
+    font-size: 2em;
+    margin-top: 0;
+  }
+
+  .progress {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .question-section-header-box, .form-group {
+    margin: .7rem 0 !important;
+  }
+
+  .question-section-header {
+    font-size: 1.1rem !important;
+    padding-right: 0;
+    width: initial;
+  }
+
+  .heading-image {
+    height: 45px !important;
+  }
+
+  .form-group {
+    margin: .7rem 0 !important;
+
+    label, legend {
+      font-size: 2em;
+    }
+  }
+
+  .simulator-paragraph-text {
+    font-size: 1.7em !important;
+  }
+
+  .simulator-header-text {
+    font-size: 2.5em !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+  .life-expectancy-row {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+
+    .col-4 {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    }
+  }
+
+  .life-expectancy-number {
+    font-size: 2.3vw !important;
+  }
+
+  .health-paragraph-text-black {
+    padding: 0 1.5em !important;
+  }
+
+  .health-images {
+    margin: 2em .5em 0 !important;
+  }
+
+  .health-image {
+    width: 60% !important;
+  }
+
+  .take-care-image-text {
+    font-size: 1.9em !important;
+  }
+
+  .map-title {
+    margin-top: 1em !important;
+    font-size: 2.2em !important;
+  }
+
+  .slider__refresh {
+    margin-left: 0;
+    padding-top: 13px;
+
+    img {
+      width: 2.5em;
+      margin-left: -5px;
+    }
+  }
+
+  .modal-body.finish {
+    font-size: 2.5vw;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .m-footer__left-col {
+    margin-left: .1rem;
+  }
+
+  .m-footer__right-col {
+    padding-left: 4rem;
+  }
+
+  .slider__labels {
+    font-size: 1.4em !important;
+  }
+}

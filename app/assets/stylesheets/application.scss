@@ -5,6 +5,7 @@ $default-font: "Lato";
 @import "home";
 @import "simulator/*";
 @import "overrides";
+@import "mobile";
 
 /* General styles */
 
@@ -36,13 +37,6 @@ label {
   font-size: 3em;
   font-weight: 400;
   margin-bottom: -5px;
-}
-
-.heading-legend {
-  color: $dark-green;
-  font-size: 2em;
-  font-weight: 600;
-  margin-bottom: -30px;
 }
 
 .white-section {
@@ -350,17 +344,17 @@ select {
 }
 
 .map-label--world {
-  top: 5.5em;
+  top: 6.6vw;
 }
 
 .map-label--country {
-  top: 13.2em;
+  top: 15.9vw;
 }
 
 .map-label--region {
   color: $dark-green;
-  top: 21.5em;
-  width: 28%;
+  top: 25.8vw;
+  width: 27.3%;
 
   > .map-text {
     padding-top: 0;

@@ -2,7 +2,7 @@
   <h3 class="benefit-sections-header text-center">Conoce los beneficios de la movilidad social para tu...</h3>
 
   <div class="row">
-    <div class="col-md-2 offset-md-1">
+    <div class="col-4 col-lg-2 offset-lg-1">
       <span class="benefit-section-circle circle-aqua">1</span>
 
       <% if defined?(health_enabled) && health_enabled %>
@@ -18,11 +18,11 @@
       <% end %>
     </div>
 
-    <div class="col-md-2">
+    <div class="m-hidden col-lg-2">
       <hr class="benefit-section-divider">
     </div>
 
-    <div class="col-md-2">
+    <div class="col-4 col-lg-2">
       <span class="benefit-section-circle circle-green">2</span>
       <% if defined?(education_enabled) && education_enabled %>
         <%= link_to simulator_part_2_path do %>
@@ -37,11 +37,11 @@
       <% end %>
     </div>
 
-    <div class="col-md-2">
+    <div class="m-hidden col-lg-2">
       <hr class="benefit-section-divider">
     </div>
 
-    <div class="col-md-2">
+    <div class="col-4 col-lg-2">
       <span class="benefit-section-circle circle-orange">3</span>
       <% if defined?(work_enabled) && work_enabled %>
         <%= link_to simulator_part_3_path do %>

@@ -47,7 +47,7 @@ class EducationUser < ResultsUser
   end
 
   def education_achievement_col_offset_class
-    "offset-md-3" unless mother_or_father_has_education?
+    "offset-3" unless mother_or_father_has_education?
   end
 
   private

@@ -51,9 +51,9 @@ class HealthUser < ResultsUser
 
   def expected_age_col_offset_class
     if !father_has_expected_age? && !mother_has_expected_age?
-      "offset-md-4"
+      "offset-4"
     elsif !father_has_expected_age? || !mother_has_expected_age?
-      "offset-md-2"
+      "offset-2"
     end
   end
 

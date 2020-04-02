@@ -1,7 +1,4 @@
 <section>
-  <div class="center heading-legend">
-    Conoce los beneficios de la movilidad social para tu:
-  </div>
   <%= image_tag "encabezado_trabajo.png", class: "header-image" %>
 </section>
 
@@ -27,31 +24,31 @@
 </section>
 
 <section class="work-participation">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4 work-participation__text">
+      <div class="col-4 work-participation__text">
         La probabilidad de obtener o mantener un empleo formal
         (IMSS, ISSSTE u otros) es:
       </div>
 
-      <div class="col-md-8 work-participation__text">
+      <div class="col-8 work-participation__text">
         La tasa de empleos formales (IMSS, ISSSTE u otros) de la generación de
         tus padres, con base en su edad y región, es:
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-4 work-participation__divider">
+      <div class="col-4 work-participation__divider">
         <hr class="dotted-hr">
       </div>
 
-      <div class="col-md-8 work-participation__divider">
+      <div class="col-8 work-participation__divider">
         <hr class="dotted-hr">
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-4 work-participation__chart">
+      <div class="col-4 work-participation__chart">
         <%= image_tag @user.work_image %>
 
         <div class="chart center"
@@ -66,7 +63,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 work-participation__chart">
+      <div class="col-4 work-participation__chart">
         <%= image_tag "work_mother.png" %>
 
         <div class="chart-parent center"
@@ -81,7 +78,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 work-participation__chart">
+      <div class="col-4 work-participation__chart">
         <%= image_tag "work_father.png" %>
 
         <div class="chart-parent center"
@@ -106,7 +103,7 @@
 </section>
 
 <section class="work-formality">
-  <div class="container">
+  <div class="container-fluid">
     <h3 class="simulator-header-text center">
       En el mercado laboral mexicano, las personas tienden a
       permanecer en su condición laboral.
@@ -144,12 +141,12 @@
 </section>
 
 <section>
-  <div class="container">
+  <div class="container-fluid">
     <%= render "slider" %>
 
     <div class="row">
       <div class="col-12 background-orange">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-lg-8 col-12">
           <div class="simulation-results">
             <div class="simulation-results__col simulation-results__col--1">
               <%= image_tag "social_security_icon.png", class: "kpi-icon" %>
