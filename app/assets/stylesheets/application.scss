@@ -4,6 +4,7 @@ $default-font: "Lato";
 @import "colors";
 @import "home";
 @import "simulator/*";
+@import "social-share-button";
 @import "overrides";
 @import "mobile";
 
@@ -611,6 +612,12 @@ select {
 
 .brand-name {
   font-weight: bold;
+}
+
+.footer-share-buttons {
+  text-align: center;
+  margin-top: 1rem;
+  width: 163px;
 }
 
 /* Section specific */

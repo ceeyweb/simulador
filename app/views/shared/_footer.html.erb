@@ -4,8 +4,12 @@
 
       <div class="offset-1 col-1 mt-md-1 m-footer__left-col">
         <a href="https://ceey.org.mx/" target="blank">
-          <%= image_tag "logo.png", style: "height: 50px" %>
+          <%= image_tag "logo.png", style: "height: 50px", id: "footer-logo" %>
         </a>
+
+        <div class="footer-share-buttons">
+          <%= render "shared/social_share_buttons" %>
+        </div>
       </div>
 
       <div class="offset-4 col-6 text-left mb-md-1 m-footer__right-col">
@@ -33,5 +37,4 @@
     <%= link_to "Aviso de Privacidad", "#" %>
     ©CEEY @2019
   </div>
-
 </footer>

@@ -11,6 +11,7 @@ gem "uglifier", ">= 1.3.0"
 gem "turbolinks", "~> 5"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "simple_form"
+gem "social-share-button"
 
 group :development, :test do
   gem "pry-rails"

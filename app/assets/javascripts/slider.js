@@ -32,7 +32,6 @@ class Slider {
   }
 
   updateSlider(target, selectedValue) {
-    console.log(selectedValue);
     target.
       querySelectorAll("[data-behavior='slider-enabled']").
       forEach(function(section) {

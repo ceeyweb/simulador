@@ -67,3 +67,14 @@
 .form-check {
   position: unset;
 }
+
+$button-size: 1.7rem;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $button-size $button-size;
+    height: $button-size;
+    width: $button-size;
+    margin: 1px;
+  }
+}

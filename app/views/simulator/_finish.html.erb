@@ -2,13 +2,25 @@
   <div class="modal-content">
 
     <div class="modal-header">
-      <h5 class="modal-title">Resumen</h5>
+      <h5 class="modal-title">¡Gracias por tu participación!</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
 
     <div class="modal-body finish">
+
+      <div class="finish__text">
+        Recuerda que estos resultados son estimaciones y no predicciones.
+        Muchos factores, que aquí no se consideran, juegan un papel en las
+        oportunidades que tenemos y en cómo las aprovechamos. Todos, el
+        gobierno, la sociedad en general y nosotros como individuos,
+        compartimos responsabilidades para impulsar nuestra movilidad social.
+      </div>
+
+      <div class="finish__share-buttons">
+        <%= render "shared/social_share_buttons" %>
+      </div>
 
       <div class="row background-teal finish__row">
         <div class="col-2 no-mobile"><%= image_tag "health_icon.png", class: "finish__icon" %></div>
