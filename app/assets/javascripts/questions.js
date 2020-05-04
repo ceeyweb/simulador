@@ -66,7 +66,6 @@ function adjustHomeImageBottomMargin() {
   if(headerImage.length) {
     let imageMargin = "-" + Math.round(headerImage[0].height * .0894) + "px";
 
-    console.log(headerImage[0].height);
     headerImage.css("margin-bottom", imageMargin);
   }
 }
