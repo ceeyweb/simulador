@@ -24,12 +24,12 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-4 work-participation__text">
-        Tu probabilidad de entrar al mercado laboral es:
+        <span class="text-bold" style="color: #F97635">Tu</span> probabilidad de entrar al mercado laboral es:
       </div>
 
       <div class="col-8 work-participation__text">
-        La tasa de participación laboral de la generación de tus padres,
-        con base en su edad y región, es:
+        La tasa de participación laboral de la generación de
+        <span class="text-bold" style="color: #6EC7B9">tus padres</span>, con base en su edad y región, es:
       </div>
     </div>
 
@@ -107,13 +107,13 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-4 work-participation__text">
-        La probabilidad de tener seguridad social (IMSS, ISSSTE u otros) en
-        tu primer empleo es:
+        <span class="text-bold" style="color: #f97635">Tu</span> probabilidad de tener seguridad social
+        (IMSS, ISSSTE u otros) en tu primer empleo es:
       </div>
 
       <div class="col-8 work-participation__text">
         La tasa de empleos formales (IMSS, ISSSTE u otros) de la generación de
-        tus padres, con base en su edad y región, es:
+        <span class="text-bold" style="color: #6EC7B9">tus padres</span>, con base en su edad y región, es:
       </div>
     </div>
 
@@ -224,8 +224,8 @@
           </div>
         </div>
       </div>
-
     </div>
+  </div>
 </section>
 
 <section class="finish-button">
@@ -243,11 +243,12 @@
   work_enabled: @user.filled_out_all_parts? %>
 
 <section class="references">
-  <strong>Referencias</strong>
-  <br>- Centro de Estudios Espinosa Yglesias. Participación laboral. Elaboración propia
-  <br>- Centro de Estudios Espinosa Yglesias. Trayectoria exitosa. Elaboración propia
-  <br>- Encuesta Nacional de Ocupación y Empleo 1er trimestre 2018 (ENOE).
-  Instituto Nacional de Estadística y Geografía (INEGI).
+  <strong>Fuentes</strong>
+  <br>- Participación laboral: Elaboración propia, Centro de Estudios Espinosa Yglesias (CEEY).
+  <br>- Formalidad laboral: Elaboración propia, Centro de Estudios Espinosa Yglesias (CEEY).
+  <br>- <%= link_to "Encuesta Nacional de Ocupación y Empleo 2018 - I Trimestre",
+                    "https://www.inegi.org.mx/programas/enoe/15ymas/default.html%23Datos_abiertos",
+                    target: "_blank" %>, Instituto Nacional de Estadística y Geografía (INEGI).
 </section>
 
 <%= render "shared/footer" %>

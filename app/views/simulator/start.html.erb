@@ -4,12 +4,12 @@
 
 <section class="life-expectancy-section">
   <h3 class="simulator-header-text center">
-    ¿<%= @user.expected_age_question_text %>?
+    ¿Cuántos años en total <span style="color:#F97635">se espera</span><%= @user.expected_age_question_text %>?
   </h3>
 
   <div class="center simulator-paragraph-text">
-    <strong>Años totales de vida esperada:</strong> número de años que, en
-    promedio, se espera que viva una persona de una determinada edad.
+    <strong>Años totales de vida esperados:</strong> número de años que, en promedio,
+    se espera que viva una persona según su edad actual.
 
     <hr class="dotted-hr">
   </div>
@@ -62,9 +62,9 @@
       <% end %>
 
       <p class="text-size-md health-paragraph-text-black">
-        La mayoría de los jóvenes goza de buena salud, pero la
-        <span class="take-care-text-highlight">mortalidad prematura</span>
-        es considerablemente alta por:
+        La mayoría de las y los jóvenes goza de buena salud, sin embargo, su
+        <span class="take-care-text-highlight">esperanza de vida</span>
+        puede disminuir por estas causas:
       </p>
 
       <div class="row health-images">
@@ -187,10 +187,10 @@
   work_enabled: @user.filled_out_all_parts? %>
 
 <section class="references">
-  <strong>Referencias</strong>
-  <br>- Consejo Nacional de Población. Tablas de años de vida esperados.
-  <br>- Organización Mundial de la Salud (OMS). Años máximos de vida esperados.
-  <br>- Organización Mundial de la Salud (OMS). Adolescentes: riesgos para la salud y soluciones
+  <strong>Fuentes</strong>
+  <br>- Años de vida esperados: Tabulados del Consejo Nacional de Población (CONAPO).
+  <br>- Años máximos de vida esperados: Organización Mundial de la Salud (OMS).
+  <br>- <%= link_to "Adolescentes: riesgos para la salud y soluciones", "https://www.who.int/es/news-room/fact-sheets/detail/adolescents-health-risks-and-solutions", target: "_blank" %>, Organización Mundial de la Salud (OMS).
 </section>
 
 <%= render "shared/footer" %>

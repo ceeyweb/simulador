@@ -72,7 +72,9 @@ label {
 }
 
 .text-size-md {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  max-width: 875px;
+  margin: auto;
 }
 
 .text-size-lg {
@@ -98,6 +100,15 @@ label {
 
 .text-bold {
   font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .text-bold {
+    font-size: 2em;
+  }
+  .text-size-md {
+    font-size: 1rem;
+  }
 }
 
 .text-boldest {
@@ -599,6 +610,15 @@ select {
   color: #fff;
 }
 
+@media screen and (max-width: 600px) {
+  .page-footer {
+    font-size: 2em;
+  }
+  .footer-share-buttons {
+    text-align: center;
+  }
+}
+
 .footer-copyright,
 .footer-copyright a {
   color: #5a8c91;
@@ -615,9 +635,7 @@ select {
 }
 
 .footer-share-buttons {
-  text-align: center;
   margin-top: 1rem;
-  width: 163px;
 }
 
 /* Section specific */

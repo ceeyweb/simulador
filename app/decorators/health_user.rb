@@ -24,20 +24,20 @@ class HealthUser < ResultsUser
   end
 
   def region_map_image
-    "mapa_#{region.tr(" ", "_").downcase}.png"
+    "mapa_#{region.tr(" ", "_")}.png"
   end
 
   def expected_age_question_text
-    default = "Cuántos años en total se espera que vivan tú y"
+    default = "Cuántos años en total se espera"
 
     if mother_age.present? && father_age.present?
-      "#{default} tus padres"
+      " que vivan tú y tus padres"
     elsif mother_age.present?
-      "#{default} tu madre"
+      " que vivan tú y tu madre"
     elsif father_age.present?
-      "#{default} tu padre"
+      " que vivan tú y tu padre"
     else
-      "Cuántos años en total se espera que vivas"
+      " que vivas"
     end
   end
 

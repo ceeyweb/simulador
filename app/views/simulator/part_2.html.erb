@@ -8,7 +8,7 @@
   </h3>
 
   <div class="center simulator-paragraph-text">
-    <strong>Logro educativo:</strong> grados escolares terminados según tu edad.
+    <strong>Logro educativo:</strong> grados escolares que una persona terminó según su edad.
     <hr class="dotted-hr">
   </div>
 
@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-6 education-achievement__text <%= @user.education_achievement_col_offset_class %>">
         Tienes el <span class="highlight"><%= @user.education_achievement %>%</span>
-        de los logros educativos que podrías haber obtenido
+        de los logros educativos que podrías haber obtenido a tu edad.
       </div>
 
       <% if @user.mother_or_father_has_education? %>
@@ -165,10 +165,9 @@
   work_enabled: @user.filled_out_all_parts? %>
 
 <section class="references">
-  <strong>Referencias</strong>
-  <br>- Centro de Estudios Espinosa Yglesias. Logro escolar. Elaboración propia.
-  <br>- Encuesta Nacional de Ocupación y Empleo 1er trimestre 2018 (ENOE).
-  Instituto Nacional de Estadística y Geografía (INEGI).
+  <strong>Fuentes</strong>
+  <br>- Logro escolar: Elaboración propia, Centro de Estudios Espinosa Yglesias (CEEY).
+  <br>- Ingreso laboral: <%= link_to "Encuesta Nacional de Ocupación y Empleo 2018 - I Trimestre", "https://www.inegi.org.mx/programas/enoe/15ymas/default.html%23Datos_abiertos", target: "_blank" %>, Instituto Nacional de Estadística y Geografía (INEGI).
 </section>
 
 <%= render "shared/footer" %>

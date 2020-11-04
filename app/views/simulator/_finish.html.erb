@@ -10,12 +10,12 @@
 
     <div class="modal-body finish">
 
-      <div class="finish__text">
-        Recuerda que estos resultados son estimaciones y no predicciones.
+      <div class="finish__text mb-2">
+        Recuerda que estos <b>resultados son estimaciones y no predicciones</b>.
         Muchos factores, que aquí no se consideran, juegan un papel en las
         oportunidades que tenemos y en cómo las aprovechamos. Todos, el
         gobierno, la sociedad en general y nosotros como individuos,
-        compartimos responsabilidades para impulsar nuestra movilidad social.
+        compartimos responsabilidades para <b>impulsar nuestra movilidad social</b>.
       </div>
 
       <div class="finish__share-buttons">
@@ -32,7 +32,7 @@
 
       <div class="row background-dark-green finish__row">
         <div class="col-2"><%= image_tag "logro_icon.png", class: "finish__icon" %></div>
-        <div class="col-7 finish__col">Logro Escolar</div>
+        <div class="col-7 finish__col">Logro Escolar (Actual)</div>
         <div class="col-3 finish__col finish__col--kpi">
           <%= number_with_precision(user.education_achievement, precision: 0) %> %
         </div>
@@ -40,7 +40,7 @@
 
       <div class="row background-orange finish__row">
         <div class="col-2"><%= image_tag "ingreso_icon.png", class: "finish__icon" %></div>
-        <div class="col-7 finish__col">Ingreso Mensual Promedio<br>(24 a 35 años)</div>
+        <div class="col-7 finish__col">Ingreso Mensual Promedio<br>(Según Escolaridad Actual)</div>
         <div class="col-3 finish__col finish__col--kpi">
           $ <%= number_with_precision(user.average_income, precision: 0, delimiter: ",") %>
         </div>

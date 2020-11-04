@@ -3,6 +3,10 @@
 </section>
 
 <section class="home">
+  <%= image_tag "home_movilidad_descripcion.png", class: "header-image", id: "home-image" %>
+</section>
+
+<section class="home">
   <%= image_tag "home_movilidad_salud.png", class: "header-image" %>
 </section>
 
@@ -15,7 +19,18 @@
 </section>
 
 <section class="start">
-  <h3 class="start__title">¿Qué edad tienes?</h3>
+  <h3 class="start__title mb-5">¡Contesta este test y descubre <br> tus opciones de movilidad social!</h3>
+  <h3 class="start__title">¿Qué edad tienes?
+    <span class="upward-mobility__i"
+          data-toggle="tooltip"
+          data-placement="top"
+          data-html="true"
+          title="Los datos recabados en este test se utilizan para fines estrictamente estadísticos. Aviso de privacidad en www.ceey.org.mx.">
+      <svg width=".6em" height=".6em" viewBox="0 0 16 16" class="bi bi-info-circle-fill mt-n4" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+      </svg>
+    </span>
+  </h3>
   <select class="form-control select start__age" onchange="redirectUser(this);">
     <option></option>
     <option value="14">14 años o menos</option>
@@ -27,18 +42,10 @@
 </section>
 
 <section class="references">
-  <strong>Referencias</strong>
-  <br>- <a href="http://hdr.undp.org/en/data">
-    United Nations Development Programme. Human Development Reports
-  </a>.
-  <br>- Centro de Estudios Espinosa Yglesias.
-  <a href="https://ceey.org.mx/informe-de-movilidad-social-mexico-2019/" target="_blank">
-    Informe movilidad social en México 2019
-  </a>.
-  <br>- Centro de Estudios Espinosa Yglesias.
-  <a href="https://ceey.org.mx/contenido/que-hacemos/emovi-pre/" target="_blank">
-    ESRU - EMOVI 2017
-  </a>.
+  <strong>Fuentes</strong>
+  <br>- Esperanza de vida: <a href="Reportes de Desarrollo Humano" target="_blank">Reportes de Desarrollo Humano</a>, Programa de las Naciones Unidas para el Desarrollo (PNUD).
+  <br>- Movilidad educativa: <a href="https://ceey.org.mx/informe-de-movilidad-social-mexico-2019/" target="_blank">Informe de movilidad social en México 2019</a>, Centro de Estudios Espinosa Yglesias (CEEY).
+  <br>- Movilidad laboral
 </section>
 
 <%= render "shared/footer" %>
