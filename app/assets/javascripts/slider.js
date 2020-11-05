@@ -15,12 +15,10 @@ class Slider {
 
     if(this.slider) {
       this.slider.addEventListener("click", function(event) {
-        let section = event.target;
-        let selectedValue = parseInt(section.getAttribute("data-value"));
-
-        if(section.getAttribute("data-behavior") === "slider-enabled") {
+          console.log(event.target.value)
+          let selectedValue = Math.round(event.target.value)
+          console.log(selectedValue)
           this.updateAll(event.currentTarget, selectedValue);
-        }
       }.bind(this), false);
     }
   }

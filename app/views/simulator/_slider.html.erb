@@ -23,26 +23,22 @@
     </div>
   <% end %>
 
-  <div class="row slider__track"
-       data-behavior="slider" data-kpis="<%= @user.kpis %>"
-       data-section="<%= @user.section %>">
-    <% EducationLevel.with_education.each_with_index do |education_level, i| %>
-      <div class="col-2 slider__section
-             <%= "slider__section--left offset-1" if education_level.id == 1 %>
-             <%= "slider__section--right"         if education_level.id == 5 %>
-             <%= "slider__section--selected"      if education_level.id <= @user.complete_education_level %>"
-           data-behavior="<%= "slider-enabled"    if education_level.id >= @user.complete_education_level %>"
-           data-value="<%= education_level.id %>">
-
-        <% if @user.complete_education_level == education_level.id %>
-          <div class="slider__thumb"></div>
-        <% end %>
-
-        <% if @user.complete_education_level.zero? && i.zero? %>
-          <div class="slider__thumb slider__thumb--left"></div>
-        <% end %>
-      </div>
-    <% end %>
+  <div class="row justify-content-center">
+    <div class="range"
+         style='--step:.1; --min:1; --max:5; --value:<%= @user.complete_education_level %>; --text-value:"<%= @user.complete_education_level %>"; --primaryColor:gold; --fill-color:orange; --value-active-color:unset;'
+    >
+      <input data-behavior="slider"
+             data-section="<%= @user.section %>"
+             data-kpis="<%= @user.kpis %>"
+             type="range"
+             min="1"
+             max="5"
+             step=".1"
+             value="<%= @user.complete_education_level %>"
+             oninput="this.parentNode.style.setProperty('--value',this.value); this.parentNode.style.setProperty('--text-value', JSON.stringify(this.value))"
+      >
+      <div class='range__progress'></div>
+    </div>
   </div>
 
   <div class="row slider__labels" >
