@@ -797,6 +797,12 @@ select {
   margin-bottom: 25px;
   margin-top: 25px;
 }
+@media screen and (max-width: 600px) {
+  .range{
+    width: 70vw;
+  }
+}
+
 
 ////////////////////////
 

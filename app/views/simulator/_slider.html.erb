@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <% if @user.complete_education_level == 0 %>
+  <% if @user.complete_education_level < 0 %>
     <div class="slider__refresh" data-behavior="slider-refresh"
         data-value="<%= @user.complete_education_level %>">
       <%= image_tag("refresh.png") %>
