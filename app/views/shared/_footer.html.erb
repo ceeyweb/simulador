@@ -6,35 +6,40 @@
         <a href="https://ceey.org.mx/" target="blank">
           <%= image_tag "logo.png", style: "height: 50px", id: "footer-logo" %>
         </a>
-        <p class="mt-4">
+        <p class="mt-4 text-left">
           El <b>CEEY</b> es una asociación civil sin fines de lucro y apartidista.
           Nuestra misión es generar conocimiento especializado, transformarlo
           y difundirlo para impulsar políticas y acciones que favorezcan la movilidad social.
         </p>
       </div>
-      <div class="col-md-4 text-center">
-        <ul class="list-unstyled mt-4">
+      <div class="col-md-4 text-center ml-md-5">
+        <ul class="list-unstyled mt-4 text-left ml-md-5">
           <li>
-            <b>¿Cómo se realizó el Simulador de Movilidad Social?</b>
+            <b>¿Cómo se realizó el <br> Simulador de Movilidad Social?</b>
           </li>
           <li class="mt-4">Salud</li>
           <li>Educación</li>
-          <li>Trabajo</li>
-          <li>Carreras</li>
+          <li>Trabajo
+            <ul class="list-unstyled ml-2">
+              <li>- <a href="https://ceey.org.mx/que-tipos-de-movilidad-social-en-mexico-medimos/" target="_blank" style="color: white;">Tipos de movilidad social
+                ESRU-EMOVI</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
-      <div class="col-md-2 text-right">
-        <div class="footer-share-buttons">
+      <div class="col-md-3 text-right">
+        <p class="mt-2"><b>¡Compártelo!</b></p>
+        <div class="footer-share-buttons mt-n2">
           <%= render "shared/social_share_buttons" %>
           <ul class="list-unstyled mt-4">
             <li>
-              <b>Contacto</b>
+              Contacto
             </li>
             <li>
               Abasolo 152, Del Carmen, Coyoacán
             </li>
             <li>
-              C.P. 04100. Ciudad de México
+              C.P. 04100. CDMX
             </li>
             <li>
               +52 (55) 56608031 / 56608051

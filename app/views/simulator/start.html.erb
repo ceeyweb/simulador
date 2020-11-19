@@ -187,10 +187,12 @@
   work_enabled: @user.filled_out_all_parts? %>
 
 <section class="references">
-  <strong>Fuentes</strong>
-  <br>- Años de vida esperados: Tabulados del Consejo Nacional de Población (CONAPO).
-  <br>- Años máximos de vida esperados: Organización Mundial de la Salud (OMS).
-  <br>- <%= link_to "Adolescentes: riesgos para la salud y soluciones", "https://www.who.int/es/news-room/fact-sheets/detail/adolescents-health-risks-and-solutions", target: "_blank" %>, Organización Mundial de la Salud (OMS).
+  <div class="m-auto" style="max-width: 50%;">
+    <strong>Fuentes</strong>
+    <br>- Años de vida esperados: Tabulados del Consejo Nacional de Población (CONAPO).
+    <br>- Años máximos de vida esperados: Organización Mundial de la Salud (OMS).
+    <br>- <%= link_to "Adolescentes: riesgos para la salud y soluciones", "https://www.who.int/es/news-room/fact-sheets/detail/adolescents-health-risks-and-solutions", target: "_blank" %>, Organización Mundial de la Salud (OMS).
+  </div>
 </section>
 
 <%= render "shared/footer" %>

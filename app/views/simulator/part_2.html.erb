@@ -165,9 +165,11 @@
   work_enabled: @user.filled_out_all_parts? %>
 
 <section class="references">
-  <strong>Fuentes</strong>
-  <br>- Logro escolar: Elaboración propia, Centro de Estudios Espinosa Yglesias (CEEY).
-  <br>- Ingreso laboral: <%= link_to "Encuesta Nacional de Ocupación y Empleo 2018 - I Trimestre", "https://www.inegi.org.mx/programas/enoe/15ymas/default.html%23Datos_abiertos", target: "_blank" %>, Instituto Nacional de Estadística y Geografía (INEGI).
+  <div class="m-auto" style="max-width: 50%;">
+    <strong>Fuentes</strong>
+    <br>- Logro escolar: Elaboración propia, Centro de Estudios Espinosa Yglesias (CEEY).
+    <br>- Ingreso laboral: <%= link_to "Encuesta Nacional de Ocupación y Empleo 2018 - I Trimestre", "https://www.inegi.org.mx/programas/enoe/15ymas/default.html%23Datos_abiertos", target: "_blank" %>, Instituto Nacional de Estadística y Geografía (INEGI).
+  </div>
 </section>
 
 <%= render "shared/footer" %>
