@@ -1,0 +1,23 @@
+<section class="container">
+  <div class="title">Descarga de datos</div>
+  <%= form_with url: admin_download_path do |f| %>
+    <div class="form-group --small">Fecha inicio</div>
+    <div class="form-group">
+      <%= f.label "Fecha inicio" %>
+      <%= f.date_field :start_date, placeholder: "Fecha inicio" %>
+    </div>
+
+    <div class="form-group --small">Fecha fin</div>
+    <div class="form-group">
+      <%= f.label "Fecha fin" %>
+      <%= f.date_field :end_date, placeholder: "Fecha fin" %>
+    </div>
+
+    <p class="note">Deje ambas fechas en blanco para descargar la base de datos completa.</p>
+
+    <div class="form-group --center">
+      <%= f.submit "Descargar" %>
+    </div>
+  <% end %>
+  <div class="error"><%= flash[:alert] if flash[:alert]  %></div>
+</section>

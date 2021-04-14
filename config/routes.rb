@@ -14,5 +14,15 @@ Rails.application.routes.draw do
   get "kpis/work"
   get "kpis/education"
 
-  resources :users, only: [:create, :update]
+  resources :users, only: %i[create update]
+
+  namespace :admin do
+    get  "/",         to: redirect("admin/download"), as: :root
+
+    get  "/sign_in",  to: "sessions#new"
+    post "/sign_in",  to: "sessions#create"
+    get  "/sign_out", to: "sessions#destroy"
+    get  "download",  to: "download#new"
+    post "download",  to: "download#create"
+  end
 end

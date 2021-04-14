@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     mysql-client \
     tzdata \
     nodejs \
+    shared-mime-info \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /var/tmp/*
 
@@ -33,4 +34,4 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

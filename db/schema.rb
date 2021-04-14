@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_150627) do
+ActiveRecord::Schema.define(version: 2021_04_15_155115) do
+
+  create_table "administrators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "password_digest", null: false
+    t.index ["username"], name: "index_administrators_on_username", unique: true
+  end
 
   create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false

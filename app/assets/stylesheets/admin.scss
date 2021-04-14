@@ -1,0 +1,153 @@
+$header-font: "Montserrat";
+$default-font: "Lato";
+
+@import "colors";
+
+body {
+  font-family: $default-font;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  font-family: $header-font;
+  color: white;
+  background-color: $primary;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .title {
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+
+  .logout {
+    float: right;
+
+    img {
+      width: 1em;
+    }
+  }
+}
+
+footer {
+  margin-bottom: 15px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+
+  img {
+    height: 160px;
+  }
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  position: absolute;
+  padding: 10px;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: 358px;
+
+  .title {
+    background-color: $dark-green;
+    color: white;
+    font-family: $header-font;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .error {
+    padding: 5px;
+    text-align: center;
+    margin-top: 10px;
+    color: #ff0000;
+  }
+
+  .note {
+    margin-bottom: 0;
+    font-size: 0.8em;
+    text-align: center;
+  }
+}
+
+
+form {
+  padding: 30px 25px;
+  color: $dark-green;
+  font-weight: 400;
+  background-color: $light-green;
+  border: 1px solid $dark-green;
+
+  .form-group {
+    display: flex;
+    padding: 10px;
+
+    &.--small {
+      padding-bottom: 0;
+    }
+
+    &.--center {
+      justify-content: center;
+    }
+
+    input {
+      padding: 5px;
+      width: 175px;
+    }
+
+    input[type=submit] {
+      margin-top: 15px;
+      width: 50%;
+      padding: 8px;
+    }
+
+    label {
+      width: 50%;
+      text-align: right;
+      margin-right: 5px;
+      padding: 5px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  span label {
+    display: none;
+  }
+
+  footer img {
+    height: 80px;
+  }
+
+  .form-group label {
+    display: none;
+  }
+
+  .container {
+    top: 15%;
+  }
+
+}
+
+@media only screen and (max-height: 567px) {
+  footer {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 501px) {
+  .form-group.--small {
+    display: none;
+  }
+}
