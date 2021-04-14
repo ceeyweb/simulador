@@ -35,6 +35,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js">
     </script>
 
+    <% if Rails.env.production? %>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ENV["GOOGLE_ANALYTICS"] %>"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+
+        document.addEventListener('turbolinks:load', function() {
+          gtag('config', '<%= ENV["GOOGLE_ANALYTICS"] %>')
+        });
+      </script>
+    <% end %>
+
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
   </head>
