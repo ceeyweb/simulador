@@ -12,6 +12,17 @@
       <div class="card-body">
         <div class="container left-indent">
 
+          <div class="row">
+            <div class="form-group col-md-12">
+              <label class="form-control-label" for="user_institution_id"><%= label_for(:institution_id) %></label>
+              <%= f.collection_select :institution_id, Institution.all, :id, :name,
+                  { include_blank: "Selecciona o agrega tu institución" } %>
+              <% if @user.errors[:institution_id].present? %>
+                <div class="invalid">institución no puede estar en blanco</div>
+              <% end %>
+            </div>
+          </div>
+
           <div class="row question-section-header-box">
             <%= image_tag "birrete_verde.png", class: "heading-image" %>
             <h4 class="text-uppercase question-section-header col-md">

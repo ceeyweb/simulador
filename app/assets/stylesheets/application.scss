@@ -7,6 +7,7 @@ $default-font: "Lato";
 @import "social-share-button";
 @import "overrides";
 @import "mobile";
+@import "vendor/selectize";
 
 /* General styles */
 
@@ -237,6 +238,12 @@ select {
 
 .form-group {
   margin: 1rem 0;
+}
+
+.invalid {
+  width: 100%;
+  font-size: 80%;
+  color: #dc3545;
 }
 
 /* Simulator sections */

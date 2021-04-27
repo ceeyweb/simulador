@@ -73,6 +73,15 @@ function adjustHomeImageBottomMargin() {
 $(document).ready(function() {
   adjustHomeImageBottomMargin();
   adjustHeaderImageBottomMargin();
+
+  $('#user_institution_id').selectize({
+    create: true,
+    sortField: {
+      field: 'text',
+      direction: 'asc'
+    },
+    dropdownParent: 'body'
+  });
 });
 
 $(window).resize(function() {
