@@ -25,6 +25,8 @@ es:
           one: educación
         education_grade_id:
           one: grado escolar
+        institution_id:
+          one: institución
 
     errors:
       messages:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_155115) do
+ActiveRecord::Schema.define(version: 2021_04_27_155851) do
 
   create_table "administrators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username", null: false
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 2021_04_15_155115) do
 
   create_table "education_levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", null: false
+  end
+
+  create_table "institutions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
   end
 
   create_table "job_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -183,11 +187,13 @@ ActiveRecord::Schema.define(version: 2021_04_15_155115) do
     t.integer "father_had_employees"
     t.boolean "father_is_alive", null: false
     t.boolean "mother_is_alive", null: false
+    t.bigint "institution_id"
     t.index ["age_group_id"], name: "index_users_on_age_group_id"
     t.index ["education_grade_id"], name: "index_users_on_education_grade_id"
     t.index ["father_education_grade_id"], name: "index_users_on_father_education_grade_id"
     t.index ["father_job_type_id"], name: "index_users_on_father_job_type_id"
     t.index ["father_residency_id"], name: "index_users_on_father_residency_id"
+    t.index ["institution_id"], name: "index_users_on_institution_id"
     t.index ["mother_education_grade_id"], name: "index_users_on_mother_education_grade_id"
     t.index ["mother_residency_id"], name: "index_users_on_mother_residency_id"
     t.index ["residency_id"], name: "index_users_on_residency_id"
@@ -214,6 +220,7 @@ ActiveRecord::Schema.define(version: 2021_04_15_155115) do
   add_foreign_key "users", "age_groups"
   add_foreign_key "users", "education_grades", column: "father_education_grade_id"
   add_foreign_key "users", "education_grades", column: "mother_education_grade_id"
+  add_foreign_key "users", "institutions"
   add_foreign_key "users", "job_types", column: "father_job_type_id"
   add_foreign_key "users", "states", column: "father_residency_id"
   add_foreign_key "users", "states", column: "mother_residency_id"

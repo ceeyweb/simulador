@@ -11,8 +11,10 @@ class User < ApplicationRecord
   belongs_to :sex
   belongs_to :education_grade
   belongs_to :father_job_type, class_name: "JobType", optional: true
+  belongs_to :institution
 
   validates :ip_address,
+            :institution_id,
             :age,
             :residency_id,
             :education_grade_id,
