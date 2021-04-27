@@ -76,11 +76,7 @@ $(document).ready(function() {
 
   $('#user_institution_id').selectize({
     create: true,
-    sortField: {
-      field: 'text',
-      direction: 'asc'
-    },
-    dropdownParent: 'body'
+    dropdownParent: 'body',
   });
 });
 

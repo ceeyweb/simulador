@@ -52,7 +52,7 @@ class MobilityReport
       when 0, true  then "sí"
       when 1, false then "no"
       when 2        then "No sabe/No aplica"
-      else value.try(:description) || value.try(:name) || value
+      else value.try(:description) || value
       end
     end
   end

@@ -14,8 +14,8 @@ class User < ApplicationRecord
   belongs_to :institution
 
   validates :ip_address,
-            :institution_id,
             :age,
+            :institution_id,
             :residency_id,
             :education_grade_id,
             :sex_id,

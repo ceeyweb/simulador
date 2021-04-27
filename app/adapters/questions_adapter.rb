@@ -1,7 +1,7 @@
 class QuestionsAdapter
 
   DATA = {
-    institution_id: "¿A qué institución perteneces?",
+    institution_id: "Selecciona o escribe el nombre de la INSTITUCIÓN que te recomendó contestar el Simulador de Movilidad Social.",
     age: "¿Cuál es tu edad?",
     residency_id: "¿En qué estado de la República Mexicana vivías a los 14 años?",
     education_grade_id: "¿Cuál fue el último grado escolar que terminaste?",

@@ -15,8 +15,7 @@
           <div class="row">
             <div class="form-group col-md-12">
               <label class="form-control-label" for="user_institution_id"><%= label_for(:institution_id) %></label>
-              <%= f.collection_select :institution_id, Institution.all, :id, :name,
-                  { include_blank: "Selecciona o agrega tu institución" } %>
+              <%= f.collection_select :institution_id, Institution.by_name, :id, :name, { include_blank: true } %>
               <% if @user.errors[:institution_id].present? %>
                 <div class="invalid">institución no puede estar en blanco</div>
               <% end %>
