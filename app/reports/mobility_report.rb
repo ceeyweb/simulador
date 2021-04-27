@@ -28,7 +28,7 @@ class MobilityReport
     users = User.includes(
       :age_group, :residency, :education_grade, :sex,
       :father_residency, :father_education_grade, :father_job_type,
-      :mother_residency, :mother_education_grade
+      :mother_residency, :mother_education_grade, :institution
     )
 
     users = users.where("created_at >= ?", start_date) if start_date.present?
@@ -52,7 +52,7 @@ class MobilityReport
       when 0, true  then "sí"
       when 1, false then "no"
       when 2        then "No sabe/No aplica"
-      else value.try(:description) || value
+      else value.try(:description) || value.try(:name) || value
       end
     end
   end
@@ -60,6 +60,7 @@ class MobilityReport
   def columns
     {
       updated_at: "fecha",
+      institution: "institución",
       sex: "sexo",
       age: "edad",
       age_group: "grupo de edad",
