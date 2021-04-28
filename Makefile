@@ -20,4 +20,4 @@ dev: ## Build PMS image for local development (ceey_pms)
 	@docker-compose -p ceey -f ../docker/development/docker-compose.yml build pms
 
 prod: ## Build PMS image for production (ceey/pms)
-	@docker build -f .docker/production/Dockerfile -t ceey/pms .
+	@docker build -f .docker/production/Dockerfile -t ceey/pms:$(or $(T),latest) .
