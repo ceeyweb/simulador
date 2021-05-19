@@ -1,51 +1,282 @@
 .finish {
-  color: #ffffff;
-  font-size: 1.1em;
-  text-transform: uppercase;
-}
+  max-width: 1150px;
 
-.finish__footer {
-  justify-content: center;
-}
+  .wrapper {
+    min-height: 770px;
+    background-color: white;
+    border-radius: 0.3rem;
+  }
 
-.finish__icon {
-  padding-top: 0.2rem;
-  height: 2.7em;
-  width: auto;
-}
+  .results {
+    position: relative;
+    min-height: 770px;
+    font-weight: 300;
+    line-height: initial;
 
-.finish__row {
-  margin-left: 0;
-  margin-right: 0;
-  padding: 10px;
-  margin-bottom: 5px;
-}
+    .mobile {
+      display: none;
+    }
 
-.finish__row--bottom {
-  margin-bottom: 0;
-}
+    .desktop {
+      display: initial;
+      margin-left: 65px;
 
-.finish__col {
-  margin-top: auto;
-  margin-bottom: auto;
-  text-align: center;
-}
+      img {
+        display: block;
+        width: 50px;
+        vertical-align: middle;
+        margin-right: 20px;
+      }
 
-.finish__col--kpi {
-  font-weight: 600;
-  font-size: 1.3em;
-  color: #000000;
-  background-color: #ffffff;
-  padding: 5px;
-}
+      td {
+        display: table-cell;
+        vertical-align: middle;
+        height: 64px;
+      }
+    }
 
-.finish__text {
-  color: #000000;
-  text-transform: none;
-  font-size: 1.2rem;
-}
+    span {
+      &.bold {
+        font-weight: 700;
+      }
 
-.finish__share-buttons {
-  text-align: center;
-  margin-bottom: 10px;
+      &.orange {
+        color: #ee8124;
+      }
+
+      &.lightorange {
+        color: #f18b6e;
+      }
+
+      &.darkblue {
+        color: #145861;
+      }
+
+      &.purple {
+        color: #522f52;
+      }
+
+      &.aqua {
+        color: #89cabf;
+      }
+
+      &.kpi-title {
+        font-size: 20px;
+        padding-right: 5px;
+      }
+
+      &.kpi-note {
+        font-size: 15px;
+        color: #909090;
+      }
+    }
+
+    .background {
+      position: absolute;
+
+      &.--top {
+        width: 60%;
+        right: 5%;
+      }
+
+      &.--left {
+        display: initial;
+        position: absolute;
+        height: 500px;
+        top: 24%;
+      }
+
+      &.--right {
+        position: absolute;
+        right: 3%;
+        top: 15%;
+        width: 13%;
+      }
+
+      &.--bottom {
+        position: absolute;
+        bottom: 3%;
+        right: 3%;
+        width: 35%;
+      }
+
+      &.--desktop {
+        display: initial;
+      }
+    }
+
+    .logo {
+      max-width: 360px;
+      margin-top: 15px;
+      margin-left: 15px;
+    }
+
+    .title {
+      font-size: 46px;
+      margin-left: 60px;
+      color: #969796;
+      letter-spacing: -1px;
+      margin-bottom: 0;
+
+      span {
+        color: #008891;
+      }
+    }
+
+    .description {
+      font-size: 20px;
+      margin: 20px 65px;
+      box-sizing: border-box;
+      color: #4d4d4d;
+    }
+
+    .bignumber {
+      font-size: 35px;
+    }
+
+    .restart {
+      cursor: pointer;
+      margin-top: 35px;
+      margin-left: 120px;
+      padding: 8px;
+      background-image: linear-gradient(to right, #7ecdc0, #007071);
+      border-radius: 100px;
+      color: white;
+      width: 275px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .close {
+      margin: 10px 15px;
+    }
+  }
+
+
+  /* Mobile, ajustar el ancho según lo necesario */
+  @media screen and (max-width: 768px) {
+    .wrapper {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .results {
+      position: relative;
+      min-height: 770px;
+      font-weight: 300;
+      line-height: initial;
+      text-align: center;
+
+      .desktop {
+        display: none;
+      }
+
+      .mobile {
+        display: initial;
+        width: 100%;
+        text-align: center;
+
+        div {
+          width: 80%;
+          margin: auto;
+          margin-top: 30px;
+        }
+
+        img {
+          display: block;
+          margin: auto;
+          width: 45px;
+        }
+      }
+
+      span {
+        &.kpi-title {
+          display: block;
+          font-size: 18px;
+        }
+
+        &.kpi-note {
+          display: block;
+          margin-top: -5px;
+          font-size: 13px;
+          color: #909090;
+        }
+      }
+
+      .background {
+        position: absolute;
+
+        &.--top {
+          width: 60%;
+          right: 5%;
+        }
+
+        &.--left {
+          display: none;
+          position: absolute;
+          height: 500px;
+          top: 24%;
+        }
+
+        &.--right {
+          right: 12%;
+          top: initial;
+          width: 20%;
+          opacity: 0.5;
+          margin-top: -15px;
+        }
+
+        &.--bottom {
+          position: relative;
+          bottom: initial;
+          right: initial;
+          width: 85%;
+          margin-top: 35px;
+          margin-bottom: 10px;
+        }
+
+        &.--desktop {
+          display: none;
+        }
+      }
+
+      .logo {
+        width: 315px;
+        margin-top: 10px;
+        margin-left: 0px;
+      }
+
+      .title {
+        font-size: 25px;
+        margin-left: 20px;
+        text-align: left;
+      }
+
+      .description {
+        font-size: 15px;
+        margin: 20px;
+        text-align: justify;
+      }
+
+      .bignumber {
+        font-size: 30px;
+      }
+
+      .restart {
+        margin: auto;
+        margin-top: 35px;
+        padding: 7px;
+        width: 270px;
+        font-size: 20px;
+      }
+
+      .close {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        margin: 5px;
+      }
+    }
+  }
 }

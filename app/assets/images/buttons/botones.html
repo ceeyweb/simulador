@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Botones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /*Desktop*/
+        body {
+            margin: 20px;
+        }
+        
+
+        .boton {
+            width: 320px;
+            height: 60px;
+            background-color: #ccc;
+            display: block;
+            border-radius: 30px;
+            font-family: 'Arial', sans-serif;
+            /*Cambiar a la fuente indicada*/
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            line-height: 60px;
+            padding-left: 30px;
+            box-sizing: border-box;
+            font-size: 30px;
+            letter-spacing: 0px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .boton img {
+            position: absolute;
+            width: 40px;
+            right: 16px;
+            top: 12px;
+        }
+
+        .boton-salud {
+            background: rgb(113, 201, 183);
+            background: linear-gradient(90deg, #71c9b7 0%, #4aa18f 100%);
+        }
+
+        .boton-salud:hover {
+            background: linear-gradient(90deg, #71c9b7, #4aa18f, #71c9b7);
+            background-size: 200% 100%;
+            animation: gradient 2s ease;
+        }
+        
+        .boton-educacion {
+            background: #007073;
+            background: linear-gradient(90deg, #048488 0%, #006666 100%);
+        }
+
+        .boton-educacion:hover {
+            background: linear-gradient(90deg, #048488, #006666, #048488);
+            background-size: 200% 100%;
+            animation: gradient 2s ease;
+        }
+
+        .boton-trabajo {
+            background: #f77535;
+            background: linear-gradient(90deg, #f77535 0%, #cf550d 100%);
+        }
+
+        .boton-trabajo:hover {
+            background: linear-gradient(90deg, #f77535, #cf550d, #f77535);
+            background-size: 200% 100%;
+            animation: gradient 2s ease;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 0%;
+            }
+
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        /* Mobile, ajustar el ancho según lo necesario */
+        @media screen and (max-width: 768px) {
+            .wrapper {
+                max-width: 100%;
+                width: 100%;
+            }
+
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+        <a href="#." class="boton boton-salud">Salud<img src='salud-icon.svg'></a>
+        
+        <br>
+        
+        <a href="#." class="boton boton-educacion">Educación<img src='educacion-icon.svg'></a>
+        
+        <br>
+        
+        <a href="#." class="boton boton-trabajo">Trabajo<img src='trabajo-icon.svg'></a>
+    </div>
+
+
+
+</body>
+
+</html>

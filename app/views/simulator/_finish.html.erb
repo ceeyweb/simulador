@@ -1,83 +1,144 @@
-<div class="modal-dialog" role="document">
+<div class="modal-dialog finish" role="document">
   <div class="modal-content">
+    <div class="wrapper">
+      <div class="results">
+        <%= image_tag("results/resultados-bg-1.svg", class: "background --top") %>
+        <%= image_tag("results/resultados-bg-2.svg", class: "background --left") %>
+        <%= image_tag("results/logo.png", class: "logo") %>
 
-    <div class="modal-header">
-      <h5 class="modal-title">¡Gracias por tu participación!</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
 
-    <div class="modal-body finish">
+        <p class="title">¡Gracias por tu <span>participación</span>!</p>
+        <p class="description">
+          Recuerda que estos <span class="bold">resultados son estimaciones y no predicciones.</span>
+          Muchos factores, que aquí no se consideran, juegan un papel en
+          <span class="orange bold"> las oportunidades que tenemos</span>
+          <span class="blue bold">y en cómo las aprovechamos.</span> Todas(os), el gobierno,
+          la sociedad en general y nosotras(os) como personas, compartimos responsabilidades para
+          <span class="bold">impulsar nuestra movilidad social.</span>
+        </p>
 
-      <div class="finish__text mb-2">
-        Recuerda que estos <b>resultados son estimaciones y no predicciones</b>.
-        Muchos factores, que aquí no se consideran, juegan un papel en las
-        oportunidades que tenemos y en cómo las aprovechamos. Todas(os), el
-        gobierno, la sociedad en general y nosotras(os) como personas,
-        compartimos responsabilidades para <b>impulsar nuestra movilidad social</b>.
-      </div>
+        <%= image_tag("results/resultados-bg-3.svg", class: "background --right") %>
 
-      <div class="finish__share-buttons">
-        <%= render "shared/social_share_buttons" %>
-      </div>
+        <table class="desktop">
+          <tr>
+            <td><%= image_tag("results/icono-salud-resultados.svg") %></td>
+            <td>
+              <span class="kpi-title">Años de vida esperados:</span>
+              <span class="purple bold bignumber">
+                <%= number_with_precision(user.expected_age, precision: 0) %>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td><%= image_tag("results/icono-logroescolar-resultados.svg") %></td>
+            <td>
+              <span class="kpi-title">Logro escolar (actual):</span>
+              <span class="orange bold bignumber">
+                <%= number_with_precision(user.education_achievement, precision: 0) %>%
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td><%= image_tag("results/icono-ingreso-resultados.svg") %></td>
+            <td>
+              <span class="kpi-title">Ingreso mensual promedio:</span>
+              <span class="darkblue bold bignumber">
+                $<%= number_with_precision(user.average_income, precision: 0, delimiter: ",") %>
+              </span>
+              <br><span class="kpi-note">(Según escolaridad actual)</span>
+            </td>
+          </tr>
+          <% if user.is_employed? %>
+            <tr>
+              <td><%= image_tag("results/icono-empleoformal-resultados.svg") %></td>
+              <td>
+                <span class="kpi-title">Probabilidad de obtener o mantener un empleo formal:</span>
+                <span class="aqua bold bignumber">
+                  <%= number_with_precision(user.keep_formal_work_probability, precision: 0) %>%
+                </span>
+              </td>
+            </tr>
+          <% else %>
+            <tr>
+              <td><%= image_tag("results/icono-mercadolaboral-resultados.svg") %></td>
+              <td>
+                <span class="kpi-title">Probabilidad de participar en el mercado laboral:</span>
+                <span class="lightorange bold bignumber">
+                  <%= number_with_precision(user.work_probability, precision: 0) %>%
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td><%= image_tag("results/icono-empleoformal-resultados.svg") %></td>
+              <td>
+                <span class="kpi-title">Probabilidad de obtener un empleo formal:</span>
+                <span class="aqua bold bignumber">
+                  <%= number_with_precision(user.formal_work_probability, precision: 0) %>%
+                </span>
+              </td>
+            </tr>
+          <% end %>
+        </table>
 
-      <div class="row background-teal finish__row">
-        <div class="col-2 no-mobile"><%= image_tag "health_icon.png", class: "finish__icon" %></div>
-        <div class="col-7 finish__col">Años de vida esperados</div>
-        <div class="col-3 finish__col finish__col--kpi">
-          <%= number_with_precision(user.expected_age, precision: 0) %>
-        </div>
-      </div>
-
-      <div class="row background-dark-green finish__row">
-        <div class="col-2"><%= image_tag "logro_icon.png", class: "finish__icon" %></div>
-        <div class="col-7 finish__col">Logro Escolar (Actual)</div>
-        <div class="col-3 finish__col finish__col--kpi">
-          <%= number_with_precision(user.education_achievement, precision: 0) %> %
-        </div>
-      </div>
-
-      <div class="row background-orange finish__row">
-        <div class="col-2"><%= image_tag "ingreso_icon.png", class: "finish__icon" %></div>
-        <div class="col-7 finish__col">Ingreso Mensual Promedio<br>(Según Escolaridad Actual)</div>
-        <div class="col-3 finish__col finish__col--kpi">
-          $ <%= number_with_precision(user.average_income, precision: 0, delimiter: ",") %>
-        </div>
-      </div>
-
-      <% if user.is_employed? %>
-        <div class="row background-orange finish__row">
-          <div class="col-2"><%= image_tag "social_security_icon.png", class: "finish__icon" %></div>
-          <div class="col-7 finish__col">Probabilidad de obtener o<br>mantener un empleo formal</div>
-          <div class="col-3 finish__col finish__col--kpi">
-            <%= number_with_precision(user.keep_formal_work_probability, precision: 0) %> %
+        <div class="mobile">
+          <div>
+            <%= image_tag("results/icono-salud-resultados.svg") %>
+            <span class="kpi-title">Años de vida esperados:</span>
+            <span class="purple bold bignumber">
+              <%= number_with_precision(user.expected_age, precision: 0) %>
+            </span>
           </div>
-        </div>
-      <% else %>
-        <div class="row background-dark-green finish__row">
-          <div class="col-2"><%= image_tag "mercado_laboral.png", class: "finish__icon" %></div>
-          <div class="col-7 finish__col">Probabilidad de participar<br>en el mercado laboral</div>
-          <div class="col-3 finish__col finish__col--kpi">
-            <%= number_with_precision(user.work_probability, precision: 0) %> %
+          <div>
+            <%= image_tag("results/icono-logroescolar-resultados.svg") %>
+            <span class="kpi-title">Logro escolar (actual):</span>
+            <span class="orange bold bignumber">
+              <%= number_with_precision(user.education_achievement, precision: 0) %>%
+            </span>
           </div>
-        </div>
-
-        <div class="row background-orange finish__row finish__row--bottom">
-          <div class="col-2"><%= image_tag "social_security_icon.png", class: "finish__icon" %></div>
-          <div class="col-7 finish__col">Probabilidad de obtener<br>un empleo formal</div>
-          <div class="col-3 finish__col finish__col--kpi">
-            <%= number_with_precision(user.formal_work_probability, precision: 0) %> %
+          <div>
+            <%= image_tag("results/icono-ingreso-resultados.svg") %>
+            <span class="kpi-title">Ingreso mensual promedio:</span>
+            <br><span class="kpi-note">(Según escolaridad actual)</span>
+            <span class="darkblue bold bignumber">
+              $<%= number_with_precision(user.average_income, precision: 0, delimiter: ",") %>
+            </span>
           </div>
+          <% if user.is_employed? %>
+            <div>
+              <%= image_tag("results/icono-empleoformal-resultados.svg") %>
+              <span class="kpi-title">Probabilidad de obtener o mantener un empleo formal:</span>
+              <span class="aqua bold bignumber">
+                <%= number_with_precision(user.keep_formal_work_probability, precision: 0) %>%
+              </span>
+            </div>
+          <% else %>
+            <div>
+              <%= image_tag("results/icono-mercadolaboral-resultados.svg") %>
+              <span class="kpi-title">Probabilidad de participar en el mercado laboral:</span>
+              <span class="lightorange bold bignumber">
+                <%= number_with_precision(user.work_probability, precision: 0) %>%
+              </span>
+            </div>
+            <div>
+              <%= image_tag("results/icono-empleoformal-resultados.svg") %>
+              <span class="kpi-title">Probabilidad de obtener un empleo formal:</span>
+              <span class="aqua bold bignumber">
+                <%= number_with_precision(user.formal_work_probability, precision: 0) %>%
+              </span>
+            </div>
+          <% end %>
         </div>
-      <% end %>
 
-    </div>
+        <div class="restart" onclick="deleteCookie();">Comenzar de nuevo</div>
 
-    <div class="modal-footer finish__footer">
-      <button type="button" class="btn btn--submit btn-default" onclick="deleteCookie();">
-        Comenzar de nuevo
-      </button>
+        <div class="bottom-image">
+          <%= image_tag("results/resultados-bg-4.svg", class: "background --bottom --desktop") %>
+          <%= image_tag("results/resultados-bg-5.svg", class: "background --bottom") %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
