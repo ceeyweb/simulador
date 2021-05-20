@@ -62,6 +62,17 @@
     <div class="row no-gutters">
       <div class="col-lg-2 background-dark-green"></div>
       <div class="col-lg-8 body-main">
+        <header>
+          <div class="content">
+            <%= image_tag("header/logo.png", class: "ceeylogo") %>
+            <div class="socials">
+              <a href="https://twitter.com/ceeymx" target="blank"><%= image_tag("header/twitter.svg") %></a>
+              <a href="https://www.facebook.com/ceeymx/" target="blank"><%= image_tag("header/facebook.svg") %></a>
+              <a href="https://www.linkedin.com/company/ceeymx" target="blank"><%= image_tag("header/linkedin.svg") %></a>
+              <a href="https://www.youtube.com/user/ceeyorgmx" target="blank"><%= image_tag("header/youtube.svg") %></a>
+            </div>
+          </div>
+        </header>
         <%= yield %>
       </div>
       <div class="col-lg-2 background-dark-green"></div>

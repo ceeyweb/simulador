@@ -10,7 +10,6 @@ $default-font: "Lato";
 @import "vendor/selectize";
 
 /* General styles */
-
 body {
   font-size: 12px;
   font-family: $default-font;
@@ -24,6 +23,69 @@ body {
 
 label {
   font-weight: bold;
+}
+
+header {
+  margin: 0 auto;
+
+  .content {
+    background: rgb(70, 147, 143);
+    background: linear-gradient(90deg, rgba(70, 147, 143, 1) 33%, rgba(20, 88, 97, 1) 100%);
+    min-height: 15vw;
+    position: relative;
+  }
+
+  .ceeylogo {
+    max-width: 36%;
+    position: absolute;
+    left: 0.5vw;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .socials {
+    position: absolute;
+    right: 4vw;
+    height: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+
+    a {
+      width: 1.5vw;
+      display: block;
+      margin-right: 24px;
+
+      &:nth-child(4) {
+        margin-right: 0;
+      }
+    }
+
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    width: 100%;
+
+    .content {
+      min-height: 24vw;
+    }
+
+    .ceeylogo {
+      max-width: 46%;
+      left: 0;
+    }
+
+    .socials {
+      right: 6vw;
+
+      a {
+        width: 18px;
+        margin-right: 24px;
+      }
+    }
+  }
 }
 
 .heading-2 {
