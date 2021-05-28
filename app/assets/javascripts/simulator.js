@@ -28,12 +28,10 @@ function redirectUser(select) {
   let value = parseInt(select.options[select.selectedIndex].value);
   let location = "";
 
-  if(value < 15) {
-    location = "http://www.imaginatufuturo.org.mx";
-  } else if(value > 14 && value < 25) {
+  if(value > 14 && value < 25) {
     location = "/questions/start?age=" + value;
-  } else if(value > 24) {
-    location = "https://ceey.org.mx/informe-de-movilidad-social-en-la-ciudad-de-mexico-2019/";
+  } else {
+    location = "/";
   }
 
   window.location.replace(location);

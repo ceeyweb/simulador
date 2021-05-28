@@ -33,11 +33,9 @@
   </h3>
   <select class="form-control select start__age" onchange="redirectUser(this);">
     <option></option>
-    <option value="14">14 años o menos</option>
     <% (15..24).each do |age| %>
       <option value="<%= age %>"><%= age %> años</option>
     <% end %>
-    <option value="25">25 años o más</option>
   </select>
 </section>
 
