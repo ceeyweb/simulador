@@ -2,28 +2,44 @@
   <div class="container-fluid text-center ">
     <div class="row justify-content-center">
 
-      <div class="col-md-3">
+      <div class="col-md-4">
         <a href="https://ceey.org.mx/" target="blank">
           <%= image_tag "logo.png", style: "height: 50px", id: "footer-logo" %>
         </a>
         <p class="mt-4 text-left">
-          El <b>CEEY</b> es una asociación civil sin fines de lucro y apartidista.
-          Nuestra misión es generar conocimiento especializado, transformarlo
-          y difundirlo para impulsar políticas y acciones que favorezcan la movilidad social.
+        El <a class="footer-link" href="https://ceey.org.mx/" target="blank"><b>CEEY</b></a>
+        es una asociación civil sin fines de lucro y apartidista. Nuestra misión es generar
+        conocimiento especializado, transformarlo y difundirlo para impulsar acciones que
+        favorezcan la movilidad social.
         </p>
       </div>
-      <div class="col-md-4 text-center ml-md-5">
+      <div class="col-md-3 text-center">
         <ul class="list-unstyled mt-4 text-left ml-md-5">
-          <li>
-            <b>¿Cómo se realizó el <br> Simulador de Movilidad Social?</b>
+          <li><b>Acerca del Simulador</b></li>
+          <li class="mt-4">
+            <a class="footer-link" href="https://ceey.org.mx/destino-saludable-en-origen-saludable/" target="blank">
+              Salud
+            </a>
           </li>
-          <li class="mt-4">Salud</li>
-          <li>Educación</li>
-          <li>Trabajo
-            <ul class="list-unstyled ml-2">
-              <li>- <a href="https://ceey.org.mx/que-tipos-de-movilidad-social-en-mexico-medimos/" target="_blank" style="color: white;">Tipos de movilidad social</a></li>
-              <li>- <a href="https://ceey.org.mx/encuestas-esru-emovi-movilidad-social-en-mexico/" target="_blank" style="color: white;">Encuesta ESRU-EMOVI</a></li>
-            </ul>
+          <li>
+            <a class="footer-link" href="https://ceey.org.mx/la-oportunidad-de-educarse-y-la-educacion-como-oportunidad/" target="blank">
+              Educación
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="https://ceey.org.mx/todos-tenemos-el-derecho-a-trabajar-pero-hay-las-mismas-oportunidades-de-hacerlo-en-condiciones-que-promuevan-nuestra-movilidad-social/" target="blank">
+              Trabajo
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="https://ceey.org.mx/que-tipos-de-movilidad-social-en-mexico-medimos/" target="blank">
+              Tipos de movilidad social
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="https://ceey.org.mx/encuestas-esru-emovi-movilidad-social-en-mexico/" target="blank">
+              Encuesta ESRU-EMOVI
+            </a>
           </li>
         </ul>
       </div>
@@ -31,23 +47,6 @@
         <p class="mt-2 text-left text-md-right"><b>¡Compártelo!</b></p>
         <div class="footer-share-buttons mt-n2">
           <%= render "shared/social_share_buttons" %>
-          <ul class="list-unstyled mt-4">
-            <li>
-              Contacto
-            </li>
-            <li>
-              Abasolo 152, Del Carmen, Coyoacán
-            </li>
-            <li>
-              C.P. 04100. CDMX
-            </li>
-            <li>
-              +52 (55) 56608031 / 56608051
-            </li>
-            <li>
-              contacto@ceey.org.mx
-            </li>
-          </ul>
         </div>
       </div>
     </div>
