@@ -23,4 +23,9 @@
   background-color: $light-gray;
   text-align: center;
   line-height: 1.3em;
+
+  div {
+    display: inline-block;
+    text-align: left;
+  }
 }

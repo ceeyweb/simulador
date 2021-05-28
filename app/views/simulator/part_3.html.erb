@@ -246,14 +246,11 @@
   education_enabled: @user.filled_out_all_parts?,
   work_enabled: @user.filled_out_all_parts? %>
 
-  <section class="references text-left">
-    <div class="m-auto fuentes">
+  <section class="references">
+    <div>
     <strong>Fuentes</strong>
-    <br>- Participación laboral: Elaboración propia, Centro de Estudios Espinosa Yglesias (CEEY).
-    <br>- Formalidad laboral: Elaboración propia, Centro de Estudios Espinosa Yglesias (CEEY).
-    <br>- <%= link_to "Encuesta Nacional de Ocupación y Empleo 2018 - I Trimestre",
-                      "https://www.inegi.org.mx/programas/enoe/15ymas/default.html%23Datos_abiertos",
-                      target: "_blank" %>, Instituto Nacional de Estadística y Geografía (INEGI).
+    <br>- <%= link_to "Construcción de escenarios de salud, educación y trabajo", "https://ceey.org.mx/wp-content/uploads/2021/05/Construcci%C3%B3n-de-escenarios-de-salud-educaci%C3%B3n-y-trabajo.-Simulador-Movilidad-Social.pdf", target: "_blank"%>, Centro de Estudios Espinosa Yglesias.
+    <br>- <%= link_to "Encuesta Nacional de Ocupación y Empleo 2018, I Trimestre", "https://www.inegi.org.mx/programas/enoe/15ymas/default.html%23Datos_abiertos", target: "_blank" %>, Instituto Nacional de Estadística y Geografía.
   </div>
 </section>
 
