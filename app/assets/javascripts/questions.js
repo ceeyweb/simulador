@@ -60,18 +60,7 @@ function adjustHeaderImageBottomMargin() {
   }
 }
 
-function adjustHomeImageBottomMargin() {
-  let headerImage = $("#home-image");
-
-  if(headerImage.length) {
-    let imageMargin = "-" + Math.round(headerImage[0].height * .0894) + "px";
-
-    headerImage.css("margin-bottom", imageMargin);
-  }
-}
-
 $(document).ready(function() {
-  adjustHomeImageBottomMargin();
   adjustHeaderImageBottomMargin();
 
   $('#user_institution_id').selectize({
@@ -81,6 +70,5 @@ $(document).ready(function() {
 });
 
 $(window).resize(function() {
-  adjustHomeImageBottomMargin();
   adjustHeaderImageBottomMargin();
 });
