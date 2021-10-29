@@ -1,7 +1,31 @@
 <footer class="page-footer font-small blue pt-4">
   <div class="container-fluid text-center ">
-    <div class="row justify-content-center">
 
+    <% if params[:action] == "home" %>
+      <div class="row justify-content-center">
+        <div class="col-sm-5">
+          <div class="video__container">
+            <iframe src="https://www.youtube.com/embed/9J4wRVrF2cQ"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="video__container">
+            <iframe
+                src="https://www.youtube.com/embed/Y9TJCrVCDgo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row justify-content-center">
       <div class="col-md-4">
         <a href="https://ceey.org.mx/" target="_blank">
           <%= image_tag "logo.png", style: "height: 50px", id: "footer-logo" %>
