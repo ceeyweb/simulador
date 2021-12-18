@@ -21,3 +21,7 @@ dev: ## Build PMS image for local development (ceey_pms)
 
 prod: ## Build PMS image for production (ceey/pms)
 	@docker build -f .docker/production/Dockerfile -t ceey/pms:$(or $(T),latest) .
+
+deploy: ## Build production SAC image and push to Docker Hub
+	@docker build -f .docker/production/Dockerfile -t ceey/pms:$(or $(T),latest) .
+	@docker push ceey/pms:$(or $(T),latest)
