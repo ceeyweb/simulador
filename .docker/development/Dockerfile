@@ -1,4 +1,4 @@
-FROM ruby:2.5.3
+FROM ruby:3.0.3
 
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
