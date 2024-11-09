@@ -2,48 +2,48 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_04_27_155851) do
 
-  create_table "administrators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "administrators", charset: "utf8", force: :cascade do |t|
     t.string "username", null: false
     t.string "password_digest", null: false
     t.index ["username"], name: "index_administrators_on_username", unique: true
   end
 
-  create_table "age_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "age_groups", charset: "utf8", force: :cascade do |t|
     t.string "description", null: false
     t.integer "lower_limit", null: false
     t.integer "upper_limit", null: false
   end
 
-  create_table "education_grades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "education_grades", charset: "utf8", force: :cascade do |t|
     t.string "description", null: false
     t.integer "school_year", null: false
     t.bigint "education_level_id", null: false
     t.index ["education_level_id"], name: "index_education_grades_on_education_level_id"
   end
 
-  create_table "education_levels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "education_levels", charset: "utf8", force: :cascade do |t|
     t.string "description", null: false
   end
 
-  create_table "institutions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "institutions", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
   end
 
-  create_table "job_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "job_types", charset: "utf8", force: :cascade do |t|
     t.string "description", null: false
   end
 
-  create_table "kpis_education_achievement_age_tertiles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_education_achievement_age_tertiles", id: false, charset: "utf8", force: :cascade do |t|
     t.integer "tertile", null: false
     t.bigint "age_group_id", null: false
     t.integer "lower_limit", null: false
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["age_group_id"], name: "index_kpis_education_achievement_age_tertiles_on_age_group_id"
   end
 
-  create_table "kpis_education_achievement_region_tertiles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_education_achievement_region_tertiles", id: false, charset: "utf8", force: :cascade do |t|
     t.integer "tertile", null: false
     t.bigint "region_id", null: false
     t.integer "lower_limit", null: false
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["region_id"], name: "index_kpis_education_achievement_region_tertiles_on_region_id"
   end
 
-  create_table "kpis_education_achievement_sex_tertiles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_education_achievement_sex_tertiles", id: false, charset: "utf8", force: :cascade do |t|
     t.integer "tertile", null: false
     t.bigint "sex_id", null: false
     t.integer "lower_limit", null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["sex_id"], name: "index_kpis_education_achievement_sex_tertiles_on_sex_id"
   end
 
-  create_table "kpis_education_average_incomes", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_education_average_incomes", id: false, charset: "utf8", force: :cascade do |t|
     t.bigint "sex_id", null: false
     t.bigint "education_level_id", null: false
     t.bigint "region_id", null: false
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["sex_id"], name: "index_kpis_education_average_incomes_on_sex_id"
   end
 
-  create_table "kpis_life_expectancies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_life_expectancies", id: false, charset: "utf8", force: :cascade do |t|
     t.integer "age", null: false
     t.bigint "sex_id", null: false
     t.bigint "state_id", null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["state_id"], name: "index_kpis_life_expectancies_on_state_id"
   end
 
-  create_table "kpis_life_expectancies_country", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_life_expectancies_country", id: false, charset: "utf8", force: :cascade do |t|
     t.integer "age", null: false
     t.bigint "sex_id", null: false
     t.float "expected_age", null: false
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["sex_id"], name: "index_kpis_life_expectancies_country_on_sex_id"
   end
 
-  create_table "kpis_life_expectancies_region", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_life_expectancies_region", id: false, charset: "utf8", force: :cascade do |t|
     t.integer "age", null: false
     t.bigint "sex_id", null: false
     t.bigint "region_id", null: false
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["sex_id"], name: "index_kpis_life_expectancies_region_on_sex_id"
   end
 
-  create_table "kpis_life_expectancies_world", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_life_expectancies_world", id: false, charset: "utf8", force: :cascade do |t|
     t.integer "age", null: false
     t.bigint "sex_id", null: false
     t.float "expected_age", null: false
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["sex_id"], name: "index_kpis_life_expectancies_world_on_sex_id"
   end
 
-  create_table "kpis_work_participation_rates", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_work_participation_rates", id: false, charset: "utf8", force: :cascade do |t|
     t.bigint "sex_id", null: false
     t.bigint "region_id", null: false
     t.integer "age_lower_limit", null: false
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["sex_id"], name: "index_kpis_work_participation_rates_on_sex_id"
   end
 
-  create_table "kpis_work_transition_probabilities", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "kpis_work_transition_probabilities", id: false, charset: "utf8", force: :cascade do |t|
     t.bigint "state_id", null: false
     t.float "keep_formal_work_probability", null: false
     t.float "lose_formal_work_probability", null: false
@@ -136,21 +136,21 @@ ActiveRecord::Schema.define(version: 2021_04_27_155851) do
     t.index ["state_id"], name: "index_kpis_work_transition_probabilities_on_state_id"
   end
 
-  create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "regions", charset: "utf8", force: :cascade do |t|
     t.string "description", null: false
   end
 
-  create_table "sexes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "sexes", charset: "utf8", force: :cascade do |t|
     t.string "description", null: false
   end
 
-  create_table "states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "states", charset: "utf8", force: :cascade do |t|
     t.string "description", null: false
     t.bigint "region_id", null: false
     t.index ["region_id"], name: "index_states_on_region_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "ip_address", null: false
     t.integer "father_age"
     t.bigint "father_residency_id", null: false
