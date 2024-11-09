@@ -3,35 +3,43 @@ FROM ruby:3.0.3
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-utils \
-    mysql-client \
+    default-mysql-client \
     tzdata \
     nodejs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /var/tmp/*
 
+# Install yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    && apt-get install -y yarn
+
 # Set environement variables
 ENV RAILS_ENV production
 ENV RAILS_SERVE_STATIC_FILES true
 
-# Create app directory
-RUN mkdir -p /pms
-WORKDIR /pms
-
 # Install gems
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile* /tmp/
+WORKDIR /tmp
 RUN gem install bundler \
     && bundle install --without development test --jobs 20 --retry 5
 
-# Copy app code
-COPY . ./
+# Add app code
+ENV app /pms
+RUN mkdir $app
+WORKDIR $app
+COPY . $app
 
 # Add container startup commands file
-COPY .docker/production/docker-entrypoint.sh /usr/bin/
+COPY .docker/development/docker-entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/docker-entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
+
+RUN bundle exec rake assets:precompile
 
 # Specify app port
 EXPOSE 3000
 
 # Start the main process
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "server", "-b", "0.0.0.0"]
