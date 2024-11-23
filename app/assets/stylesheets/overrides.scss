@@ -79,6 +79,14 @@ $button-size: 1.7rem;
     width: $button-size;
     margin: 1px;
   }
+
+  .ssb-x {
+    background-image: asset-url("x.svg");
+  }
+
+  .ssb-instagram {
+    background-image: asset-url("instagram.svg");
+  }
 }
 
 .selectize-input {
