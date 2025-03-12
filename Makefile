@@ -20,8 +20,8 @@ dev: ## Build PMS image for local development (ceey_pms)
 	@docker-compose -p ceey -f ../docker/development/docker-compose.yml build pms
 
 prod: ## Build PMS image for production (ceey/pms)
-	@docker build -f .docker/production/Dockerfile -t ceey/pms:$(or $(T),latest) .
+	@docker build -f .docker/production/Dockerfile -t ceeyweb/simulador:$(or $(T),latest) .
 
-deploy: ## Build production SAC image and push to Docker Hub
-	@docker build -f .docker/production/Dockerfile -t ceey/pms:$(or $(T),latest) .
-	@docker push ceey/pms:$(or $(T),latest)
+deploy: ## Build PMS image for production and push it to Docker Hub
+	@docker build -f .docker/production/Dockerfile -t ceeyweb/simulador:$(or $(T),latest) .
+	@docker push ceeyweb/simulador:$(or $(T),latest)
