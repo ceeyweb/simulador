@@ -7,8 +7,5 @@ rm -f /pms/tmp/pids/server.pid
 # Execute migrations
 bundle exec rake db:migrate
 
-# Precompile assets
-bundle exec rake assets:precompile
-
 # Execite container's main process
 exec "$@"
