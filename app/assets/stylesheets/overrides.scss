@@ -1,3 +1,7 @@
+$button-size: 1.7rem;
+
+@import "colors";
+
 .form-control.is-invalid, .form-control.is-valid {
   background-image: none;
   padding-right: .75em;
@@ -67,8 +71,6 @@
 .form-check {
   position: unset;
 }
-
-$button-size: 1.7rem;
 
 .social-share-button {
   .ssb-icon {
